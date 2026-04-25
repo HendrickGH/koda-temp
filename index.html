@@ -1139,20 +1139,8 @@
    4 · CASOS DE ESTUDIO
 ═══════════════════════════════════════════ */
 
-			/* 1. La pista de scroll extendida */
 			#trabajo {
 				position: relative;
-				height: 200vh; /* Altura optimizada para parallax fluido */
-			}
-
-			/* 2. El contenedor pegajoso */
-			#trabajo .container {
-				position: sticky;
-				top: 0;
-				height: 100vh; /* Ocupa el 100% del alto de la ventana al fijarse */
-				display: flex;
-				flex-direction: column;
-				justify-content: center; /* Centra el grid verticalmente mientras haces scroll */
 			}
 
 			.work-grid {
@@ -1243,18 +1231,6 @@
 				transform: translateY(0);
 				will-change: transform;
 				transition: transform 200ms linear;
-			}
-
-			/* 5. Desactivación en móviles para proteger la UX */
-			@media (max-width: 900px) {
-				#trabajo {
-					height: auto; /* Anula el scroll extendido */
-				}
-				#trabajo .container {
-					position: relative;
-					height: auto;
-					display: block;
-				}
 			}
 
 			/* Case meta */
@@ -3879,7 +3855,7 @@
 					.filter(it => it.container);
 
 				const EASE = 0.15; // menor = inercia más larga al parar
-				const PARALLAX_CUTOFF = 0.7; // imagen completa al 70% del sticky
+				const COMPLETE_AT = 0.5; // imagen 100% cuando la sección está al 50% pasado el viewport
 				const MOBILE_BP = 900;
 				let rafId = null;
 
@@ -3900,13 +3876,17 @@
 						return;
 					}
 					const rect = section.getBoundingClientRect();
-					const total = Math.max(1, rect.height - window.innerHeight);
-					let progress = -rect.top / total;
+					const vh = window.innerHeight;
+					// Rango de scroll natural durante el cual aplica el parallax:
+					// inicio: tope de la sección entra por el borde inferior del viewport (rect.top = vh)
+					// fin: la sección está COMPLETE_AT pasada por el borde superior (rect.top = -h * COMPLETE_AT)
+					// Esto garantiza que la imagen recorra el 100% antes de que el usuario termine de pasar la sección.
+					const startTop = vh;
+					const endTop = -rect.height * COMPLETE_AT;
+					const range = Math.max(1, startTop - endTop);
+					let progress = (startTop - rect.top) / range;
 					progress = Math.max(0, Math.min(1, progress));
-					// Acelera el reveal: imagen recorre todo en el primer 70% del sticky
-					// El 30% restante mantiene la posición final mientras el scroll continúa
-					const accel = Math.min(progress / PARALLAX_CUTOFF, 1);
-					items.forEach(it => (it.targetY = it.maxTranslate * accel));
+					items.forEach(it => (it.targetY = it.maxTranslate * progress));
 				}
 
 				function paint(it) {
