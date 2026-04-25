@@ -2,52 +2,61 @@
 """
 Koda Studio — CSS minifier
 Usage: python3 scripts/minify.py
-Output: styles/site.min.css
+Output:
+  styles/site.min.css          (full stylesheet)
+  styles/site-deferred.min.css (below-the-fold, split at === DEFERRED-START ===)
 """
 
 import re
 import os
 
-SRC = os.path.join(os.path.dirname(__file__), '..', 'styles', 'site.css')
-DEST = os.path.join(os.path.dirname(__file__), '..', 'styles', 'site.min.css')
+BASE = os.path.join(os.path.dirname(__file__), '..', 'styles')
+SRC  = os.path.join(BASE, 'site.css')
+DEST_FULL     = os.path.join(BASE, 'site.min.css')
+DEST_DEFERRED = os.path.join(BASE, 'site-deferred.min.css')
+
+SPLIT_MARKER = '/* === DEFERRED-START === */'
 
 
 def minify_css(src: str) -> str:
-    # Remove single-line comments (/* ... */ not spanning newlines)
-    src = re.sub(r'/\*[^*]*\*+(?:[^/*][^*]*\*+)*/', '', src)
-
-    # Collapse whitespace
+    src = re.sub(r'/\*[\s\S]*?\*/', '', src)
     src = re.sub(r'\s+', ' ', src)
-
-    # Remove spaces around structural characters
     src = re.sub(r'\s*([{}:;,>~+])\s*', r'\1', src)
-
-    # Remove space between selector and opening brace already handled above
-    # Remove last semicolon before closing brace
     src = re.sub(r';+}', '}', src)
+    return src.strip()
 
-    # Remove leading/trailing whitespace
-    src = src.strip()
 
-    return src
+def _report(label: str, raw: str, minified: str, path: str) -> None:
+    orig_kb = len(raw.encode()) / 1024
+    min_kb  = len(minified.encode()) / 1024
+    saving  = 100 * (1 - min_kb / orig_kb)
+    print(f"{label:<28} {orig_kb:>6.1f} KB → {min_kb:>6.1f} KB  ({saving:.0f}% saved)  {path}")
 
 
 def main():
     with open(SRC, 'r', encoding='utf-8') as f:
         raw = f.read()
 
-    minified = minify_css(raw)
-    original_kb = len(raw.encode()) / 1024
-    minified_kb = len(minified.encode()) / 1024
-    saving = 100 * (1 - minified_kb / original_kb)
+    if SPLIT_MARKER not in raw:
+        print(f"WARNING: split marker not found in {SRC}")
+        critical_raw = raw
+        deferred_raw = ''
+    else:
+        idx = raw.index(SPLIT_MARKER)
+        critical_raw = raw[:idx]
+        deferred_raw = raw[idx + len(SPLIT_MARKER):]
 
-    with open(DEST, 'w', encoding='utf-8') as f:
-        f.write(minified)
+    full_min     = minify_css(raw)
+    deferred_min = minify_css(deferred_raw)
 
-    print(f"site.css      {original_kb:.1f} KB")
-    print(f"site.min.css  {minified_kb:.1f} KB")
-    print(f"Saved         {saving:.1f}%")
-    print(f"Written to    {DEST}")
+    with open(DEST_FULL, 'w', encoding='utf-8') as f:
+        f.write(full_min)
+
+    with open(DEST_DEFERRED, 'w', encoding='utf-8') as f:
+        f.write(deferred_min)
+
+    _report('site.min.css',          raw,          full_min,     DEST_FULL)
+    _report('site-deferred.min.css', deferred_raw, deferred_min, DEST_DEFERRED)
 
 
 if __name__ == '__main__':

@@ -889,6 +889,8 @@ top: 78px;
 }
 }
 
+/* === DEFERRED-START === */
+
 /* ═══════════════════════════════════════════
    2 · MANIFIESTO
 ═══════════════════════════════════════════ */
@@ -966,6 +968,7 @@ aspect-ratio: 4/5;
 border: 1px solid var(--border);
 overflow: hidden;
 background: #1c1c1a;
+isolation: isolate;
 }
 .frame-photo .photo-surface {
 position: absolute;
@@ -1014,6 +1017,7 @@ position: absolute;
 inset: 12px;
 border: 1px solid rgba(255, 255, 255, 0.06);
 pointer-events: none;
+z-index: 2;
 }
 .frame-photo::after {
 content: "";
@@ -1024,6 +1028,7 @@ background: linear-gradient(
 transparent 40%,
 rgba(0, 0, 0, 0.5) 100%
 );
+z-index: 1;
 }
 .photo-legend {
 position: absolute;
@@ -2672,7 +2677,7 @@ border-color: #b33;
 }
 .cf-field input::placeholder,
 .cf-field textarea::placeholder {
-color: var(--color-ink-faint);
+color: var(--color-ink-muted);
 }
 
 .cf-err {
