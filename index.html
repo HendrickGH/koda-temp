@@ -3856,6 +3856,7 @@
 
 				const EASE = 0.15; // menor = inercia más larga al parar
 				const COMPLETE_AT = 0.5; // imagen 100% cuando la sección está al 50% pasado el viewport
+				const SPEED_MULT = 2; // multiplicador de velocidad (2 = doble de rápido)
 				const MOBILE_BP = 900;
 				let rafId = null;
 
@@ -3884,7 +3885,7 @@
 					const startTop = vh;
 					const endTop = -rect.height * COMPLETE_AT;
 					const range = Math.max(1, startTop - endTop);
-					let progress = (startTop - rect.top) / range;
+					let progress = ((startTop - rect.top) / range) * SPEED_MULT;
 					progress = Math.max(0, Math.min(1, progress));
 					items.forEach(it => (it.targetY = it.maxTranslate * progress));
 				}
