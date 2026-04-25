@@ -668,7 +668,7 @@
 						rgba(30, 32, 35, 0.6) 0%,
 						transparent 70%
 					),
-					linear-gradient(180deg, transparent 0%, rgba(10,10,9,0.6) 100%);
+					linear-gradient(180deg, transparent 0%, rgba(10, 10, 9, 0.6) 100%);
 				filter: contrast(1.05);
 				animation: smokeDrift 40s ease-in-out infinite alternate;
 			}
@@ -2519,279 +2519,363 @@
 			.tw-row input[type="checkbox"] {
 				accent-color: var(--accent-live);
 			}
-		/* ══════════════════════════════════════════
+			/* ══════════════════════════════════════════
 		   MODAL DE CONTACTO
 		══════════════════════════════════════════ */
-		.modal-overlay {
-			position: fixed;
-			inset: 0;
-			z-index: 2000;
-			background: rgba(17, 17, 16, 0.82);
-			backdrop-filter: blur(6px);
-			-webkit-backdrop-filter: blur(6px);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: clamp(16px, 4vw, 40px);
-			opacity: 0;
-			transition: opacity 350ms ease;
-		}
-		.modal-overlay.is-open { opacity: 1; }
-		.modal-overlay[hidden] { display: none !important; }
+			.modal-overlay {
+				position: fixed;
+				inset: 0;
+				z-index: 2000;
+				background: rgba(17, 17, 16, 0.82);
+				backdrop-filter: blur(6px);
+				-webkit-backdrop-filter: blur(6px);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: clamp(16px, 4vw, 40px);
+				opacity: 0;
+				transition: opacity 350ms ease;
+			}
+			.modal-overlay.is-open {
+				opacity: 1;
+			}
+			.modal-overlay[hidden] {
+				display: none !important;
+			}
 
-		.modal-panel {
-			background: var(--color-bone);
-			width: 100%;
-			max-width: 740px;
-			max-height: 92vh;
-			overflow-y: auto;
-			position: relative;
-			transform: translateY(28px);
-			transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
-			scrollbar-width: thin;
-			scrollbar-color: var(--color-border) transparent;
-		}
-		.modal-overlay.is-open .modal-panel { transform: translateY(0); }
+			.modal-panel {
+				background: var(--color-bone);
+				width: 100%;
+				max-width: 740px;
+				max-height: 92vh;
+				overflow-y: auto;
+				position: relative;
+				transform: translateY(28px);
+				transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
+				scrollbar-width: thin;
+				scrollbar-color: var(--color-border) transparent;
+			}
+			.modal-overlay.is-open .modal-panel {
+				transform: translateY(0);
+			}
 
-		.modal-head {
-			display: flex;
-			align-items: flex-start;
-			justify-content: space-between;
-			gap: 24px;
-			padding: clamp(28px, 5vw, 44px) clamp(24px, 5vw, 48px) 28px;
-			border-bottom: 1px solid var(--color-border);
-		}
-		.modal-head .eyebrow { display: block; margin-bottom: 14px; }
-		.modal-title {
-			font-family: var(--font-display);
-			font-weight: 400;
-			font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-			letter-spacing: -0.02em;
-			line-height: 1.05;
-			color: var(--fg-primary);
-			margin: 0;
-		}
+			.modal-head {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 24px;
+				padding: clamp(28px, 5vw, 44px) clamp(24px, 5vw, 48px) 28px;
+				border-bottom: 1px solid var(--color-border);
+			}
+			.modal-head .eyebrow {
+				display: block;
+				margin-bottom: 14px;
+			}
+			.modal-title {
+				font-family: var(--font-display);
+				font-weight: 400;
+				font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+				letter-spacing: -0.02em;
+				line-height: 1.05;
+				color: var(--fg-primary);
+				margin: 0;
+			}
 
-		.modal-x {
-			flex-shrink: 0;
-			width: 40px;
-			height: 40px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: transparent;
-			border: 1px solid var(--color-border);
-			color: var(--fg-muted);
-			font-size: 22px;
-			font-weight: 300;
-			line-height: 1;
-			cursor: pointer;
-			padding: 0;
-			transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
-		}
-		.modal-x:hover { border-color: var(--fg-primary); color: var(--fg-primary); background: var(--color-stone); }
+			.modal-x {
+				flex-shrink: 0;
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: transparent;
+				border: 1px solid var(--color-border);
+				color: var(--fg-muted);
+				font-size: 22px;
+				font-weight: 300;
+				line-height: 1;
+				cursor: pointer;
+				padding: 0;
+				transition:
+					border-color 200ms ease,
+					color 200ms ease,
+					background 200ms ease;
+			}
+			.modal-x:hover {
+				border-color: var(--fg-primary);
+				color: var(--fg-primary);
+				background: var(--color-stone);
+			}
 
-		.modal-body { padding: clamp(24px, 5vw, 48px); }
+			.modal-body {
+				padding: clamp(24px, 5vw, 48px);
+			}
 
-		/* ── Campos ── */
-		.cf-form { display: flex; flex-direction: column; gap: 22px; }
-		.form-row-2 {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 20px;
-		}
-		@media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; } }
+			/* ── Campos ── */
+			.cf-form {
+				display: flex;
+				flex-direction: column;
+				gap: 22px;
+			}
+			.form-row-2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 20px;
+			}
+			@media (max-width: 600px) {
+				.form-row-2 {
+					grid-template-columns: 1fr;
+				}
+			}
 
-		.cf-field { display: flex; flex-direction: column; gap: 7px; }
-		.cf-field label {
-			font-family: var(--font-body);
-			font-size: 10px;
-			font-weight: 500;
-			letter-spacing: 0.22em;
-			text-transform: uppercase;
-			color: var(--fg-muted);
-		}
-		.cf-field label .req { color: var(--color-slate); margin-left: 2px; }
-		.cf-field input,
-		.cf-field select,
-		.cf-field textarea {
-			font-family: var(--font-body);
-			font-size: 14px;
-			font-weight: 300;
-			color: var(--fg-primary);
-			background: var(--color-bone);
-			border: 1px solid var(--color-border);
-			padding: 13px 15px;
-			outline: none;
-			width: 100%;
-			box-sizing: border-box;
-			-webkit-appearance: none;
-			appearance: none;
-			border-radius: 0;
-			transition: border-color 200ms ease;
-		}
-		.cf-field select {
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%237a7a72' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-			background-repeat: no-repeat;
-			background-position: right 14px center;
-			padding-right: 38px;
-			cursor: pointer;
-		}
-		.cf-field textarea { resize: vertical; min-height: 110px; }
-		.cf-field input:focus,
-		.cf-field select:focus,
-		.cf-field textarea:focus { border-color: var(--color-slate); }
-		.cf-field input.invalid,
-		.cf-field select.invalid,
-		.cf-field textarea.invalid { border-color: #b33; }
-		.cf-field input::placeholder,
-		.cf-field textarea::placeholder { color: var(--color-ink-faint); }
+			.cf-field {
+				display: flex;
+				flex-direction: column;
+				gap: 7px;
+			}
+			.cf-field label {
+				font-family: var(--font-body);
+				font-size: 10px;
+				font-weight: 500;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				color: var(--fg-muted);
+			}
+			.cf-field label .req {
+				color: var(--color-slate);
+				margin-left: 2px;
+			}
+			.cf-field input,
+			.cf-field select,
+			.cf-field textarea {
+				font-family: var(--font-body);
+				font-size: 14px;
+				font-weight: 300;
+				color: var(--fg-primary);
+				background: var(--color-bone);
+				border: 1px solid var(--color-border);
+				padding: 13px 15px;
+				outline: none;
+				width: 100%;
+				box-sizing: border-box;
+				-webkit-appearance: none;
+				appearance: none;
+				border-radius: 0;
+				transition: border-color 200ms ease;
+			}
+			.cf-field select {
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%237a7a72' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+				background-repeat: no-repeat;
+				background-position: right 14px center;
+				padding-right: 38px;
+				cursor: pointer;
+			}
+			.cf-field textarea {
+				resize: vertical;
+				min-height: 110px;
+			}
+			.cf-field input:focus,
+			.cf-field select:focus,
+			.cf-field textarea:focus {
+				border-color: var(--color-slate);
+			}
+			.cf-field input.invalid,
+			.cf-field select.invalid,
+			.cf-field textarea.invalid {
+				border-color: #b33;
+			}
+			.cf-field input::placeholder,
+			.cf-field textarea::placeholder {
+				color: var(--color-ink-faint);
+			}
 
-		.cf-err {
-			font-family: var(--font-body);
-			font-size: 11px;
-			color: #b33;
-			display: none;
-			margin-top: 2px;
-		}
-		.cf-err.show { display: block; }
+			.cf-err {
+				font-family: var(--font-body);
+				font-size: 11px;
+				color: #b33;
+				display: none;
+				margin-top: 2px;
+			}
+			.cf-err.show {
+				display: block;
+			}
 
-		/* ── Footer del form ── */
-		.cf-footer { display: flex; flex-direction: column; gap: 14px; padding-top: 6px; }
-		.cf-submit {
-			display: inline-flex;
-			align-items: center;
-			gap: 20px;
-			padding: 17px 30px;
-			background: var(--fg-primary);
-			color: var(--color-bone);
-			border: 1px solid var(--fg-primary);
-			font-family: var(--font-body);
-			font-size: 11px;
-			font-weight: 500;
-			letter-spacing: 0.28em;
-			text-transform: uppercase;
-			cursor: pointer;
-			align-self: flex-start;
-			transition: background 300ms ease, color 300ms ease;
-		}
-		.cf-submit:hover { background: transparent; color: var(--fg-primary); }
-		.cf-submit:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
-		.cf-submit .arr { transition: transform 300ms ease; }
-		.cf-submit:hover .arr { transform: translateX(5px); }
-		.cf-note {
-			font-family: var(--font-body);
-			font-size: 10px;
-			font-weight: 400;
-			letter-spacing: 0.15em;
-			color: var(--fg-muted);
-			text-transform: uppercase;
-			margin: 0;
-		}
+			/* ── Footer del form ── */
+			.cf-footer {
+				display: flex;
+				flex-direction: column;
+				gap: 14px;
+				padding-top: 6px;
+			}
+			.cf-submit {
+				display: inline-flex;
+				align-items: center;
+				gap: 20px;
+				padding: 17px 30px;
+				background: var(--fg-primary);
+				color: var(--color-bone);
+				border: 1px solid var(--fg-primary);
+				font-family: var(--font-body);
+				font-size: 11px;
+				font-weight: 500;
+				letter-spacing: 0.28em;
+				text-transform: uppercase;
+				cursor: pointer;
+				align-self: flex-start;
+				transition:
+					background 300ms ease,
+					color 300ms ease;
+			}
+			.cf-submit:hover {
+				background: transparent;
+				color: var(--fg-primary);
+			}
+			.cf-submit:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+			.cf-submit .arr {
+				transition: transform 300ms ease;
+			}
+			.cf-submit:hover .arr {
+				transform: translateX(5px);
+			}
+			.cf-note {
+				font-family: var(--font-body);
+				font-size: 10px;
+				font-weight: 400;
+				letter-spacing: 0.15em;
+				color: var(--fg-muted);
+				text-transform: uppercase;
+				margin: 0;
+			}
 
-		/* ── Estado éxito ── */
-		.cf-success {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 14px;
-			padding: clamp(48px, 8vw, 88px) 24px;
-		}
-		.cf-success[hidden],
-		.cf-error[hidden] { display: none; }
-		.cf-success-icon {
-			width: 60px; height: 60px;
-			border: 1px solid var(--color-slate);
-			color: var(--color-slate);
-			font-size: 24px;
-			display: flex; align-items: center; justify-content: center;
-			margin-bottom: 6px;
-		}
-		.cf-success-title {
-			font-family: var(--font-display);
-			font-weight: 400;
-			font-size: clamp(1.4rem, 3vw, 1.9rem);
-			letter-spacing: -0.02em;
-			color: var(--fg-primary);
-			margin: 0;
-		}
-		.cf-success-desc {
-			font-family: var(--font-body);
-			font-weight: 300;
-			font-size: 15px;
-			line-height: 1.7;
-			color: var(--fg-tertiary);
-			max-width: 360px;
-			margin: 0;
-		}
-		.cf-success-close {
-			margin-top: 10px;
-			font-family: var(--font-body);
-			font-size: 10px;
-			font-weight: 500;
-			letter-spacing: 0.22em;
-			text-transform: uppercase;
-			background: transparent;
-			border: 1px solid var(--color-border);
-			color: var(--fg-muted);
-			padding: 11px 26px;
-			cursor: pointer;
-			transition: border-color 200ms ease, color 200ms ease;
-		}
-		.cf-success-close:hover { border-color: var(--fg-primary); color: var(--fg-primary); }
+			/* ── Estado éxito ── */
+			.cf-success {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				gap: 14px;
+				padding: clamp(48px, 8vw, 88px) 24px;
+			}
+			.cf-success[hidden],
+			.cf-error[hidden] {
+				display: none;
+			}
+			.cf-success-icon {
+				width: 60px;
+				height: 60px;
+				border: 1px solid var(--color-slate);
+				color: var(--color-slate);
+				font-size: 24px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 6px;
+			}
+			.cf-success-title {
+				font-family: var(--font-display);
+				font-weight: 400;
+				font-size: clamp(1.4rem, 3vw, 1.9rem);
+				letter-spacing: -0.02em;
+				color: var(--fg-primary);
+				margin: 0;
+			}
+			.cf-success-desc {
+				font-family: var(--font-body);
+				font-weight: 300;
+				font-size: 15px;
+				line-height: 1.7;
+				color: var(--fg-tertiary);
+				max-width: 360px;
+				margin: 0;
+			}
+			.cf-success-close {
+				margin-top: 10px;
+				font-family: var(--font-body);
+				font-size: 10px;
+				font-weight: 500;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				background: transparent;
+				border: 1px solid var(--color-border);
+				color: var(--fg-muted);
+				padding: 11px 26px;
+				cursor: pointer;
+				transition:
+					border-color 200ms ease,
+					color 200ms ease;
+			}
+			.cf-success-close:hover {
+				border-color: var(--fg-primary);
+				color: var(--fg-primary);
+			}
 
-		/* ── Estado error ── */
-		.cf-error {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 14px;
-			padding: clamp(48px, 8vw, 88px) 24px;
-		}
-		.cf-error-icon {
-			width: 60px; height: 60px;
-			border: 1px solid #b33;
-			color: #b33;
-			font-size: 26px;
-			font-weight: 300;
-			display: flex; align-items: center; justify-content: center;
-			margin-bottom: 6px;
-		}
-		.cf-error-title {
-			font-family: var(--font-display);
-			font-weight: 400;
-			font-size: clamp(1.4rem, 3vw, 1.9rem);
-			letter-spacing: -0.02em;
-			color: var(--fg-primary);
-			margin: 0;
-		}
-		.cf-error-desc {
-			font-family: var(--font-body);
-			font-weight: 300;
-			font-size: 15px;
-			line-height: 1.7;
-			color: var(--fg-tertiary);
-			max-width: 360px;
-			margin: 0;
-		}
-		.cf-error-desc a { color: var(--fg-primary); border-bottom: 1px solid var(--color-border); text-decoration: none; }
-		.cf-retry {
-			margin-top: 10px;
-			font-family: var(--font-body);
-			font-size: 10px;
-			font-weight: 500;
-			letter-spacing: 0.22em;
-			text-transform: uppercase;
-			background: var(--fg-primary);
-			border: 1px solid var(--fg-primary);
-			color: var(--color-bone);
-			padding: 11px 26px;
-			cursor: pointer;
-			transition: background 200ms ease, color 200ms ease;
-		}
-		.cf-retry:hover { background: transparent; color: var(--fg-primary); }
+			/* ── Estado error ── */
+			.cf-error {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				gap: 14px;
+				padding: clamp(48px, 8vw, 88px) 24px;
+			}
+			.cf-error-icon {
+				width: 60px;
+				height: 60px;
+				border: 1px solid #b33;
+				color: #b33;
+				font-size: 26px;
+				font-weight: 300;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 6px;
+			}
+			.cf-error-title {
+				font-family: var(--font-display);
+				font-weight: 400;
+				font-size: clamp(1.4rem, 3vw, 1.9rem);
+				letter-spacing: -0.02em;
+				color: var(--fg-primary);
+				margin: 0;
+			}
+			.cf-error-desc {
+				font-family: var(--font-body);
+				font-weight: 300;
+				font-size: 15px;
+				line-height: 1.7;
+				color: var(--fg-tertiary);
+				max-width: 360px;
+				margin: 0;
+			}
+			.cf-error-desc a {
+				color: var(--fg-primary);
+				border-bottom: 1px solid var(--color-border);
+				text-decoration: none;
+			}
+			.cf-retry {
+				margin-top: 10px;
+				font-family: var(--font-body);
+				font-size: 10px;
+				font-weight: 500;
+				letter-spacing: 0.22em;
+				text-transform: uppercase;
+				background: var(--fg-primary);
+				border: 1px solid var(--fg-primary);
+				color: var(--color-bone);
+				padding: 11px 26px;
+				cursor: pointer;
+				transition:
+					background 200ms ease,
+					color 200ms ease;
+			}
+			.cf-retry:hover {
+				background: transparent;
+				color: var(--fg-primary);
+			}
 		</style>
 	</head>
 	<body>
@@ -2808,7 +2892,9 @@
 					<a href="#faq">FAQ</a>
 					<a href="#contacto">Contacto</a>
 				</nav>
-				<a href="#contacto" class="header-cta" data-open-modal>Iniciar proyecto</a>
+				<a href="#contacto" class="header-cta" data-open-modal
+					>Iniciar proyecto</a
+				>
 			</div>
 		</header>
 
@@ -2816,14 +2902,8 @@
 			<!-- ══════════════ 1 · HERO ══════════════ -->
 			<section class="hero">
 				<div class="hero-video" aria-hidden="true">
-					<video
-						autoplay
-						muted
-						loop
-						playsinline
-						class="hero-video-element"
-					>
-						<source src="uploads/vide.mp4" type="video/mp4">
+					<video autoplay muted loop playsinline class="hero-video-element">
+						<source src="uploads/vide.mp4" type="video/mp4" />
 					</video>
 					<div class="hero-smoke"></div>
 					<div class="hero-veil"></div>
@@ -3480,12 +3560,15 @@
 							<h2 class="h-display inv">
 								Insights &amp; <em>perspectivas.</em>
 							</h2>
-							<a href="blog/index.html" class="sec-all">Todas las publicaciones →</a>
+							<a href="blog/" class="sec-all">Todas las publicaciones →</a>
 						</div>
 					</header>
 
 					<div class="insight-list">
-						<a href="blog/diseno-minimalista-firmas-legales/index.html" class="insight-row">
+						<a
+							href="blog/diseno-minimalista-firmas-legales/"
+							class="insight-row"
+						>
 							<span class="ix">— 01</span>
 							<span class="ikind">Caso de estudio</span>
 							<h3>
@@ -3495,7 +3578,7 @@
 							<span class="ilen">12 min</span>
 							<span class="iarr">→</span>
 						</a>
-						<a href="blog/plantillas-devaluan-marca-b2b/index.html" class="insight-row">
+						<a href="blog/plantillas-devaluan-marca-b2b/" class="insight-row">
 							<span class="ix">— 02</span>
 							<span class="ikind">Perspectiva</span>
 							<h3>
@@ -3504,7 +3587,10 @@
 							<span class="ilen">8 min</span>
 							<span class="iarr">→</span>
 						</a>
-						<a href="blog/automatizacion-agendas-redes-sociales/index.html" class="insight-row">
+						<a
+							href="blog/automatizacion-agendas-redes-sociales/"
+							class="insight-row"
+						>
 							<span class="ix">— 03</span>
 							<span class="ikind">Estrategia</span>
 							<h3>
@@ -3872,78 +3958,154 @@
 		</main>
 
 		<!-- ══ MODAL DE CONTACTO ══ -->
-		<div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+		<div
+			id="contact-modal"
+			class="modal-overlay"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-title"
+			hidden
+		>
 			<div class="modal-panel">
 				<div class="modal-head">
 					<div>
 						<span class="eyebrow">— Koda Studio</span>
 						<h2 id="modal-title" class="modal-title">Iniciemos tu proyecto</h2>
 					</div>
-					<button class="modal-x" aria-label="Cerrar formulario">&times;</button>
+					<button class="modal-x" aria-label="Cerrar formulario">
+						&times;
+					</button>
 				</div>
 				<div class="modal-body">
 					<!-- Formulario -->
 					<form id="cf-form" class="cf-form" novalidate>
 						<div class="form-row-2">
 							<div class="cf-field">
-								<label for="cf-name">Nombre completo<span class="req" aria-hidden="true">*</span></label>
-								<input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Tu nombre" />
-								<span class="cf-err" id="cf-name-err">Por favor ingresa tu nombre.</span>
+								<label for="cf-name"
+									>Nombre completo<span class="req" aria-hidden="true"
+										>*</span
+									></label
+								>
+								<input
+									type="text"
+									id="cf-name"
+									name="name"
+									required
+									autocomplete="name"
+									placeholder="Tu nombre"
+								/>
+								<span class="cf-err" id="cf-name-err"
+									>Por favor ingresa tu nombre.</span
+								>
 							</div>
 							<div class="cf-field">
-								<label for="cf-email">Correo electrónico<span class="req" aria-hidden="true">*</span></label>
-								<input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tu@empresa.com" />
-								<span class="cf-err" id="cf-email-err">Ingresa un correo válido.</span>
+								<label for="cf-email"
+									>Correo electrónico<span class="req" aria-hidden="true"
+										>*</span
+									></label
+								>
+								<input
+									type="email"
+									id="cf-email"
+									name="email"
+									required
+									autocomplete="email"
+									placeholder="tu@empresa.com"
+								/>
+								<span class="cf-err" id="cf-email-err"
+									>Ingresa un correo válido.</span
+								>
 							</div>
 						</div>
 						<div class="form-row-2">
 							<div class="cf-field">
 								<label for="cf-phone">Teléfono</label>
-								<input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="+52 55 0000 0000" />
+								<input
+									type="tel"
+									id="cf-phone"
+									name="phone"
+									autocomplete="tel"
+									placeholder="+52 55 0000 0000"
+								/>
 							</div>
 							<div class="cf-field">
 								<label for="cf-company">Empresa / Marca</label>
-								<input type="text" id="cf-company" name="company" autocomplete="organization" placeholder="Nombre de tu empresa" />
+								<input
+									type="text"
+									id="cf-company"
+									name="company"
+									autocomplete="organization"
+									placeholder="Nombre de tu empresa"
+								/>
 							</div>
 						</div>
 						<div class="cf-field">
-							<label for="cf-service">Servicio de interés<span class="req" aria-hidden="true">*</span></label>
+							<label for="cf-service"
+								>Servicio de interés<span class="req" aria-hidden="true"
+									>*</span
+								></label
+							>
 							<select id="cf-service" name="service" required>
 								<option value="">Selecciona un servicio</option>
 								<option value="web">Desarrollo web</option>
 								<option value="branding">Branding &amp; identidad</option>
-								<option value="marketing">Marketing &amp; redes sociales</option>
+								<option value="marketing">
+									Marketing &amp; redes sociales
+								</option>
 								<option value="consultoria">Consultoría estratégica</option>
 								<option value="integral">Solución integral</option>
 								<option value="otro">Otro</option>
 							</select>
-							<span class="cf-err" id="cf-service-err">Selecciona un servicio.</span>
+							<span class="cf-err" id="cf-service-err"
+								>Selecciona un servicio.</span
+							>
 						</div>
 						<div class="cf-field">
-							<label for="cf-message">Cuéntanos sobre tu proyecto<span class="req" aria-hidden="true">*</span></label>
-							<textarea id="cf-message" name="message" required rows="4" placeholder="Describe brevemente tu empresa, objetivos y qué necesitas lograr..."></textarea>
-							<span class="cf-err" id="cf-message-err">Por favor describe tu proyecto.</span>
+							<label for="cf-message"
+								>Cuéntanos sobre tu proyecto<span class="req" aria-hidden="true"
+									>*</span
+								></label
+							>
+							<textarea
+								id="cf-message"
+								name="message"
+								required
+								rows="4"
+								placeholder="Describe brevemente tu empresa, objetivos y qué necesitas lograr..."
+							></textarea>
+							<span class="cf-err" id="cf-message-err"
+								>Por favor describe tu proyecto.</span
+							>
 						</div>
 						<div class="cf-footer">
 							<button type="submit" class="cf-submit" id="cf-submit">
 								<span class="lbl">Enviar solicitud</span>
 								<span class="arr">&#8594;</span>
 							</button>
-							<p class="cf-note">Respondemos en menos de 24 horas &middot; Tu información es confidencial</p>
+							<p class="cf-note">
+								Respondemos en menos de 24 horas &middot; Tu información es
+								confidencial
+							</p>
 						</div>
 					</form>
 					<!-- Éxito -->
 					<div id="cf-success" class="cf-success" hidden>
 						<div class="cf-success-icon">&#10003;</div>
 						<h3 class="cf-success-title">¡Mensaje enviado!</h3>
-						<p class="cf-success-desc">Hemos recibido tu solicitud. Nos pondremos en contacto contigo en menos de 24 horas.</p>
+						<p class="cf-success-desc">
+							Hemos recibido tu solicitud. Nos pondremos en contacto contigo en
+							menos de 24 horas.
+						</p>
 						<button class="cf-success-close">Cerrar</button>
 					</div>
 					<!-- Error -->
 					<div id="cf-error" class="cf-error" hidden>
 						<div class="cf-error-icon">!</div>
 						<h3 class="cf-error-title">Algo salió mal</h3>
-						<p class="cf-error-desc">No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a <a href="mailto:contacto@kodastudio.mx">contacto@kodastudio.mx</a></p>
+						<p class="cf-error-desc">
+							No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a
+							<a href="mailto:contacto@kodastudio.mx">contacto@kodastudio.mx</a>
+						</p>
 						<button class="cf-retry">Intentar de nuevo</button>
 					</div>
 				</div>
@@ -4005,22 +4167,27 @@
 				let waRail = null;
 
 				function isDark(sec) {
-					return sec.classList.contains("hero") ||
-					       sec.classList.contains("dark") ||
-					       sec.classList.contains("site-footer");
+					return (
+						sec.classList.contains("hero") ||
+						sec.classList.contains("dark") ||
+						sec.classList.contains("site-footer")
+					);
 				}
 
 				function updateHeader() {
 					if (!header || !hero) return;
 					const scrolled = window.scrollY > 40;
-					const sections = document.querySelectorAll("main > section, main > footer");
+					const sections = document.querySelectorAll(
+						"main > section, main > footer",
+					);
 
 					// Header — check section behind the top bar
 					const headerMid = 40;
 					let onDark = false;
 					sections.forEach(sec => {
 						const r = sec.getBoundingClientRect();
-						if (r.top <= headerMid && r.bottom > headerMid) onDark = isDark(sec);
+						if (r.top <= headerMid && r.bottom > headerMid)
+							onDark = isDark(sec);
 					});
 					header.classList.toggle("on-dark", onDark);
 					header.classList.toggle("on-light", !onDark);
@@ -4323,163 +4490,195 @@
 			});
 		</script>
 		<script>
-		/* ══ Modal de contacto ══ */
-		(() => {
-			// Reemplaza con tu endpoint de Formspree u otro servicio de formularios:
-			// https://formspree.io/f/TU_ID
-			const ENDPOINT = '';
+			/* ══ Modal de contacto ══ */
+			(() => {
+				// Reemplaza con tu endpoint de Formspree u otro servicio de formularios:
+				// https://formspree.io/f/TU_ID
+				const ENDPOINT = "";
 
-			const STORAGE_KEY = 'koda_cf';
-			const modal      = document.getElementById('contact-modal');
-			const form       = document.getElementById('cf-form');
-			const successEl  = document.getElementById('cf-success');
-			const errorEl    = document.getElementById('cf-error');
-			const submitBtn  = document.getElementById('cf-submit');
+				const STORAGE_KEY = "koda_cf";
+				const modal = document.getElementById("contact-modal");
+				const form = document.getElementById("cf-form");
+				const successEl = document.getElementById("cf-success");
+				const errorEl = document.getElementById("cf-error");
+				const submitBtn = document.getElementById("cf-submit");
 
-			const fieldsCfg = [
-				{ id: 'cf-name',    errId: 'cf-name-err',    required: true, type: 'text'  },
-				{ id: 'cf-email',   errId: 'cf-email-err',   required: true, type: 'email' },
-				{ id: 'cf-phone',   required: false },
-				{ id: 'cf-company', required: false },
-				{ id: 'cf-service', errId: 'cf-service-err', required: true, type: 'select'},
-				{ id: 'cf-message', errId: 'cf-message-err', required: true, type: 'text'  },
-			];
+				const fieldsCfg = [
+					{ id: "cf-name", errId: "cf-name-err", required: true, type: "text" },
+					{
+						id: "cf-email",
+						errId: "cf-email-err",
+						required: true,
+						type: "email",
+					},
+					{ id: "cf-phone", required: false },
+					{ id: "cf-company", required: false },
+					{
+						id: "cf-service",
+						errId: "cf-service-err",
+						required: true,
+						type: "select",
+					},
+					{
+						id: "cf-message",
+						errId: "cf-message-err",
+						required: true,
+						type: "text",
+					},
+				];
 
-			// ── Abrir / cerrar ──
-			function openModal() {
-				modal.hidden = false;
-				document.body.style.overflow = 'hidden';
-				requestAnimationFrame(() => modal.classList.add('is-open'));
-				restoreForm();
-				setTimeout(() => {
-					const first = form.querySelector('input, select, textarea');
-					if (first) first.focus();
-				}, 360);
-			}
+				// ── Abrir / cerrar ──
+				function openModal() {
+					modal.hidden = false;
+					document.body.style.overflow = "hidden";
+					requestAnimationFrame(() => modal.classList.add("is-open"));
+					restoreForm();
+					setTimeout(() => {
+						const first = form.querySelector("input, select, textarea");
+						if (first) first.focus();
+					}, 360);
+				}
 
-			function closeModal() {
-				modal.classList.remove('is-open');
-				document.body.style.overflow = '';
-				setTimeout(() => { modal.hidden = true; }, 360);
-			}
+				function closeModal() {
+					modal.classList.remove("is-open");
+					document.body.style.overflow = "";
+					setTimeout(() => {
+						modal.hidden = true;
+					}, 360);
+				}
 
-			// Botones que abren el modal
-			document.querySelectorAll('[data-open-modal]').forEach(el => {
-				el.addEventListener('click', e => { e.preventDefault(); openModal(); });
-			});
-
-			// Botón X del header del modal
-			modal.querySelector('.modal-x').addEventListener('click', closeModal);
-
-			// Botón cerrar en estado de éxito
-			modal.querySelector('.cf-success-close').addEventListener('click', closeModal);
-
-			// Botón reintentar en estado de error
-			modal.querySelector('.cf-retry').addEventListener('click', () => {
-				errorEl.hidden = true;
-				form.hidden = false;
-			});
-
-			// ESC cierra el modal
-			document.addEventListener('keydown', e => {
-				if (e.key === 'Escape' && !modal.hidden) closeModal();
-			});
-
-			// Clic fuera NO cierra el modal (sin listener en el overlay)
-
-			// ── Persistencia ──
-			function saveForm() {
-				const data = {};
-				fieldsCfg.forEach(f => {
-					const el = document.getElementById(f.id);
-					if (el) data[f.id] = el.value;
+				// Botones que abren el modal
+				document.querySelectorAll("[data-open-modal]").forEach(el => {
+					el.addEventListener("click", e => {
+						e.preventDefault();
+						openModal();
+					});
 				});
-				try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(_) {}
-			}
 
-			function restoreForm() {
-				try {
-					const raw = localStorage.getItem(STORAGE_KEY);
-					if (!raw) return;
-					const data = JSON.parse(raw);
+				// Botón X del header del modal
+				modal.querySelector(".modal-x").addEventListener("click", closeModal);
+
+				// Botón cerrar en estado de éxito
+				modal
+					.querySelector(".cf-success-close")
+					.addEventListener("click", closeModal);
+
+				// Botón reintentar en estado de error
+				modal.querySelector(".cf-retry").addEventListener("click", () => {
+					errorEl.hidden = true;
+					form.hidden = false;
+				});
+
+				// ESC cierra el modal
+				document.addEventListener("keydown", e => {
+					if (e.key === "Escape" && !modal.hidden) closeModal();
+				});
+
+				// Clic fuera NO cierra el modal (sin listener en el overlay)
+
+				// ── Persistencia ──
+				function saveForm() {
+					const data = {};
 					fieldsCfg.forEach(f => {
 						const el = document.getElementById(f.id);
-						if (el && data[f.id] !== undefined) el.value = data[f.id];
+						if (el) data[f.id] = el.value;
 					});
-				} catch(_) {}
-			}
-
-			fieldsCfg.forEach(f => {
-				const el = document.getElementById(f.id);
-				if (el) el.addEventListener('input', saveForm);
-			});
-
-			// ── Validación ──
-			function isValidEmail(v) {
-				return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-			}
-
-			function clearFieldError(f) {
-				const el  = document.getElementById(f.id);
-				const err = f.errId ? document.getElementById(f.errId) : null;
-				if (el)  el.classList.remove('invalid');
-				if (err) { err.textContent = ''; err.classList.remove('show'); }
-			}
-
-			function validateForm() {
-				let valid = true;
-				fieldsCfg.forEach(f => {
-					if (!f.required) return;
-					const el  = document.getElementById(f.id);
-					const err = f.errId ? document.getElementById(f.errId) : null;
-					const ok  = f.type === 'email'
-						? isValidEmail(el.value)
-						: el.value.trim() !== '';
-					el.classList.toggle('invalid', !ok);
-					if (err) { err.classList.toggle('show', !ok); }
-					if (!ok) valid = false;
-				});
-				return valid;
-			}
-
-			// Limpiar error al corregir el campo
-			fieldsCfg.forEach(f => {
-				const el = document.getElementById(f.id);
-				if (!el) return;
-				el.addEventListener('input', () => clearFieldError(f));
-			});
-
-			// ── Envío ──
-			form.addEventListener('submit', async e => {
-				e.preventDefault();
-				if (!validateForm()) return;
-
-				submitBtn.disabled = true;
-				submitBtn.querySelector('.lbl').textContent = 'Enviando…';
-
-				try {
-					if (!ENDPOINT) throw new Error('No endpoint configured');
-					const res = await fetch(ENDPOINT, {
-						method: 'POST',
-						body: new FormData(form),
-						headers: { Accept: 'application/json' },
-					});
-					if (!res.ok) throw new Error('Server error');
-
-					// Éxito
-					form.hidden = true;
-					successEl.hidden = false;
-					try { localStorage.removeItem(STORAGE_KEY); } catch(_) {}
-				} catch(_) {
-					// Error
-					form.hidden = true;
-					errorEl.hidden = false;
-				} finally {
-					submitBtn.disabled = false;
-					submitBtn.querySelector('.lbl').textContent = 'Enviar solicitud';
+					try {
+						localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+					} catch (_) {}
 				}
-			});
-		})();
+
+				function restoreForm() {
+					try {
+						const raw = localStorage.getItem(STORAGE_KEY);
+						if (!raw) return;
+						const data = JSON.parse(raw);
+						fieldsCfg.forEach(f => {
+							const el = document.getElementById(f.id);
+							if (el && data[f.id] !== undefined) el.value = data[f.id];
+						});
+					} catch (_) {}
+				}
+
+				fieldsCfg.forEach(f => {
+					const el = document.getElementById(f.id);
+					if (el) el.addEventListener("input", saveForm);
+				});
+
+				// ── Validación ──
+				function isValidEmail(v) {
+					return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+				}
+
+				function clearFieldError(f) {
+					const el = document.getElementById(f.id);
+					const err = f.errId ? document.getElementById(f.errId) : null;
+					if (el) el.classList.remove("invalid");
+					if (err) {
+						err.textContent = "";
+						err.classList.remove("show");
+					}
+				}
+
+				function validateForm() {
+					let valid = true;
+					fieldsCfg.forEach(f => {
+						if (!f.required) return;
+						const el = document.getElementById(f.id);
+						const err = f.errId ? document.getElementById(f.errId) : null;
+						const ok =
+							f.type === "email"
+								? isValidEmail(el.value)
+								: el.value.trim() !== "";
+						el.classList.toggle("invalid", !ok);
+						if (err) {
+							err.classList.toggle("show", !ok);
+						}
+						if (!ok) valid = false;
+					});
+					return valid;
+				}
+
+				// Limpiar error al corregir el campo
+				fieldsCfg.forEach(f => {
+					const el = document.getElementById(f.id);
+					if (!el) return;
+					el.addEventListener("input", () => clearFieldError(f));
+				});
+
+				// ── Envío ──
+				form.addEventListener("submit", async e => {
+					e.preventDefault();
+					if (!validateForm()) return;
+
+					submitBtn.disabled = true;
+					submitBtn.querySelector(".lbl").textContent = "Enviando…";
+
+					try {
+						if (!ENDPOINT) throw new Error("No endpoint configured");
+						const res = await fetch(ENDPOINT, {
+							method: "POST",
+							body: new FormData(form),
+							headers: { Accept: "application/json" },
+						});
+						if (!res.ok) throw new Error("Server error");
+
+						// Éxito
+						form.hidden = true;
+						successEl.hidden = false;
+						try {
+							localStorage.removeItem(STORAGE_KEY);
+						} catch (_) {}
+					} catch (_) {
+						// Error
+						form.hidden = true;
+						errorEl.hidden = false;
+					} finally {
+						submitBtn.disabled = false;
+						submitBtn.querySelector(".lbl").textContent = "Enviar solicitud";
+					}
+				});
+			})();
 		</script>
 
 		<!-- WhatsApp float -->
@@ -4492,8 +4691,12 @@
 				aria-label="Contactar por WhatsApp"
 			>
 				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-					<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-					<path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.533 5.862L.054 23.447a.5.5 0 0 0 .606.607l5.694-1.49A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.877 9.877 0 0 1-5.031-1.378l-.36-.214-3.733.977.998-3.645-.234-.374A9.869 9.869 0 0 1 2.106 12C2.106 6.533 6.533 2.106 12 2.106S21.894 6.533 21.894 12 17.467 21.894 12 21.894z"/>
+					<path
+						d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+					/>
+					<path
+						d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.533 5.862L.054 23.447a.5.5 0 0 0 .606.607l5.694-1.49A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.877 9.877 0 0 1-5.031-1.378l-.36-.214-3.733.977.998-3.645-.234-.374A9.869 9.869 0 0 1 2.106 12C2.106 6.533 6.533 2.106 12 2.106S21.894 6.533 21.894 12 17.467 21.894 12 21.894z"
+					/>
 				</svg>
 			</a>
 		</div>
@@ -4522,10 +4725,17 @@
 				align-items: center;
 				justify-content: center;
 				text-decoration: none;
-				transition: color 300ms ease, transform 280ms ease, box-shadow 280ms ease;
+				transition:
+					color 300ms ease,
+					transform 280ms ease,
+					box-shadow 280ms ease;
 			}
-			.wa-rail.on-dark .wa-float  { color: var(--color-bone); }
-			.wa-rail.on-light .wa-float { color: var(--color-ink); }
+			.wa-rail.on-dark .wa-float {
+				color: var(--color-bone);
+			}
+			.wa-rail.on-light .wa-float {
+				color: var(--color-ink);
+			}
 			.wa-float svg {
 				width: 30px;
 				height: 30px;
