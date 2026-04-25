@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koda Studio — Arquitectura digital para marcas que dominan su sector</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>/* ============================================================
+   KODA STUDIO — Design Tokens
+   colors_and_type.css
+   ============================================================ */
+
+/* ── Self-hosted: Inter Variable ── */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-VariableFont_opsz_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Google Fonts: Playfair Display (not yet uploaded) ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+
+/* ============================================================
+   BASE TOKENS
+   ============================================================ */
+
+:root {
+
+  /* ── Typefaces ── */
+  --font-display:   'Playfair Display', Georgia, serif;
+  --font-body:      'Inter', Helvetica, sans-serif;
+
+  /* ── Font Sizes ── */
+  --text-2xs:   0.625rem;   /* 10px — tags/labels */
+  --text-xs:    0.75rem;    /* 12px — captions */
+  --text-sm:    0.875rem;   /* 14px — small body */
+  --text-base:  1rem;       /* 16px — body */
+  --text-lg:    1.25rem;    /* 20px */
+  --text-xl:    1.5rem;     /* 24px */
+  --text-2xl:   2rem;       /* 32px */
+  --text-3xl:   2.5rem;     /* 40px */
+  --text-4xl:   3.5rem;     /* 56px */
+  --text-5xl:   5rem;       /* 80px */
+  --text-6xl:   7rem;       /* 112px */
+  --text-7xl:   9rem;       /* 144px */
+
+  /* ── Font Weights ── */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+
+  /* ── Line Heights ── */
+  --leading-tight:  0.95;
+  --leading-display:1.05;
+  --leading-snug:   1.2;
+  --leading-normal: 1.55;
+  --leading-loose:  1.75;
+
+  /* ── Letter Spacing ── */
+  --tracking-tight:  -0.03em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.08em;
+  --tracking-wider:   0.15em;
+  --tracking-widest:  0.25em;
+  --tracking-label:   0.22em;  /* canonical label tracking */
+
+  /* ── Colors: Backgrounds ── */
+  --color-bone:       #F5F2ED;  /* primary background */
+  --color-stone:      #EDE9E3;  /* secondary background / section alt */
+  --color-stone-deep: #D6D0C7;  /* tertiary, divider fills */
+  --color-obsidian:   #111110;  /* full-bleed dark sections */
+  --color-dark:       #1A1A18;  /* dark background alt */
+
+  /* ── Colors: Foreground ── */
+  --color-ink:        #1A1A18;  /* primary text — near black */
+  --color-ink-mid:    #2C2C28;  /* secondary text */
+  --color-ink-soft:   #4A4A45;  /* tertiary / body text */
+  --color-ink-muted:  #7A7A72;  /* placeholder, disabled */
+  --color-ink-faint:  #A8A8A0;  /* very subtle text */
+
+  /* ── Colors: Accent (Slate Blue) ── */
+  --color-slate:      #5B6B7C;  /* primary accent */
+  --color-slate-deep: #4A5A6B;  /* pressed / hover */
+  --color-slate-dark: #3D4F5E;  /* emphasis */
+  --color-slate-pale: #8A9BAC;  /* light tint for on-dark */
+
+  /* ── Colors: Borders / Grid ── */
+  --color-border:      #C8C3BB; /* default 1px grid lines */
+  --color-border-soft: #DDD9D2; /* subtle inner dividers */
+  --color-border-hard: #A8A29A; /* strong border */
+  --color-border-accent: #5B6B7C; /* hover/active border */
+
+  /* ── Spacing ── */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+  --space-40:  10rem;     /* 160px */
+  --space-48:  12rem;     /* 192px */
+
+  /* ── Border Radius ── */
+  --radius: 0px; /* STRICT: zero border-radius everywhere */
+
+  /* ── Transitions ── */
+  --transition-fast:   200ms ease;
+  --transition-base:   300ms ease;
+  --transition-slow:   400ms ease;
+
+  /* ── Layout ── */
+  --max-width:         1400px;
+  --gutter:            clamp(1.5rem, 5vw, 5rem);
+  --col-gap:           1px solid var(--color-border);
+}
+
+/* ============================================================
+   SEMANTIC ALIASES
+   ============================================================ */
+
+:root {
+  /* backgrounds */
+  --bg-primary:     var(--color-bone);
+  --bg-secondary:   var(--color-stone);
+  --bg-tertiary:    var(--color-stone-deep);
+  --bg-inverse:     var(--color-obsidian);
+  --bg-dark:        var(--color-dark);
+
+  /* foreground */
+  --fg-primary:     var(--color-ink);
+  --fg-secondary:   var(--color-ink-mid);
+  --fg-tertiary:    var(--color-ink-soft);
+  --fg-muted:       var(--color-ink-muted);
+  --fg-on-dark:     var(--color-bone);
+
+  /* accent */
+  --accent:         var(--color-slate);
+  --accent-hover:   var(--color-slate-deep);
+  --accent-strong:  var(--color-slate-dark);
+
+  /* borders */
+  --border:         var(--color-border);
+  --border-strong:  var(--color-border-hard);
+  --border-hover:   var(--color-border-accent);
+
+  /* type semantic */
+  --type-display:   var(--font-display);
+  --type-ui:        var(--font-body);
+}
+
+/* ============================================================
+   TYPOGRAPHIC ELEMENTS
+   ============================================================ */
+
+h1, .h1 {
+  font-family:    var(--font-display);
+  font-size:      clamp(3.5rem, 8vw, 8rem);
+  font-weight:    var(--weight-regular);
+  line-height:    var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color:          var(--fg-primary);
+}
+
+h2, .h2 {
+  font-family:    var(--font-display);
+  font-size:      clamp(2.5rem, 5vw, 5rem);
+  font-weight:    var(--weight-regular);
+  line-height:    var(--leading-display);
+  letter-spacing: var(--tracking-tight);
+  color:          var(--fg-primary);
+}
+
+h3, .h3 {
+  font-family:    var(--font-display);
+  font-size:      clamp(1.75rem, 3vw, 2.5rem);
+  font-weight:    var(--weight-regular);
+  font-style:     italic;
+  line-height:    var(--leading-snug);
+  color:          var(--fg-primary);
+}
+
+h4, .h4 {
+  font-family:    var(--font-body);
+  font-size:      var(--text-base);
+  font-weight:    var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color:          var(--fg-secondary);
+}
+
+p, .body {
+  font-family:   var(--font-body);
+  font-size:     var(--text-base);
+  font-weight:   var(--weight-light);
+  line-height:   var(--leading-normal);
+  color:         var(--fg-tertiary);
+}
+
+.body-sm {
+  font-family:   var(--font-body);
+  font-size:     var(--text-sm);
+  font-weight:   var(--weight-light);
+  line-height:   var(--leading-normal);
+  color:         var(--fg-muted);
+}
+
+.label, label {
+  font-family:    var(--font-body);
+  font-size:      var(--text-2xs);
+  font-weight:    var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--fg-muted);
+}
+
+.caption {
+  font-family:   var(--font-body);
+  font-size:     var(--text-xs);
+  font-weight:   var(--weight-light);
+  color:         var(--fg-muted);
+  line-height:   var(--leading-snug);
+}
+
+.display-italic {
+  font-family: var(--font-display);
+  font-style:  italic;
+}
+
+/* ============================================================
+   BASE RESETS
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 0 !important; /* enforce zero-radius globally */
+}
+
+body {
+  background-color: var(--bg-primary);
+  color:            var(--fg-primary);
+  font-family:      var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+a:hover {
+  border-color: var(--border-hover);
+  color: var(--fg-primary);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.section-pad   { padding-top: var(--space-32); padding-bottom: var(--space-32); }
+.section-pad-lg{ padding-top: var(--space-40); padding-bottom: var(--space-40); }
+.container     { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+.grid-line     { border-top: 1px solid var(--border); }
+.grid-line-v   { border-left: 1px solid var(--border); }
+.accent-border { border-color: var(--accent) !important; }
+</style>
+<style>/* ============================================================
+   KODA STUDIO — Landing Page
+   ============================================================ */
+
+:root {
+  --accent-live: var(--accent);
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg-primary); color: var(--fg-primary); overflow-x: hidden; }
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+
+/* ══ Shared section utilities ══ */
+.section { padding: clamp(80px, 12vw, 160px) 0; border-top: 1px solid var(--border); position: relative; }
+.section.alt-bg { background: var(--color-stone); }
+.section.dark { background: var(--color-obsidian); color: var(--fg-on-dark); border-top-color: #2C2C28; }
+
+.sec-head { margin-bottom: clamp(56px, 8vw, 96px); }
+.sec-head.center { text-align: center; }
+.sec-head .eyebrow { display: block; margin-bottom: 28px; }
+.sec-head-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: end; }
+.sec-head.center .sec-head-row { display: block; }
+.sec-head .sec-desc {
+  font-family: var(--font-body); font-size: 15px; font-weight: 300;
+  line-height: 1.7; color: var(--fg-tertiary); max-width: 420px;
+}
+.sec-all {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  border-bottom: 1px solid currentColor; padding-bottom: 2px;
+  align-self: end; justify-self: end;
+  transition: color 300ms ease, border-color 300ms ease;
+  color: var(--fg-on-dark);
+}
+.section:not(.dark) .sec-all { color: var(--fg-primary); }
+.sec-all:hover { color: var(--accent-live); border-color: var(--accent-live); }
+
+.eyebrow {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.eyebrow.light { color: rgba(255,255,255,0.45); }
+
+.h-display {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  line-height: 1; letter-spacing: -0.03em; margin: 0;
+  color: var(--fg-primary);
+}
+.h-display em { font-style: italic; color: var(--fg-secondary); }
+.h-display.inv { color: var(--fg-on-dark); }
+.h-display.inv em { color: rgba(255,255,255,0.55); }
+.h-display.big { font-size: clamp(3rem, 7.5vw, 7rem); }
+
+.h-sub {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  letter-spacing: -0.01em; line-height: 1.15; margin: 0;
+  color: var(--fg-primary);
+}
+.body { font-family: var(--font-body); font-weight: 300; font-size: 14.5px; line-height: 1.7; color: var(--fg-tertiary); }
+
+/* ══ Fade-up animation ══ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
+.fade-up.d1 { animation-delay: 0.2s; }
+.fade-up.d2 { animation-delay: 0.45s; }
+.fade-up.d3 { animation-delay: 0.7s; }
+
+/* ══ Reveal on scroll ══ */
+[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 900ms cubic-bezier(0.2,0.8,0.2,1), transform 900ms cubic-bezier(0.2,0.8,0.2,1); }
+[data-reveal].in { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+  padding: 18px clamp(1.5rem, 5vw, 4rem);
+  transition: background 400ms ease, border-color 400ms ease, color 400ms ease, backdrop-filter 400ms ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.on-dark {
+  background: transparent; color: var(--fg-on-dark);
+}
+.site-header.on-dark.scrolled {
+  background: rgba(17,17,16,0.85); backdrop-filter: blur(14px);
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+.site-header.on-light {
+  background: rgba(245,242,237,0.92); backdrop-filter: blur(14px);
+  color: var(--fg-primary); border-bottom-color: var(--border);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; max-width: var(--max-width); margin: 0 auto; gap: 32px; }
+
+.wordmark {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  text-decoration: none; border: none; color: inherit;
+}
+.wordmark .wm-mark {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 22px; letter-spacing: -0.03em; line-height: 1;
+}
+.wordmark .wm-sub {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 8px; letter-spacing: 0.35em; text-transform: uppercase;
+  opacity: 0.6; transform: translateY(-4px);
+}
+.wordmark.light .wm-mark { color: var(--fg-on-dark); }
+.wordmark.light .wm-sub { color: rgba(255,255,255,0.5); }
+
+.site-nav { display: flex; gap: clamp(16px, 2.5vw, 36px); }
+.site-nav a {
+  font-family: var(--font-body); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  text-decoration: none; border: none;
+  color: currentColor; opacity: 0.6;
+  transition: opacity 300ms ease, color 300ms ease;
+}
+.site-nav a:hover { opacity: 1; color: var(--accent-live); }
+
+.header-cta {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  padding: 12px 22px;
+  border: 1px solid currentColor;
+  text-decoration: none; color: currentColor;
+  opacity: 0.9;
+  transition: background 300ms ease, color 300ms ease, opacity 300ms ease;
+}
+.header-cta:hover { background: currentColor; }
+.site-header.on-dark .header-cta:hover { color: var(--color-obsidian); }
+.site-header.on-light .header-cta:hover { color: var(--color-bone); }
+
+@media (max-width: 880px) {
+  .site-nav { display: none; }
+}
+
+/* ═══════════════════════════════════════════
+   1 · HERO
+═══════════════════════════════════════════ */
+.hero {
+  position: relative; min-height: 100vh; width: 100%;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden; background: #0A0A09; color: var(--fg-on-dark);
+  padding-bottom: clamp(80px, 10vw, 120px);
+}
+
+.hero-video { position: absolute; inset: 0; z-index: 0; }
+.hero-smoke {
+  position: absolute; inset: -10%;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(70,70,65,0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(50,52,58,0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% 80%, rgba(30,32,35,0.6) 0%, transparent 70%),
+    linear-gradient(180deg, #14141300 0%, #0A0A09 100%),
+    #0E0E0C;
+  filter: contrast(1.05);
+  animation: smokeDrift 40s ease-in-out infinite alternate;
+}
+@keyframes smokeDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2%, 1%) scale(1.04); }
+  100% { transform: translate(1%, -1.5%) scale(1.06); }
+}
+.hero-veil {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10,10,9,0.3) 0%, rgba(10,10,9,0.5) 50%, rgba(10,10,9,0.85) 100%),
+    linear-gradient(90deg, rgba(10,10,9,0.4) 0%, transparent 40%);
+}
+.hero-grain {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, #fff 0, #fff 0.5px, transparent 1px, transparent 2px),
+    repeating-radial-gradient(circle at 1px 1px, #000 0, #000 0.5px, transparent 1px, transparent 2px);
+}
+
+/* Alternate hero modes */
+.hero.mode-marble .hero-smoke {
+  background:
+    radial-gradient(ellipse 70% 50% at 40% 30%, rgba(220,215,205,0.08) 0%, transparent 60%),
+    linear-gradient(135deg, #1A1A18 0%, #242420 50%, #1A1A18 100%),
+    #16161400;
+}
+.hero.mode-concrete .hero-smoke {
+  background: linear-gradient(180deg, #1C1C1A 0%, #252522 60%, #1A1A18 100%);
+}
+.hero.mode-void .hero-smoke { background: #0A0A09; }
+
+/* Corners */
+.corner { position: absolute; z-index: 5; color: rgba(255,255,255,0.55); }
+.corner.tl { top: 90px; left: clamp(1.5rem,5vw,4rem); }
+.corner.tr { top: 90px; right: clamp(1.5rem,5vw,4rem); }
+.corner.br { bottom: 40px; right: clamp(1.5rem,5vw,4rem); }
+.corner .label {
+  font-family: var(--font-body); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+}
+
+.hero-inner {
+  position: relative; z-index: 2; width: 100%;
+}
+.hero-eyebrow {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  display: block; margin-bottom: clamp(32px, 5vw, 56px);
+  padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.12);
+  width: fit-content;
+}
+.hero-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(3.5rem, 9.5vw, 9rem);
+  line-height: 0.95; letter-spacing: -0.035em;
+  color: var(--fg-on-dark); margin: 0 0 clamp(48px, 6vw, 80px);
+  max-width: 16ch;
+}
+.hero-title em { font-style: italic; color: rgba(255,255,255,0.55); }
+
+.hero-foot {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: clamp(32px, 5vw, 80px); align-items: end;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: clamp(24px, 3vw, 40px);
+}
+.hero-sub {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: clamp(15px, 1.4vw, 18px); line-height: 1.65;
+  color: rgba(255,255,255,0.7); max-width: 520px; margin: 0;
+}
+.hero-cta {
+  justify-self: end;
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 18px 32px;
+  background: var(--fg-on-dark); color: var(--color-obsidian);
+  text-decoration: none; border: 1px solid var(--fg-on-dark);
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  transition: background 400ms ease, color 400ms ease;
+}
+.hero-cta:hover { background: transparent; color: var(--fg-on-dark); }
+.hero-cta-arrow { font-size: 14px; transition: transform 400ms ease; }
+.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+
+.scroll-cue {
+  position: absolute; z-index: 5; bottom: 28px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  color: rgba(255,255,255,0.4);
+}
+.scroll-cue span:first-child {
+  font-family: var(--font-body); font-size: 8.5px; font-weight: 500;
+  letter-spacing: 0.4em; text-transform: uppercase;
+}
+.scroll-cue .line {
+  width: 1px; height: 60px; background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { transform: scaleY(0.4); transform-origin: top; opacity: 0.6; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@media (max-width: 760px) {
+  .hero-foot { grid-template-columns: 1fr; }
+  .hero-cta { justify-self: start; }
+  .corner.tl, .corner.tr { top: 78px; }
+}
+
+/* ═══════════════════════════════════════════
+   2 · MANIFIESTO
+═══════════════════════════════════════════ */
+.manifesto { padding: clamp(96px, 12vw, 160px) 0; background: var(--bg-primary); border-top: 1px solid var(--border); }
+.manifesto-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(40px, 7vw, 96px); align-items: start; }
+.manifesto-copy { padding-right: clamp(0px, 3vw, 48px); }
+.manifesto-copy .eyebrow { display: block; margin-bottom: 32px; }
+.manifesto-copy .h-display {
+  font-size: clamp(1.75rem, 3.4vw, 3rem);
+  line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+.manifesto-copy .lede {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 16px; line-height: 1.8; color: var(--fg-tertiary);
+  margin: 0 0 20px; max-width: 560px;
+}
+.manifesto-meta {
+  margin-top: 48px; padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.manifesto-meta .num {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 2.5rem; line-height: 1;
+  color: var(--fg-primary); display: block; margin-bottom: 8px;
+}
+.manifesto-meta .num .small { font-size: 1rem; color: var(--fg-muted); }
+.manifesto-meta .caption {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-muted); display: block;
+}
+
+.manifesto-figure { position: relative; margin-top: 24px; }
+.frame-photo {
+  position: relative;
+  aspect-ratio: 4/5;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #1C1C1A;
+}
+.frame-photo .photo-surface {
+  position: absolute; inset: 0;
+  background:
+    /* keyboard hint */
+    repeating-linear-gradient(90deg,
+      rgba(40,42,46,0.9) 0 8%,
+      rgba(30,32,36,0.9) 8% 9%,
+      rgba(40,42,46,0.9) 9% 17%,
+      transparent 17% 18%
+    ),
+    linear-gradient(180deg, rgba(60,62,66,0.15) 0%, transparent 40%),
+    radial-gradient(ellipse 60% 30% at 30% 35%, rgba(100,105,115,0.3) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 20% at 70% 50%, rgba(90,100,112,0.35) 0%, transparent 60%),
+    #16161400,
+    #1A1A18;
+  background-size: 60% 12%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 20% 80%, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+  filter: contrast(1.05) grayscale(0.4);
+}
+.frame-photo::before {
+  content: ""; position: absolute; inset: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  pointer-events: none;
+}
+.frame-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
+}
+.photo-legend {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  z-index: 3; display: flex; justify-content: space-between; gap: 16px;
+  color: rgba(255,255,255,0.6);
+}
+.photo-legend .tag, .photo-legend .caption {
+  font-family: var(--font-body); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+}
+.photo-legend .tag { color: var(--color-slate-pale); }
+.photo-legend .caption { opacity: 0.6; }
+
+@media (max-width: 880px) {
+  .manifesto-grid { grid-template-columns: 1fr; }
+  .manifesto-meta { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   3 · EXPERTISE
+═══════════════════════════════════════════ */
+.grid-services {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.service-card {
+  position: relative;
+  padding: clamp(32px, 3.5vw, 56px) clamp(24px, 2.5vw, 40px);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 400ms ease;
+}
+.service-card:hover { background: var(--color-stone); }
+.service-num {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--accent-live); margin-bottom: 48px;
+}
+.service-icon {
+  width: 44px; height: 44px; color: var(--fg-primary);
+  display: block; margin-bottom: 32px;
+  transition: color 400ms ease;
+}
+.service-card:hover .service-icon { color: var(--accent-live); }
+.service-card .h-sub { margin-bottom: 20px; }
+.service-card .body { margin: 0 0 32px; max-width: 36ch; }
+.service-tags {
+  list-style: none; padding: 24px 0 0; margin: 0;
+  border-top: 1px solid var(--border-soft);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.service-tags li {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+@media (max-width: 880px) {
+  .grid-services { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   4 · CASOS DE ESTUDIO
+═══════════════════════════════════════════ */
+
+/* 1. La pista de scroll extendida */
+#trabajo {
+  position: relative;
+  height: 300vh; /* El espacio total que el usuario deberá scrollear */
+}
+
+/* 2. El contenedor pegajoso */
+#trabajo .container {
+  position: sticky;
+  top: 0;
+  height: 100vh; /* Ocupa el 100% del alto de la ventana al fijarse */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el grid verticalmente mientras haces scroll */
+}
+
+.work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(32px, 4vw, 56px); padding: clamp(48px, 6vw, 80px) 0; }
+
+.case { display: flex; flex-direction: column; }
+
+.case-frame {
+  margin-bottom: 32px;
+}
+.laptop {
+  position: relative; width: 100%;
+  aspect-ratio: 16/11;
+}
+.laptop-bezel {
+  position: relative; height: 100%;
+  background: #1A1A18;
+  padding: 14px 14px 0;
+  border: 1px solid var(--border);
+}
+
+/* 3. La pantalla de la laptop (Asegurando que corte la imagen sobrante) */
+.laptop-screen {
+  position: relative; width: 100%; height: calc(100% - 10px);
+  background: #fff; overflow: hidden;
+  /* aspect-ratio: 16 / 10; */
+}
+
+/* 4. La imagen con aceleración por hardware (GPU) */
+.parallax-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: top center;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Previene parpadeos en Safari/Chrome */
+}
+
+.laptop-base {
+  position: absolute; bottom: -6px; left: -4%; right: -4%;
+  height: 10px;
+  background: linear-gradient(180deg, #2A2A28 0%, #1A1A18 50%, #0D0D0C 100%);
+}
+.laptop-base span {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 4px; background: #0A0A09;
+}
+
+.case-scroll {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+.case-scroll .mock {
+  transform: translateY(0); will-change: transform;
+  transition: transform 200ms linear;
+}
+
+/* 5. Desactivación en móviles para proteger la UX */
+@media (max-width: 900px) {
+  #trabajo {
+    height: auto; /* Anula el scroll extendido */
+  }
+  #trabajo .container {
+    position: relative;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Case meta */
+.case-meta { padding-right: 16px; }
+.case-meta .tag {
+  font-family: var(--font-body); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--fg-muted); display: block; margin-bottom: 14px;
+}
+.case-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--fg-primary); margin: 0 0 12px;
+  transition: color 300ms ease;
+}
+.case:hover .case-title { color: var(--accent-live); }
+.case-desc { font-family: var(--font-body); font-weight: 300; font-size: 14px; line-height: 1.65; color: var(--fg-tertiary); margin: 0 0 20px; }
+.case-link {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-primary); display: inline-flex; align-items: center; gap: 10px;
+  padding-bottom: 4px; border-bottom: 1px solid var(--fg-primary);
+  transition: color 300ms ease, border-color 300ms ease;
+}
+.case-link .arr { transition: transform 300ms ease; }
+.case:hover .case-link { color: var(--accent-live); border-color: var(--accent-live); }
+.case:hover .case-link .arr { transform: translateX(4px); }
+
+@media (max-width: 980px) { .work-grid { grid-template-columns: 1fr; gap: 56px; } }
+
+/* ═══════════════════════════════════════════
+   5 · METODOLOGÍA (STICKY)
+═══════════════════════════════════════════ */
+.method.dark { background: var(--color-obsidian); color: var(--fg-on-dark); }
+.method-head { padding: clamp(80px, 10vw, 140px) clamp(1.5rem, 5vw, 4rem) clamp(48px, 6vw, 80px); max-width: var(--max-width); margin: 0 auto; }
+.method-head .eyebrow { display: block; margin-bottom: 28px; }
+
+.method-sticky {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 6vw, 96px);
+  padding-bottom: clamp(80px, 10vw, 160px);
+  position: relative;
+  align-items: start;
+}
+
+.method-steps { display: flex; flex-direction: column; gap: 0; }
+.method-step {
+  padding: clamp(60px, 8vw, 120px) 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  opacity: 0.4;
+  transition: opacity 500ms ease;
+}
+.method-step:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.method-step.active { opacity: 1; }
+.method-step .step-num {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 11px; letter-spacing: 0.3em;
+  color: var(--color-slate-pale);
+  display: block; margin-bottom: 32px;
+  font-family: var(--font-body); font-weight: 500;
+  text-transform: uppercase;
+}
+.method-step h3 {
+  font-family: var(--font-display); font-weight: 400; font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.15; letter-spacing: -0.015em;
+  margin: 0 0 24px; color: var(--fg-on-dark);
+}
+.method-step p {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 15px; line-height: 1.75; max-width: 46ch;
+  color: rgba(255,255,255,0.6); margin: 0 0 24px;
+}
+.method-step ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.method-step ul li {
+  font-family: var(--font-body); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  padding-left: 16px; position: relative;
+}
+.method-step ul li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 8px; height: 1px; background: var(--color-slate-pale); }
+
+.method-media {
+  position: sticky; top: 100px;
+  aspect-ratio: 4/5; max-height: 80vh;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: #0E0E0C;
+  overflow: hidden;
+}
+.method-frame {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 700ms ease;
+  padding: 24px;
+  display: flex; flex-direction: column;
+}
+.method-frame.show { opacity: 1; }
+
+/* Blueprint */
+.sticky-blueprint { position: relative; width: 100%; height: 100%; background: #0E1115; }
+.bp-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(140,150,160,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140,150,160,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.bp-layout {
+  position: absolute; inset: 10%;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.bp-row { border: 1px solid rgba(138,155,172,0.5); background: rgba(91,107,124,0.06); }
+.bp-row.r1 { height: 40px; }
+.bp-row.r2 { flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; border: none; background: transparent; }
+.bp-row.r2 span { border: 1px solid rgba(138,155,172,0.5); background: rgba(91,107,124,0.06); }
+.bp-row.r3 { height: 50px; }
+.bp-row.r4 { flex: 1; display: grid; grid-template-columns: 2fr 1fr; gap: 8px; border: none; background: transparent; }
+.bp-row.r4 span { border: 1px solid rgba(138,155,172,0.5); background: rgba(91,107,124,0.06); }
+.bp-marks .mk { position: absolute; width: 10px; height: 10px; border: 1px solid var(--color-slate-pale); }
+.bp-marks .mk.tl { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+.bp-marks .mk.tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+.bp-marks .mk.bl { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+.bp-marks .mk.br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+.bp-tag { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); font-family: var(--font-body); font-size: 9px; font-weight: 500; letter-spacing: 0.3em; color: var(--color-slate-pale); }
+
+/* Code */
+.sticky-code { width: 100%; height: 100%; background: #0B0D10; position: relative; display: flex; flex-direction: column; }
+.code-chrome { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.code-chrome span { width: 8px; height: 8px; background: #2A2E35; }
+.code-body { flex: 1; padding: 24px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; line-height: 1.7; color: #8A9BAC; margin: 0; white-space: pre-wrap; overflow: hidden; }
+.code-body .cg { color: #4A5A6B; }
+.code-body .ck { color: #B8A88A; }
+.code-body .cv { color: #E0D8C8; }
+.code-body .cs { color: #8A9BAC; }
+.code-body .ct { color: #B8C8D8; }
+.code-tag { position: absolute; bottom: 14px; right: 14px; font-family: var(--font-body); font-size: 9px; font-weight: 500; letter-spacing: 0.3em; color: rgba(138,155,172,0.6); }
+
+/* Dashboard */
+.sticky-dashboard { width: 100%; height: 100%; background: #0E1115; padding: 24px; position: relative; display: flex; flex-direction: column; gap: 24px; }
+.dash-head { display: flex; justify-content: space-between; font-family: var(--font-body); font-size: 9.5px; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.dash-head .green { color: #8AAB95; }
+.dash-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.dash-kpis div b { display: block; font-family: var(--font-display); font-size: 2rem; line-height: 1; color: #fff; margin-bottom: 8px; }
+.dash-kpis div span { font-family: var(--font-body); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.dash-chart { flex: 1; }
+.dash-chart svg { width: 100%; height: 100%; }
+.dash-tag { position: absolute; bottom: 14px; right: 14px; font-family: var(--font-body); font-size: 9px; font-weight: 500; letter-spacing: 0.3em; color: rgba(138,155,172,0.6); }
+
+@media (max-width: 880px) {
+  .method-sticky { grid-template-columns: 1fr; }
+  .method-media { position: relative; top: auto; order: -1; aspect-ratio: 16/10; }
+}
+
+/* ═══════════════════════════════════════════
+   6 · SOCIOS — Carrusel
+═══════════════════════════════════════════ */
+.partners { background: var(--bg-primary); }
+.testimonial-carousel {
+  position: relative; display: grid; grid-template-columns: 40px 1fr 40px;
+  gap: clamp(24px, 4vw, 56px); align-items: center;
+  max-width: 1100px; margin: 0 auto;
+}
+.carousel-nav {
+  width: 40px; height: 40px; border: 1px solid var(--border);
+  background: transparent; cursor: pointer; color: var(--fg-primary);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+.carousel-nav svg { width: 16px; height: 16px; }
+.carousel-nav:hover { background: var(--fg-primary); color: var(--bg-primary); }
+
+.testimonial-track { position: relative; min-height: 320px; }
+.testimonial {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  text-align: center; align-items: center;
+  opacity: 0; transition: opacity 500ms ease;
+  pointer-events: none;
+}
+.testimonial.active { opacity: 1; pointer-events: auto; }
+
+.quote-mark { width: 40px; height: 40px; color: var(--accent-live); margin-bottom: 32px; }
+.tm-quote {
+  font-family: var(--font-display); font-weight: 400; font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.5;
+  letter-spacing: -0.01em; color: var(--fg-primary);
+  max-width: 780px; margin: 0 auto 40px;
+}
+.tm-author { display: flex; flex-direction: column; gap: 6px; }
+.tm-author .name {
+  font-family: var(--font-body); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-primary);
+}
+.tm-author .role {
+  font-family: var(--font-body); font-size: 10px; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.carousel-dots { display: flex; justify-content: center; gap: 12px; margin-top: 56px; }
+.dot {
+  width: 32px; height: 1px; background: var(--border-hard);
+  border: none; padding: 12px 0; background-clip: content-box;
+  cursor: pointer; opacity: 0.5; transition: opacity 300ms ease, background 300ms ease;
+}
+.dot.active { opacity: 1; background: var(--fg-primary); background-clip: content-box; }
+
+/* ═══════════════════════════════════════════
+   7 · SECTORES
+═══════════════════════════════════════════ */
+.sector-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.sector-card {
+  position: relative; display: block; text-decoration: none; color: inherit;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0; overflow: hidden;
+  min-height: 360px; border-bottom: 1px solid var(--border);
+  border: none; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  transition: color 400ms ease;
+}
+.sec-texture {
+  position: absolute; inset: 0; opacity: 0;
+  transition: opacity 600ms ease;
+}
+.sector-card[data-texture="marble"] .sec-texture {
+  background:
+    radial-gradient(ellipse 80% 40% at 30% 30%, rgba(180,180,180,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 30% at 70% 70%, rgba(200,200,200,0.08) 0%, transparent 70%),
+    linear-gradient(135deg, #1A1A18 0%, #24242022 40%, #1A1A18 100%),
+    #0E0E0C;
+  filter: contrast(1.1);
+}
+.sector-card[data-texture="concrete"] .sec-texture {
+  background:
+    repeating-linear-gradient(135deg, rgba(70,70,66,0.1) 0 2px, transparent 2px 8px),
+    linear-gradient(180deg, #3A3A36 0%, #2A2A26 100%);
+}
+.sector-card[data-texture="linen"] .sec-texture {
+  background:
+    repeating-linear-gradient(90deg, rgba(180,170,150,0.06) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, rgba(180,170,150,0.04) 0 1px, transparent 1px 3px),
+    linear-gradient(135deg, #C8BCA8 0%, #A89888 100%);
+}
+.sector-card[data-texture="wood"] .sec-texture {
+  background:
+    repeating-linear-gradient(94deg, rgba(40,26,14,0.5) 0 2px, rgba(60,38,22,0.3) 2px 5px, rgba(30,18,10,0.5) 5px 9px),
+    linear-gradient(180deg, #3C261A 0%, #1F120A 100%);
+}
+
+.sector-card:hover .sec-texture { opacity: 1; }
+.sector-card:hover { color: var(--fg-on-dark); }
+.sector-card[data-texture="linen"]:hover { color: #1A1A18; }
+
+.sec-body {
+  position: relative; z-index: 2;
+  padding: clamp(32px, 3vw, 48px);
+  height: 100%; display: flex; flex-direction: column;
+  min-height: 360px;
+}
+.sec-idx {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; color: var(--fg-muted);
+  margin-bottom: 56px; display: block;
+  transition: color 400ms ease;
+}
+.sector-card:hover .sec-idx { color: rgba(255,255,255,0.6); }
+.sector-card[data-texture="linen"]:hover .sec-idx { color: rgba(0,0,0,0.5); }
+
+.sec-body h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  line-height: 1.1; letter-spacing: -0.01em;
+  margin: 0 0 24px; color: inherit;
+}
+.sec-body p {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 13.5px; line-height: 1.65; color: var(--fg-tertiary);
+  margin: 0 0 auto; max-width: 28ch;
+  transition: color 400ms ease;
+}
+.sector-card:hover .sec-body p { color: rgba(255,255,255,0.7); }
+.sector-card[data-texture="linen"]:hover .sec-body p { color: rgba(0,0,0,0.7); }
+
+.sec-link {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: inherit; margin-top: 32px;
+  padding-bottom: 4px; border-bottom: 1px solid currentColor;
+  align-self: flex-start;
+}
+
+@media (max-width: 1000px) { .sector-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .sector-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════
+   8 · INSIGHTS
+═══════════════════════════════════════════ */
+.insights .h-display.inv { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+.insight-list { border-top: 1px solid rgba(255,255,255,0.1); }
+.insight-row {
+  display: grid; grid-template-columns: 70px 160px 1fr 80px 40px;
+  align-items: center;
+  padding: 36px clamp(0px, 2vw, 24px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-decoration: none; color: inherit; border-top: none;
+  gap: 24px;
+  transition: background 500ms ease, padding 500ms ease;
+}
+.insight-row:hover { background: rgba(255,255,255,0.02); padding-left: clamp(16px, 3vw, 48px); }
+.insight-row .ix {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; color: rgba(255,255,255,0.35);
+}
+.insight-row .ikind {
+  font-family: var(--font-body); font-size: 9.5px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--color-slate-pale);
+}
+.insight-row h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.25; letter-spacing: -0.01em;
+  margin: 0; color: var(--fg-on-dark);
+  transition: color 400ms ease;
+}
+.insight-row:hover h3 { color: var(--color-slate-pale); }
+.insight-row .ilen {
+  font-family: var(--font-body); font-size: 10px; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); text-align: right;
+}
+.insight-row .iarr {
+  font-size: 18px; color: rgba(255,255,255,0.35); justify-self: end;
+  transition: color 400ms ease, transform 400ms ease;
+}
+.insight-row:hover .iarr { color: var(--fg-on-dark); transform: translateX(8px); }
+
+@media (max-width: 880px) {
+  .insight-row { grid-template-columns: 60px 1fr 30px; }
+  .insight-row .ikind, .insight-row .ilen { display: none; }
+}
+
+/* ═══════════════════════════════════════════
+   9 · PRESENCIA
+═══════════════════════════════════════════ */
+.presence { background: var(--bg-primary); }
+.presence-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+.presence-copy .eyebrow { display: block; margin-bottom: 28px; }
+.presence-copy .h-display { font-size: clamp(2.25rem, 4.5vw, 4rem); margin-bottom: 32px; }
+.presence-copy .lede {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 15.5px; line-height: 1.75; color: var(--fg-tertiary);
+  margin: 0 0 48px; max-width: 440px;
+}
+.cities {
+  list-style: none; margin: 0; padding: 0;
+  border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+.cities li {
+  display: flex; gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-soft);
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 400;
+  color: var(--fg-secondary);
+}
+.cities li span {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.25em;
+  color: var(--accent-live); padding-top: 4px;
+  min-width: 20px;
+}
+
+.presence-map {
+  position: relative; border: 1px solid var(--border);
+  background: var(--bg-primary);
+  padding: 24px;
+  aspect-ratio: 6/5.2;
+  overflow: hidden;
+}
+.map-legend {
+  display: flex; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.map-legend .label, .map-legend .coord {
+  font-family: var(--font-body); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.mx-map { width: 100%; height: calc(100% - 40px); display: block; }
+.mx-outline { opacity: 0.6; }
+.map-label-far { font-family: var(--font-body); font-size: 8px; font-weight: 500; letter-spacing: 0.3em; fill: var(--fg-muted); }
+.map-nodes circle {
+  fill: var(--accent-live);
+  stroke: var(--bg-primary); stroke-width: 1.5;
+  animation: nodePulse 3s ease-in-out infinite;
+}
+.map-nodes circle:nth-child(even) { animation-delay: 0.7s; }
+.map-nodes circle:nth-child(3n) { animation-delay: 1.4s; }
+@keyframes nodePulse {
+  0%, 100% { opacity: 1; r: 4; }
+  50% { opacity: 0.6; }
+}
+.map-nodes text {
+  font-family: var(--font-body); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.12em; fill: var(--fg-secondary);
+}
+
+@media (max-width: 980px) { .presence-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════
+   10 · FAQ
+═══════════════════════════════════════════ */
+.faq { background: var(--color-stone); border-top: 1px solid var(--border); }
+.faq-list { border-top: 1px solid var(--border); max-width: 980px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 60px 1fr 28px;
+  align-items: center; gap: 24px;
+  padding: 28px clamp(8px, 2vw, 24px);
+  transition: background 300ms ease;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { background: rgba(0,0,0,0.02); }
+.faq-item .fq-idx {
+  font-family: var(--font-body); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; color: var(--accent-live);
+}
+.faq-item .fq-q {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.35; letter-spacing: -0.01em;
+  color: var(--fg-primary);
+}
+.fq-toggle {
+  position: relative; width: 20px; height: 20px;
+  justify-self: end; opacity: 0.7;
+}
+.fq-toggle .h, .fq-toggle .v {
+  position: absolute; background: var(--fg-primary);
+  transition: transform 400ms ease, opacity 400ms ease;
+}
+.fq-toggle .h { top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-0.5px); }
+.fq-toggle .v { left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-0.5px); }
+.faq-item[open] .fq-toggle .v { transform: translateX(-0.5px) rotate(90deg); opacity: 0; }
+
+.fq-a {
+  padding: 0 clamp(8px, 2vw, 24px) 36px;
+  padding-left: calc(60px + 24px + clamp(8px, 2vw, 24px));
+}
+.fq-a p {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 15px; line-height: 1.75; color: var(--fg-tertiary);
+  margin: 0; max-width: 72ch;
+}
+
+@media (max-width: 700px) {
+  .faq-item summary { grid-template-columns: 40px 1fr 24px; gap: 16px; }
+  .fq-a { padding-left: calc(40px + 16px + 8px); }
+}
+
+/* ═══════════════════════════════════════════
+   11 · CTA FINAL
+═══════════════════════════════════════════ */
+.cta-final { padding: clamp(100px, 14vw, 200px) 0; }
+.cta-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(40px, 6vw, 96px); align-items: end; }
+.cta-left .eyebrow { display: block; margin-bottom: 36px; }
+.cta-right { padding-left: clamp(0px, 3vw, 48px); border-left: 1px solid rgba(255,255,255,0.12); padding-top: 8px; }
+.cta-desc {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: 16px; line-height: 1.8;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 40px; max-width: 440px;
+}
+.cta-btn-lg {
+  display: inline-flex; align-items: center; gap: 24px;
+  padding: 22px 36px;
+  background: var(--fg-on-dark); color: var(--color-obsidian);
+  text-decoration: none; border: 1px solid var(--fg-on-dark);
+  font-family: var(--font-body); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  transition: background 400ms ease, color 400ms ease;
+}
+.cta-btn-lg:hover { background: transparent; color: var(--fg-on-dark); }
+.cta-btn-lg .arr { transition: transform 400ms ease; }
+.cta-btn-lg:hover .arr { transform: translateX(6px); }
+
+.cta-trust {
+  margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;
+  font-family: var(--font-body); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.cta-trust .sep { opacity: 0.3; }
+
+@media (max-width: 880px) {
+  .cta-grid { grid-template-columns: 1fr; }
+  .cta-right { padding-left: 0; border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 40px; }
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.site-footer { background: #0A0A09; color: var(--fg-on-dark); padding: clamp(48px, 6vw, 80px) 0 32px; border-top: 1px solid #1F1F1C; }
+.footer-inner {}
+.footer-top {
+  display: grid; grid-template-columns: 0.7fr 2fr; gap: clamp(32px, 6vw, 80px);
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  align-items: start;
+}
+.footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.footer-cols > div { display: flex; flex-direction: column; gap: 14px; }
+.flabel {
+  font-family: var(--font-body); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--color-slate-pale); margin-bottom: 12px;
+}
+.footer-cols a {
+  font-family: var(--font-body); font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.65); text-decoration: none; border: none;
+  transition: color 300ms ease;
+}
+.footer-cols a:hover { color: var(--fg-on-dark); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px; gap: 24px; flex-wrap: wrap;
+  font-family: var(--font-body); font-size: 10px; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.foot-links { display: flex; gap: 28px; }
+.foot-links a { color: inherit; text-decoration: none; border: none; transition: color 300ms ease; }
+.foot-links a:hover { color: var(--fg-on-dark); }
+
+@media (max-width: 760px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   TWEAKS PANEL
+═══════════════════════════════════════════ */
+.tweaks-panel {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  width: 280px; background: var(--bg-primary);
+  border: 1px solid var(--border-hard);
+  padding: 20px; color: var(--fg-primary);
+  font-family: var(--font-body);
+}
+.tw-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--fg-primary);
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+.tw-close {
+  background: transparent; border: none; font-size: 20px; cursor: pointer; line-height: 1;
+  color: var(--fg-muted); padding: 0; width: 20px; height: 20px;
+}
+.tw-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 10px 0;
+  font-size: 11px; color: var(--fg-secondary);
+}
+.tw-row.check { justify-content: flex-start; }
+.tw-row select, .tw-row input[type="range"] {
+  font-family: inherit; font-size: 11px; padding: 4px 6px;
+  background: var(--bg-primary); color: var(--fg-primary);
+  border: 1px solid var(--border);
+}
+.tw-row input[type="range"] { width: 120px; }
+.tw-row input[type="checkbox"] { accent-color: var(--accent-live); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header id="site-header" class="site-header on-dark">
+  <div class="header-inner">
+    <a href="#top" class="wordmark" aria-label="Koda — Inicio">
+      <span class="wm-mark">koda</span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="#expertise">Expertise</a>
+      <a href="#trabajo">Trabajo</a>
+      <a href="#insights">Insights</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#contacto" class="header-cta">Iniciar proyecto</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ══════════════ 1 · HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-video" aria-hidden="true">
+    <div class="hero-smoke"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-grain"></div>
+  </div>
+
+  <!-- Corner marks -->
+  <div class="corner tl">
+    <span class="label">Koda Studio · MX</span>
+  </div>
+  <div class="corner tr">
+    <span class="label">Est. 2024</span>
+  </div>
+  <div class="corner br">
+    <span class="label" style="opacity:.4">◉ Loop · Humo carbón</span>
+  </div>
+
+  <div class="hero-inner container">
+    <span class="hero-eyebrow fade-up">Arquitectura digital · Diseño a medida</span>
+
+    <h1 class="hero-title fade-up d1">
+      Elevamos marcas.<br>
+      Construimos <em>legados.</em>
+    </h1>
+
+    <div class="hero-foot fade-up d2">
+      <p class="hero-sub">
+        Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario.
+      </p>
+      <a href="#contacto" class="hero-cta">
+        <span class="hero-cta-label">Iniciar proyecto</span>
+        <span class="hero-cta-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Descubrir</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- ══════════════ 2 · MANIFIESTO ══════════════ -->
+<section class="manifesto" id="manifiesto">
+  <div class="container manifesto-grid">
+    <div class="manifesto-copy">
+      <span class="eyebrow">— El Manifiesto</span>
+      <h2 class="h-display">
+        Agencia de marketing digital, desarrollo web y <em>branding</em> para empresas que buscan dominar su sector.
+      </h2>
+      <p class="lede">
+        Koda Studio es una agencia integral enfocada en escalar negocios. Si tu empresa necesita crear una página web profesional, desarrollar una identidad de marca que proyecte autoridad, o impulsar sus ventas mediante estrategias de marketing y gestión de redes sociales, nosotros construimos la infraestructura digital exacta para lograrlo.
+      </p>
+      <p class="lede">
+        No usamos plantillas. Diseñamos soluciones a medida para posicionarte en internet.
+      </p>
+      <div class="manifesto-meta">
+        <div><span class="num">14</span><span class="caption">Marcas escaladas</span></div>
+        <div><span class="num">98<span class="small">/100</span></span><span class="caption">Performance promedio</span></div>
+      </div>
+    </div>
+    <figure class="manifesto-figure">
+      <div class="frame-photo" data-kind="technical">
+        <img src="uploads/final-design-8c3575ec.webp" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" alt="Koda — proceso de diseño">
+        <div class="photo-legend">
+          <span class="tag">Fig. 01</span>
+          <span class="caption">Detalle de proceso · ipad pro, wireframes, cristal oscuro</span>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════ 3 · EXPERTISE ══════════════ -->
+<section class="section expertise" id="expertise">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">— 01 / Expertise</span>
+      <div class="sec-head-row">
+        <h2 class="h-display">Tres disciplinas.<br><em>Un estándar.</em></h2>
+        <p class="sec-desc">
+          Infraestructura web, identidad visual y marketing — integradas en una sola arquitectura pensada para posicionar, escalar y filtrar.
+        </p>
+      </div>
+    </header>
+
+    <div class="grid-services">
+      <!-- 1 -->
+      <article class="service-card">
+        <div class="service-num">01</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square">
+          <rect x="4" y="8" width="40" height="32"/>
+          <line x1="4" y1="16" x2="44" y2="16"/>
+          <line x1="16" y1="16" x2="16" y2="40"/>
+          <rect x="22" y="22" width="16" height="6"/>
+          <rect x="22" y="30" width="16" height="6"/>
+        </svg>
+        <h3 class="h-sub">Desarrollo web profesional</h3>
+        <p class="body">Construcción de sitios escalables, ultrarrápidos y optimizados para SEO técnico. Código moderno, arquitectura lista para crecer.</p>
+        <ul class="service-tags">
+          <li>Next.js / React</li><li>SEO técnico</li><li>CMS a medida</li>
+        </ul>
+      </article>
+
+      <!-- 2 -->
+      <article class="service-card">
+        <div class="service-num">02</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M24 8 C14 8 8 16 8 24 C8 34 14 40 24 40 C34 40 40 34 40 24 C40 16 34 8 24 8 Z"/>
+          <path d="M24 14 C18 14 14 18 14 24 C14 30 18 34 24 34"/>
+          <path d="M24 20 C21 20 20 22 20 24 C20 27 22 28 24 28"/>
+          <path d="M28 12 L36 6"/>
+          <path d="M12 36 L6 42"/>
+        </svg>
+        <h3 class="h-sub">Branding corporativo</h3>
+        <p class="body">Creación de logotipos, manuales de marca y proyección de autoridad visual. Sistemas que comunican sin esfuerzo.</p>
+        <ul class="service-tags">
+          <li>Wordmark / logo</li><li>Sistema visual</li><li>Manual de marca</li>
+        </ul>
+      </article>
+
+      <!-- 3 -->
+      <article class="service-card">
+        <div class="service-num">03</div>
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square">
+          <line x1="4" y1="40" x2="44" y2="40"/>
+          <polyline points="6,32 16,24 24,28 34,14 42,8"/>
+          <circle cx="6" cy="32" r="1.5" fill="currentColor"/>
+          <circle cx="16" cy="24" r="1.5" fill="currentColor"/>
+          <circle cx="24" cy="28" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="14" r="1.5" fill="currentColor"/>
+          <circle cx="42" cy="8" r="1.5" fill="currentColor"/>
+        </svg>
+        <h3 class="h-sub">Marketing digital &amp; redes</h3>
+        <p class="body">Gestión de presencia corporativa, automatización de agendas B2B y estrategias de captación. Tráfico cualificado, no ruido.</p>
+        <ul class="service-tags">
+          <li>Gestión de redes</li><li>Automatización B2B</li><li>Paid media</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 4 · CASOS DE ESTUDIO (STICKY PARALLAX) ══════════════ -->
+<section class="section work" id="trabajo">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">— 02 / Casos de estudio</span>
+      <div class="sec-head-row">
+        <h2 class="h-display">Nuestros <em>casos de éxito.</em></h2>
+        <p class="sec-desc">
+          Plataformas construidas para consultoras, firmas legales, desarrolladores y marcas premium que exigen una sede digital a la altura de su operación.
+        </p>
+      </div>
+    </header>
+
+    <div class="work-grid">
+      <!-- Case 1: ContaPro -->
+      <article class="case">
+        <div class="case-frame laptop">
+          <div class="laptop-bezel">
+            <div class="laptop-screen">
+              <img src="images/contapro-laptop-full.png" alt="ContaPro" class="parallax-img">
+            </div>
+            <div class="laptop-base"><span></span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="tag">Consultoría legal &amp; financiera</span>
+          <h3 class="case-title">Contapro MX</h3>
+          <p class="case-desc">Plataforma de captación automatizada. Formulario, WhatsApp y seguimiento integrado para filtrar clientes de alto valor.</p>
+          <span class="case-link">Ver caso <span class="arr">→</span></span>
+        </div>
+      </article>
+
+      <!-- Case 2: Voga -->
+      <article class="case">
+        <div class="case-frame laptop">
+          <div class="laptop-bezel">
+            <div class="laptop-screen">
+              <img src="images/voga-laptop-full.png" alt="Voga Eventos" class="parallax-img">
+            </div>
+            <div class="laptop-base"><span></span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="tag">Servicios premium</span>
+          <h3 class="case-title">Voga Eventos</h3>
+          <p class="case-desc">Experiencia inmersiva para incremento de reservas. Galería editorial y flujo de cotización reducido a dos pasos.</p>
+          <span class="case-link">Ver caso <span class="arr">→</span></span>
+        </div>
+      </article>
+
+      <!-- Case 3: Novus -->
+      <article class="case">
+        <div class="case-frame laptop">
+          <div class="laptop-bezel">
+            <div class="laptop-screen">
+              <img src="images/novus-laptop-full.png" alt="Novus Real Estate" class="parallax-img">
+            </div>
+            <div class="laptop-base"><span></span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="tag">Bienes raíces</span>
+          <h3 class="case-title">Novus CA Real Estate</h3>
+          <p class="case-desc">Arquitectura digital para prospectos inmobiliarios. Filtro inteligente de listados con integración CRM y captación multicanal.</p>
+          <span class="case-link">Ver caso <span class="arr">→</span></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 5 · METODOLOGÍA (STICKY) ══════════════ -->
+<section class="section method dark" id="metodologia">
+  <div class="container method-head">
+    <span class="eyebrow light">— 03 / Metodología</span>
+    <h2 class="h-display inv">Proceso,<br><em>sin atajos.</em></h2>
+  </div>
+
+  <div class="method-sticky container">
+    <div class="method-steps">
+      <article class="method-step" data-step="1">
+        <span class="step-num">01</span>
+        <h3>Descubrimiento &amp; estrategia</h3>
+        <p>Briefing ejecutivo, auditoría de marca y análisis del sector. No diseñamos hasta comprender cómo escala tu negocio.</p>
+        <ul>
+          <li>Briefing ejecutivo</li>
+          <li>Auditoría de marca</li>
+          <li>Mapa de competencia</li>
+        </ul>
+      </article>
+      <article class="method-step" data-step="2">
+        <span class="step-num">02</span>
+        <h3>Diseño &amp; arquitectura web</h3>
+        <p>Wireframing, sistema visual y desarrollo en código. Cada pantalla, flujo y punto de contacto se traza antes del build.</p>
+        <ul>
+          <li>Wireframes de alta fidelidad</li>
+          <li>Sistema de diseño</li>
+          <li>Desarrollo en código</li>
+        </ul>
+      </article>
+      <article class="method-step" data-step="3">
+        <span class="step-num">03</span>
+        <h3>Lanzamiento &amp; marketing</h3>
+        <p>Optimización SEO técnica, gestión de redes sociales y automatización de agendas. Lanzamiento medido, no sólo ejecutado.</p>
+        <ul>
+          <li>SEO técnico on-page</li>
+          <li>Gestión de redes</li>
+          <li>Automatización CRM</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="method-media" aria-hidden="true">
+      <div class="method-frame" data-frame="1">
+        <div style="position:absolute;inset:0;overflow:hidden;">
+          <img src="uploads/final-design-2.webp" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Wireframe proceso">
+        </div>
+      </div>
+      <div class="method-frame" data-frame="2">
+        <div class="sticky-code">
+          <div class="code-chrome"><span></span><span></span><span></span></div>
+          <pre class="code-body"><span class="cg">// koda · architecture.tsx</span>
+<span class="ck">import</span> { <span class="cv">Headquarters</span> } <span class="ck">from</span> <span class="cs">"./system"</span>;
+
+<span class="ck">export</span> <span class="ck">const</span> <span class="cv">Project</span> = ({ brand }) => (
+  &lt;<span class="ct">Headquarters</span>
+    <span class="cv">name</span>=<span class="cs">{brand}</span>
+    <span class="cv">tone</span>=<span class="cs">"silent"</span>
+    <span class="cv">conversion</span>=<span class="cs">"implicit"</span>
+  /&gt;
+);</pre>
+          <span class="code-tag">FIG · BUILD 02</span>
+        </div>
+      </div>
+      <div class="method-frame" data-frame="3">
+        <div class="sticky-dashboard">
+          <div class="dash-head">
+            <span>PERFORMANCE · Q2</span>
+            <span class="green">● LIVE</span>
+          </div>
+          <div class="dash-kpis">
+            <div><b>+184%</b><span>Conversiones</span></div>
+            <div><b>2.1s</b><span>LCP</span></div>
+            <div><b>98</b><span>PageSpeed</span></div>
+          </div>
+          <div class="dash-chart">
+            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+              <polyline points="0,65 20,58 40,62 60,48 80,52 100,38 120,42 140,28 160,22 180,14 200,8" fill="none" stroke="#8A9BAC" stroke-width="1"/>
+              <polyline points="0,72 20,68 40,66 60,58 80,60 100,52 120,48 140,44 160,36 180,32 200,26" fill="none" stroke="#5B6B7C" stroke-width="1" stroke-dasharray="2 3"/>
+            </svg>
+          </div>
+          <span class="dash-tag">FIG · LAUNCH 03</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 6 · SOCIOS ESTRATÉGICOS ══════════════ -->
+<section class="section partners" id="socios">
+  <div class="container">
+    <header class="sec-head center">
+      <span class="eyebrow">— 04 / Socios estratégicos</span>
+      <h2 class="h-display">Aquellos que <em>nos retuvieron.</em></h2>
+    </header>
+
+    <div class="testimonial-carousel">
+      <button class="carousel-nav prev" aria-label="Anterior" data-dir="-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square"><path d="M15 4 L6 12 L15 20"/></svg>
+      </button>
+
+      <div class="testimonial-track" data-track>
+        <article class="testimonial active">
+          <svg class="quote-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M10 28 C10 20 14 16 20 16 M10 28 L10 36 L18 36 L18 28 Z"/>
+            <path d="M28 28 C28 20 32 16 38 16 M28 28 L28 36 L36 36 L36 28 Z"/>
+          </svg>
+          <p class="tm-quote">
+            La seriedad que proyecta mi firma ahora es incomparable. Koda Studio entendió perfecto que necesitábamos sobriedad y confianza. Los clientes ahora llegan mucho más filtrados y decididos.
+          </p>
+          <div class="tm-author">
+            <span class="name">Lic. Roberto Méndez</span>
+            <span class="role">Despacho Legal MX · Socio fundador</span>
+          </div>
+        </article>
+        <article class="testimonial">
+          <svg class="quote-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M10 28 C10 20 14 16 20 16 M10 28 L10 36 L18 36 L18 28 Z"/>
+            <path d="M28 28 C28 20 32 16 38 16 M28 28 L28 36 L36 36 L36 28 Z"/>
+          </svg>
+          <p class="tm-quote">
+            Pasamos de recibir cotizaciones por curiosidad a conversaciones con clientes que ya decidieron. La sede digital hizo el trabajo antes de la primera llamada.
+          </p>
+          <div class="tm-author">
+            <span class="name">Arq. Valeria Sandoval</span>
+            <span class="role">Novus CA Real Estate · Directora comercial</span>
+          </div>
+        </article>
+        <article class="testimonial">
+          <svg class="quote-mark" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M10 28 C10 20 14 16 20 16 M10 28 L10 36 L18 36 L18 28 Z"/>
+            <path d="M28 28 C28 20 32 16 38 16 M28 28 L28 36 L36 36 L36 28 Z"/>
+          </svg>
+          <p class="tm-quote">
+            Koda no entregó un sitio web. Entregó una pieza de infraestructura. Cada detalle se nota y cada métrica mejoró el trimestre del lanzamiento.
+          </p>
+          <div class="tm-author">
+            <span class="name">Hector Veiga</span>
+            <span class="role">Voga Eventos · Dirección creativa</span>
+          </div>
+        </article>
+      </div>
+
+      <button class="carousel-nav next" aria-label="Siguiente" data-dir="1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="square"><path d="M9 4 L18 12 L9 20"/></svg>
+      </button>
+    </div>
+
+    <div class="carousel-dots" data-dots>
+      <button class="dot active" data-idx="0" aria-label="Testimonio 1"></button>
+      <button class="dot" data-idx="1" aria-label="Testimonio 2"></button>
+      <button class="dot" data-idx="2" aria-label="Testimonio 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 7 · PRÁCTICAS ESPECIALIZADAS ══════════════ -->
+<section class="section sectors alt-bg" id="sectores">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">— 05 / Prácticas especializadas</span>
+      <div class="sec-head-row">
+        <h2 class="h-display">Sectores donde <em>el estándar</em> es no negociable.</h2>
+        <p class="sec-desc">
+          Nichos donde la confianza, el prestigio y la conversión silenciosa son la única moneda que importa.
+        </p>
+      </div>
+    </header>
+
+    <div class="sector-grid">
+      <a href="#" class="sector-card" data-texture="marble">
+        <div class="sec-texture"></div>
+        <div class="sec-body">
+          <span class="sec-idx">— 01</span>
+          <h3>Firmas legales<br>&amp; financieras</h3>
+          <p>Autoridad y sobriedad que atrae clientes corporativos de alto valor sin esfuerzo.</p>
+          <span class="sec-link">Explorar sector →</span>
+        </div>
+      </a>
+
+      <a href="#" class="sector-card" data-texture="concrete">
+        <div class="sec-texture"></div>
+        <div class="sec-body">
+          <span class="sec-idx">— 02</span>
+          <h3>Bienes raíces<br>&amp; desarrolladoras</h3>
+          <p>Arquitectura digital que atrae y califica inversionistas de forma automatizada.</p>
+          <span class="sec-link">Explorar sector →</span>
+        </div>
+      </a>
+
+      <a href="#" class="sector-card" data-texture="linen">
+        <div class="sec-texture"></div>
+        <div class="sec-body">
+          <span class="sec-idx">— 03</span>
+          <h3>Hospitalidad<br>&amp; wellness</h3>
+          <p>Interfaces inmersivas y reservas directas que comunican experiencia exclusiva.</p>
+          <span class="sec-link">Explorar sector →</span>
+        </div>
+      </a>
+
+      <a href="#" class="sector-card" data-texture="wood">
+        <div class="sec-texture"></div>
+        <div class="sec-body">
+          <span class="sec-idx">— 04</span>
+          <h3>Estudios de<br>arquitectura</h3>
+          <p>Portafolios minimalistas donde la obra es protagonista y nada compite con ella.</p>
+          <span class="sec-link">Explorar sector →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 8 · CAPITAL INTELECTUAL ══════════════ -->
+<section class="section insights dark" id="insights">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow light">— 06 / Capital intelectual</span>
+      <div class="sec-head-row">
+        <h2 class="h-display inv">Insights &amp; <em>perspectivas.</em></h2>
+        <a href="#" class="sec-all">Todas las publicaciones →</a>
+      </div>
+    </header>
+
+    <div class="insight-list">
+      <a href="#" class="insight-row">
+        <span class="ix">— 01</span>
+        <span class="ikind">Caso de estudio</span>
+        <h3>El impacto del diseño minimalista en la conversión de firmas legales.</h3>
+        <span class="ilen">12 min</span>
+        <span class="iarr">→</span>
+      </a>
+      <a href="#" class="insight-row">
+        <span class="ix">— 02</span>
+        <span class="ikind">Perspectiva</span>
+        <h3>Por qué las plantillas devalúan la percepción de tu negocio B2B.</h3>
+        <span class="ilen">8 min</span>
+        <span class="iarr">→</span>
+      </a>
+      <a href="#" class="insight-row">
+        <span class="ix">— 03</span>
+        <span class="ikind">Estrategia</span>
+        <h3>Automatización de agendas y captación de clientes en redes sociales.</h3>
+        <span class="ilen">14 min</span>
+        <span class="iarr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 9 · PRESENCIA NACIONAL ══════════════ -->
+<section class="section presence" id="presencia">
+  <div class="container presence-grid">
+    <div class="presence-copy">
+      <span class="eyebrow">— 07 / Presencia nacional</span>
+      <h2 class="h-display">Impacto digital <em>sin fronteras.</em></h2>
+      <p class="lede">
+        Operamos con un número limitado de empresas por año. Nuestras sedes digitales están activas en los polos económicos clave de México y en Norteamérica.
+      </p>
+      <ul class="cities">
+        <li><span>01</span>Ciudad de México</li>
+        <li><span>02</span>Nuevo León — Monterrey</li>
+        <li><span>03</span>Jalisco</li>
+        <li><span>04</span>Baja California</li>
+        <li><span>05</span>Hidalgo</li>
+        <li><span>06</span>Querétaro</li>
+        <li><span>07</span>Puebla</li>
+        <li><span>08</span>Yucatán — Mérida</li>
+        <li><span>09</span>Estado de México</li>
+        <li><span>10</span>Quintana Roo</li>
+        <li><span>11</span>Canadá</li>
+      </ul>
+    </div>
+
+    <div class="presence-map">
+      <div class="map-legend">
+        <span class="label">MAPA · 11 NODOS ACTIVOS</span>
+        <span class="coord">LAT 23.6 · LON −102.5</span>
+      </div>
+      <svg viewBox="0 0 600 520" class="mx-map" aria-hidden="true">
+        <!-- Canada hint (far north) -->
+        <path d="M60 20 L200 18 L360 30 L500 28 L540 48 L520 70 L480 72 L400 64 L320 70 L240 58 L160 62 L100 54 Z"
+              fill="none" stroke="#C8C3BB" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.6"/>
+        <text x="260" y="48" class="map-label-far">— CANADÁ</text>
+
+        <!-- Mexico outline (stylized) -->
+        <path class="mx-outline" d="
+          M95 165
+          L140 150
+          L180 155
+          L215 148
+          L245 140
+          L280 132
+          L315 128
+          L345 130
+          L375 138
+          L408 148
+          L440 162
+          L470 180
+          L495 205
+          L510 230
+          L520 258
+          L512 285
+          L490 300
+          L470 310
+          L455 328
+          L460 352
+          L478 374
+          L498 396
+          L512 420
+          L518 448
+          L500 462
+          L478 458
+          L452 442
+          L430 420
+          L410 395
+          L390 368
+          L370 348
+          L348 340
+          L325 346
+          L305 360
+          L282 368
+          L260 362
+          L240 348
+          L222 330
+          L210 310
+          L202 288
+          L190 272
+          L172 264
+          L150 258
+          L128 248
+          L110 232
+          L96 210
+          L90 188 Z"
+          fill="none" stroke="#5B6B7C" stroke-width="0.8" />
+
+        <!-- Baja California -->
+        <path class="mx-outline" d="
+          M78 175
+          L92 170
+          L102 185
+          L112 210
+          L120 235
+          L132 258
+          L145 278
+          L155 295
+          L148 305
+          L135 295
+          L122 278
+          L108 258
+          L95 238
+          L85 215
+          L78 195 Z"
+          fill="none" stroke="#5B6B7C" stroke-width="0.8"/>
+
+        <!-- Yucatán peninsula notch -->
+        <path class="mx-outline" d="
+          M455 328
+          L478 318
+          L498 312
+          L515 320
+          L520 340
+          L510 362
+          L490 368
+          L472 358
+          L460 345 Z"
+          fill="none" stroke="#5B6B7C" stroke-width="0.8"/>
+
+        <!-- City nodes -->
+        <g class="map-nodes">
+          <!-- 1 CDMX -->
+          <circle cx="332" cy="282" r="4"/><text x="340" y="285">Ciudad de México</text>
+          <!-- 2 Monterrey -->
+          <circle cx="300" cy="195" r="4"/><text x="308" y="198">Monterrey</text>
+          <!-- 3 Jalisco (GDL) -->
+          <circle cx="270" cy="258" r="4"/><text x="212" y="261" text-anchor="end">Guadalajara</text>
+          <!-- 4 Baja California (Tijuana) -->
+          <circle cx="86" cy="180" r="4"/><text x="94" y="183">Tijuana</text>
+          <!-- 5 Hidalgo -->
+          <circle cx="338" cy="268" r="3"/><text x="346" y="271">Hidalgo</text>
+          <!-- 6 Querétaro -->
+          <circle cx="316" cy="262" r="3"/><text x="258" y="265" text-anchor="end">Querétaro</text>
+          <!-- 7 Puebla -->
+          <circle cx="352" cy="292" r="3"/><text x="360" y="295">Puebla</text>
+          <!-- 8 Mérida -->
+          <circle cx="490" cy="330" r="4"/><text x="498" y="333">Mérida</text>
+          <!-- 9 Edomex -->
+          <circle cx="322" cy="276" r="3"/><text x="250" y="279" text-anchor="end">Edo. de México</text>
+          <!-- 10 Quintana Roo -->
+          <circle cx="515" cy="345" r="4"/><text x="523" y="348">Quintana Roo</text>
+          <!-- 11 Canadá -->
+          <circle cx="300" cy="42" r="4"/><text x="308" y="45">Canadá</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 10 · FAQ ══════════════ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <header class="sec-head">
+      <span class="eyebrow">— 08 / FAQ</span>
+      <div class="sec-head-row">
+        <h2 class="h-display">Preguntas que <em>los clientes</em> hacen.</h2>
+        <p class="sec-desc">
+          Transparencia absoluta. Si vas a retenernos, estas son las respuestas que te permitirán decidir con información completa.
+        </p>
+      </div>
+    </header>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>
+          <span class="fq-idx">01</span>
+          <span class="fq-q">¿Quién es el dueño legal del sitio, el dominio y los activos?</span>
+          <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+        </summary>
+        <div class="fq-a">
+          <p>Tú. En Koda Studio creemos en la transparencia absoluta. Te transferimos la propiedad legal total de tu dominio, hosting y código fuente desde el lanzamiento. Eres dueño del 100% de tu infraestructura.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="fq-idx">02</span>
+          <span class="fq-q">¿Por qué Koda Studio no utiliza plantillas predefinidas?</span>
+          <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+        </summary>
+        <div class="fq-a">
+          <p>Las plantillas devalúan la percepción de tu marca. Nosotros desarrollamos arquitectura digital a medida utilizando tecnologías modernas. Esto garantiza sitios ultrarrápidos, seguridad de grado corporativo y una estética exclusiva.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="fq-idx">03</span>
+          <span class="fq-q">¿Cómo se mide el retorno de inversión (ROI) del proyecto?</span>
+          <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+        </summary>
+        <div class="fq-a">
+          <p>Nos enfocamos en métricas de negocio reales: aumento en conversión, posicionamiento SEO, y la cantidad de horas semanales que tu equipo ahorra gracias a nuestras automatizaciones.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="fq-idx">04</span>
+          <span class="fq-q">Si mi empresa crece, ¿el sitio podrá escalar con nosotros?</span>
+          <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+        </summary>
+        <div class="fq-a">
+          <p>Completamente. Al desarrollar con código moderno, tu sede digital nace lista para escalar: integraciones con CRMs, APIs de terceros, multi-idioma, sin rehacer el sitio.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 11 · CTA FINAL ══════════════ -->
+<section class="section cta-final dark" id="contacto">
+  <div class="container cta-grid">
+    <div class="cta-left">
+      <span class="eyebrow light">— Siguiente paso</span>
+      <h2 class="h-display inv big">
+        ¿Listo para <em>dominar</em><br>tu sector?
+      </h2>
+    </div>
+    <div class="cta-right">
+      <p class="cta-desc">
+        Aceptamos un número limitado de proyectos por trimestre. Si tu estándar es innegociable, conversemos sobre la sede digital que tu empresa merece.
+      </p>
+      <a href="#" class="cta-btn-lg">
+        <span>Agendar consultoría</span>
+        <span class="arr">→</span>
+      </a>
+      <div class="cta-trust">
+        <span>contacto@kodastudio.mx</span>
+        <span class="sep">·</span>
+        <span>Respuesta en menos de 24 h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <a href="#top" class="wordmark light" aria-label="Koda — Inicio">
+        <span class="wm-mark">koda</span>
+      </a>
+      <div class="footer-cols">
+        <div>
+          <span class="flabel">Expertise</span>
+          <a href="#expertise">Desarrollo web</a>
+          <a href="#expertise">Branding</a>
+          <a href="#expertise">Marketing &amp; redes</a>
+        </div>
+        <div>
+          <span class="flabel">Estudio</span>
+          <a href="#trabajo">Trabajo</a>
+          <a href="#metodologia">Metodología</a>
+          <a href="#insights">Insights</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <span class="flabel">Contacto</span>
+          <a href="#">contacto@kodastudio.mx</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Koda Studio · Todos los derechos reservados</span>
+      <div class="foot-links">
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- Tweaks panel -->
+<div id="tweaks-panel" class="tweaks-panel" hidden>
+  <div class="tw-head">
+    <span>Tweaks</span>
+    <button class="tw-close" aria-label="Cerrar">×</button>
+  </div>
+  <label class="tw-row">
+    <span>Acento</span>
+    <select data-tw="accent">
+      <option value="#5B6B7C">Azul pizarra</option>
+      <option value="#7A5E4C">Cobre</option>
+      <option value="#4A5A4C">Verde petróleo</option>
+      <option value="#1A1A18">Carbón puro</option>
+    </select>
+  </label>
+  <label class="tw-row">
+    <span>Fondo hero</span>
+    <select data-tw="hero">
+      <option value="smoke">Humo carbón</option>
+      <option value="marble">Mármol pulido</option>
+      <option value="concrete">Concreto</option>
+      <option value="void">Vacío absoluto</option>
+    </select>
+  </label>
+  <label class="tw-row">
+    <span>Header inicial</span>
+    <select data-tw="headerStart">
+      <option value="dark">Sobre oscuro (hero)</option>
+      <option value="solid">Sólido desde arriba</option>
+    </select>
+  </label>
+  <label class="tw-row">
+    <span>Grano / ruido</span>
+    <input type="range" min="0" max="100" value="50" data-tw="grain">
+  </label>
+  <label class="tw-row check">
+    <input type="checkbox" data-tw="parallax" checked>
+    <span>Parallax en mockups</span>
+  </label>
+  <label class="tw-row check">
+    <input type="checkbox" data-tw="autoplay" checked>
+    <span>Autoplay testimonios</span>
+  </label>
+</div>
+
+<script>/* Koda Studio — landing page interactions */
+
+(() => {
+  // ═══ Header: dark→light transition on scroll ═══
+  const header = document.getElementById('site-header');
+  const hero = document.querySelector('.hero');
+
+  function updateHeader() {
+    if (!header || !hero) return;
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    const scrolled = window.scrollY > 40;
+
+    // Find the section currently behind the header
+    const headerMid = 40; // below the fixed header top
+    const sections = document.querySelectorAll('main > section, main > footer');
+    let onDark = false;
+    sections.forEach(sec => {
+      const r = sec.getBoundingClientRect();
+      if (r.top <= headerMid && r.bottom > headerMid) {
+        onDark = sec.classList.contains('hero') ||
+                 sec.classList.contains('dark') ||
+                 sec.classList.contains('site-footer');
+      }
+    });
+
+    header.classList.toggle('on-dark', onDark);
+    header.classList.toggle('on-light', !onDark);
+    header.classList.toggle('scrolled', scrolled);
+
+    // Swap wordmark color class (both already use currentColor so nothing to do)
+  }
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('resize', updateHeader);
+
+  // ═══ Scale iframes to fit laptop screen width ═══
+  function scaleIframes() {
+    document.querySelectorAll('.laptop-screen').forEach(screen => {
+      const iframe = screen.querySelector('iframe');
+      if (!iframe) return;
+      const containerWidth = screen.offsetWidth;
+      const iframeNativeWidth = 1440;
+      const scaleRatio = containerWidth / iframeNativeWidth;
+      iframe.style.transform = `scale(${scaleRatio})`;
+    });
+  }
+  scaleIframes();
+  window.addEventListener('resize', scaleIframes, { passive: true });
+
+  // ═══ Method sticky: sync media frame to active step ═══
+  const methodSteps = document.querySelectorAll('.method-step');
+  const methodFrames = document.querySelectorAll('.method-frame');
+
+  function updateMethod() {
+    if (!methodSteps.length) return;
+    const vh = window.innerHeight;
+    let activeIdx = 0;
+    methodSteps.forEach((step, i) => {
+      const r = step.getBoundingClientRect();
+      const center = r.top + r.height / 2;
+      if (center < vh * 0.55) activeIdx = i;
+    });
+    methodSteps.forEach((s, i) => s.classList.toggle('active', i === activeIdx));
+    methodFrames.forEach((f, i) => f.classList.toggle('show', i === activeIdx));
+  }
+  // Set first frame visible initially
+  if (methodFrames[0]) methodFrames[0].classList.add('show');
+  if (methodSteps[0]) methodSteps[0].classList.add('active');
+  updateMethod();
+  window.addEventListener('scroll', updateMethod, { passive: true });
+
+  // ═══ Testimonials carousel ═══
+  const track = document.querySelector('[data-track]');
+  const testimonials = track ? track.querySelectorAll('.testimonial') : [];
+  const dots = document.querySelectorAll('[data-dots] .dot');
+  const navBtns = document.querySelectorAll('.carousel-nav');
+  let tmIdx = 0;
+  let autoplay = true;
+  let tmTimer = null;
+
+  function setTestimonial(i) {
+    tmIdx = (i + testimonials.length) % testimonials.length;
+    testimonials.forEach((t, k) => t.classList.toggle('active', k === tmIdx));
+    dots.forEach((d, k) => d.classList.toggle('active', k === tmIdx));
+  }
+  navBtns.forEach(b => b.addEventListener('click', () => {
+    setTestimonial(tmIdx + parseInt(b.dataset.dir, 10));
+    resetAutoplay();
+  }));
+  dots.forEach(d => d.addEventListener('click', () => {
+    setTestimonial(parseInt(d.dataset.idx, 10));
+    resetAutoplay();
+  }));
+  function startAutoplay() {
+    if (!autoplay) return;
+    stopAutoplay();
+    tmTimer = setInterval(() => setTestimonial(tmIdx + 1), 6000);
+  }
+  function stopAutoplay() { if (tmTimer) clearInterval(tmTimer); tmTimer = null; }
+  function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+  startAutoplay();
+
+  // ═══ Reveal on scroll ═══
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+  // ═══ Tweaks panel ═══
+  const panel = document.getElementById('tweaks-panel');
+  const closeBtn = panel?.querySelector('.tw-close');
+
+  window.addEventListener('message', (e) => {
+    if (e.data?.type === '__activate_edit_mode') {
+      panel.hidden = false;
+    } else if (e.data?.type === '__deactivate_edit_mode') {
+      panel.hidden = true;
+    }
+  });
+  // Announce availability after handler is registered
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(_) {}
+
+  closeBtn?.addEventListener('click', () => {
+    panel.hidden = true;
+    try { window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*'); } catch(_) {}
+  });
+
+  // Tweak handlers
+  panel?.querySelectorAll('[data-tw]').forEach(ctl => {
+    const key = ctl.dataset.tw;
+    ctl.addEventListener('input', () => applyTweak(key, ctl.type === 'checkbox' ? ctl.checked : ctl.value));
+    ctl.addEventListener('change', () => applyTweak(key, ctl.type === 'checkbox' ? ctl.checked : ctl.value));
+  });
+
+  function applyTweak(key, value) {
+    const root = document.documentElement;
+    if (key === 'accent') {
+      root.style.setProperty('--accent-live', value);
+      root.style.setProperty('--accent', value);
+    } else if (key === 'hero') {
+      hero?.classList.remove('mode-marble', 'mode-concrete', 'mode-void');
+      if (value === 'marble') hero?.classList.add('mode-marble');
+      else if (value === 'concrete') hero?.classList.add('mode-concrete');
+      else if (value === 'void') hero?.classList.add('mode-void');
+    } else if (key === 'headerStart') {
+      // When 'solid', force on-light at top
+      if (value === 'solid') {
+        header.classList.remove('on-dark');
+        header.classList.add('on-light', 'scrolled');
+      } else {
+        updateHeader();
+      }
+    } else if (key === 'grain') {
+      const grain = document.querySelector('.hero-grain');
+      if (grain) grain.style.opacity = (value / 100) * 0.16;
+    } else if (key === 'parallax') {
+      parallaxEnabled = value;
+      if (!value) {
+        parallaxFrames.forEach(f => {
+          const s = f.querySelector('[data-parallax-scroll] .mock');
+          if (s) s.style.transform = '';
+        });
+      } else { updateParallax(); }
+    } else if (key === 'autoplay') {
+      autoplay = value;
+      if (value) startAutoplay(); else stopAutoplay();
+    }
+  }
+})();
+</script>
+
+<script>
+// ══════════════ PARALLAX ENGINE ══════════════
+document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('trabajo');
+    const images = document.querySelectorAll('.parallax-img');
+    let ticking = false;
+
+    const handleParallax = () => {
+        // Breakpoint de seguridad: apagamos el cálculo en móviles
+        if (window.innerWidth <= 900) {
+            images.forEach(img => img.style.transform = `translate3d(0, 0, 0)`);
+            return;
+        }
+
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Distancia total de scroll dentro de la sección sticky
+        const totalScrollDistance = rect.height - windowHeight;
+        let progress = -rect.top / totalScrollDistance;
+        progress = Math.max(0, Math.min(1, progress));
+
+        images.forEach(img => {
+            const container = img.closest('.laptop-screen');
+            if (!container) return;
+            
+            // Usamos naturalHeight para garantizar el cálculo aunque la imagen no haya pintado aún
+            const imgHeight = img.offsetHeight || (img.naturalHeight * (container.offsetWidth / img.naturalWidth));
+            const maxTranslate = Math.max(0, imgHeight - container.offsetHeight);
+            const currentTranslate = maxTranslate * progress;
+            
+            img.style.transform = `translate3d(0, -${currentTranslate}px, 0)`;
+        });
+    };
+
+    // Optimizador requestAnimationFrame
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                handleParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    window.addEventListener('resize', handleParallax);
+    window.addEventListener('load', handleParallax);
+    
+    // Recalcular cuando cada imagen cargue (offsetHeight puede ser 0 antes)
+    images.forEach(img => {
+        if (img.complete) {
+            handleParallax();
+        } else {
+            img.addEventListener('load', handleParallax);
+        }
+    });
+    
+    // Ejecutar inmediatamente para posicionar al inicio
+    handleParallax();
+});
+</script>
+</body>
+</html>
