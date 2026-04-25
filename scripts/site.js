@@ -50,6 +50,23 @@ waRail.classList.toggle("on-light", !waOnDark);
 updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 window.addEventListener("resize", updateHeader);
+
+// ─── prefers-reduced-motion: pausa el video del hero ───
+const heroVideo = document.querySelector(".hero-video-element");
+if (heroVideo) {
+const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+const applyMotion = m => {
+if (m.matches) {
+heroVideo.pause();
+heroVideo.removeAttribute("autoplay");
+} else {
+heroVideo.setAttribute("autoplay", "");
+heroVideo.play().catch(() => {});
+}
+};
+applyMotion(mq);
+mq.addEventListener("change", applyMotion);
+}
 // Re-run after full DOM is ready so wa-rail (below the script) is found
 document.addEventListener("DOMContentLoaded", updateHeader);
 
@@ -367,8 +384,31 @@ type: "text",
 },
 ];
 
+// ── Focus trap ──
+let triggerEl = null;
+const FOCUSABLE = 'button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+
+function getFocusable() {
+return Array.from(modal.querySelectorAll(FOCUSABLE)).filter(
+el => !el.closest("[hidden]"),
+);
+}
+
+modal.addEventListener("keydown", e => {
+if (e.key !== "Tab") return;
+const els = getFocusable();
+if (!els.length) return;
+const first = els[0], last = els[els.length - 1];
+if (e.shiftKey) {
+if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+} else {
+if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+});
+
 // ── Abrir / cerrar ──
 function openModal() {
+triggerEl = document.activeElement;
 modal.hidden = false;
 document.body.style.overflow = "hidden";
 requestAnimationFrame(() => modal.classList.add("is-open"));
@@ -384,6 +424,7 @@ modal.classList.remove("is-open");
 document.body.style.overflow = "";
 setTimeout(() => {
 modal.hidden = true;
+if (triggerEl) { triggerEl.focus(); triggerEl = null; }
 }, 360);
 }
 
