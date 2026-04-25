@@ -133,9 +133,8 @@ body { background: var(--bg-primary); color: var(--fg-primary); overflow-x: hidd
   opacity: 0.9;
   transition: background 300ms ease, color 300ms ease, opacity 300ms ease;
 }
-.header-cta:hover { background: currentColor; }
-.site-header.on-dark .header-cta:hover { color: var(--color-obsidian); }
-.site-header.on-light .header-cta:hover { color: var(--color-bone); }
+.site-header.on-dark .header-cta:hover  { background: var(--color-bone);    color: var(--color-obsidian); opacity: 1; }
+.site-header.on-light .header-cta:hover { background: var(--color-ink);     color: var(--color-bone);     opacity: 1; }
 
 @media (max-width: 880px) {
   .site-nav { display: none; }

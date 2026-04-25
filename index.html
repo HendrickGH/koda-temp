@@ -603,14 +603,15 @@
 					color 300ms ease,
 					opacity 300ms ease;
 			}
-			.header-cta:hover {
-				background: currentColor;
-			}
 			.site-header.on-dark .header-cta:hover {
+				background: var(--color-bone);
 				color: var(--color-obsidian);
+				opacity: 1;
 			}
 			.site-header.on-light .header-cta:hover {
+				background: var(--color-ink);
 				color: var(--color-bone);
+				opacity: 1;
 			}
 
 			@media (max-width: 880px) {
@@ -3998,40 +3999,51 @@
 			/* Koda Studio — landing page interactions */
 
 			(() => {
-				// ═══ Header: dark→light transition on scroll ═══
+				// ═══ Header + WA button: dark→light transition on scroll ═══
 				const header = document.getElementById("site-header");
 				const hero = document.querySelector(".hero");
+				let waRail = null;
+
+				function isDark(sec) {
+					return sec.classList.contains("hero") ||
+					       sec.classList.contains("dark") ||
+					       sec.classList.contains("site-footer");
+				}
 
 				function updateHeader() {
 					if (!header || !hero) return;
-					const heroBottom = hero.getBoundingClientRect().bottom;
 					const scrolled = window.scrollY > 40;
+					const sections = document.querySelectorAll("main > section, main > footer");
 
-					// Find the section currently behind the header
-					const headerMid = 40; // below the fixed header top
-					const sections = document.querySelectorAll(
-						"main > section, main > footer",
-					);
+					// Header — check section behind the top bar
+					const headerMid = 40;
 					let onDark = false;
 					sections.forEach(sec => {
 						const r = sec.getBoundingClientRect();
-						if (r.top <= headerMid && r.bottom > headerMid) {
-							onDark =
-								sec.classList.contains("hero") ||
-								sec.classList.contains("dark") ||
-								sec.classList.contains("site-footer");
-						}
+						if (r.top <= headerMid && r.bottom > headerMid) onDark = isDark(sec);
 					});
-
 					header.classList.toggle("on-dark", onDark);
 					header.classList.toggle("on-light", !onDark);
 					header.classList.toggle("scrolled", scrolled);
 
-					// Swap wordmark color class (both already use currentColor so nothing to do)
+					// WA button — check section behind the bottom-right corner
+					if (!waRail) waRail = document.querySelector(".wa-rail");
+					if (waRail) {
+						const waMid = window.innerHeight - 80;
+						let waOnDark = false;
+						sections.forEach(sec => {
+							const r = sec.getBoundingClientRect();
+							if (r.top <= waMid && r.bottom > waMid) waOnDark = isDark(sec);
+						});
+						waRail.classList.toggle("on-dark", waOnDark);
+						waRail.classList.toggle("on-light", !waOnDark);
+					}
 				}
 				updateHeader();
 				window.addEventListener("scroll", updateHeader, { passive: true });
 				window.addEventListener("resize", updateHeader);
+				// Re-run after full DOM is ready so wa-rail (below the script) is found
+				document.addEventListener("DOMContentLoaded", updateHeader);
 
 				// ═══ Scale iframes to fit laptop screen width ═══
 				function scaleIframes() {
@@ -4469,5 +4481,60 @@
 			});
 		})();
 		</script>
+
+		<!-- WhatsApp float -->
+		<div class="wa-rail">
+			<a
+				href="https://wa.me/527721698485"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="wa-float"
+				aria-label="Contactar por WhatsApp"
+			>
+				<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+					<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+					<path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.533 5.862L.054 23.447a.5.5 0 0 0 .606.607l5.694-1.49A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.877 9.877 0 0 1-5.031-1.378l-.36-.214-3.733.977.998-3.645-.234-.374A9.869 9.869 0 0 1 2.106 12C2.106 6.533 6.533 2.106 12 2.106S21.894 6.533 21.894 12 17.467 21.894 12 21.894z"/>
+				</svg>
+			</a>
+		</div>
+		<style>
+			.wa-rail {
+				position: fixed;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: min(var(--max-width), 100vw);
+				padding: 0 clamp(1.5rem, 5vw, 4rem);
+				pointer-events: none;
+				z-index: 200;
+			}
+			.wa-float {
+				position: absolute;
+				bottom: 32px;
+				right: clamp(1.5rem, 5vw, 4rem);
+				pointer-events: auto;
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+				background: transparent;
+				color: var(--color-bone);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+				transition: color 300ms ease, transform 280ms ease, box-shadow 280ms ease;
+			}
+			.wa-rail.on-dark .wa-float  { color: var(--color-bone); }
+			.wa-rail.on-light .wa-float { color: var(--color-ink); }
+			.wa-float svg {
+				width: 30px;
+				height: 30px;
+				display: block;
+			}
+			.wa-float:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 0 0 1.5px currentColor;
+			}
+		</style>
 	</body>
 </html>

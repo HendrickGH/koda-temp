@@ -1,33 +1,45 @@
 /* Koda Studio — landing page interactions */
 
 (() => {
-  // ═══ Header: dark→light transition on scroll ═══
+  // ═══ Header + WA button: dark→light transition on scroll ═══
   const header = document.getElementById('site-header');
   const hero = document.querySelector('.hero');
+  const waRail = document.querySelector('.wa-rail');
+
+  function isDarkSection(sec) {
+    return sec.classList.contains('hero') ||
+           sec.classList.contains('dark') ||
+           sec.classList.contains('site-footer');
+  }
 
   function updateHeader() {
     if (!header || !hero) return;
-    const heroBottom = hero.getBoundingClientRect().bottom;
     const scrolled = window.scrollY > 40;
-
-    // Find the section currently behind the header
-    const headerMid = 40; // below the fixed header top
     const sections = document.querySelectorAll('main > section, main > footer');
+
+    // Header: check section behind the top bar
+    const headerMid = 40;
     let onDark = false;
     sections.forEach(sec => {
       const r = sec.getBoundingClientRect();
-      if (r.top <= headerMid && r.bottom > headerMid) {
-        onDark = sec.classList.contains('hero') ||
-                 sec.classList.contains('dark') ||
-                 sec.classList.contains('site-footer');
-      }
+      if (r.top <= headerMid && r.bottom > headerMid) onDark = isDarkSection(sec);
     });
 
     header.classList.toggle('on-dark', onDark);
     header.classList.toggle('on-light', !onDark);
     header.classList.toggle('scrolled', scrolled);
 
-    // Swap wordmark color class (both already use currentColor so nothing to do)
+    // WA button: check section behind the bottom-right corner
+    if (waRail) {
+      const waMid = window.innerHeight - 80;
+      let waOnDark = false;
+      sections.forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top <= waMid && r.bottom > waMid) waOnDark = isDarkSection(sec);
+      });
+      waRail.classList.toggle('on-dark', waOnDark);
+      waRail.classList.toggle('on-light', !waOnDark);
+    }
   }
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
