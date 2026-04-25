@@ -3878,7 +3878,8 @@
 					}))
 					.filter(it => it.container);
 
-				const EASE = 0.24;
+				const EASE = 0.15; // menor = inercia más larga al parar
+				const PARALLAX_CUTOFF = 0.7; // imagen completa al 70% del sticky
 				const MOBILE_BP = 900;
 				let rafId = null;
 
@@ -3902,7 +3903,10 @@
 					const total = Math.max(1, rect.height - window.innerHeight);
 					let progress = -rect.top / total;
 					progress = Math.max(0, Math.min(1, progress));
-					items.forEach(it => (it.targetY = it.maxTranslate * progress));
+					// Acelera el reveal: imagen recorre todo en el primer 70% del sticky
+					// El 30% restante mantiene la posición final mientras el scroll continúa
+					const accel = Math.min(progress / PARALLAX_CUTOFF, 1);
+					items.forEach(it => (it.targetY = it.maxTranslate * accel));
 				}
 
 				function paint(it) {
