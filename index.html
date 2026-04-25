@@ -3877,15 +3877,11 @@
 						return;
 					}
 					const rect = section.getBoundingClientRect();
-					const vh = window.innerHeight;
-					// Rango de scroll natural durante el cual aplica el parallax:
-					// inicio: tope de la sección entra por el borde inferior del viewport (rect.top = vh)
-					// fin: la sección está COMPLETE_AT pasada por el borde superior (rect.top = -h * COMPLETE_AT)
-					// Esto garantiza que la imagen recorra el 100% antes de que el usuario termine de pasar la sección.
-					const startTop = vh;
-					const endTop = -rect.height * COMPLETE_AT;
-					const range = Math.max(1, startTop - endTop);
-					let progress = ((startTop - rect.top) / range) * SPEED_MULT;
+					// Inicia cuando la sección llega al tope del viewport (rect.top = 0).
+					// Antes de eso: image en 0. SPEED_MULT comprime el rango hacia el final,
+					// haciendo scroll más rápido sin adelantar el inicio.
+					const range = Math.max(1, rect.height);
+					let progress = (-rect.top / range) * SPEED_MULT;
 					progress = Math.max(0, Math.min(1, progress));
 					items.forEach(it => (it.targetY = it.maxTranslate * progress));
 				}
