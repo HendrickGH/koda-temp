@@ -413,7 +413,7 @@
 			</section>
 
 			<!-- ══════════════ CTA FINAL ══════════════ -->
-			<section class="cta-final dark">
+			<section class="cta-final">
 				<div class="container">
 					<h2>¿Tu empresa está en esta lista?</h2>
 					<p>
@@ -570,48 +570,55 @@
 			}
 
 			.cta-final {
-				background: rgba(255, 255, 255, 0.03);
-				padding: 4rem 0;
+				background: var(--bg-secondary);
+				padding: 4rem 2rem;
 				text-align: center;
-				border-top: 1px solid rgba(255, 255, 255, 0.1);
-				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-				margin: 2rem 0;
+				border-top: 1px solid var(--border);
+				border-bottom: 1px solid var(--border);
+				margin: 4rem 0;
 			}
 
 			.cta-final h2 {
-				font-size: 2rem;
+				font-size: 1.75rem;
+				font-weight: 600;
 				margin-bottom: 1rem;
-				color: white;
+				color: var(--fg-primary);
 			}
 
 			.cta-final p {
-				font-size: 1.1rem;
-				color: rgba(255, 255, 255, 0.8);
+				font-size: 1rem;
+				color: var(--fg-secondary);
 				margin-bottom: 2rem;
 				max-width: 600px;
 				margin-left: auto;
 				margin-right: auto;
+				line-height: 1.6;
 			}
 
 			.button {
 				display: inline-block;
-				padding: 1rem 2.5rem;
+				padding: 0.875rem 2rem;
 				border-radius: 4px;
 				text-decoration: none;
-				font-weight: 600;
+				font-weight: 500;
+				font-size: 0.9rem;
+				letter-spacing: 0.05em;
 				transition: all 0.2s ease;
-				border: none;
+				border: 1px solid currentColor;
 				cursor: pointer;
+				text-transform: uppercase;
 			}
 
 			.button-primary {
-				background: var(--accent-live);
-				color: #1a1a1a;
+				background: var(--fg-primary);
+				color: var(--bg-secondary);
+				border-color: var(--fg-primary);
 			}
 
 			.button-primary:hover {
-				opacity: 0.9;
-				transform: translateY(-2px);
+				background: var(--accent);
+				color: var(--bg-primary);
+				border-color: var(--accent);
 			}
 
 			@media (max-width: 768px) {
@@ -619,12 +626,22 @@
 					font-size: 1.25rem;
 				}
 
+				.cta-final {
+					padding: 3rem 1.5rem;
+					margin: 3rem 0;
+				}
+
 				.cta-final h2 {
-					font-size: 1.5rem;
+					font-size: 1.4rem;
 				}
 
 				.cta-final p {
-					font-size: 1rem;
+					font-size: 0.95rem;
+				}
+
+				.button {
+					padding: 0.75rem 1.5rem;
+					font-size: 0.85rem;
 				}
 			}
 		</style>
