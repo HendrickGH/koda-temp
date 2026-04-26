@@ -1733,10 +1733,12 @@ color: rgba(138, 155, 172, 0.6);
 grid-template-columns: 1fr;
 }
 .method-media {
-position: relative;
-top: auto;
+position: sticky;
+top: 60px;
 order: -1;
 aspect-ratio: 16/10;
+max-height: 44vh;
+z-index: 10;
 }
 }
 
