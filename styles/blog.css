@@ -896,6 +896,12 @@ body.nav-locked { overflow: hidden; }
   }
   .article-body hr { margin: 56px 0; }
 
+  .compare-table th,
+  .compare-table td {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+
   .related { padding: clamp(64px, 14vw, 96px) 0; }
   .related-card { padding: 32px 22px; min-height: auto; }
   .article-cta { padding: clamp(72px, 14vw, 110px) 0; }
