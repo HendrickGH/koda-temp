@@ -2173,6 +2173,22 @@ color: var(--accent-live);
 padding-top: 4px;
 min-width: 20px;
 }
+.cities-cta {
+margin-top: 24px;
+padding-top: 24px;
+border-top: 1px solid var(--border-soft);
+}
+.cities-cta a {
+color: var(--fg-primary);
+text-decoration: none;
+font-weight: 500;
+font-size: 13.5px;
+transition: transform 0.2s ease;
+display: inline-block;
+}
+.cities-cta a:hover {
+transform: translateX(4px);
+}
 
 .presence-map {
 position: relative;
