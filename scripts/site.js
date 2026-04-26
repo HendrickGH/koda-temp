@@ -49,10 +49,10 @@ sec.classList.contains("site-footer")
 }
 
 function updateHeader() {
-if (!header || !hero) return;
+if (!header) return;
 const scrolled = window.scrollY > 40;
 const sections = document.querySelectorAll(
-"main > section, main > footer",
+"main > section, main > footer, body > footer",
 );
 
 // Header — check section behind the top bar

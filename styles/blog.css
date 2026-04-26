@@ -887,3 +887,50 @@ body.nav-locked { overflow: hidden; }
 
   .blog-row { padding: 28px 4px; gap: 18px; }
 }
+
+/* ── WhatsApp float ──────────────────────────────────────────── */
+.wa-rail {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--max-width), 100vw);
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  pointer-events: none;
+  z-index: 200;
+}
+.wa-float {
+  position: absolute;
+  bottom: 32px;
+  right: clamp(1.5rem, 5vw, 4rem);
+  pointer-events: auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-bone);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition:
+    color 300ms ease,
+    transform 280ms ease,
+    box-shadow 280ms ease;
+}
+.wa-rail.on-dark .wa-float { color: var(--color-bone); }
+.wa-rail.on-light .wa-float { color: var(--color-ink); }
+.wa-float svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.wa-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1.5px currentColor;
+}
+body.nav-locked .wa-rail {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
