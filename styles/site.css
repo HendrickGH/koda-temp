@@ -519,6 +519,8 @@ justify-content: space-between;
 max-width: var(--max-width);
 margin: 0 auto;
 gap: 32px;
+position: relative;
+z-index: 90;
 }
 
 .wordmark {
@@ -2960,4 +2962,9 @@ display: block;
 .wa-float:hover {
 transform: translateY(-2px);
 box-shadow: 0 0 0 1.5px currentColor;
+}
+body.nav-locked .wa-rail {
+opacity: 0;
+pointer-events: none;
+transition: opacity 200ms ease;
 }
