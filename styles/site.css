@@ -1235,17 +1235,6 @@ height: 4px;
 background: #0a0a09;
 }
 
-.case-scroll {
-position: absolute;
-inset: 0;
-overflow: hidden;
-}
-.case-scroll .mock {
-transform: translateY(0);
-will-change: transform;
-transition: transform 200ms linear;
-}
-
 /* Case meta */
 .case-meta {
 padding-right: 16px;
@@ -1439,104 +1428,6 @@ flex-direction: column;
 }
 .method-frame.show {
 opacity: 1;
-}
-
-/* Blueprint */
-.sticky-blueprint {
-position: relative;
-width: 100%;
-height: 100%;
-background: #0e1115;
-}
-.bp-grid {
-position: absolute;
-inset: 0;
-background-image:
-linear-gradient(rgba(140, 150, 160, 0.12) 1px, transparent 1px),
-linear-gradient(90deg, rgba(140, 150, 160, 0.12) 1px, transparent 1px);
-background-size: 24px 24px;
-}
-.bp-layout {
-position: absolute;
-inset: 10%;
-display: flex;
-flex-direction: column;
-gap: 12px;
-}
-.bp-row {
-border: 1px solid rgba(138, 155, 172, 0.5);
-background: rgba(91, 107, 124, 0.06);
-}
-.bp-row.r1 {
-height: 40px;
-}
-.bp-row.r2 {
-flex: 1;
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 8px;
-border: none;
-background: transparent;
-}
-.bp-row.r2 span {
-border: 1px solid rgba(138, 155, 172, 0.5);
-background: rgba(91, 107, 124, 0.06);
-}
-.bp-row.r3 {
-height: 50px;
-}
-.bp-row.r4 {
-flex: 1;
-display: grid;
-grid-template-columns: 2fr 1fr;
-gap: 8px;
-border: none;
-background: transparent;
-}
-.bp-row.r4 span {
-border: 1px solid rgba(138, 155, 172, 0.5);
-background: rgba(91, 107, 124, 0.06);
-}
-.bp-marks .mk {
-position: absolute;
-width: 10px;
-height: 10px;
-border: 1px solid var(--color-slate-pale);
-}
-.bp-marks .mk.tl {
-top: 8px;
-left: 8px;
-border-right: none;
-border-bottom: none;
-}
-.bp-marks .mk.tr {
-top: 8px;
-right: 8px;
-border-left: none;
-border-bottom: none;
-}
-.bp-marks .mk.bl {
-bottom: 8px;
-left: 8px;
-border-right: none;
-border-top: none;
-}
-.bp-marks .mk.br {
-bottom: 8px;
-right: 8px;
-border-left: none;
-border-top: none;
-}
-.bp-tag {
-position: absolute;
-bottom: 14px;
-left: 50%;
-transform: translateX(-50%);
-font-family: var(--font-body);
-font-size: 9px;
-font-weight: 500;
-letter-spacing: 0.3em;
-color: var(--color-slate-pale);
 }
 
 /* Code */
