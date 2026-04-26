@@ -1065,6 +1065,20 @@
 				z-index: 999;
 				outline: 2px solid var(--accent);
 			}
+			/* Nav submenu dropdown */
+			.nav-item { position: relative; }
+			.nav-item.has-submenu > a { display: inline-flex; align-items: center; gap: 5px; cursor: default; }
+			.nav-item.has-submenu > a::after { content: ""; width: 4px; height: 4px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg) translateY(-1px); transition: transform 220ms ease; opacity: .5; }
+			.nav-item.has-submenu:hover > a::after { transform: rotate(-135deg) translateY(1px); }
+			.nav-submenu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 200px; padding: 5px 0; background: var(--color-bone); border: 1px solid var(--color-border); opacity: 0; pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; z-index: 200; }
+			.site-header.on-dark .nav-submenu { background: var(--color-dark); border-color: rgba(255,255,255,.12); }
+			.nav-item.has-submenu:hover .nav-submenu,
+			.nav-item.has-submenu:focus-within .nav-submenu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+			.nav-submenu a { display: block; padding: 9px 20px; font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: currentColor; opacity: .65; border: none !important; transition: opacity 180ms ease, padding-left 180ms ease; }
+			.nav-submenu a:hover { opacity: 1; padding-left: 28px; }
+			.site-nav a.is-active { opacity: 1; }
+			.mobile-nav-inner a.mobile-subnav { font-size: clamp(1.15rem, 5.5vw, 2.1rem); font-style: italic; padding-top: 9px; padding-bottom: 9px; padding-left: 22px; opacity: .5; border-bottom-color: rgba(0,0,0,.04) !important; }
+			.site-header.on-dark .mobile-nav-inner a.mobile-subnav { border-bottom-color: rgba(255,255,255,.04) !important; }
 		</style>
 
 		<!-- CSS deferred: secciones below-the-fold -->
@@ -1081,51 +1095,53 @@
 	<body>
 		<a href="#top" class="skip-link">Saltar al contenido principal</a>
 		<!-- ══════════════ HEADER ══════════════ -->
-		<header id="site-header" class="site-header on-dark">
-			<div class="header-inner">
-				<a href="#top" class="wordmark" aria-label="Koda — Inicio">
-					<span class="wm-mark">koda</span>
-				</a>
-				<nav class="site-nav" aria-label="Principal">
-					<a href="#expertise">Expertise</a>
+			<header id="site-header" class="site-header on-dark">
+		<div class="header-inner">
+			<a href="/" class="wordmark" aria-label="Koda — Inicio">
+				<span class="wm-mark">koda</span>
+			</a>
+			<nav class="site-nav" aria-label="Principal">
+				<div class="nav-item has-submenu">
 					<a href="servicios/">Servicios</a>
-					<a href="#trabajo">Trabajo</a>
-					<a href="#insights">Insights</a>
-					<a href="#faq">FAQ</a>
-					<a href="#contacto">Contacto</a>
-				</nav>
-				<a href="#contacto" class="header-cta" data-open-modal
-					>Iniciar proyecto</a
-				>
-				<button
-					type="button"
-					class="nav-toggle"
-					aria-label="Abrir menú"
-					aria-expanded="false"
-					aria-controls="mobile-nav"
-				>
-					<span class="nav-toggle-box" aria-hidden="true">
-						<span class="nav-toggle-bar"></span>
-						<span class="nav-toggle-bar"></span>
-						<span class="nav-toggle-bar"></span>
-					</span>
-				</button>
-			</div>
-			<div id="mobile-nav" class="mobile-nav">
-				<nav class="mobile-nav-inner" aria-label="Navegación móvil">
-					<a href="#expertise" style="--d: 60ms">Expertise</a>
-					<a href="servicios/" style="--d: 110ms">Servicios</a>
-					<a href="#trabajo" style="--d: 160ms">Trabajo</a>
-					<a href="#insights" style="--d: 210ms">Insights</a>
-					<a href="#faq" style="--d: 260ms">FAQ</a>
-					<a href="#contacto" style="--d: 310ms">Contacto</a>
-				</nav>
-				<a href="#contacto" class="mobile-nav-cta" data-open-modal>
-					<span>Iniciar proyecto</span>
-					<span aria-hidden="true">→</span>
-				</a>
-			</div>
-		</header>
+					<div class="nav-submenu">
+						<a href="servicios/desarrollo-web/">Desarrollo web</a>
+						<a href="servicios/branding/">Branding</a>
+						<a href="servicios/marketing-redes/">Marketing &amp; redes</a>
+					</div>
+				</div>
+				<a href="digitalizamos/">Presencia</a>
+				<a href="blog/">Blog</a>
+			</nav>
+			<a href="#" class="header-cta" data-open-modal>Iniciar proyecto</a>
+			<button
+				type="button"
+				class="nav-toggle"
+				aria-label="Abrir menú"
+				aria-expanded="false"
+				aria-controls="mobile-nav"
+			>
+				<span class="nav-toggle-box" aria-hidden="true">
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+				</span>
+			</button>
+		</div>
+		<div id="mobile-nav" class="mobile-nav">
+			<nav class="mobile-nav-inner" aria-label="Navegación móvil">
+				<a href="servicios/" style="--d: 60ms">Servicios</a>
+				<a href="servicios/desarrollo-web/" class="mobile-subnav" style="--d: 100ms">Desarrollo web</a>
+				<a href="servicios/branding/" class="mobile-subnav" style="--d: 130ms">Branding</a>
+				<a href="servicios/marketing-redes/" class="mobile-subnav" style="--d: 160ms">Marketing &amp; redes</a>
+				<a href="digitalizamos/" style="--d: 210ms">Presencia</a>
+				<a href="blog/" style="--d: 260ms">Blog</a>
+			</nav>
+			<a href="#" class="mobile-nav-cta" data-open-modal>
+				<span>Iniciar proyecto</span>
+				<span aria-hidden="true">→</span>
+			</a>
+		</div>
+	</header>
 
 		<main id="top">
 			<!-- ══════════════ 1 · HERO ══════════════ -->

@@ -68,45 +68,53 @@
 		</script>
 	</head>
 	<body>
-		<header id="site-header" class="site-header on-light">
-			<div class="header-inner">
-				<a href="../../" class="wordmark"><span class="wm-mark">koda</span></a>
-				<nav class="site-nav">
-					<a href="../../#expertise">Expertise</a>
-					<a href="../../#trabajo">Trabajo</a>
-					<a href="../" class="is-active">Insights</a>
-					<a href="../../#faq">FAQ</a>
-					<a href="../../#contacto">Contacto</a>
-				</nav>
-				<a href="../../#contacto" class="header-cta">Iniciar proyecto</a>
-				<button
-					type="button"
-					class="nav-toggle"
-					aria-label="Abrir menú"
-					aria-expanded="false"
-					aria-controls="mobile-nav"
-				>
-					<span class="nav-toggle-box" aria-hidden="true">
-						<span class="nav-toggle-bar"></span>
-						<span class="nav-toggle-bar"></span>
-						<span class="nav-toggle-bar"></span>
-					</span>
-				</button>
-			</div>
-			<div id="mobile-nav" class="mobile-nav">
-				<nav class="mobile-nav-inner" aria-label="Navegación móvil">
-					<a href="../../#expertise" style="--d: 60ms">Expertise</a>
-					<a href="../../#trabajo" style="--d: 110ms">Trabajo</a>
-					<a href="../" class="is-active" style="--d: 160ms">Insights</a>
-					<a href="../../#faq" style="--d: 210ms">FAQ</a>
-					<a href="../../#contacto" style="--d: 260ms">Contacto</a>
-				</nav>
-				<a href="../../#contacto" class="mobile-nav-cta">
-					<span>Iniciar proyecto</span>
-					<span aria-hidden="true">→</span>
-				</a>
-			</div>
-		</header>
+			<header id="site-header" class="site-header on-light">
+		<div class="header-inner">
+			<a href="../../" class="wordmark" aria-label="Koda — Inicio">
+				<span class="wm-mark">koda</span>
+			</a>
+			<nav class="site-nav" aria-label="Principal">
+				<div class="nav-item has-submenu">
+					<a href="../../servicios/">Servicios</a>
+					<div class="nav-submenu">
+						<a href="../../servicios/desarrollo-web/">Desarrollo web</a>
+						<a href="../../servicios/branding/">Branding</a>
+						<a href="../../servicios/marketing-redes/">Marketing &amp; redes</a>
+					</div>
+				</div>
+				<a href="../../digitalizamos/">Presencia</a>
+				<a href="../../blog/" class="is-active">Blog</a>
+			</nav>
+			<a href="#" class="header-cta" data-open-modal>Iniciar proyecto</a>
+			<button
+				type="button"
+				class="nav-toggle"
+				aria-label="Abrir menú"
+				aria-expanded="false"
+				aria-controls="mobile-nav"
+			>
+				<span class="nav-toggle-box" aria-hidden="true">
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+				</span>
+			</button>
+		</div>
+		<div id="mobile-nav" class="mobile-nav">
+			<nav class="mobile-nav-inner" aria-label="Navegación móvil">
+				<a href="../../servicios/" style="--d: 60ms">Servicios</a>
+				<a href="../../servicios/desarrollo-web/" class="mobile-subnav" style="--d: 100ms">Desarrollo web</a>
+				<a href="../../servicios/branding/" class="mobile-subnav" style="--d: 130ms">Branding</a>
+				<a href="../../servicios/marketing-redes/" class="mobile-subnav" style="--d: 160ms">Marketing &amp; redes</a>
+				<a href="../../digitalizamos/" style="--d: 210ms">Presencia</a>
+				<a href="../../blog/" style="--d: 260ms" class="is-active">Blog</a>
+			</nav>
+			<a href="#" class="mobile-nav-cta" data-open-modal>
+				<span>Iniciar proyecto</span>
+				<span aria-hidden="true">→</span>
+			</a>
+		</div>
+	</header>
 
 		<main>
 			<article>
@@ -371,5 +379,100 @@
 				</svg>
 			</a>
 		</div>
+		<!-- ══ MODAL DE CONTACTO ══ -->
+	<template id="tpl-modal">
+		<div
+			id="contact-modal"
+			class="modal-overlay"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-title"
+			hidden
+		>
+			<div class="modal-panel">
+				<div class="modal-head">
+					<div>
+						<span class="eyebrow">— Koda Studio</span>
+						<h2 id="modal-title" class="modal-title">
+							Iniciemos tu proyecto
+						</h2>
+					</div>
+					<button class="modal-x" aria-label="Cerrar formulario">
+						&times;
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="cf-form" class="cf-form" novalidate>
+						<div class="form-row-2">
+							<div class="cf-field">
+								<label for="cf-name">Nombre completo<span class="req" aria-hidden="true">*</span></label>
+								<input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Tu nombre" />
+								<span class="cf-err" id="cf-name-err">Por favor ingresa tu nombre.</span>
+							</div>
+							<div class="cf-field">
+								<label for="cf-email">Correo electrónico<span class="req" aria-hidden="true">*</span></label>
+								<input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tu@empresa.com" />
+								<span class="cf-err" id="cf-email-err">Ingresa un correo válido.</span>
+							</div>
+						</div>
+						<div class="form-row-2">
+							<div class="cf-field">
+								<label for="cf-phone">Teléfono</label>
+								<input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="+52 55 0000 0000" />
+							</div>
+							<div class="cf-field">
+								<label for="cf-company">Empresa / Marca</label>
+								<input type="text" id="cf-company" name="company" autocomplete="organization" placeholder="Nombre de tu empresa" />
+							</div>
+						</div>
+						<div class="cf-field">
+							<label for="cf-service">Servicio de interés<span class="req" aria-hidden="true">*</span></label>
+							<select id="cf-service" name="service" required>
+								<option value="">Selecciona un servicio</option>
+								<option value="web">Desarrollo web</option>
+								<option value="branding">Branding &amp; identidad</option>
+								<option value="marketing">Marketing &amp; redes sociales</option>
+								<option value="consultoria">Consultoría estratégica</option>
+								<option value="integral">Solución integral</option>
+								<option value="otro">Otro</option>
+							</select>
+							<span class="cf-err" id="cf-service-err">Selecciona un servicio.</span>
+						</div>
+						<div class="cf-field">
+							<label for="cf-message">Cuéntanos sobre tu proyecto<span class="req" aria-hidden="true">*</span></label>
+							<textarea id="cf-message" name="message" required rows="4" placeholder="Describe brevemente tu empresa, objetivos y qué necesitas lograr..."></textarea>
+							<span class="cf-err" id="cf-message-err">Por favor describe tu proyecto.</span>
+						</div>
+						<div class="cf-footer">
+							<button type="submit" class="cf-submit" id="cf-submit">
+								<span class="lbl">Enviar solicitud</span>
+								<span class="arr">&#8594;</span>
+							</button>
+							<p class="cf-note">
+								Respondemos en menos de 24 horas &middot; Tu información es confidencial
+							</p>
+						</div>
+					</form>
+					<div id="cf-success" class="cf-success" hidden>
+						<div class="cf-success-icon">&#10003;</div>
+						<h3 class="cf-success-title">¡Mensaje enviado!</h3>
+						<p class="cf-success-desc">
+							Hemos recibido tu solicitud. Nos pondremos en contacto contigo en menos de 24 horas.
+						</p>
+						<button class="cf-success-close">Cerrar</button>
+					</div>
+					<div id="cf-error" class="cf-error" hidden>
+						<div class="cf-error-icon">!</div>
+						<h3 class="cf-error-title">Algo salió mal</h3>
+						<p class="cf-error-desc">
+							No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a
+							<a href="mailto:contacto@kodastudio.mx">contacto@kodastudio.mx</a>
+						</p>
+						<button class="cf-retry">Intentar de nuevo</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
 	</body>
 </html>
