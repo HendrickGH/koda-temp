@@ -491,24 +491,37 @@ right: 0;
 z-index: 80;
 padding: 18px clamp(1.5rem, 5vw, 4rem);
 transition:
-background 400ms ease,
 border-color 400ms ease,
-color 400ms ease,
-backdrop-filter 400ms ease;
+color 400ms ease;
 border-bottom: 1px solid transparent;
+background: transparent;
+}
+/* Glassmorphism background lives on ::before so the element itself does NOT
+   create a new containing block for position:fixed children (mobile-nav). */
+.site-header::before {
+content: '';
+position: absolute;
+inset: 0;
+z-index: 0;
+pointer-events: none;
+transition: background 400ms ease, backdrop-filter 400ms ease;
+}
+.site-header.on-light::before {
+background: rgba(245, 242, 237, 0.92);
+backdrop-filter: blur(14px);
+}
+.site-header.on-dark.scrolled::before {
+background: rgba(17, 17, 16, 0.85);
+backdrop-filter: blur(14px);
 }
 .site-header.on-dark {
 background: transparent;
 color: var(--fg-on-dark);
 }
 .site-header.on-dark.scrolled {
-background: rgba(17, 17, 16, 0.85);
-backdrop-filter: blur(14px);
 border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 .site-header.on-light {
-background: rgba(245, 242, 237, 0.92);
-backdrop-filter: blur(14px);
 color: var(--fg-primary);
 border-bottom-color: var(--border);
 }
