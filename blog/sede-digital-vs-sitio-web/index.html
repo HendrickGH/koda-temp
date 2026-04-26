@@ -77,6 +77,32 @@
 					<a href="../../#contacto">Contacto</a>
 				</nav>
 				<a href="../../#contacto" class="header-cta">Iniciar proyecto</a>
+				<button
+					type="button"
+					class="nav-toggle"
+					aria-label="Abrir menú"
+					aria-expanded="false"
+					aria-controls="mobile-nav"
+				>
+					<span class="nav-toggle-box" aria-hidden="true">
+						<span class="nav-toggle-bar"></span>
+						<span class="nav-toggle-bar"></span>
+						<span class="nav-toggle-bar"></span>
+					</span>
+				</button>
+			</div>
+			<div id="mobile-nav" class="mobile-nav">
+				<nav class="mobile-nav-inner" aria-label="Navegación móvil">
+					<a href="../../#expertise" style="--d: 60ms">Expertise</a>
+					<a href="../../#trabajo" style="--d: 110ms">Trabajo</a>
+					<a href="../" class="is-active" style="--d: 160ms">Insights</a>
+					<a href="../../#faq" style="--d: 210ms">FAQ</a>
+					<a href="../../#contacto" style="--d: 260ms">Contacto</a>
+				</nav>
+				<a href="../../#contacto" class="mobile-nav-cta">
+					<span>Iniciar proyecto</span>
+					<span aria-hidden="true">→</span>
+				</a>
 			</div>
 		</header>
 
@@ -348,5 +374,6 @@
 			onScroll();
 			window.addEventListener("scroll", onScroll, { passive: true });
 		</script>
+			<script src="../../dist/site.min.js" defer></script>
 	</body>
 </html>
