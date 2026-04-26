@@ -993,3 +993,138 @@ body.nav-locked .wa-rail {
   pointer-events: none;
   transition: opacity 200ms ease;
 }
+/* ── Unified nav dropdown & mobile subnav ── */
+.nav-item { position: relative; }
+.nav-item.has-submenu > a { display: inline-flex; align-items: center; gap: 5px; cursor: default; }
+.nav-item.has-submenu > a::after { content: ""; width: 4px; height: 4px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg) translateY(-1px); transition: transform 220ms ease; opacity: .5; }
+.nav-item.has-submenu:hover > a::after { transform: rotate(-135deg) translateY(1px); }
+.nav-submenu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 200px; padding: 5px 0; background: var(--color-bone); border: 1px solid var(--color-border); opacity: 0; pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; z-index: 200; }
+.site-header.on-dark .nav-submenu { background: var(--color-dark, #1a1a18); border-color: rgba(255,255,255,.12); }
+.nav-item.has-submenu:hover .nav-submenu,
+.nav-item.has-submenu:focus-within .nav-submenu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.nav-submenu a { display: block; padding: 9px 20px; font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: currentColor; opacity: .65; border: none !important; transition: opacity 180ms ease, padding-left 180ms ease; }
+.nav-submenu a:hover { opacity: 1; padding-left: 28px; }
+.site-nav a.is-active { opacity: 1; }
+.mobile-nav-inner a.mobile-subnav { font-size: clamp(1.15rem, 5.5vw, 2.1rem); font-style: italic; padding-top: 9px; padding-bottom: 9px; padding-left: 22px; opacity: .5; border-bottom-color: rgba(0,0,0,.04) !important; }
+.site-header.on-dark .mobile-nav-inner a.mobile-subnav { border-bottom-color: rgba(255,255,255,.04) !important; }
+
+/* ── Contact Modal ── */
+.modal-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	background: rgba(17,17,16,.82);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	padding: clamp(16px,4vw,40px);
+	opacity: 0;
+	transition: opacity 350ms ease;
+}
+.modal-overlay.is-open { opacity: 1; }
+.modal-overlay[hidden] { display: none !important; }
+.modal-panel {
+	background: #f5f2ed;
+	width: 100%;
+	max-width: 740px;
+	max-height: 92vh;
+	overflow-y: auto;
+	position: relative;
+	transform: translateY(28px);
+	transition: transform 380ms cubic-bezier(.2,.8,.2,1);
+	scrollbar-width: thin;
+	scrollbar-color: #c8c3bb transparent;
+}
+.modal-overlay.is-open .modal-panel { transform: translateY(0); }
+.modal-head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 24px;
+	padding: clamp(28px,5vw,44px) clamp(24px,5vw,48px) 28px;
+	border-bottom: 1px solid #c8c3bb;
+}
+.modal-head .eyebrow { display: block; margin-bottom: 14px; font-size: 10px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: #7a7a72; }
+.modal-title { font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: clamp(1.5rem,3.5vw,2.2rem); letter-spacing: -.02em; line-height: 1.05; color: #1a1a18; margin: 0; }
+.modal-x {
+	flex-shrink: 0;
+	width: 40px; height: 40px;
+	display: flex; align-items: center; justify-content: center;
+	background: none;
+	border: 1px solid #c8c3bb;
+	color: #7a7a72;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+}
+.modal-x:hover { border-color: #1a1a18; color: #1a1a18; background: #ede9e3; }
+.modal-body { padding: clamp(24px,5vw,48px); }
+.cf-form { display: grid; gap: 20px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cf-field { display: flex; flex-direction: column; gap: 8px; }
+.cf-field label { font-size: 10px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: #4a4a45; }
+.cf-field .req { color: #5b6b7c; margin-left: 2px; }
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 300;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid #c8c3bb;
+	color: #1a1a18;
+	outline: none;
+	transition: border-color 200ms ease;
+	width: 100%;
+	box-sizing: border-box;
+}
+.cf-field input:focus,
+.cf-field select:focus,
+.cf-field textarea:focus { border-color: #5b6b7c; }
+.cf-field textarea { resize: vertical; min-height: 100px; }
+.cf-err { font-size: 11px; color: #b06060; display: none; }
+.cf-field.has-error input,
+.cf-field.has-error select,
+.cf-field.has-error textarea { border-color: #b06060; }
+.cf-field.has-error .cf-err { display: block; }
+.cf-footer { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+.cf-submit {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	padding: 16px 28px;
+	background: #1a1a18;
+	color: #f5f2ed;
+	border: 1px solid #1a1a18;
+	font-family: inherit;
+	font-size: 10px;
+	font-weight: 500;
+	letter-spacing: .25em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background 300ms ease, color 300ms ease;
+}
+.cf-submit:hover { background: transparent; color: #1a1a18; }
+.cf-submit:disabled { opacity: .6; cursor: not-allowed; }
+.cf-note { font-size: 11px; font-weight: 300; color: #7a7a72; margin: 0; }
+.cf-success,
+.cf-error { text-align: center; padding: 40px 24px; }
+.cf-success-icon { font-size: 2.5rem; color: #4a7a5b; margin-bottom: 16px; }
+.cf-success-title { font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 1.75rem; margin: 0 0 12px; }
+.cf-success-desc { font-size: 14px; font-weight: 300; color: #4a4a45; line-height: 1.6; }
+.cf-success-close { margin-top: 24px; padding: 10px 24px; background: none; border: 1px solid #c8c3bb; cursor: pointer; font-family: inherit; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; transition: border-color 200ms ease; }
+.cf-success-close:hover { border-color: #1a1a18; }
+.cf-error-icon { font-size: 2rem; color: #b06060; margin-bottom: 16px; }
+.cf-error-title { font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 1.5rem; margin: 0 0 12px; }
+.cf-error-desc { font-size: 14px; font-weight: 300; color: #4a4a45; line-height: 1.6; }
+.cf-retry { margin-top: 20px; padding: 10px 24px; background: none; border: 1px solid #c8c3bb; cursor: pointer; font-family: inherit; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; transition: border-color 200ms ease; }
+.cf-retry:hover { border-color: #1a1a18; }
+@media (max-width: 600px) {
+	.form-row-2 { grid-template-columns: 1fr; }
+}
