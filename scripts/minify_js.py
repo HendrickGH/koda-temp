@@ -9,7 +9,7 @@ import re
 import os
 
 SRC  = os.path.join(os.path.dirname(__file__), 'site.js')
-DEST = os.path.join(os.path.dirname(__file__), 'site.min.js')
+DEST = os.path.join(os.path.dirname(__file__), '..', 'dist', 'site.min.js')
 
 
 def minify_js(src: str) -> str:

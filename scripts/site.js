@@ -51,12 +51,15 @@ updateHeader();
 window.addEventListener("scroll", updateHeader, { passive: true });
 window.addEventListener("resize", updateHeader);
 
-// ─── prefers-reduced-motion: pausa el video del hero ───
+// ─── Video hero: pausa en reduced-motion, mobile y save-data ───
 const heroVideo = document.querySelector(".hero-video-element");
 if (heroVideo) {
 const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+const skipVideo = () =>
+window.innerWidth < 768 || navigator.connection?.saveData === true;
+
 const applyMotion = m => {
-if (m.matches) {
+if (m.matches || skipVideo()) {
 heroVideo.pause();
 heroVideo.removeAttribute("autoplay");
 } else {
@@ -66,6 +69,23 @@ heroVideo.play().catch(() => {});
 };
 applyMotion(mq);
 mq.addEventListener("change", applyMotion);
+
+// ─── Pausa video + animaciones decorativas cuando el hero sale del viewport ───
+const heroSection = document.querySelector(".hero");
+if (heroSection) {
+const heroObs = new IntersectionObserver(([entry]) => {
+const smoke = heroSection.querySelector(".hero-smoke");
+const line = heroSection.querySelector(".scroll-cue .line");
+if (entry.isIntersecting) {
+if (!mq.matches && !skipVideo()) heroVideo.play().catch(() => {});
+[smoke, line].forEach(el => { if (el) el.style.animationPlayState = ""; });
+} else {
+heroVideo.pause();
+[smoke, line].forEach(el => { if (el) el.style.animationPlayState = "paused"; });
+}
+}, { threshold: 0 });
+heroObs.observe(heroSection);
+}
 }
 // Re-run after full DOM is ready so wa-rail (below the script) is found
 document.addEventListener("DOMContentLoaded", updateHeader);
@@ -168,39 +188,40 @@ document
 .querySelectorAll("[data-reveal]")
 .forEach(el => observer.observe(el));
 
-// ═══ Tweaks panel ═══
-const panel = document.getElementById("tweaks-panel");
-const closeBtn = panel?.querySelector(".tw-close");
+// ═══ Tweaks panel — lazy (inyectado desde <template> al primer mensaje) ═══
+let panel = null;
+
+function ensureTweaks() {
+if (panel) return panel;
+const tpl = document.getElementById("tpl-tweaks");
+if (!tpl) return null;
+document.body.appendChild(tpl.content.cloneNode(true));
+panel = document.getElementById("tweaks-panel");
+panel.querySelector(".tw-close")?.addEventListener("click", () => {
+panel.hidden = true;
+try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (_) {}
+});
+panel.querySelectorAll("[data-tw]").forEach(ctl => {
+const key = ctl.dataset.tw;
+ctl.addEventListener("input", () =>
+applyTweak(key, ctl.type === "checkbox" ? ctl.checked : ctl.value));
+ctl.addEventListener("change", () =>
+applyTweak(key, ctl.type === "checkbox" ? ctl.checked : ctl.value));
+});
+return panel;
+}
 
 window.addEventListener("message", e => {
 if (e.data?.type === "__activate_edit_mode") {
-panel.hidden = false;
+const p = ensureTweaks();
+if (p) p.hidden = false;
 } else if (e.data?.type === "__deactivate_edit_mode") {
-panel.hidden = true;
+if (panel) panel.hidden = true;
 }
 });
-// Announce availability after handler is registered
 try {
 window.parent.postMessage({ type: "__edit_mode_available" }, "*");
 } catch (_) {}
-
-closeBtn?.addEventListener("click", () => {
-panel.hidden = true;
-try {
-window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*");
-} catch (_) {}
-});
-
-// Tweak handlers
-panel?.querySelectorAll("[data-tw]").forEach(ctl => {
-const key = ctl.dataset.tw;
-ctl.addEventListener("input", () =>
-applyTweak(key, ctl.type === "checkbox" ? ctl.checked : ctl.value),
-);
-ctl.addEventListener("change", () =>
-applyTweak(key, ctl.type === "checkbox" ? ctl.checked : ctl.value),
-);
-});
 
 function applyTweak(key, value) {
 const root = document.documentElement;
@@ -259,9 +280,8 @@ maxTranslate: 0,
 }))
 .filter(it => it.container);
 
-const EASE = 0.15; // menor = inercia más larga al parar
-const COMPLETE_AT = 0.5; // imagen 100% cuando la sección está al 50% pasado el viewport
-const SPEED_MULT = 2; // multiplicador de velocidad (2 = doble de rápido)
+const EASE = 0.15;
+const SPEED_MULT = 2;
 const MOBILE_BP = 900;
 let rafId = null;
 
@@ -347,126 +367,35 @@ paint(it);
 });
 
 
-/* ══ Modal de contacto ══ */
+/* ══ Modal de contacto — lazy (inyectado desde <template> al primer trigger) ══ */
 (() => {
-// Reemplaza con tu endpoint de Formspree u otro servicio de formularios:
-// https://formspree.io/f/TU_ID
 const ENDPOINT = "";
-
 const STORAGE_KEY = "koda_cf";
-const modal = document.getElementById("contact-modal");
-const form = document.getElementById("cf-form");
-const successEl = document.getElementById("cf-success");
-const errorEl = document.getElementById("cf-error");
-const submitBtn = document.getElementById("cf-submit");
-
-const fieldsCfg = [
-{ id: "cf-name", errId: "cf-name-err", required: true, type: "text" },
-{
-id: "cf-email",
-errId: "cf-email-err",
-required: true,
-type: "email",
-},
-{ id: "cf-phone", required: false },
-{ id: "cf-company", required: false },
-{
-id: "cf-service",
-errId: "cf-service-err",
-required: true,
-type: "select",
-},
-{
-id: "cf-message",
-errId: "cf-message-err",
-required: true,
-type: "text",
-},
-];
-
-// ── Focus trap ──
-let triggerEl = null;
 const FOCUSABLE = 'button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
-function getFocusable() {
-return Array.from(modal.querySelectorAll(FOCUSABLE)).filter(
-el => !el.closest("[hidden]"),
-);
+const fieldsCfg = [
+{ id: "cf-name",    errId: "cf-name-err",    required: true,  type: "text"   },
+{ id: "cf-email",   errId: "cf-email-err",   required: true,  type: "email"  },
+{ id: "cf-phone",                            required: false                  },
+{ id: "cf-company",                          required: false                  },
+{ id: "cf-service", errId: "cf-service-err", required: true,  type: "select" },
+{ id: "cf-message", errId: "cf-message-err", required: true,  type: "text"   },
+];
+
+let modal = null;
+let triggerEl = null;
+
+function isValidEmail(v) {
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 }
 
-modal.addEventListener("keydown", e => {
-if (e.key !== "Tab") return;
-const els = getFocusable();
-if (!els.length) return;
-const first = els[0], last = els[els.length - 1];
-if (e.shiftKey) {
-if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-} else {
-if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-}
-});
-
-// ── Abrir / cerrar ──
-function openModal() {
-triggerEl = document.activeElement;
-modal.hidden = false;
-document.body.style.overflow = "hidden";
-requestAnimationFrame(() => modal.classList.add("is-open"));
-restoreForm();
-setTimeout(() => {
-const first = form.querySelector("input, select, textarea");
-if (first) first.focus();
-}, 360);
-}
-
-function closeModal() {
-modal.classList.remove("is-open");
-document.body.style.overflow = "";
-setTimeout(() => {
-modal.hidden = true;
-if (triggerEl) { triggerEl.focus(); triggerEl = null; }
-}, 360);
-}
-
-// Botones que abren el modal
-document.querySelectorAll("[data-open-modal]").forEach(el => {
-el.addEventListener("click", e => {
-e.preventDefault();
-openModal();
-});
-});
-
-// Botón X del header del modal
-modal.querySelector(".modal-x").addEventListener("click", closeModal);
-
-// Botón cerrar en estado de éxito
-modal
-.querySelector(".cf-success-close")
-.addEventListener("click", closeModal);
-
-// Botón reintentar en estado de error
-modal.querySelector(".cf-retry").addEventListener("click", () => {
-errorEl.hidden = true;
-form.hidden = false;
-});
-
-// ESC cierra el modal
-document.addEventListener("keydown", e => {
-if (e.key === "Escape" && !modal.hidden) closeModal();
-});
-
-// Clic fuera NO cierra el modal (sin listener en el overlay)
-
-// ── Persistencia ──
 function saveForm() {
 const data = {};
 fieldsCfg.forEach(f => {
 const el = document.getElementById(f.id);
 if (el) data[f.id] = el.value;
 });
-try {
-localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-} catch (_) {}
+try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (_) {}
 }
 
 function restoreForm() {
@@ -481,24 +410,11 @@ if (el && data[f.id] !== undefined) el.value = data[f.id];
 } catch (_) {}
 }
 
-fieldsCfg.forEach(f => {
-const el = document.getElementById(f.id);
-if (el) el.addEventListener("input", saveForm);
-});
-
-// ── Validación ──
-function isValidEmail(v) {
-return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-}
-
 function clearFieldError(f) {
 const el = document.getElementById(f.id);
 const err = f.errId ? document.getElementById(f.errId) : null;
 if (el) el.classList.remove("invalid");
-if (err) {
-err.textContent = "";
-err.classList.remove("show");
-}
+if (err) { err.textContent = ""; err.classList.remove("show"); }
 }
 
 function validateForm() {
@@ -507,34 +423,74 @@ fieldsCfg.forEach(f => {
 if (!f.required) return;
 const el = document.getElementById(f.id);
 const err = f.errId ? document.getElementById(f.errId) : null;
-const ok =
-f.type === "email"
-? isValidEmail(el.value)
-: el.value.trim() !== "";
+const ok = f.type === "email" ? isValidEmail(el.value) : el.value.trim() !== "";
 el.classList.toggle("invalid", !ok);
-if (err) {
-err.classList.toggle("show", !ok);
-}
+if (err) err.classList.toggle("show", !ok);
 if (!ok) valid = false;
 });
 return valid;
 }
 
-// Limpiar error al corregir el campo
+function openModal() {
+triggerEl = document.activeElement;
+modal.hidden = false;
+document.body.style.overflow = "hidden";
+requestAnimationFrame(() => modal.classList.add("is-open"));
+restoreForm();
+setTimeout(() => {
+const first = modal.querySelector("input, select, textarea");
+if (first) first.focus();
+}, 360);
+}
+
+function closeModal() {
+modal.classList.remove("is-open");
+document.body.style.overflow = "";
+setTimeout(() => {
+modal.hidden = true;
+if (triggerEl) { triggerEl.focus(); triggerEl = null; }
+}, 360);
+}
+
+function initModal() {
+modal = document.getElementById("contact-modal");
+const form = document.getElementById("cf-form");
+const successEl = document.getElementById("cf-success");
+const errorEl = document.getElementById("cf-error");
+const submitBtn = document.getElementById("cf-submit");
+
+modal.addEventListener("keydown", e => {
+if (e.key !== "Tab") return;
+const els = Array.from(modal.querySelectorAll(FOCUSABLE)).filter(
+el => !el.closest("[hidden]"));
+if (!els.length) return;
+const first = els[0], last = els[els.length - 1];
+if (e.shiftKey) {
+if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+} else {
+if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+});
+
+modal.querySelector(".modal-x").addEventListener("click", closeModal);
+modal.querySelector(".cf-success-close").addEventListener("click", closeModal);
+modal.querySelector(".cf-retry").addEventListener("click", () => {
+errorEl.hidden = true;
+form.hidden = false;
+});
+
 fieldsCfg.forEach(f => {
 const el = document.getElementById(f.id);
 if (!el) return;
+el.addEventListener("input", saveForm);
 el.addEventListener("input", () => clearFieldError(f));
 });
 
-// ── Envío ──
 form.addEventListener("submit", async e => {
 e.preventDefault();
 if (!validateForm()) return;
-
 submitBtn.disabled = true;
 submitBtn.querySelector(".lbl").textContent = "Enviando…";
-
 try {
 if (!ENDPOINT) throw new Error("No endpoint configured");
 const res = await fetch(ENDPOINT, {
@@ -543,20 +499,36 @@ body: new FormData(form),
 headers: { Accept: "application/json" },
 });
 if (!res.ok) throw new Error("Server error");
-
-// Éxito
 form.hidden = true;
 successEl.hidden = false;
-try {
-localStorage.removeItem(STORAGE_KEY);
-} catch (_) {}
+try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
 } catch (_) {
-// Error
 form.hidden = true;
 errorEl.hidden = false;
 } finally {
 submitBtn.disabled = false;
 submitBtn.querySelector(".lbl").textContent = "Enviar solicitud";
 }
+});
+}
+
+function ensureModal() {
+if (modal) return;
+const tpl = document.getElementById("tpl-modal");
+if (!tpl) return;
+document.body.appendChild(tpl.content.cloneNode(true));
+initModal();
+}
+
+document.querySelectorAll("[data-open-modal]").forEach(el => {
+el.addEventListener("click", e => {
+e.preventDefault();
+ensureModal();
+openModal();
+});
+});
+
+document.addEventListener("keydown", e => {
+if (e.key === "Escape" && modal && !modal.hidden) closeModal();
 });
 })();

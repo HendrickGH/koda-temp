@@ -53,78 +53,10 @@
 			content="https://kodastudio.mx/uploads/final-design-8c3575ec.webp"
 		/>
 
-		<!-- JSON-LD: Organization -->
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Koda Studio",
-			"url": "https://kodastudio.mx/",
-			"logo": "https://kodastudio.mx/assets/wordmark.svg",
-			"description": "Agencia de diseño web, branding y marketing digital para empresas B2B en México. Sedes digitales a medida que proyectan autoridad y generan ventas.",
-			"address": {
-				"@type": "PostalAddress",
-				"addressCountry": "MX"
-			},
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"email": "contacto@kodastudio.mx",
-				"contactType": "customer service",
-				"availableLanguage": "Spanish"
-			},
-			"sameAs": [
-				"https://www.instagram.com/kodastudio.mx",
-				"https://www.linkedin.com/company/kodastudio"
-			],
-			"foundingDate": "2024",
-			"areaServed": "MX"
-		}
-		</script>
-
-		<!-- JSON-LD: FAQPage -->
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "FAQPage",
-			"mainEntity": [
-				{
-					"@type": "Question",
-					"name": "¿Quién es el dueño legal del sitio, el dominio y los activos?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Tú. En Koda Studio creemos en la transparencia absoluta. Te transferimos la propiedad legal total de tu dominio, hosting y código fuente desde el lanzamiento. Eres dueño del 100% de tu infraestructura."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "¿Por qué Koda Studio no utiliza plantillas predefinidas?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Las plantillas devalúan la percepción de tu marca. Nosotros desarrollamos arquitectura digital a medida utilizando tecnologías modernas. Esto garantiza sitios ultrarrápidos, seguridad de grado corporativo y una estética exclusiva."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "¿Cómo se mide el retorno de inversión (ROI) del proyecto?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Nos enfocamos en métricas de negocio reales: aumento en conversión, posicionamiento SEO, y la cantidad de horas semanales que tu equipo ahorra gracias a nuestras automatizaciones."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Si mi empresa crece, ¿el sitio podrá escalar con nosotros?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Completamente. Al desarrollar con código moderno, tu sede digital nace lista para escalar: integraciones con CRMs, APIs de terceros, multi-idioma, sin rehacer el sitio."
-					}
-				}
-			]
-		}
-		</script>
-
-		<!-- Fonts: preload Inter self-hosted -->
+		<!-- Preloads críticos -->
 		<link rel="preload" href="fonts/Inter-VariableFont_opsz_wght.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="uploads/hero-poster.jpg" as="image" fetchpriority="high" />
+		<link rel="preload" href="uploads/final-design-8c3575ec.webp" as="image" fetchpriority="high" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<!-- Playfair Display — async (no bloquea render) -->
@@ -132,7 +64,7 @@
 		<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" /></noscript>
 
 		<!-- CSS crítico inline: tokens + reset + header + hero -->
-		<style>@font-face{font-family:"Inter";src:url("fonts/Inter-VariableFont_opsz_wght.woff2") format("woff2"),url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}:root{--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",Helvetica,sans-serif;--text-2xs:0.625rem;--text-xs:0.75rem;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.25rem;--text-xl:1.5rem;--text-2xl:2rem;--text-3xl:2.5rem;--text-4xl:3.5rem;--text-5xl:5rem;--text-6xl:7rem;--text-7xl:9rem;--weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;--leading-tight:0.95;--leading-display:1.05;--leading-snug:1.2;--leading-normal:1.55;--leading-loose:1.75;--tracking-tight:-0.03em;--tracking-normal:0;--tracking-wide:0.08em;--tracking-wider:0.15em;--tracking-widest:0.25em;--tracking-label:0.22em;--color-bone:#f5f2ed;--color-stone:#ede9e3;--color-stone-deep:#d6d0c7;--color-obsidian:#111110;--color-dark:#1a1a18;--color-ink:#1a1a18;--color-ink-mid:#2c2c28;--color-ink-soft:#4a4a45;--color-ink-muted:#7a7a72;--color-ink-faint:#a8a8a0;--color-slate:#5b6b7c;--color-slate-deep:#4a5a6b;--color-slate-dark:#3d4f5e;--color-slate-pale:#8a9bac;--color-border:#c8c3bb;--color-border-soft:#ddd9d2;--color-border-hard:#a8a29a;--color-border-accent:#5b6b7c;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--space-32:8rem;--space-40:10rem;--space-48:12rem;--radius:0px;--transition-fast:200ms ease;--transition-base:300ms ease;--transition-slow:400ms ease;--max-width:1400px;--gutter:clamp(1.5rem,5vw,5rem);--col-gap:1px solid var(--color-border)}:root{--bg-primary:var(--color-bone);--bg-secondary:var(--color-stone);--bg-tertiary:var(--color-stone-deep);--bg-inverse:var(--color-obsidian);--bg-dark:var(--color-dark);--fg-primary:var(--color-ink);--fg-secondary:var(--color-ink-mid);--fg-tertiary:var(--color-ink-soft);--fg-muted:var(--color-ink-muted);--fg-on-dark:var(--color-bone);--accent:var(--color-slate);--accent-hover:var(--color-slate-deep);--accent-strong:var(--color-slate-dark);--border:var(--color-border);--border-strong:var(--color-border-hard);--border-hover:var(--color-border-accent);--type-display:var(--font-display);--type-ui:var(--font-body)}h1,.h1{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,8rem);font-weight:var(--weight-regular);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);color:var(--fg-primary)}h2,.h2{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:var(--weight-regular);line-height:var(--leading-display);letter-spacing:var(--tracking-tight);color:var(--fg-primary)}h3,.h3{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:var(--weight-regular);font-style:italic;line-height:var(--leading-snug);color:var(--fg-primary)}h4,.h4{font-family:var(--font-body);font-size:var(--text-base);font-weight:var(--weight-medium);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--fg-secondary)}p,.body{font-family:var(--font-body);font-size:var(--text-base);font-weight:var(--weight-light);line-height:var(--leading-normal);color:var(--fg-tertiary)}.body-sm{font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--weight-light);line-height:var(--leading-normal);color:var(--fg-muted)}.label,label{font-family:var(--font-body);font-size:var(--text-2xs);font-weight:var(--weight-medium);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-muted)}.caption{font-family:var(--font-body);font-size:var(--text-xs);font-weight:var(--weight-light);color:var(--fg-muted);line-height:var(--leading-snug)}.display-italic{font-family:var(--font-display);font-style:italic}*,*::before,*::after{box-sizing:border-box;border-radius:0 !important}body{background-color:var(--bg-primary);color:var(--fg-primary);font-family:var(--font-body);-webkit-font-smoothing:antialiased;margin:0}a{color:inherit;text-decoration:none;border-bottom:1px solid var(--border);transition:border-color var(--transition-base),color var(--transition-base)}a:hover{border-color:var(--border-hover);color:var(--fg-primary)}hr{border:none;border-top:1px solid var(--border);margin:0}.section-pad{padding-top:var(--space-32);padding-bottom:var(--space-32)}.section-pad-lg{padding-top:var(--space-40);padding-bottom:var(--space-40)}.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}.grid-line{border-top:1px solid var(--border)}.grid-line-v{border-left:1px solid var(--border)}.accent-border{border-color:var(--accent) !important}:root{--accent-live:var(--accent)}html{scroll-behavior:smooth}body{background:var(--bg-primary);color:var(--fg-primary);overflow-x:hidden}.container{max-width:var(--max-width);margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem)}.section{padding:clamp(80px,12vw,160px) 0;border-top:1px solid var(--border);position:relative}.section.alt-bg{background:var(--color-stone)}.section.dark{background:var(--color-obsidian);color:var(--fg-on-dark);border-top-color:#2c2c28}.sec-head{margin-bottom:clamp(56px,8vw,96px)}.sec-head.center{text-align:center}.sec-head .eyebrow{display:block;margin-bottom:28px}.sec-head-row{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,6vw,96px);align-items:end}.sec-head.center .sec-head-row{display:block}.sec-head .sec-desc{font-family:var(--font-body);font-size:15px;font-weight:300;line-height:1.7;color:var(--fg-tertiary);max-width:420px}.sec-all{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:2px;align-self:end;justify-self:end;transition:color 300ms ease,border-color 300ms ease;color:var(--fg-on-dark)}.section:not(.dark) .sec-all{color:var(--fg-primary)}.sec-all:hover{color:var(--accent-live);border-color:var(--accent-live)}.eyebrow{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-muted)}.eyebrow.light{color:rgba(255,255,255,0.45)}.h-display{font-family:var(--font-display);font-weight:400;font-size:clamp(2.5rem,5.5vw,5.5rem);line-height:1;letter-spacing:-0.03em;margin:0;color:var(--fg-primary)}.h-display em{font-style:italic;color:var(--fg-secondary)}.h-display.inv{color:var(--fg-on-dark)}.h-display.inv em{color:rgba(255,255,255,0.55)}.h-display.big{font-size:clamp(3rem,7.5vw,7rem)}.h-sub{font-family:var(--font-display);font-weight:400;font-size:clamp(1.35rem,2vw,1.75rem);letter-spacing:-0.01em;line-height:1.15;margin:0;color:var(--fg-primary)}.body{font-family:var(--font-body);font-weight:300;font-size:14.5px;line-height:1.7;color:var(--fg-tertiary)}@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.fade-up{animation:fadeUp 1s cubic-bezier(0.2,0.8,0.2,1) forwards;opacity:0}.fade-up.d1{animation-delay:0.2s}.fade-up.d2{animation-delay:0.45s}.fade-up.d3{animation-delay:0.7s}[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity 900ms cubic-bezier(0.2,0.8,0.2,1),transform 900ms cubic-bezier(0.2,0.8,0.2,1)}[data-reveal].in{opacity:1;transform:translateY(0)}.site-header{position:fixed;top:0;left:0;right:0;z-index:80;padding:18px clamp(1.5rem,5vw,4rem);transition:background 400ms ease,border-color 400ms ease,color 400ms ease,backdrop-filter 400ms ease;border-bottom:1px solid transparent}.site-header.on-dark{background:transparent;color:var(--fg-on-dark)}.site-header.on-dark.scrolled{background:rgba(17,17,16,0.85);backdrop-filter:blur(14px);border-bottom-color:rgba(255,255,255,0.08)}.site-header.on-light{background:rgba(245,242,237,0.92);backdrop-filter:blur(14px);color:var(--fg-primary);border-bottom-color:var(--border)}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;gap:32px}.wordmark{display:inline-flex;align-items:baseline;gap:10px;text-decoration:none;border:none;color:inherit}.wordmark .wm-mark{font-family:var(--font-display);font-weight:500;font-size:22px;letter-spacing:-0.03em;line-height:1}.wordmark .wm-sub{font-family:var(--font-body);font-weight:500;font-size:8px;letter-spacing:0.35em;text-transform:uppercase;opacity:0.6;transform:translateY(-4px)}.wordmark.light .wm-mark{color:var(--fg-on-dark)}.wordmark.light .wm-sub{color:rgba(255,255,255,0.5)}.site-nav{display:flex;gap:clamp(16px,2.5vw,36px)}.site-nav a{font-family:var(--font-body);font-size:10.5px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;text-decoration:none;border:none;color:currentColor;opacity:0.6;transition:opacity 300ms ease,color 300ms ease}.site-nav a:hover{opacity:1;color:var(--accent-live)}.header-cta{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:12px 22px;border:1px solid currentColor;text-decoration:none;color:currentColor;opacity:0.9;transition:background 300ms ease,color 300ms ease,opacity 300ms ease}.site-header.on-dark .header-cta:hover{background:var(--color-bone);color:var(--color-obsidian);opacity:1}.site-header.on-light .header-cta:hover{background:var(--color-ink);color:var(--color-bone);opacity:1}@media (max-width:880px){.site-nav{display:none}}.hero{position:relative;min-height:100vh;width:100%;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#0a0a09;color:var(--fg-on-dark);padding-bottom:clamp(80px,10vw,120px)}.hero-video{position:absolute;inset:0;z-index:0}.hero-video-element{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero-smoke{position:absolute;inset:-10%;background:radial-gradient( ellipse 60% 50% at 30% 40%,rgba(70,70,65,0.5) 0%,transparent 60% ),radial-gradient( ellipse 50% 40% at 70% 60%,rgba(50,52,58,0.4) 0%,transparent 55% ),radial-gradient( ellipse 80% 60% at 50% 80%,rgba(30,32,35,0.6) 0%,transparent 70% ),linear-gradient(180deg,transparent 0%,rgba(10,10,9,0.6) 100%);filter:contrast(1.05);animation:smokeDrift 40s ease-in-out infinite alternate}@keyframes smokeDrift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-2%,1%) scale(1.04)}100%{transform:translate(1%,-1.5%) scale(1.06)}}.hero-veil{position:absolute;inset:0;background:linear-gradient( 180deg,rgba(10,10,9,0.3) 0%,rgba(10,10,9,0.5) 50%,rgba(10,10,9,0.85) 100% ),linear-gradient(90deg,rgba(10,10,9,0.4) 0%,transparent 40%)}.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:0.08;mix-blend-mode:overlay;background-image:repeating-radial-gradient( circle at 0 0,#fff 0,#fff 0.5px,transparent 1px,transparent 2px ),repeating-radial-gradient( circle at 1px 1px,#000 0,#000 0.5px,transparent 1px,transparent 2px )}.hero.mode-marble .hero-smoke{background:radial-gradient( ellipse 70% 50% at 40% 30%,rgba(220,215,205,0.08) 0%,transparent 60% ),linear-gradient(135deg,#1a1a18 0%,#242420 50%,#1a1a18 100%),#16161400}.hero.mode-concrete .hero-smoke{background:linear-gradient( 180deg,#1c1c1a 0%,#252522 60%,#1a1a18 100% )}.hero.mode-void .hero-smoke{background:#0a0a09}.corner{position:absolute;z-index:5;color:rgba(255,255,255,0.55)}.corner.tl{top:90px;left:clamp(1.5rem,5vw,4rem)}.corner.tr{top:90px;right:clamp(1.5rem,5vw,4rem)}.corner.br{bottom:40px;right:clamp(1.5rem,5vw,4rem)}.corner .label{font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase}.hero-inner{position:relative;z-index:2;width:100%}.hero-eyebrow{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:clamp(32px,5vw,56px);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.12);width:fit-content}.hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(3.5rem,9.5vw,9rem);line-height:0.95;letter-spacing:-0.035em;color:var(--fg-on-dark);margin:0 0 clamp(48px,6vw,80px);max-width:16ch}.hero-title em{font-style:italic;color:rgba(255,255,255,0.55)}.hero-foot{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,5vw,80px);align-items:end;border-top:1px solid rgba(255,255,255,0.15);padding-top:clamp(24px,3vw,40px)}.hero-sub{font-family:var(--font-body);font-weight:300;font-size:clamp(15px,1.4vw,18px);line-height:1.65;color:rgba(255,255,255,0.7);max-width:520px;margin:0}.hero-cta{justify-self:end;display:inline-flex;align-items:center;gap:20px;padding:18px 32px;background:var(--fg-on-dark);color:var(--color-obsidian);text-decoration:none;border:1px solid var(--fg-on-dark);font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;transition:background 400ms ease,color 400ms ease}.hero-cta:hover{background:transparent;color:var(--fg-on-dark)}.hero-cta-arrow{font-size:14px;transition:transform 400ms ease}.hero-cta:hover .hero-cta-arrow{transform:translateX(4px)}.scroll-cue{position:absolute;z-index:5;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;color:rgba(255,255,255,0.4)}.scroll-cue span:first-child{font-family:var(--font-body);font-size:8.5px;font-weight:500;letter-spacing:0.4em;text-transform:uppercase}.scroll-cue .line{width:1px;height:60px;background:linear-gradient( 180deg,rgba(255,255,255,0.4),transparent );animation:scrollPulse 2.4s ease-in-out infinite}@keyframes scrollPulse{0%,100%{transform:scaleY(0.4);transform-origin:top;opacity:0.6}50%{transform:scaleY(1);opacity:1}}@media (max-width:760px){.hero-foot{grid-template-columns:1fr}.hero-cta{justify-self:start}.corner.tl,.corner.tr{top:78px}}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:var(--color-obsidian);color:var(--fg-on-dark);font-family:var(--font-body);font-size:14px;font-weight:500;letter-spacing:0.1em;z-index:999;outline:2px solid var(--accent)}</style>
+		<style>@font-face{font-family:"Inter";src:url("fonts/Inter-VariableFont_opsz_wght.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}:root{--font-display:"Playfair Display",Georgia,serif;--font-body:"Inter",Helvetica,sans-serif;--text-2xs:0.625rem;--text-xs:0.75rem;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.25rem;--text-xl:1.5rem;--text-2xl:2rem;--text-3xl:2.5rem;--text-4xl:3.5rem;--text-5xl:5rem;--text-6xl:7rem;--text-7xl:9rem;--weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;--leading-tight:0.95;--leading-display:1.05;--leading-snug:1.2;--leading-normal:1.55;--leading-loose:1.75;--tracking-tight:-0.03em;--tracking-normal:0;--tracking-wide:0.08em;--tracking-wider:0.15em;--tracking-widest:0.25em;--tracking-label:0.22em;--color-bone:#f5f2ed;--color-stone:#ede9e3;--color-stone-deep:#d6d0c7;--color-obsidian:#111110;--color-dark:#1a1a18;--color-ink:#1a1a18;--color-ink-mid:#2c2c28;--color-ink-soft:#4a4a45;--color-ink-muted:#7a7a72;--color-ink-faint:#a8a8a0;--color-slate:#5b6b7c;--color-slate-deep:#4a5a6b;--color-slate-dark:#3d4f5e;--color-slate-pale:#8a9bac;--color-border:#c8c3bb;--color-border-soft:#ddd9d2;--color-border-hard:#a8a29a;--color-border-accent:#5b6b7c;--space-1:0.25rem;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;--space-32:8rem;--space-40:10rem;--space-48:12rem;--radius:0px;--transition-fast:200ms ease;--transition-base:300ms ease;--transition-slow:400ms ease;--max-width:1400px;--gutter:clamp(1.5rem,5vw,5rem);--col-gap:1px solid var(--color-border)}:root{--bg-primary:var(--color-bone);--bg-secondary:var(--color-stone);--bg-tertiary:var(--color-stone-deep);--bg-inverse:var(--color-obsidian);--bg-dark:var(--color-dark);--fg-primary:var(--color-ink);--fg-secondary:var(--color-ink-mid);--fg-tertiary:var(--color-ink-soft);--fg-muted:var(--color-ink-muted);--fg-on-dark:var(--color-bone);--accent:var(--color-slate);--accent-hover:var(--color-slate-deep);--accent-strong:var(--color-slate-dark);--border:var(--color-border);--border-strong:var(--color-border-hard);--border-hover:var(--color-border-accent);--type-display:var(--font-display);--type-ui:var(--font-body)}h1,.h1{font-family:var(--font-display);font-size:clamp(3.5rem,8vw,8rem);font-weight:var(--weight-regular);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight);color:var(--fg-primary)}h2,.h2{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:var(--weight-regular);line-height:var(--leading-display);letter-spacing:var(--tracking-tight);color:var(--fg-primary)}h3,.h3{font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:var(--weight-regular);font-style:italic;line-height:var(--leading-snug);color:var(--fg-primary)}h4,.h4{font-family:var(--font-body);font-size:var(--text-base);font-weight:var(--weight-medium);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--fg-secondary)}p,.body{font-family:var(--font-body);font-size:var(--text-base);font-weight:var(--weight-light);line-height:var(--leading-normal);color:var(--fg-tertiary)}.body-sm{font-family:var(--font-body);font-size:var(--text-sm);font-weight:var(--weight-light);line-height:var(--leading-normal);color:var(--fg-muted)}.label,label{font-family:var(--font-body);font-size:var(--text-2xs);font-weight:var(--weight-medium);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-muted)}.caption{font-family:var(--font-body);font-size:var(--text-xs);font-weight:var(--weight-light);color:var(--fg-muted);line-height:var(--leading-snug)}.display-italic{font-family:var(--font-display);font-style:italic}*,*::before,*::after{box-sizing:border-box;border-radius:0 !important}body{background-color:var(--bg-primary);color:var(--fg-primary);font-family:var(--font-body);-webkit-font-smoothing:antialiased;margin:0}a{color:inherit;text-decoration:none;border-bottom:1px solid var(--border);transition:border-color var(--transition-base),color var(--transition-base)}a:hover{border-color:var(--border-hover);color:var(--fg-primary)}hr{border:none;border-top:1px solid var(--border);margin:0}.section-pad{padding-top:var(--space-32);padding-bottom:var(--space-32)}.section-pad-lg{padding-top:var(--space-40);padding-bottom:var(--space-40)}.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}.grid-line{border-top:1px solid var(--border)}.grid-line-v{border-left:1px solid var(--border)}.accent-border{border-color:var(--accent) !important}:root{--accent-live:var(--accent)}html{scroll-behavior:smooth}body{background:var(--bg-primary);color:var(--fg-primary);overflow-x:hidden}.container{max-width:var(--max-width);margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem)}.section{padding:clamp(80px,12vw,160px) 0;border-top:1px solid var(--border);position:relative}.section.alt-bg{background:var(--color-stone)}.section.dark{background:var(--color-obsidian);color:var(--fg-on-dark);border-top-color:#2c2c28}.sec-head{margin-bottom:clamp(56px,8vw,96px)}.sec-head.center{text-align:center}.sec-head .eyebrow{display:block;margin-bottom:28px}.sec-head-row{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,6vw,96px);align-items:end}.sec-head.center .sec-head-row{display:block}.sec-head .sec-desc{font-family:var(--font-body);font-size:15px;font-weight:300;line-height:1.7;color:var(--fg-tertiary);max-width:420px}.sec-all{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:2px;align-self:end;justify-self:end;transition:color 300ms ease,border-color 300ms ease;color:var(--fg-on-dark)}.section:not(.dark) .sec-all{color:var(--fg-primary)}.sec-all:hover{color:var(--accent-live);border-color:var(--accent-live)}.eyebrow{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--fg-muted)}.eyebrow.light{color:rgba(255,255,255,0.45)}.h-display{font-family:var(--font-display);font-weight:400;font-size:clamp(2.5rem,5.5vw,5.5rem);line-height:1;letter-spacing:-0.03em;margin:0;color:var(--fg-primary)}.h-display em{font-style:italic;color:var(--fg-secondary)}.h-display.inv{color:var(--fg-on-dark)}.h-display.inv em{color:rgba(255,255,255,0.55)}.h-display.big{font-size:clamp(3rem,7.5vw,7rem)}.h-sub{font-family:var(--font-display);font-weight:400;font-size:clamp(1.35rem,2vw,1.75rem);letter-spacing:-0.01em;line-height:1.15;margin:0;color:var(--fg-primary)}.body{font-family:var(--font-body);font-weight:300;font-size:14.5px;line-height:1.7;color:var(--fg-tertiary)}@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}.fade-up{animation:fadeUp 1s cubic-bezier(0.2,0.8,0.2,1) forwards;opacity:0}.fade-up.d1{animation-delay:0.2s}.fade-up.d2{animation-delay:0.45s}.fade-up.d3{animation-delay:0.7s}@media (prefers-reduced-motion:reduce){.fade-up{opacity:1;animation:none}}[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity 900ms cubic-bezier(0.2,0.8,0.2,1),transform 900ms cubic-bezier(0.2,0.8,0.2,1)}[data-reveal].in{opacity:1;transform:translateY(0)}.site-header{position:fixed;top:0;left:0;right:0;z-index:80;padding:18px clamp(1.5rem,5vw,4rem);transition:background 400ms ease,border-color 400ms ease,color 400ms ease,backdrop-filter 400ms ease;border-bottom:1px solid transparent}.site-header.on-dark{background:transparent;color:var(--fg-on-dark)}.site-header.on-dark.scrolled{background:rgba(17,17,16,0.85);backdrop-filter:blur(14px);border-bottom-color:rgba(255,255,255,0.08)}.site-header.on-light{background:rgba(245,242,237,0.92);backdrop-filter:blur(14px);color:var(--fg-primary);border-bottom-color:var(--border)}.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-width);margin:0 auto;gap:32px}.wordmark{display:inline-flex;align-items:baseline;gap:10px;text-decoration:none;border:none;color:inherit}.wordmark .wm-mark{font-family:var(--font-display);font-weight:500;font-size:22px;letter-spacing:-0.03em;line-height:1}.wordmark .wm-sub{font-family:var(--font-body);font-weight:500;font-size:8px;letter-spacing:0.35em;text-transform:uppercase;opacity:0.6;transform:translateY(-4px)}.wordmark.light .wm-mark{color:var(--fg-on-dark)}.wordmark.light .wm-sub{color:rgba(255,255,255,0.5)}.site-nav{display:flex;gap:clamp(16px,2.5vw,36px)}.site-nav a{font-family:var(--font-body);font-size:10.5px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;text-decoration:none;border:none;color:currentColor;opacity:0.6;transition:opacity 300ms ease,color 300ms ease}.site-nav a:hover{opacity:1;color:var(--accent-live)}.header-cta{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;padding:12px 22px;border:1px solid currentColor;text-decoration:none;color:currentColor;opacity:0.9;transition:background 300ms ease,color 300ms ease,opacity 300ms ease}.site-header.on-dark .header-cta:hover{background:var(--color-bone);color:var(--color-obsidian);opacity:1}.site-header.on-light .header-cta:hover{background:var(--color-ink);color:var(--color-bone);opacity:1}@media (max-width:880px){.site-nav{display:none}}.hero{position:relative;min-height:100vh;width:100%;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#0a0a09;color:var(--fg-on-dark);padding-bottom:clamp(80px,10vw,120px)}.hero-video{position:absolute;inset:0;z-index:0}.hero-video-element{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.hero-smoke{position:absolute;inset:-10%;background:radial-gradient( ellipse 60% 50% at 30% 40%,rgba(70,70,65,0.5) 0%,transparent 60% ),radial-gradient( ellipse 50% 40% at 70% 60%,rgba(50,52,58,0.4) 0%,transparent 55% ),radial-gradient( ellipse 80% 60% at 50% 80%,rgba(30,32,35,0.6) 0%,transparent 70% ),linear-gradient(180deg,transparent 0%,rgba(10,10,9,0.6) 100%);filter:contrast(1.05)}.hero-veil{position:absolute;inset:0;background:linear-gradient( 180deg,rgba(10,10,9,0.3) 0%,rgba(10,10,9,0.5) 50%,rgba(10,10,9,0.85) 100% ),linear-gradient(90deg,rgba(10,10,9,0.4) 0%,transparent 40%)}.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:0.08;mix-blend-mode:overlay;background-image:repeating-radial-gradient( circle at 0 0,#fff 0,#fff 0.5px,transparent 1px,transparent 2px ),repeating-radial-gradient( circle at 1px 1px,#000 0,#000 0.5px,transparent 1px,transparent 2px )}.hero.mode-marble .hero-smoke{background:radial-gradient( ellipse 70% 50% at 40% 30%,rgba(220,215,205,0.08) 0%,transparent 60% ),linear-gradient(135deg,#1a1a18 0%,#242420 50%,#1a1a18 100%),#16161400}.hero.mode-concrete .hero-smoke{background:linear-gradient( 180deg,#1c1c1a 0%,#252522 60%,#1a1a18 100% )}.hero.mode-void .hero-smoke{background:#0a0a09}.corner{position:absolute;z-index:5;color:rgba(255,255,255,0.55)}.corner.tl{top:90px;left:clamp(1.5rem,5vw,4rem)}.corner.tr{top:90px;right:clamp(1.5rem,5vw,4rem)}.corner.br{bottom:40px;right:clamp(1.5rem,5vw,4rem)}.corner .label{font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase}.hero-inner{position:relative;z-index:2;width:100%}.hero-eyebrow{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:clamp(32px,5vw,56px);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.12);width:fit-content}.hero-title{font-family:var(--font-display);font-weight:400;font-size:clamp(3.5rem,9.5vw,9rem);line-height:0.95;letter-spacing:-0.035em;color:var(--fg-on-dark);margin:0 0 clamp(48px,6vw,80px);max-width:16ch}.hero-title em{font-style:italic;color:rgba(255,255,255,0.55)}.hero-foot{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,5vw,80px);align-items:end;border-top:1px solid rgba(255,255,255,0.15);padding-top:clamp(24px,3vw,40px)}.hero-sub{font-family:var(--font-body);font-weight:300;font-size:clamp(15px,1.4vw,18px);line-height:1.65;color:rgba(255,255,255,0.7);max-width:520px;margin:0}.hero-cta{justify-self:end;display:inline-flex;align-items:center;gap:20px;padding:18px 32px;background:var(--fg-on-dark);color:var(--color-obsidian);text-decoration:none;border:1px solid var(--fg-on-dark);font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;transition:background 400ms ease,color 400ms ease}.hero-cta:hover{background:transparent;color:var(--fg-on-dark)}.hero-cta-arrow{font-size:14px;transition:transform 400ms ease}.hero-cta:hover .hero-cta-arrow{transform:translateX(4px)}.scroll-cue{position:absolute;z-index:5;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;color:rgba(255,255,255,0.4)}.scroll-cue span:first-child{font-family:var(--font-body);font-size:8.5px;font-weight:500;letter-spacing:0.4em;text-transform:uppercase}.scroll-cue .line{width:1px;height:60px;background:linear-gradient( 180deg,rgba(255,255,255,0.4),transparent );}@media (max-width:760px){.hero-foot{grid-template-columns:1fr}.hero-cta{justify-self:start}.corner.tl,.corner.tr{top:78px}}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:var(--color-obsidian);color:var(--fg-on-dark);font-family:var(--font-body);font-size:14px;font-weight:500;letter-spacing:0.1em;z-index:999;outline:2px solid var(--accent)}</style>
 
 		<!-- CSS deferred: secciones below-the-fold -->
 		<link rel="stylesheet" href="dist/site-deferred.min.css" media="print" onload="this.media='all'" />
@@ -166,7 +98,9 @@
 					<video autoplay muted loop playsinline class="hero-video-element"
 						poster="uploads/hero-poster.jpg"
 						preload="metadata"
-						width="1920" height="1080">
+						width="1920" height="1080"
+						disablepictureinpicture
+						disableremoteplayback>
 						<source src="uploads/vide.mp4" type="video/mp4" />
 					</video>
 					<div class="hero-smoke"></div>
@@ -249,16 +183,11 @@
 						<div class="frame-photo" data-kind="technical">
 							<img
 								src="uploads/final-design-8c3575ec.webp"
-								style="
-									width: 100%;
-									height: 100%;
-									object-fit: cover;
-									display: block;
-									position: absolute;
-									inset: 0;
-								"
+								class="manifesto-img"
 								alt="Koda — proceso de diseño"
-								width="2268" height="4032"
+								width="800" height="1000"
+								fetchpriority="high"
+								decoding="async"
 							/>
 							<div class="photo-legend">
 								<span class="tag">Fig. 01</span>
@@ -413,7 +342,9 @@
 												alt="Baja Electric — sitio web diseñado por Koda Studio"
 												class="parallax-img"
 												loading="lazy"
-												width="2940" height="5000"
+												decoding="async"
+												width="400" height="680"
+												sizes="(max-width: 900px) 100vw, 400px"
 											/>
 										</picture>
 									</div>
@@ -446,7 +377,9 @@
 												alt="Voga Eventos"
 												class="parallax-img"
 												loading="lazy"
-												width="2935" height="5000"
+												decoding="async"
+												width="400" height="680"
+												sizes="(max-width: 900px) 100vw, 400px"
 											/>
 										</picture>
 									</div>
@@ -479,7 +412,9 @@
 												alt="Novus Real Estate"
 												class="parallax-img"
 												loading="lazy"
-												width="2940" height="5000"
+												decoding="async"
+												width="400" height="680"
+												sizes="(max-width: 900px) 100vw, 400px"
 											/>
 										</picture>
 									</div>
@@ -556,18 +491,14 @@
 
 					<div class="method-media" aria-hidden="true">
 						<div class="method-frame" data-frame="1">
-							<div style="position: absolute; inset: 0; overflow: hidden">
+							<div class="method-frame-media">
 								<img
 									src="uploads/final-design-2.webp"
-									style="
-										width: 100%;
-										height: 100%;
-										object-fit: cover;
-										display: block;
-									"
+									class="method-bg-img"
 									alt="Wireframe proceso"
-									width="3264" height="2448"
+									width="600" height="450"
 									loading="lazy"
+									decoding="async"
 								/>
 							</div>
 						</div>
@@ -1239,205 +1170,150 @@
 			</footer>
 		</main>
 
-		<!-- ══ MODAL DE CONTACTO ══ -->
-		<div
-			id="contact-modal"
-			class="modal-overlay"
-			role="dialog"
-			aria-modal="true"
-			aria-labelledby="modal-title"
-			hidden
-		>
-			<div class="modal-panel">
-				<div class="modal-head">
-					<div>
-						<span class="eyebrow">— Koda Studio</span>
-						<h2 id="modal-title" class="modal-title">Iniciemos tu proyecto</h2>
+		<!-- ══ MODAL DE CONTACTO (lazy — inyectado en primer trigger) ══ -->
+		<template id="tpl-modal">
+			<div
+				id="contact-modal"
+				class="modal-overlay"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="modal-title"
+				hidden
+			>
+				<div class="modal-panel">
+					<div class="modal-head">
+						<div>
+							<span class="eyebrow">— Koda Studio</span>
+							<h2 id="modal-title" class="modal-title">Iniciemos tu proyecto</h2>
+						</div>
+						<button class="modal-x" aria-label="Cerrar formulario">
+							&times;
+						</button>
 					</div>
-					<button class="modal-x" aria-label="Cerrar formulario">
-						&times;
-					</button>
-				</div>
-				<div class="modal-body">
-					<!-- Formulario -->
-					<form id="cf-form" class="cf-form" novalidate>
-						<div class="form-row-2">
-							<div class="cf-field">
-								<label for="cf-name"
-									>Nombre completo<span class="req" aria-hidden="true"
-										>*</span
-									></label
-								>
-								<input
-									type="text"
-									id="cf-name"
-									name="name"
-									required
-									autocomplete="name"
-									placeholder="Tu nombre"
-								/>
-								<span class="cf-err" id="cf-name-err"
-									>Por favor ingresa tu nombre.</span
-								>
+					<div class="modal-body">
+						<form id="cf-form" class="cf-form" novalidate>
+							<div class="form-row-2">
+								<div class="cf-field">
+									<label for="cf-name"
+										>Nombre completo<span class="req" aria-hidden="true">*</span></label
+									>
+									<input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Tu nombre" />
+									<span class="cf-err" id="cf-name-err">Por favor ingresa tu nombre.</span>
+								</div>
+								<div class="cf-field">
+									<label for="cf-email"
+										>Correo electrónico<span class="req" aria-hidden="true">*</span></label
+									>
+									<input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tu@empresa.com" />
+									<span class="cf-err" id="cf-email-err">Ingresa un correo válido.</span>
+								</div>
+							</div>
+							<div class="form-row-2">
+								<div class="cf-field">
+									<label for="cf-phone">Teléfono</label>
+									<input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="+52 55 0000 0000" />
+								</div>
+								<div class="cf-field">
+									<label for="cf-company">Empresa / Marca</label>
+									<input type="text" id="cf-company" name="company" autocomplete="organization" placeholder="Nombre de tu empresa" />
+								</div>
 							</div>
 							<div class="cf-field">
-								<label for="cf-email"
-									>Correo electrónico<span class="req" aria-hidden="true"
-										>*</span
-									></label
+								<label for="cf-service"
+									>Servicio de interés<span class="req" aria-hidden="true">*</span></label
 								>
-								<input
-									type="email"
-									id="cf-email"
-									name="email"
-									required
-									autocomplete="email"
-									placeholder="tu@empresa.com"
-								/>
-								<span class="cf-err" id="cf-email-err"
-									>Ingresa un correo válido.</span
-								>
-							</div>
-						</div>
-						<div class="form-row-2">
-							<div class="cf-field">
-								<label for="cf-phone">Teléfono</label>
-								<input
-									type="tel"
-									id="cf-phone"
-									name="phone"
-									autocomplete="tel"
-									placeholder="+52 55 0000 0000"
-								/>
+								<select id="cf-service" name="service" required>
+									<option value="">Selecciona un servicio</option>
+									<option value="web">Desarrollo web</option>
+									<option value="branding">Branding &amp; identidad</option>
+									<option value="marketing">Marketing &amp; redes sociales</option>
+									<option value="consultoria">Consultoría estratégica</option>
+									<option value="integral">Solución integral</option>
+									<option value="otro">Otro</option>
+								</select>
+								<span class="cf-err" id="cf-service-err">Selecciona un servicio.</span>
 							</div>
 							<div class="cf-field">
-								<label for="cf-company">Empresa / Marca</label>
-								<input
-									type="text"
-									id="cf-company"
-									name="company"
-									autocomplete="organization"
-									placeholder="Nombre de tu empresa"
-								/>
+								<label for="cf-message"
+									>Cuéntanos sobre tu proyecto<span class="req" aria-hidden="true">*</span></label
+								>
+								<textarea id="cf-message" name="message" required rows="4" placeholder="Describe brevemente tu empresa, objetivos y qué necesitas lograr..."></textarea>
+								<span class="cf-err" id="cf-message-err">Por favor describe tu proyecto.</span>
 							</div>
+							<div class="cf-footer">
+								<button type="submit" class="cf-submit" id="cf-submit">
+									<span class="lbl">Enviar solicitud</span>
+									<span class="arr">&#8594;</span>
+								</button>
+								<p class="cf-note">Respondemos en menos de 24 horas &middot; Tu información es confidencial</p>
+							</div>
+						</form>
+						<div id="cf-success" class="cf-success" hidden>
+							<div class="cf-success-icon">&#10003;</div>
+							<h3 class="cf-success-title">¡Mensaje enviado!</h3>
+							<p class="cf-success-desc">Hemos recibido tu solicitud. Nos pondremos en contacto contigo en menos de 24 horas.</p>
+							<button class="cf-success-close">Cerrar</button>
 						</div>
-						<div class="cf-field">
-							<label for="cf-service"
-								>Servicio de interés<span class="req" aria-hidden="true"
-									>*</span
-								></label
-							>
-							<select id="cf-service" name="service" required>
-								<option value="">Selecciona un servicio</option>
-								<option value="web">Desarrollo web</option>
-								<option value="branding">Branding &amp; identidad</option>
-								<option value="marketing">
-									Marketing &amp; redes sociales
-								</option>
-								<option value="consultoria">Consultoría estratégica</option>
-								<option value="integral">Solución integral</option>
-								<option value="otro">Otro</option>
-							</select>
-							<span class="cf-err" id="cf-service-err"
-								>Selecciona un servicio.</span
-							>
-						</div>
-						<div class="cf-field">
-							<label for="cf-message"
-								>Cuéntanos sobre tu proyecto<span class="req" aria-hidden="true"
-									>*</span
-								></label
-							>
-							<textarea
-								id="cf-message"
-								name="message"
-								required
-								rows="4"
-								placeholder="Describe brevemente tu empresa, objetivos y qué necesitas lograr..."
-							></textarea>
-							<span class="cf-err" id="cf-message-err"
-								>Por favor describe tu proyecto.</span
-							>
-						</div>
-						<div class="cf-footer">
-							<button type="submit" class="cf-submit" id="cf-submit">
-								<span class="lbl">Enviar solicitud</span>
-								<span class="arr">&#8594;</span>
-							</button>
-							<p class="cf-note">
-								Respondemos en menos de 24 horas &middot; Tu información es
-								confidencial
+						<div id="cf-error" class="cf-error" hidden>
+							<div class="cf-error-icon">!</div>
+							<h3 class="cf-error-title">Algo salió mal</h3>
+							<p class="cf-error-desc">
+								No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a
+								<a href="mailto:contacto@kodastudio.mx">contacto@kodastudio.mx</a>
 							</p>
+							<button class="cf-retry">Intentar de nuevo</button>
 						</div>
-					</form>
-					<!-- Éxito -->
-					<div id="cf-success" class="cf-success" hidden>
-						<div class="cf-success-icon">&#10003;</div>
-						<h3 class="cf-success-title">¡Mensaje enviado!</h3>
-						<p class="cf-success-desc">
-							Hemos recibido tu solicitud. Nos pondremos en contacto contigo en
-							menos de 24 horas.
-						</p>
-						<button class="cf-success-close">Cerrar</button>
-					</div>
-					<!-- Error -->
-					<div id="cf-error" class="cf-error" hidden>
-						<div class="cf-error-icon">!</div>
-						<h3 class="cf-error-title">Algo salió mal</h3>
-						<p class="cf-error-desc">
-							No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a
-							<a href="mailto:contacto@kodastudio.mx">contacto@kodastudio.mx</a>
-						</p>
-						<button class="cf-retry">Intentar de nuevo</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</template>
 
-		<!-- Tweaks panel -->
-		<div id="tweaks-panel" class="tweaks-panel" hidden>
-			<div class="tw-head">
-				<span>Tweaks</span>
-				<button class="tw-close" aria-label="Cerrar">×</button>
+		<!-- Tweaks panel (lazy — inyectado en primer __activate_edit_mode) -->
+		<template id="tpl-tweaks">
+			<div id="tweaks-panel" class="tweaks-panel" hidden>
+				<div class="tw-head">
+					<span>Tweaks</span>
+					<button class="tw-close" aria-label="Cerrar">×</button>
+				</div>
+				<label class="tw-row">
+					<span>Acento</span>
+					<select data-tw="accent">
+						<option value="#5B6B7C">Azul pizarra</option>
+						<option value="#7A5E4C">Cobre</option>
+						<option value="#4A5A4C">Verde petróleo</option>
+						<option value="#1A1A18">Carbón puro</option>
+					</select>
+				</label>
+				<label class="tw-row">
+					<span>Fondo hero</span>
+					<select data-tw="hero">
+						<option value="smoke">Humo carbón</option>
+						<option value="marble">Mármol pulido</option>
+						<option value="concrete">Concreto</option>
+						<option value="void">Vacío absoluto</option>
+					</select>
+				</label>
+				<label class="tw-row">
+					<span>Header inicial</span>
+					<select data-tw="headerStart">
+						<option value="dark">Sobre oscuro (hero)</option>
+						<option value="solid">Sólido desde arriba</option>
+					</select>
+				</label>
+				<label class="tw-row">
+					<span>Grano / ruido</span>
+					<input type="range" min="0" max="100" value="50" data-tw="grain" />
+				</label>
+				<label class="tw-row check">
+					<input type="checkbox" data-tw="parallax" checked />
+					<span>Parallax en mockups</span>
+				</label>
+				<label class="tw-row check">
+					<input type="checkbox" data-tw="autoplay" checked />
+					<span>Autoplay testimonios</span>
+				</label>
 			</div>
-			<label class="tw-row">
-				<span>Acento</span>
-				<select data-tw="accent">
-					<option value="#5B6B7C">Azul pizarra</option>
-					<option value="#7A5E4C">Cobre</option>
-					<option value="#4A5A4C">Verde petróleo</option>
-					<option value="#1A1A18">Carbón puro</option>
-				</select>
-			</label>
-			<label class="tw-row">
-				<span>Fondo hero</span>
-				<select data-tw="hero">
-					<option value="smoke">Humo carbón</option>
-					<option value="marble">Mármol pulido</option>
-					<option value="concrete">Concreto</option>
-					<option value="void">Vacío absoluto</option>
-				</select>
-			</label>
-			<label class="tw-row">
-				<span>Header inicial</span>
-				<select data-tw="headerStart">
-					<option value="dark">Sobre oscuro (hero)</option>
-					<option value="solid">Sólido desde arriba</option>
-				</select>
-			</label>
-			<label class="tw-row">
-				<span>Grano / ruido</span>
-				<input type="range" min="0" max="100" value="50" data-tw="grain" />
-			</label>
-			<label class="tw-row check">
-				<input type="checkbox" data-tw="parallax" checked />
-				<span>Parallax en mockups</span>
-			</label>
-			<label class="tw-row check">
-				<input type="checkbox" data-tw="autoplay" checked />
-				<span>Autoplay testimonios</span>
-			</label>
-		</div>
+		</template>
 
 		<!-- WhatsApp float -->
 		<div class="wa-rail">
@@ -1459,5 +1335,14 @@
 			</a>
 		</div>
 		<script src="dist/site.min.js" defer></script>
+
+		<!-- JSON-LD: Organization -->
+		<script type="application/ld+json">
+		{"@context":"https://schema.org","@type":"Organization","name":"Koda Studio","url":"https://kodastudio.mx/","logo":"https://kodastudio.mx/assets/wordmark.svg","description":"Agencia de diseño web, branding y marketing digital para empresas B2B en México. Sedes digitales a medida que proyectan autoridad y generan ventas.","address":{"@type":"PostalAddress","addressCountry":"MX"},"contactPoint":{"@type":"ContactPoint","email":"contacto@kodastudio.mx","contactType":"customer service","availableLanguage":"Spanish"},"sameAs":["https://www.instagram.com/kodastudio.mx","https://www.linkedin.com/company/kodastudio"],"foundingDate":"2024","areaServed":"MX"}
+		</script>
+		<!-- JSON-LD: FAQPage -->
+		<script type="application/ld+json">
+		{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Quién es el dueño legal del sitio, el dominio y los activos?","acceptedAnswer":{"@type":"Answer","text":"Tú. En Koda Studio creemos en la transparencia absoluta. Te transferimos la propiedad legal total de tu dominio, hosting y código fuente desde el lanzamiento. Eres dueño del 100% de tu infraestructura."}},{"@type":"Question","name":"¿Por qué Koda Studio no utiliza plantillas predefinidas?","acceptedAnswer":{"@type":"Answer","text":"Las plantillas devalúan la percepción de tu marca. Nosotros desarrollamos arquitectura digital a medida utilizando tecnologías modernas. Esto garantiza sitios ultrarrápidos, seguridad de grado corporativo y una estética exclusiva."}},{"@type":"Question","name":"¿Cómo se mide el retorno de inversión (ROI) del proyecto?","acceptedAnswer":{"@type":"Answer","text":"Nos enfocamos en métricas de negocio reales: aumento en conversión, posicionamiento SEO, y la cantidad de horas semanales que tu equipo ahorra gracias a nuestras automatizaciones."}},{"@type":"Question","name":"Si mi empresa crece, ¿el sitio podrá escalar con nosotros?","acceptedAnswer":{"@type":"Answer","text":"Completamente. Al desarrollar con código moderno, tu sede digital nace lista para escalar: integraciones con CRMs, APIs de terceros, multi-idioma, sin rehacer el sitio."}}]}
+		</script>
 	</body>
 </html>

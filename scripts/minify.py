@@ -3,17 +3,18 @@
 Koda Studio — CSS minifier
 Usage: python3 scripts/minify.py
 Output:
-  styles/site.min.css          (full stylesheet)
-  styles/site-deferred.min.css (below-the-fold, split at === DEFERRED-START ===)
+  dist/site.min.css          (full stylesheet)
+  dist/site-deferred.min.css (below-the-fold, split at === DEFERRED-START ===)
 """
 
 import re
 import os
 
 BASE = os.path.join(os.path.dirname(__file__), '..', 'styles')
+DIST = os.path.join(os.path.dirname(__file__), '..', 'dist')
 SRC  = os.path.join(BASE, 'site.css')
-DEST_FULL     = os.path.join(BASE, 'site.min.css')
-DEST_DEFERRED = os.path.join(BASE, 'site-deferred.min.css')
+DEST_FULL     = os.path.join(DIST, 'site.min.css')
+DEST_DEFERRED = os.path.join(DIST, 'site-deferred.min.css')
 
 SPLIT_MARKER = '/* === DEFERRED-START === */'
 
