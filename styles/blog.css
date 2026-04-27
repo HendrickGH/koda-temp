@@ -996,10 +996,11 @@ body.nav-locked .wa-rail {
 /* ── Unified nav dropdown & mobile subnav ── */
 .nav-item { position: relative; }
 .has-submenu { display: flex; }
-.nav-item.has-submenu > a { display: inline-flex; align-items: center; gap: 5px; cursor: default; }
+.nav-item.has-submenu > a { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
 .nav-item.has-submenu > a::after { content: ""; width: 4px; height: 4px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg) translateY(-1px); transition: transform 220ms ease; opacity: .5; }
 .nav-item.has-submenu:hover > a::after { transform: rotate(-135deg) translateY(1px); }
 .nav-submenu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 200px; padding: 5px 0; background: var(--color-bone); border: 1px solid var(--color-border); opacity: 0; pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; z-index: 200; }
+.nav-submenu::before { content: ""; position: absolute; top: -14px; left: 0; right: 0; height: 14px; }
 .site-header.on-dark .nav-submenu { background: var(--color-dark, #1a1a18); border-color: rgba(255,255,255,.12); }
 .nav-item.has-submenu:hover .nav-submenu,
 .nav-item.has-submenu:focus-within .nav-submenu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
