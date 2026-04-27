@@ -283,6 +283,16 @@
 				border-color: var(--border-hover);
 				color: var(--fg-primary);
 			}
+			button {
+				background: none;
+				border: none;
+				padding: 0;
+				font: inherit;
+				cursor: pointer;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+			}
 			hr {
 				border: none;
 				border-top: 1px solid var(--border);
@@ -1114,7 +1124,7 @@
 				<a href="digitalizamos/">Presencia</a>
 				<a href="blog/">Blog</a>
 			</nav>
-			<a href="#" class="header-cta" data-open-modal>Iniciar proyecto</a>
+			<button class="header-cta" data-open-modal>Iniciar proyecto</button>
 			<button
 				type="button"
 				class="nav-toggle"
@@ -1138,10 +1148,10 @@
 				<a href="digitalizamos/" style="--d: 210ms">Presencia</a>
 				<a href="blog/" style="--d: 260ms">Blog</a>
 			</nav>
-			<a href="#" class="mobile-nav-cta" data-open-modal>
+			<button class="mobile-nav-cta" data-open-modal>
 				<span>Iniciar proyecto</span>
 				<span aria-hidden="true">→</span>
-			</a>
+			</button>
 		</div>
 	</header>
 
@@ -1192,10 +1202,10 @@
 							Diseñamos sedes digitales de alto rendimiento para empresas que no
 							se conforman con lo ordinario.
 						</p>
-						<a href="#contacto" class="hero-cta" data-open-modal>
+						<button class="hero-cta" data-open-modal>
 							<span class="hero-cta-label">Iniciar proyecto</span>
 							<span class="hero-cta-arrow">→</span>
-						</a>
+						</button>
 					</div>
 				</div>
 
@@ -1267,11 +1277,14 @@
 							<h2 class="h-display">
 								Tres disciplinas.<br /><em>Un estándar.</em>
 							</h2>
-							<p class="sec-desc">
-								Infraestructura web, identidad visual y marketing — integradas
-								en una sola arquitectura pensada para posicionar, escalar y
-								filtrar.
-							</p>
+							<div>
+								<p class="sec-desc">
+									Infraestructura web, identidad visual y marketing — integradas
+									en una sola arquitectura pensada para posicionar, escalar y
+									filtrar.
+								</p>
+								<a href="servicios/" class="sec-all" style="display:inline-block;margin-top:20px;">Ver todos los servicios →</a>
+							</div>
 						</div>
 					</header>
 
@@ -1369,14 +1382,6 @@
 							</ul>
 							<a href="servicios/marketing-redes/" class="service-link">Ver servicio →</a>
 						</article>
-					</div>
-
-					<div class="expertise-all">
-						<a href="servicios/" class="expertise-all-link">
-							<span class="ea-eyebrow">— Ver vista global</span>
-							<span class="ea-title">Todos los servicios por sector</span>
-							<span class="ea-arrow" aria-hidden="true">→</span>
-						</a>
 					</div>
 				</div>
 			</section>
@@ -2208,10 +2213,10 @@
 							estándar es innegociable, conversemos sobre la sede digital que tu
 							empresa merece.
 						</p>
-						<a href="#" class="cta-btn-lg" data-open-modal>
+						<button class="cta-btn-lg" data-open-modal>
 							<span>Agendar consultoría</span>
 							<span class="arr">→</span>
-						</a>
+						</button>
 						<div class="cta-trust">
 							<span>contacto@kodastudio.mx</span>
 							<span class="sep">·</span>
