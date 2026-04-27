@@ -37,7 +37,7 @@
 				<a href="../digitalizamos/" class="is-active">Presencia</a>
 				<a href="../blog/">Blog</a>
 			</nav>
-			<a href="#" class="header-cta" data-open-modal>Iniciar proyecto</a>
+			<button type="button" class="header-cta" data-open-modal>Iniciar proyecto</button>
 			<button
 				type="button"
 				class="nav-toggle"
@@ -61,10 +61,10 @@
 				<a href="../digitalizamos/" style="--d: 210ms" class="is-active">Presencia</a>
 				<a href="../blog/" style="--d: 260ms">Blog</a>
 			</nav>
-			<a href="#" class="mobile-nav-cta" data-open-modal>
+			<button type="button" class="mobile-nav-cta" data-open-modal>
 				<span>Iniciar proyecto</span>
 				<span aria-hidden="true">→</span>
-			</a>
+			</button>
 		</div>
 	</header>
 
@@ -431,7 +431,7 @@
 						</div>
 					</header>
 					<div class="cta-grid">
-						<a href="../#contacto" class="cta-card" data-texture="marble">
+						<button type="button" data-open-modal class="cta-card" data-texture="marble">
 							<div class="cta-texture"></div>
 							<div class="cta-body">
 								<span class="cta-idx">— 01</span>
@@ -439,7 +439,7 @@
 								<p>Conversación de 30 min sin compromiso para entender tu proyecto.</p>
 								<span class="cta-link">Iniciar ahora →</span>
 							</div>
-						</a>
+						</button>
 						<a href="../#trabajo" class="cta-card" data-texture="concrete">
 							<div class="cta-texture"></div>
 							<div class="cta-body">
@@ -680,6 +680,12 @@
 				overflow: hidden;
 				min-height: 360px;
 				transition: color 400ms ease;
+				background: none;
+				padding: 0;
+				cursor: pointer;
+				text-align: left;
+				appearance: none;
+				-webkit-appearance: none;
 			}
 
 			/* Texturas idénticas a sector-card */
