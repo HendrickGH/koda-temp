@@ -576,7 +576,7 @@ max-width: var(--max-width);
 margin: 0 auto;
 gap: 32px;
 position: relative;
-z-index: var(--z-sticky);
+z-index: var(--z-overlay);
 }
 
 .wordmark {
