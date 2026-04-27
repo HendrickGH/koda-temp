@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "build:css": "python3 scripts/minify.py",
+    "build:js":  "python3 scripts/minify_js.py",
+    "build":     "npm run build:css && npm run build:js"
+  },
   "devDependencies": {
     "purgecss": "^8.0.0"
   }
