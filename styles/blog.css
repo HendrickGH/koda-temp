@@ -176,6 +176,7 @@ a { color: inherit; text-decoration: none; }
   transition: background 300ms ease, color 300ms ease, opacity 300ms ease;
   cursor: pointer;
   background: none;
+  appearance: none; -webkit-appearance: none;
 }
 .site-header.on-light .header-cta:hover {
   background: var(--color-ink); color: var(--color-bone); opacity: 1;
@@ -275,6 +276,7 @@ a { color: inherit; text-decoration: none; }
   transition: background 300ms ease, color 300ms ease, opacity 380ms ease 280ms;
   cursor: pointer;
   background: none;
+  appearance: none; -webkit-appearance: none;
 }
 .site-header.nav-open .mobile-nav-cta { opacity: 1; }
 
@@ -674,6 +676,8 @@ body.nav-locked { overflow: hidden; }
   white-space: nowrap;
   cursor: pointer;
   background: none;
+  appearance: none; -webkit-appearance: none;
+  text-decoration: none;
 }
 .mid-cta .mc-btn:hover {
   background: var(--color-bone); color: var(--color-obsidian);
@@ -720,6 +724,8 @@ body.nav-locked { overflow: hidden; }
   transition: background 300ms ease, color 300ms ease, border-color 300ms ease;
   cursor: pointer;
   background: none;
+  appearance: none; -webkit-appearance: none;
+  text-decoration: none;
 }
 .article-cta .ac-btn:hover {
   background: var(--color-bone); color: var(--color-obsidian);
