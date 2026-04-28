@@ -3345,6 +3345,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-decoration: none;
+border-bottom: none;
 transition:
 color 300ms ease,
 transform 280ms ease,
