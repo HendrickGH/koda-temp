@@ -317,6 +317,7 @@ const EASE = 0.15;
 const SPEED_MULT = 2;
 const MOBILE_BP = 900;
 let rafId = null;
+let sectionVisible = false;
 
 function recomputeBounds() {
 items.forEach(it => {
@@ -335,9 +336,6 @@ items.forEach(it => (it.targetY = 0));
 return;
 }
 const rect = section.getBoundingClientRect();
-// Inicia cuando la sección llega al tope del viewport (rect.top = 0).
-// Antes de eso: image en 0. SPEED_MULT comprime el rango hacia el final,
-// haciendo scroll más rápido sin adelantar el inicio.
 const range = Math.max(1, rect.height);
 let progress = (-rect.top / range) * SPEED_MULT;
 progress = Math.max(0, Math.min(1, progress));
@@ -371,15 +369,31 @@ if (rafId === null) rafId = requestAnimationFrame(tick);
 }
 
 function onScroll() {
+if (!sectionVisible) return;
 updateTargets();
 ensureAnimating();
 }
 
 function onResize() {
 recomputeBounds();
+if (sectionVisible) {
 updateTargets();
 ensureAnimating();
 }
+}
+
+// Only attach scroll work when section is actually visible
+const sectionObserver = new IntersectionObserver(([entry]) => {
+sectionVisible = entry.isIntersecting;
+if (sectionVisible) {
+updateTargets();
+ensureAnimating();
+} else if (rafId !== null) {
+cancelAnimationFrame(rafId);
+rafId = null;
+}
+}, { rootMargin: "200px 0px 200px 0px" });
+sectionObserver.observe(section);
 
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onResize);
