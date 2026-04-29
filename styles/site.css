@@ -3409,3 +3409,10 @@ opacity: 0;
 pointer-events: none;
 transition: opacity var(--transition-fast);
 }
+/* Explicitly enforce text color on navbar elements for accessibility */
+.site-header.on-light .site-nav a,
+.site-header.on-light .header-cta,
+.site-header.on-light .nav-toggle,
+.site-header.on-light .wm-sub {
+	color: var(--fg-primary) !important;
+}

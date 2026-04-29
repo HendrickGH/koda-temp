@@ -1324,3 +1324,10 @@ body.nav-locked .wa-rail {
 @media (max-width: 600px) {
 	.form-row-2 { grid-template-columns: 1fr; }
 }
+/* Explicitly enforce text color on navbar elements for accessibility */
+.site-header.on-light .site-nav a,
+.site-header.on-light .header-cta,
+.site-header.on-light .nav-toggle,
+.site-header.on-light .wm-sub {
+	color: var(--fg-primary) !important;
+}
