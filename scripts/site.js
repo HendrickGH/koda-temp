@@ -58,11 +58,23 @@ const sections = document.querySelectorAll(
 // Header — check section behind the top bar
 const headerMid = 40;
 let onDark = false;
+let found = false;
 sections.forEach(sec => {
 const r = sec.getBoundingClientRect();
-if (r.top <= headerMid && r.bottom > headerMid)
+if (r.top <= headerMid && r.bottom > headerMid) {
 onDark = isDark(sec);
+found = true;
+}
 });
+
+// Fallback for Safari elastic scroll (bounce) or fast load at the top:
+if (!found && sections.length > 0) {
+const firstRect = sections[0].getBoundingClientRect();
+if (firstRect.top > 0) {
+onDark = isDark(sections[0]);
+}
+}
+
 header.classList.toggle("on-dark", onDark);
 header.classList.toggle("on-light", !onDark);
 header.classList.toggle("scrolled", scrolled);
