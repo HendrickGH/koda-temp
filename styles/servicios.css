@@ -125,7 +125,7 @@ button.link-arrow {
 .featured-case { margin: 2.5rem 0; }
 .featured-link {
 	display: grid;
-	grid-template-columns: 320px 1fr;
+	grid-template-columns: 360px 1fr;
 	overflow: hidden;
 	gap: 0;
 	border: 1px solid var(--border-on-dark);
@@ -223,6 +223,9 @@ img.featured-thumb {
 	.featured-thumb {
 		border-right: none;
 		border-bottom: 1px solid var(--border-on-dark-soft);
+	}
+	.featured-meta {
+		padding: 1.75rem 1.75rem 1.75rem 2rem;
 	}
 }
 
