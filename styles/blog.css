@@ -310,6 +310,9 @@ a { color: inherit; text-decoration: none; }
   color: var(--fg-primary);
   border-bottom-color: var(--border);
 }
+.site-header.on-light .wm-mark {
+  color: var(--fg-primary);
+}
 .site-header.on-dark {
   background: transparent;
   color: var(--fg-on-dark);

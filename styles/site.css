@@ -610,8 +610,12 @@ color: var(--fg-on-dark);
 border-bottom-color: var(--border-on-dark-soft);
 }
 .site-header.on-light {
-color: var(--fg-primary);
-border-bottom-color: var(--border);
+	color: var(--fg-primary);
+	border-bottom-color: var(--border);
+}
+
+.site-header.on-light .wm-mark {
+	color: var(--fg-primary);
 }
 .header-inner {
 display: flex;
@@ -2849,7 +2853,7 @@ padding-top: 40px;
 .site-footer {
 background: #0a0a09;
 color: var(--fg-on-dark);
-padding: clamp(48px, 6vw, 80px) 0 32px;
+padding: clamp(48px, 6vw, 80px) 0 96px;
 border-top: 1px solid #1f1f1c;
 }
 .footer-inner {

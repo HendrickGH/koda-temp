@@ -41,19 +41,21 @@ const hero = document.querySelector(".hero");
 let waRail = null;
 
 function isDark(sec) {
-return (
-sec.classList.contains("hero") ||
-sec.classList.contains("dark") ||
-sec.classList.contains("site-footer")
-);
+	if (!sec) return false;
+	return (
+		sec.classList.contains("hero") ||
+		sec.classList.contains("dark") ||
+		sec.classList.contains("site-footer") ||
+		sec.getAttribute("data-theme") === "dark"
+	);
 }
 
 function updateHeader() {
 if (!header) return;
 const scrolled = window.scrollY > 40;
-const sections = document.querySelectorAll(
-"main > section, main > footer, body > footer",
-);
+	const sections = document.querySelectorAll(
+		"main > header, main > section, main > article, main > div, main > footer, body > footer"
+	);
 
 // Header — check section behind the top bar
 const headerMid = 40;
@@ -490,12 +492,19 @@ if (!ok) valid = false;
 return valid;
 }
 
-function openModal() {
+function openModal(sector) {
 triggerEl = document.activeElement;
 modal.hidden = false;
 document.body.style.overflow = "hidden";
 requestAnimationFrame(() => modal.classList.add("is-open"));
 restoreForm();
+
+if (sector) {
+const msgEl = document.getElementById("cf-message");
+if (msgEl && msgEl.value.trim() === "") {
+msgEl.value = `Me interesa iniciar un proyecto para el sector: ${sector}\n\n`;
+}
+}
 setTimeout(() => {
 const first = modal.querySelector("input, select, textarea");
 if (first) first.focus();
@@ -583,7 +592,7 @@ document.querySelectorAll("[data-open-modal]").forEach(el => {
 el.addEventListener("click", e => {
 e.preventDefault();
 ensureModal();
-openModal();
+openModal(el.dataset.sector);
 });
 });
 
