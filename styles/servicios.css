@@ -137,7 +137,6 @@ button.link-arrow {
 .featured-link:hover { border-color: var(--accent-live); }
 .featured-thumb {
 	position: relative;
-	aspect-ratio: 4 / 3;
 	background:
 		repeating-linear-gradient(
 			45deg,
@@ -158,9 +157,12 @@ button.link-arrow {
 }
 img.featured-thumb {
 	width: 100%;
-	height: 100%;
-	object-fit: scale-down;
-	transform: scale(1.15);
+	height: auto;
+	object-fit: cover;
+	transition: transform var(--transition-slow);
+}
+.featured-link:hover img.featured-thumb {
+	transform: scale(1.05);
 }
 .featured-thumb::after {
 	content: "";
@@ -219,7 +221,6 @@ img.featured-thumb {
 @media (max-width: 720px) {
 	.featured-link { grid-template-columns: 1fr; }
 	.featured-thumb {
-		aspect-ratio: 16 / 9;
 		border-right: none;
 		border-bottom: 1px solid var(--border-on-dark-soft);
 	}
