@@ -17,10 +17,10 @@ ROOT = Path(__file__).resolve().parent.parent
 META_ROBOTS = '<meta name="robots" content="index, follow, max-image-preview:large" />'
 
 OG_IMAGES = {
-    "index.html": "https://kodastudio.mx/uploads/og_image.png",
-    "servicios/index.html": "https://kodastudio.mx/uploads/og_image_services.png",
-    "blog/index.html": "https://kodastudio.mx/uploads/og_image_blog.png",
-    "digitalizamos/index.html": "https://kodastudio.mx/uploads/og_image_digitalizamos.png",
+    "index.html": "https://kodastudio.com.mx/uploads/og_image.png",
+    "servicios/index.html": "https://kodastudio.com.mx/uploads/og_image_services.png",
+    "blog/index.html": "https://kodastudio.com.mx/uploads/og_image_blog.png",
+    "digitalizamos/index.html": "https://kodastudio.com.mx/uploads/og_image_digitalizamos.png",
 }
 
 

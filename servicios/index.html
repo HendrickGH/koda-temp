@@ -25,7 +25,7 @@
 			property="og:description"
 			content="Sectores donde la confianza, el prestigio y la conversión silenciosa son la única moneda que importa. Conoce qué entregamos por industria."
 		/>
-		<meta property="og:image" content="https://kodastudio.mx/uploads/og_image_services.png" />
+		<meta property="og:image" content="https://kodastudio.com.mx/uploads/og_image_services.png" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:type" content="website" />
@@ -36,18 +36,39 @@
 			{
 				"@context": "https://schema.org",
 				"@type": "Service",
-				"name": "Servicios por sector — Koda Studio",
-				"description": "Arquitectura digital, branding y marketing para empresas B2B organizadas por vertical de industria.",
+				"name": "Servicios Digitales para Empresas B2B — Koda Studio",
+				"description": "Diseño web corporativo, branding e identidad de marca, y marketing digital para empresas B2B en México. Soluciones por sector: legal, manufactura, bienes raíces, hospitalidad, tecnología, arquitectura, turismo y logística.",
 				"url": "https://kodastudio.com.mx/servicios/",
 				"provider": {
 					"@type": "Organization",
-					"name": "Koda Studio",
-					"url": "https://kodastudio.com.mx/"
+					"@id": "https://kodastudio.com.mx/#organization"
 				},
-				"areaServed": [
-					{ "@type": "Country", "name": "México" },
-					{ "@type": "Country", "name": "Canadá" }
-				]
+				"areaServed": {
+					"@type": "Country",
+					"name": "México",
+					"sameAs": "https://en.wikipedia.org/wiki/Mexico"
+				},
+				"serviceType": [
+					"Diseño Web Corporativo",
+					"Identidad de Marca",
+					"Marketing Digital",
+					"Generación de Leads",
+					"Automatización de Procesos Comerciales"
+				],
+				"hasOfferCatalog": {
+					"@type": "OfferCatalog",
+					"name": "Servicios por Sector",
+					"itemListElement": [
+						{ "@type": "Service", "name": "Soluciones digitales para firmas legales y financieras" },
+						{ "@type": "Service", "name": "Soluciones digitales para industria y manufactura" },
+						{ "@type": "Service", "name": "Soluciones digitales para bienes raíces" },
+						{ "@type": "Service", "name": "Soluciones digitales para hospitalidad y lujo" },
+						{ "@type": "Service", "name": "Soluciones digitales para tecnología y fintech" },
+						{ "@type": "Service", "name": "Soluciones digitales para estudios de arquitectura" },
+						{ "@type": "Service", "name": "Soluciones digitales para turismo experiencial" },
+						{ "@type": "Service", "name": "Soluciones digitales para logística y energía" }
+					]
+				}
 			}
 		</script>
 	</head>
@@ -65,6 +86,7 @@
 							<a href="../servicios/desarrollo-web/">Desarrollo web</a>
 							<a href="../servicios/branding/">Branding</a>
 							<a href="../servicios/marketing-redes/">Marketing &amp; redes</a>
+							<a href="../servicios/automatizacion/">Automatización</a>
 						</div>
 					</div>
 					<a href="../digitalizamos/">Presencia</a>
@@ -107,6 +129,12 @@
 						class="mobile-subnav"
 						style="--d: 160ms"
 						>Marketing &amp; redes</a
+					>
+					<a
+						href="../servicios/automatizacion/"
+						class="mobile-subnav"
+						style="--d: 190ms"
+						>Automatización</a
 					>
 					<a href="../digitalizamos/" style="--d: 210ms">Presencia</a>
 					<a href="../blog/" style="--d: 260ms">Blog</a>
@@ -209,7 +237,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>Smart Consultoría — Planeación estratégica</h4>
 									<p>
-										Plataforma corporativa para un despacho boutique especializado en planeación estratégica y gobierno corporativo.
+										Despacho que pasó de depender de referencias a recibir prospectos calificados directamente desde su sitio web.
 									</p>
 								</div>
 							</a>
@@ -254,7 +282,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Firmas legales y financieras">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -300,9 +328,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>Zozer — Tecnología de polímeros y masterbatch</h4>
 									<p>
-										Plataforma técnica B2B para una empresa especializada en
-										masterbatch que compite en mercados globales altamente
-										especializados.
+										Fabricante que ahora recibe cotizaciones internacionales 24/7 gracias a su catálogo digital.
 									</p>
 								</div>
 							</a>
@@ -377,7 +403,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Industria y manufactura avanzada">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -421,8 +447,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>Novus Real Estate — Asesoría inmobiliaria en Canadá</h4>
 									<p>
-										Plataforma de asesoría inmobiliaria orientada a inversión y
-										gestión de propiedades residenciales en Canadá.
+										Inmobiliaria que filtró el 80% de prospectos no calificados antes de la primera llamada.
 									</p>
 								</div>
 							</a>
@@ -457,7 +482,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Bienes raíces y desarrolladoras">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -501,9 +526,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>Miraval Resorts — Wellness &amp; lujo</h4>
 									<p>
-										Marca de retiros de alto valor: plataforma editorial que
-										anticipa la experiencia de bienestar holístico antes del
-										primer contacto.
+										Resort que incrementó reservas directas eliminando la dependencia de intermediarios.
 									</p>
 								</div>
 							</a>
@@ -558,7 +581,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Hospitalidad y lujo">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -617,9 +640,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>ContaPro — Plataforma de contabilidad digital</h4>
 									<p>
-										Sitio que demuestra que automatizar finanzas es accesible,
-										confiable y rentable. Lenguaje técnico-comercial enfocado en
-										pymes regiomontanas.
+										Fintech que redujo su costo de adquisición de clientes con una landing que convierte desde el primer scroll.
 									</p>
 								</div>
 							</a>
@@ -650,7 +671,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Tecnología y fintech">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -694,9 +715,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>Nebulosa Studio — Estudio creativo en Canadá</h4>
 									<p>
-										Sede digital para un estudio enfocado en branding, diseño de
-										experiencias de usuario y soluciones visuales para marcas
-										globales.
+										Estudio creativo que ahora atrae clientes globales sin prospección activa.
 									</p>
 								</div>
 							</a>
@@ -738,7 +757,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Arquitectura, diseño y branding">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -785,9 +804,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>VogaEventos — Agencia de experiencias</h4>
 									<p>
-										Sede digital que captura movimiento, energía y exclusividad.
-										Eventos sociales y corporativos en la frontera Tijuana–San
-										Diego.
+										Agencia de eventos que duplicó sus solicitudes de cotización el trimestre del lanzamiento.
 									</p>
 								</div>
 							</a>
@@ -842,7 +859,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Turismo experiencial y operadores premium">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -886,9 +903,7 @@
 									<span class="featured-tag">Caso destacado</span>
 									<h4>Baja Electric — Distribuidor industrial</h4>
 									<p>
-										Catálogo inteligente de maquinaria y equipo eléctrico
-										enfocado en agilizar el proceso de cotización en el mercado
-										norteamericano.
+										Distribuidora que agilizó su proceso de cotización y ahora negocia en dos países sin aumentar personal.
 									</p>
 								</div>
 							</a>
@@ -923,7 +938,7 @@
 						</div>
 
 						<p class="sector-actions">
-							<button class="link-arrow" data-open-modal>
+							<button class="link-arrow" data-open-modal data-sector="Logística y energía industrial">
 								Iniciar proyecto en este sector →
 							</button>
 							<a href="#indice" class="link-secondary"
@@ -959,9 +974,9 @@
 								Código moderno y arquitectura lista para crecer.
 							</p>
 							<ul class="exp-tags">
-								<li>Next.js / React</li>
-								<li>SEO técnico</li>
-								<li>CMS a medida</li>
+								<li>Tecnología de alto rendimiento</li>
+								<li>Posicionamiento en Google</li>
+								<li>Panel de administración propio</li>
 							</ul>
 							<span class="exp-link">Ver servicio detallado →</span>
 						</a>
@@ -988,8 +1003,8 @@
 							</p>
 							<ul class="exp-tags">
 								<li>Gestión de redes</li>
-								<li>Automatización B2B</li>
-								<li>Paid media</li>
+								<li>Captación automática de clientes</li>
+								<li>Publicidad digital</li>
 							</ul>
 							<span class="exp-link">Ver servicio detallado →</span>
 						</a>
@@ -1022,18 +1037,18 @@
 						</div>
 						<div>
 							<span class="flabel">Contacto</span>
-							<a href="mailto:hola@kodastudio.com.mx">hola@kodastudio.com.mx</a>
-							<a href="#">Instagram</a>
-							<a href="#">LinkedIn</a>
+							<a href="mailto:contacto@kodastudio.com.mx">contacto@kodastudio.com.mx</a>
+							<a href="https://www.instagram.com/kodastudiodesign/" target="_blank" rel="noopener noreferrer">Instagram</a>
+							<a href="https://linkedin.com/company/koda-studio-design" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						</div>
 					</div>
 				</div>
 				<div class="footer-bottom">
 					<span>© 2026 Koda Studio · Todos los derechos reservados</span>
 					<div class="foot-links">
-						<a href="#">Aviso de privacidad</a>
-						<a href="#">Términos</a>
-					</div>
+							<a href="/aviso-de-privacidad/">Aviso de privacidad</a>
+							<a href="/terminos-y-condiciones/">Términos y condiciones</a>
+						</div>
 				</div>
 			</div>
 		</footer>
