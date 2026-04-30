@@ -661,7 +661,7 @@ color: var(--fg-on-dark-soft);
 
 .site-nav {
 display: flex;
-gap: clamp(16px, 2.5vw, 36px);
+gap: clamp(4px, 1vw, 16px);
 }
 .site-nav a {
 font-family: var(--font-body);
@@ -673,6 +673,7 @@ text-decoration: none;
 border: none;
 color: currentColor;
 opacity: 0.6;
+padding: 14px 12px;
 transition:
 opacity var(--transition-base),
 color var(--transition-base);
@@ -1230,7 +1231,7 @@ display: inline-flex;
 align-items: center;
 gap: 5px;
 cursor: pointer;
-padding-bottom: 14px;
+padding-bottom: 28px;
 margin-bottom: -14px;
 }
 .nav-item.has-submenu > a::after {
@@ -1291,7 +1292,7 @@ visibility 0s linear 0s;
 }
 .nav-submenu a {
 display: block;
-padding: 9px 20px;
+padding: 12px 22px;
 font-family: var(--font-body);
 font-size: var(--text-2xs);
 font-weight: var(--weight-medium);
