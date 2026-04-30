@@ -32,5 +32,23 @@ Ciudad de México (CDMX), Monterrey (NL), Quintana Roo, y todo México de forma 
 - Instagram: https://www.instagram.com/kodastudiodesign/
 - LinkedIn empresa: https://www.linkedin.com/company/koda-studio-design/
 
+## Rangos de inversión
+- Desarrollo web corporativo a medida: desde $25,000 MXN hasta $80,000+ MXN
+- Branding corporativo (logotipo + manual de marca): desde $18,000 MXN hasta $45,000+ MXN
+- Tienda en línea profesional: desde $30,000 MXN hasta $90,000+ MXN
+- Automatización y bots de WhatsApp: desde $15,000 MXN hasta $50,000+ MXN
+- Rediseño de marca: desde $20,000 MXN hasta $55,000+ MXN
+- Marketing digital y redes sociales (mensual): desde $8,000 MXN/mes
+- Tiempo de entrega típico: 4 a 6 semanas por proyecto
+
+## Preguntas frecuentes
+- ¿Trabajan con WordPress? No. Koda Studio construye con código a medida, sin plantillas ni constructores visuales, para garantizar diferenciación, velocidad y cero dependencia de plugins.
+- ¿Trabajan con empresas fuera de CDMX? Sí. Todo el proceso es remoto: videollamadas, entregas en la nube y comunicación directa con el fundador en cada etapa. Cobertura en todo México.
+- ¿Quién lleva el proyecto? El fundador, Hendrick Galarza, dirige personalmente cada proyecto. No hay capas de junior accounts ni intermediarios.
+- ¿Ofrecen mantenimiento post-lanzamiento? Sí. 30 días de soporte técnico incluidos en cada proyecto. Planes mensuales disponibles para mantenimiento continuo.
+- ¿Cuánto tiempo tarda un proyecto? Un sitio corporativo completo toma entre 4 y 6 semanas. Una tienda en línea, entre 5 y 8 semanas.
+- ¿Incluyen SEO? Sí. El SEO técnico está integrado desde la primera línea de código: estructura semántica, velocidad optimizada, schema.org y metadatos correctos.
+- ¿Hacen proyectos de branding sin desarrollo web? Sí. Se puede contratar branding corporativo de forma independiente.
+
 ## Blog / Recursos
 Publicaciones semanales sobre estrategia digital B2B, SEO, branding y automatización para empresas mexicanas: https://kodastudio.com.mx/blog/
