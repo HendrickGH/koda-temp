@@ -1,6 +1,6 @@
-// Updates navbar (desktop + mobile) and footer Expertise across all HTML files.
-// - Adds Automatización and Tienda en línea to the services submenu and mobile nav.
-// - Adds Automatización and Tienda en línea to the footer Expertise column.
+// Updates navbar (desktop + mobile), footer Expertise, and footer Contact across all HTML files.
+// Adds Rediseño de marca to navbars and footer Expertise.
+// Updates footer Contact with phone, full address, and social links (matching index.html template).
 // Idempotent: safe to run multiple times.
 
 const fs = require('fs');
@@ -29,7 +29,6 @@ function detectServicesPrefix(content) {
 }
 
 function updateDesktopSubmenu(content, prefix) {
-	// Match the entire <div class="nav-submenu">...</div> block.
 	const re = /<div class="nav-submenu">[\s\S]*?<\/div>/;
 	if (!re.test(content)) return content;
 
@@ -37,6 +36,7 @@ function updateDesktopSubmenu(content, prefix) {
 		`<div class="nav-submenu">\n` +
 		`\t\t\t\t\t\t\t<a href="${prefix}servicios/desarrollo-web/">Desarrollo web</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${prefix}servicios/branding/">Branding</a>\n` +
+		`\t\t\t\t\t\t\t<a href="${prefix}servicios/rediseno-marca/">Rediseño de marca</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${prefix}servicios/marketing-redes/">Marketing &amp; redes</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${prefix}servicios/automatizacion/">Automatización</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${prefix}servicios/tienda-en-linea/">Tienda en línea</a>\n` +
@@ -45,88 +45,120 @@ function updateDesktopSubmenu(content, prefix) {
 	return content.replace(re, replacement);
 }
 
-// For the mobile nav, we only inject the missing service items right after
-// the existing Marketing & redes / Automatización entries — preserving any
-// active state on top-level items (Servicios / Presencia / Blog / Sobre nosotros).
 function updateMobileSubmenu(content, prefix) {
-	// Already up to date?
-	if (content.includes(`href="${prefix}servicios/tienda-en-linea/"`) &&
-		content.includes(`href="${prefix}servicios/automatizacion/"\n`) === false) {
-		// continue — we still want to ensure both exist as mobile-subnav rows
-	}
+	const ep = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-	const escapedPrefix = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-	const marketingLineRe = new RegExp(
-		`(<a\\s+href="${escapedPrefix}servicios/marketing-redes/"[^>]*class="mobile-subnav"[^>]*>Marketing(?:\\s|&amp;|&)+redes</a>)`,
-		'i'
+	// Match the entire block from desarrollo-web mobile-subnav to tienda-en-linea mobile-subnav
+	const blockRe = new RegExp(
+		`<a\\s+href="${ep}servicios/desarrollo-web/"\\s+class="mobile-subnav"[^>]*>[^<]*<\\/a>[\\s\\S]*?` +
+		`<a\\s+href="${ep}servicios/tienda-en-linea/"\\s+class="mobile-subnav"[^>]*>[^<]*<\\/a>`
 	);
 
-	if (!marketingLineRe.test(content)) {
-		// Try alternative formatting (multi-line attributes).
-		const altRe = new RegExp(
-			`(<a[\\s\\S]*?href="${escapedPrefix}servicios/marketing-redes/"[\\s\\S]*?class="mobile-subnav"[\\s\\S]*?>[\\s\\S]*?Marketing[\\s\\S]*?redes[\\s\\S]*?</a\\s*>)`,
-			'i'
-		);
-		if (!altRe.test(content)) return content;
+	if (!blockRe.test(content)) return content;
 
-		const hasAuto = new RegExp(`href="${escapedPrefix}servicios/automatizacion/"[^>]*class="mobile-subnav"`).test(content) ||
-			new RegExp(`href="${escapedPrefix}servicios/automatizacion/"[\\s\\S]{0,200}class="mobile-subnav"`).test(content);
-		const hasTienda = new RegExp(`href="${escapedPrefix}servicios/tienda-en-linea/"[^>]*class="mobile-subnav"`).test(content) ||
-			new RegExp(`href="${escapedPrefix}servicios/tienda-en-linea/"[\\s\\S]{0,200}class="mobile-subnav"`).test(content);
+	const replacement =
+		`<a href="${prefix}servicios/desarrollo-web/" class="mobile-subnav" style="--d: 100ms">Desarrollo web</a>\n` +
+		`\t\t\t\t\t<a href="${prefix}servicios/branding/" class="mobile-subnav" style="--d: 125ms">Branding</a>\n` +
+		`\t\t\t\t\t<a href="${prefix}servicios/rediseno-marca/" class="mobile-subnav" style="--d: 150ms">Rediseño de marca</a>\n` +
+		`\t\t\t\t\t<a href="${prefix}servicios/marketing-redes/" class="mobile-subnav" style="--d: 175ms">Marketing &amp; redes</a>\n` +
+		`\t\t\t\t\t<a href="${prefix}servicios/automatizacion/" class="mobile-subnav" style="--d: 200ms">Automatización</a>\n` +
+		`\t\t\t\t\t<a href="${prefix}servicios/tienda-en-linea/" class="mobile-subnav" style="--d: 225ms">Tienda en línea</a>`;
 
-		let injection = '';
-		if (!hasAuto) {
-			injection += `\n\t\t\t\t\t<a href="${prefix}servicios/automatizacion/" class="mobile-subnav" style="--d: 190ms">Automatización</a>`;
-		}
-		if (!hasTienda) {
-			injection += `\n\t\t\t\t\t<a href="${prefix}servicios/tienda-en-linea/" class="mobile-subnav" style="--d: 210ms">Tienda en línea</a>`;
-		}
-		if (!injection) return content;
-
-		return content.replace(altRe, (m) => m + injection);
-	}
-
-	const hasAuto = new RegExp(`href="${escapedPrefix}servicios/automatizacion/"[^>]*class="mobile-subnav"`).test(content);
-	const hasTienda = new RegExp(`href="${escapedPrefix}servicios/tienda-en-linea/"[^>]*class="mobile-subnav"`).test(content);
-
-	let injection = '';
-	if (!hasAuto) {
-		injection += `\n\t\t\t\t\t<a href="${prefix}servicios/automatizacion/" class="mobile-subnav" style="--d: 190ms">Automatización</a>`;
-	}
-	if (!hasTienda) {
-		injection += `\n\t\t\t\t\t<a href="${prefix}servicios/tienda-en-linea/" class="mobile-subnav" style="--d: 210ms">Tienda en línea</a>`;
-	}
-	if (!injection) return content;
-
-	return content.replace(marketingLineRe, (m) => m + injection);
+	return content.replace(blockRe, replacement);
 }
 
-// Detect the footer prefix for Expertise links. Same as services prefix
-// when the footer sits at root, but when the file is under /servicios/<x>/
-// the footer uses ../<sibling>/ instead of <prefix>servicios/<sibling>/.
-// We look for the existing Expertise "Desarrollo web" link.
 function updateFooterExpertise(content) {
-	// Find the "Expertise" footer column block, which contains links to desarrollo-web/branding/marketing-redes.
 	const blockRe = /<span class="flabel">Expertise<\/span>([\s\S]*?)<\/div>/;
 	const m = content.match(blockRe);
 	if (!m) return content;
 
 	const inner = m[1];
-	// Find the desarrollo-web href to learn the path prefix used here.
+	let expertiseBase = null;
+
+	// Try to detect prefix from desarrollo-web link
 	const hrefMatch = inner.match(/href="([^"]*?)desarrollo-web\/"/);
-	if (!hrefMatch) return content;
-	const expertiseBase = hrefMatch[1]; // e.g. "../" or "../../servicios/" or "/servicios/"
+	if (hrefMatch) {
+		expertiseBase = hrefMatch[1];
+	} else {
+		// Blog pages use #expertise anchors — detect their prefix and build servicios path
+		const anchorMatch = inner.match(/href="([^"]*?)#expertise"/);
+		if (anchorMatch) {
+			expertiseBase = anchorMatch[1] + 'servicios/';
+		}
+	}
+
+	if (!expertiseBase) return content;
 
 	const desired =
 		`<span class="flabel">Expertise</span>\n` +
 		`\t\t\t\t\t\t\t<a href="${expertiseBase}desarrollo-web/">Desarrollo web</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${expertiseBase}branding/">Branding</a>\n` +
+		`\t\t\t\t\t\t\t<a href="${expertiseBase}rediseno-marca/">Rediseño de marca</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${expertiseBase}marketing-redes/">Marketing &amp; redes</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${expertiseBase}automatizacion/">Automatización</a>\n` +
 		`\t\t\t\t\t\t\t<a href="${expertiseBase}tienda-en-linea/">Tienda en línea</a>\n` +
 		`\t\t\t\t\t\t</div>`;
 
 	return content.replace(blockRe, desired);
+}
+
+function updateFooterContact(content) {
+	// Already has full address + phone? Skip.
+	if (content.includes('Campeche 76-42, Roma Sur') && content.includes('tel:+527721698485')) {
+		return content;
+	}
+
+	const contactIdx = content.lastIndexOf('<span class="flabel">Contacto</span>');
+	if (contactIdx === -1) return content;
+
+	// Find the opening <div> of the contact column (last <div before Contacto span)
+	const beforeContact = content.substring(0, contactIdx);
+	const lastDivOpenIdx = beforeContact.lastIndexOf('<div');
+	if (lastDivOpenIdx === -1) return content;
+
+	// Find the LINE containing <div class="footer-bottom"> to anchor the end of footer-cols
+	// Use partial match so it works even when the div has extra style attributes
+	const footerBottomDivIdx = content.indexOf('<div class="footer-bottom"', contactIdx);
+	if (footerBottomDivIdx === -1) return content;
+	// Find the \n that starts the footer-bottom line so we preserve its indentation
+	const lineBeforeFooterBottom = content.lastIndexOf('\n', footerBottomDivIdx);
+
+	// Get colIndent: the actual tabs that precede the contact <div on its line
+	// content.substring(0, lastDivOpenIdx) ends with those tabs (they are already there)
+	const lineStart = content.lastIndexOf('\n', lastDivOpenIdx) + 1;
+	const colIndent = content.substring(lineStart, lastDivOpenIdx);
+
+	// Count divs in the section from contact <div> to the footer-bottom line
+	// to determine how many parent closing divs we need to regenerate
+	const originalSection = content.substring(lastDivOpenIdx, lineBeforeFooterBottom);
+	const openDivs = (originalSection.match(/<div/g) || []).length;
+	const closeDivs = (originalSection.match(/<\/div>/g) || []).length;
+	const parentClosings = closeDivs - openDivs; // parent divs closed after contact column
+
+	// Build new contact div. NO leading colIndent — content.substring(0, lastDivOpenIdx)
+	// already ends with those tabs, so we start directly with <div>.
+	const newContact =
+		`<div>\n` +
+		`${colIndent}\t<span class="flabel">Contacto</span>\n` +
+		`${colIndent}\t<a href="mailto:contacto@kodastudio.com.mx">contacto@kodastudio.com.mx</a>\n` +
+		`${colIndent}\t<a href="tel:+527721698485">+52 772 169 8485</a>\n` +
+		`${colIndent}\t<span style="display: block; margin-top: 1rem; color: #8A9BAC; font-size: 0.875rem;">Campeche 76-42, Roma Sur<br>Cuauhtémoc, 06760 CDMX</span>\n` +
+		`${colIndent}\t<div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">\n` +
+		`${colIndent}\t\t<a href="https://www.instagram.com/kodastudiodesign/" target="_blank" rel="noopener noreferrer">Instagram</a>\n` +
+		`${colIndent}\t\t<a href="https://linkedin.com/company/koda-studio-design" target="_blank" rel="noopener noreferrer">LinkedIn</a>\n` +
+		`${colIndent}\t</div>\n` +
+		`${colIndent}</div>\n`;
+
+	// Build parent closing divs (footer-cols, footer-top, …) with correct indentation
+	let closingDivs = '';
+	for (let i = 0; i < parentClosings; i++) {
+		const parentIndent = colIndent.substring(0, colIndent.length - (i + 1));
+		closingDivs += `${parentIndent}</div>\n`;
+	}
+
+	// Replace from the contact <div opening to (not including) the \n before footer-bottom.
+	// content.substring(lineBeforeFooterBottom) = '\n' + indent + '<div class="footer-bottom">...'
+	return content.substring(0, lastDivOpenIdx) + newContact + closingDivs + content.substring(lineBeforeFooterBottom);
 }
 
 const files = findHtmlFiles('.');
@@ -142,6 +174,7 @@ for (const file of files) {
 		content = updateMobileSubmenu(content, prefix);
 	}
 	content = updateFooterExpertise(content);
+	content = updateFooterContact(content);
 
 	if (content !== original) {
 		fs.writeFileSync(file, content, 'utf8');

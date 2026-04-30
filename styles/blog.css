@@ -1017,7 +1017,7 @@ body.nav-locked { overflow: hidden; }
 .site-footer {
   background: #0A0A09;
   color: var(--fg-on-dark);
-  padding: clamp(48px, 6vw, 80px) 0 32px;
+  padding: clamp(48px, 6vw, 80px) 0 96px;
   border-top: 1px solid #1f1f1c;
 }
 .footer-top {
