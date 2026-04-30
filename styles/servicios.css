@@ -216,7 +216,14 @@ button.link-arrow {
 	}
 }
 
-/* ── Blog hero h2 (demoted from h1 on /servicios) ── */
+/* ── Blog hero — light override on /servicios ── */
+.blog-hero {
+	background: var(--color-bone);
+	color: var(--color-ink);
+}
+.blog-hero .eyebrow {
+	color: var(--color-ink-muted);
+}
 .blog-hero h2 {
 	font-family: var(--font-display);
 	font-size: clamp(2rem, 4.6vw, 3.6rem);
@@ -224,20 +231,23 @@ button.link-arrow {
 	letter-spacing: var(--tracking-tight);
 	font-weight: 400;
 	margin: 0 0 28px;
-	color: var(--fg-on-dark);
+	color: var(--color-ink);
 	max-width: 18ch;
 }
 .blog-hero h2 em {
 	font-style: italic;
-	color: var(--fg-on-dark-soft);
+	color: var(--color-ink-soft);
+}
+.blog-hero p {
+	color: var(--color-ink-soft);
 }
 
-/* ── Sector index ── */
+/* ── Sector index — light, extends blog-hero visually ── */
 .sector-index {
-	background: var(--color-obsidian);
-	color: var(--fg-on-dark);
+	background: var(--color-bone);
+	color: var(--color-ink);
 	padding: 0 0 clamp(40px, 6vw, 72px);
-	border-bottom: 1px solid var(--border-on-dark-soft);
+	border-bottom: 1px solid var(--color-stone-deep);
 }
 .six-eyebrow {
 	font-family: var(--font-body);
@@ -245,7 +255,7 @@ button.link-arrow {
 	font-weight: var(--weight-medium);
 	letter-spacing: var(--tracking-label);
 	text-transform: uppercase;
-	color: var(--fg-on-dark-faint);
+	color: var(--color-ink-faint);
 	display: block;
 	margin-bottom: 24px;
 }
@@ -256,13 +266,13 @@ button.link-arrow {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 0;
-	border-top: 1px solid var(--border-on-dark-soft);
+	border-top: 1px solid var(--color-stone-deep);
 }
 .six-list li {
-	border-bottom: 1px solid var(--border-on-dark-soft);
+	border-bottom: 1px solid var(--color-stone-deep);
 }
 .six-list li:nth-child(odd) {
-	border-right: 1px solid var(--border-on-dark-soft);
+	border-right: 1px solid var(--color-stone-deep);
 }
 .six-list a {
 	display: block;
@@ -271,16 +281,16 @@ button.link-arrow {
 	font-size: var(--text-sm);
 	font-weight: var(--weight-regular);
 	letter-spacing: 0;
-	color: var(--fg-on-dark-mid);
+	color: var(--color-ink-soft);
 	transition:
 		color var(--transition-base),
 		padding-left var(--transition-base),
 		background var(--transition-base);
 }
 .six-list a:hover {
-	color: var(--fg-on-dark);
+	color: var(--color-ink);
 	padding-left: 20px;
-	background: var(--surface-on-dark-low);
+	background: var(--color-stone);
 }
 @media (max-width: 720px) {
 	.six-list {
