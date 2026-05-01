@@ -52,3 +52,6 @@ Ciudad de México (CDMX), Monterrey (NL), Quintana Roo, y todo México de forma 
 
 ## Blog / Recursos
 Publicaciones semanales sobre estrategia digital B2B, SEO, branding y automatización para empresas mexicanas: https://kodastudio.com.mx/blog/
+
+## Contenido extendido para modelos de lenguaje
+Versión completa con todos los servicios, precios, blog y cobertura geográfica: https://kodastudio.com.mx/llms-full.txt

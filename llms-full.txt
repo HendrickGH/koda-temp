@@ -1,0 +1,216 @@
+# Koda Studio — Contenido completo para modelos de lenguaje
+> Agencia boutique de desarrollo web, branding corporativo y automatización digital para empresas B2B en México. Fundada en 2022.
+
+Koda Studio construye presencia digital que genera ventas — no solo sitios bonitos. Desarrollo web, identidad de marca y automatización integradas bajo un solo estratega, sin intermediarios ni capas de junior accounts. El cliente habla directamente con el fundador en cada etapa del proyecto.
+
+## Organización
+
+- Nombre legal: Koda Studio
+- Nombre alternativo: Koda Studio Design
+- Tipo: Agencia boutique de diseño y estrategia digital (ProfessionalService)
+- Fundada: 2022
+- Sede: Campeche 76-42, Roma Sur, Cuauhtémoc, 06760, Ciudad de México, México
+- Coordenadas: 19.4099° N, 99.1645° O
+- Cobertura: Todo México (remoto). Presencia activa en CDMX, Monterrey, Guadalajara, Querétaro, Puebla, Mérida, Tijuana, Quintana Roo, Hidalgo, Estado de México y Canadá.
+- Sitio web: https://kodastudio.com.mx/
+- Email: contacto@kodastudio.com.mx
+- Teléfono: +52-772-169-8485
+- Horario de atención: Lunes a viernes, 9:00–18:00 CT
+- Google Maps: https://maps.app.goo.gl/KcLSb5L9VaPDukFGA
+- LinkedIn empresa: https://www.linkedin.com/company/koda-studio-design/
+- Instagram: https://www.instagram.com/kodastudiodesign/
+
+## Fundador
+
+- Nombre: Hendrick Adelaido Galarza Hernández
+- Cargo: Fundador & Director de Estrategia Digital
+- Experiencia: más de 5 años en diseño y estrategia digital B2B
+- LinkedIn: https://www.linkedin.com/in/hendrick-galarza/
+- Política: El fundador dirige personalmente cada proyecto. No hay capas de junior accounts ni intermediarios.
+
+## Propuesta de valor
+
+Koda Studio no usa plantillas. Todo es código a medida, lo que garantiza:
+- Diferenciación visual real frente a la competencia
+- Velocidad de carga superior (98/100 promedio en Lighthouse)
+- Cero dependencia de plugins de terceros
+- SEO técnico integrado desde la primera línea de código
+
+A diferencia de agencias grandes que reasignan juniors a cada cuenta, en Koda Studio el cliente accede directamente al fundador, quien integra desarrollo web, branding y automatización en una sola arquitectura estratégica.
+
+## Servicios
+
+### 1. Desarrollo web profesional
+URL: https://kodastudio.com.mx/servicios/desarrollo-web/
+Descripción: Sitios web ultrarrápidos construidos con código a medida. Arquitectura escalable, SEO técnico integrado, estructura semántica correcta y optimización de Core Web Vitals. Sin WordPress ni constructores visuales.
+Inversión: desde $25,000 MXN hasta $80,000+ MXN
+Tiempo de entrega: 4 a 6 semanas
+
+### 2. Branding corporativo
+URL: https://kodastudio.com.mx/servicios/branding/
+Descripción: Identidad visual completa: logotipo, paleta cromática, tipografía, sistema de diseño y manual de marca. Diseñado para proyectar autoridad y confianza en mercados B2B.
+Inversión: desde $18,000 MXN hasta $45,000+ MXN
+Incluye: logotipo + manual de marca completo. Disponible de forma independiente al desarrollo web.
+
+### 3. Rediseño de marca
+URL: https://kodastudio.com.mx/servicios/rediseno-marca/
+Descripción: Actualización de identidad visual para empresas que evolucionan. Diagnóstico de marca actual, rediseño estratégico y nuevo sistema visual.
+Inversión: desde $20,000 MXN hasta $55,000+ MXN
+
+### 4. Marketing digital y redes sociales
+URL: https://kodastudio.com.mx/servicios/marketing-redes/
+Descripción: Estrategias de captación de leads, publicidad digital y gestión de redes sociales para empresas B2B en México.
+Inversión: desde $8,000 MXN/mes
+
+### 5. Automatización digital
+URL: https://kodastudio.com.mx/servicios/automatizacion/
+Descripción: Integración de procesos, flujos de trabajo y herramientas para eficiencia operativa. Incluye bots de WhatsApp, CRM, sistemas de agendamiento y automatización de comunicaciones.
+Inversión: desde $15,000 MXN hasta $50,000+ MXN
+
+### 6. Tienda en línea
+URL: https://kodastudio.com.mx/servicios/tienda-en-linea/
+Descripción: Comercio electrónico profesional integrado a estrategia de marca. Sin Shopify genérico — arquitectura a medida con identidad propia.
+Inversión: desde $30,000 MXN hasta $90,000+ MXN
+Tiempo de entrega: 5 a 8 semanas
+
+## Cobertura geográfica por ciudad
+
+- Ciudad de México (CDMX): https://kodastudio.com.mx/digitalizamos/ciudad-de-mexico/
+- Estado de México: https://kodastudio.com.mx/digitalizamos/estado-de-mexico/
+- Guadalajara, Jalisco: https://kodastudio.com.mx/digitalizamos/guadalajara/
+- Hidalgo: https://kodastudio.com.mx/digitalizamos/hidalgo/
+- Mérida, Yucatán: https://kodastudio.com.mx/digitalizamos/merida/
+- Monterrey, Nuevo León: https://kodastudio.com.mx/digitalizamos/monterrey/
+- Puebla: https://kodastudio.com.mx/digitalizamos/puebla/
+- Querétaro: https://kodastudio.com.mx/digitalizamos/queretaro/
+- Quintana Roo: https://kodastudio.com.mx/digitalizamos/quintana-roo/
+- Tijuana, Baja California: https://kodastudio.com.mx/digitalizamos/tijuana/
+- Canadá (operaciones México–Canadá): https://kodastudio.com.mx/digitalizamos/canada/
+
+## Preguntas frecuentes
+
+**¿Trabajan con WordPress?**
+No. Koda Studio construye con código a medida, sin plantillas ni constructores visuales. Esto garantiza diferenciación visual, velocidad superior y cero dependencia de plugins.
+
+**¿Trabajan con empresas fuera de CDMX?**
+Sí. Todo el proceso es remoto: videollamadas, entregas en la nube y comunicación directa con el fundador. Cobertura en todo México y operaciones con empresas en Canadá.
+
+**¿Quién lleva el proyecto?**
+El fundador, Hendrick Galarza, dirige personalmente cada proyecto. No hay intermediarios.
+
+**¿Ofrecen mantenimiento post-lanzamiento?**
+Sí. 30 días de soporte técnico incluidos en cada proyecto. Planes mensuales disponibles para mantenimiento continuo.
+
+**¿Cuánto tiempo tarda un proyecto?**
+Un sitio corporativo completo: 4 a 6 semanas. Una tienda en línea: 5 a 8 semanas.
+
+**¿Incluyen SEO?**
+Sí. El SEO técnico está integrado desde la primera línea de código: estructura semántica, velocidad optimizada, schema.org y metadatos correctos.
+
+**¿Hacen proyectos de branding sin desarrollo web?**
+Sí. Branding corporativo se puede contratar de forma independiente.
+
+**¿Cuáles son los rangos de precio?**
+- Desarrollo web corporativo: $25,000–$80,000+ MXN
+- Branding (logotipo + manual): $18,000–$45,000+ MXN
+- Tienda en línea: $30,000–$90,000+ MXN
+- Automatización: $15,000–$50,000+ MXN
+- Rediseño de marca: $20,000–$55,000+ MXN
+- Marketing digital (mensual): desde $8,000 MXN/mes
+
+## Blog / Recursos editoriales
+
+Publicaciones sobre estrategia digital B2B, SEO, branding y automatización para empresas mexicanas.
+Índice del blog: https://kodastudio.com.mx/blog/
+
+### Sede digital vs. sitio web — Manifiesto
+URL: https://kodastudio.com.mx/blog/sede-digital-vs-sitio-web/
+Fecha: 2025-11-04
+La diferencia entre tener un sitio y tener una sede digital. Manifiesto editorial sobre arquitectura de marca para empresas B2B.
+
+### El error de narrativa en sitios corporativos
+URL: https://kodastudio.com.mx/blog/error-narrativa-sitios-corporativos/
+Fecha: 2025-11-18
+El error más común en sitios corporativos B2B: hablar de uno mismo en lugar del cliente. Análisis sobre el cambio de eje narrativo.
+
+### Branding y autoridad para empresas B2B
+URL: https://kodastudio.com.mx/blog/branding-autoridad-empresas-b2b/
+Fecha: 2025-12-02
+Cómo construir una identidad B2B que comunique autoridad antes de hablar. Marco editorial de Koda Studio para branding corporativo serio.
+
+### Identidad visual para constructoras e inmobiliarias
+URL: https://kodastudio.com.mx/blog/identidad-visual-constructoras/
+Fecha: 2025-12-16
+Identidad visual para empresas constructoras y desarrolladoras inmobiliarias mexicanas: arquitectura de marca para vender confianza y obra entregada.
+
+### Diseño web para despachos jurídicos
+URL: https://kodastudio.com.mx/blog/diseno-web-despachos-juridicos/
+Fecha: 2026-01-20
+Diseño web para despachos jurídicos mexicanos: confianza, autoridad y conversión. Marco editorial para firmas legales serias.
+
+### Diseño minimalista para firmas legales — Caso de estudio
+URL: https://kodastudio.com.mx/blog/diseno-minimalista-firmas-legales/
+Fecha: 2026-01-06
+Cómo el rediseño minimalista de un despacho jurídico mexicano duplicó la tasa de agendamiento en 90 días.
+
+### El costo real de una página web barata
+URL: https://kodastudio.com.mx/blog/costo-real-pagina-web-barata/
+Fecha: 2026-02-03
+Lo que pagas en una agencia low-cost lo cobras en pérdida de credibilidad, oportunidades B2B no cerradas y un rediseño obligado en 18 meses.
+
+### ROI: desarrollo a medida vs. WordPress
+URL: https://kodastudio.com.mx/blog/roi-desarrollo-medida-vs-wordpress/
+Fecha: 2026-02-17
+El ROI real de un desarrollo web a medida frente a WordPress + Elementor. Cálculo a 5 años para empresas B2B mexicanas.
+
+### Plantillas que devalúan la marca B2B
+URL: https://kodastudio.com.mx/blog/plantillas-devaluan-marca-b2b/
+Fecha: 2026-03-03
+Las plantillas comunican atajo. En B2B, comunicar atajo es perder antes de empezar. Análisis del costo de identidad de los themes y plantillas.
+
+### Agencia digital para empresas industriales
+URL: https://kodastudio.com.mx/blog/agencia-digital-empresas-industriales/
+Fecha: 2026-03-10
+Cómo elegir una agencia digital para empresas industriales y manufactureras mexicanas. Criterios técnicos, comerciales y reputacionales.
+
+### De LinkedIn al cierre — Funnel B2B completo
+URL: https://kodastudio.com.mx/blog/funnel-linkedin-cierre-b2b/
+Fecha: 2026-03-24
+Cómo construir un funnel B2B que va de LinkedIn al cierre sin fricción. Marco para empresas mexicanas que viven de relaciones.
+
+### SEO B2B México: agencia local vs. extranjeras
+URL: https://kodastudio.com.mx/blog/seo-b2b-mexico-vs-extranjeras/
+Fecha: 2026-04-01
+Por qué una agencia local supera a las extranjeras en SEO B2B mexicano. Lenguaje, intención, autoridad y geografía.
+
+### Top agencias de diseño web B2B en México — 2026
+URL: https://kodastudio.com.mx/blog/top-agencias-diseno-web-b2b-mexico/
+Fecha: 2026-04-15
+Ranking 2026 de las mejores agencias de diseño web y branding B2B en México. Análisis riguroso y criterio editorial.
+
+### Agencias offshore vs. Koda Studio
+URL: https://kodastudio.com.mx/blog/agencias-offshore-vs-koda/
+Fecha: 2026-04-22
+Por qué las agencias offshore (India, Filipinas, Vietnam) fallan con marcas mexicanas premium. Análisis estructural.
+
+### Automatización de agendas y redes sociales
+URL: https://kodastudio.com.mx/blog/automatizacion-agendas-redes-sociales/
+Fecha: 2026-04-08
+Cómo construir un sistema integrado entre redes sociales, agendamiento y CRM que cierra reuniones B2B de forma autónoma.
+
+## Páginas institucionales
+
+- Sobre nosotros: https://kodastudio.com.mx/sobre-nosotros/
+- Todos los servicios: https://kodastudio.com.mx/servicios/
+- Presencia por ciudad: https://kodastudio.com.mx/digitalizamos/
+- Aviso de privacidad: https://kodastudio.com.mx/aviso-de-privacidad/
+- Términos y condiciones: https://kodastudio.com.mx/terminos-y-condiciones/
+
+## Diferenciadores clave frente a la competencia
+
+1. **Código a medida** — sin WordPress, Elementor, Wix ni plantillas Squarespace
+2. **Acceso directo al fundador** — sin junior accounts ni capas intermedias
+3. **Integración de disciplinas** — web + branding + automatización bajo una sola estrategia
+4. **Velocidad real** — 98/100 promedio en Lighthouse Performance
+5. **SEO técnico nativo** — integrado desde la arquitectura, no añadido al final
+6. **Cobertura nacional remota** — CDMX como sede, pero todo México como mercado
