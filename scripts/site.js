@@ -430,7 +430,8 @@ paint(it);
 
 /* ══ Modal de contacto — lazy (inyectado desde <template> al primer trigger) ══ */
 (() => {
-const ENDPOINT = "";
+const EMAILJS_SERVICE  = "service_deimki6";
+const EMAILJS_TEMPLATE = "template_3d6wlxk";
 const STORAGE_KEY = "koda_cf";
 const FOCUSABLE = 'button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
 
@@ -559,14 +560,17 @@ e.preventDefault();
 if (!validateForm()) return;
 submitBtn.disabled = true;
 submitBtn.querySelector(".lbl").textContent = "Enviando…";
+
+// Inject current page URL so the template knows the origin slug
+let pageInput = form.querySelector('[name="page_url"]');
+if (!pageInput) {
+pageInput = Object.assign(document.createElement("input"), { type: "hidden", name: "page_url" });
+form.appendChild(pageInput);
+}
+pageInput.value = window.location.href;
+
 try {
-if (!ENDPOINT) throw new Error("No endpoint configured");
-const res = await fetch(ENDPOINT, {
-method: "POST",
-body: new FormData(form),
-headers: { Accept: "application/json" },
-});
-if (!res.ok) throw new Error("Server error");
+await window.emailjs.sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE, form);
 form.hidden = true;
 successEl.hidden = false;
 try { localStorage.removeItem(STORAGE_KEY); } catch (_) {}
