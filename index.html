@@ -82,28 +82,170 @@
 		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 		<script>emailjs.init({ publicKey: "PNnqnslGj2UXP0lp7" });</script>
 
-		<!-- JSON-LD: WebSite + SearchAction -->
+		<!-- JSON-LD: @graph principal -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
-				"@type": "WebSite",
-				"@id": "https://kodastudio.com.mx/#website",
-				"name": "Koda Studio",
-				"url": "https://kodastudio.com.mx/",
-				"description": "Agencia de desarrollo web, branding corporativo y automatización digital para corporativos y empresas medianas en México.",
-				"publisher": {
-					"@type": "Organization",
-					"@id": "https://kodastudio.com.mx/#organization"
-				},
-				"potentialAction": {
-					"@type": "SearchAction",
-					"target": {
-						"@type": "EntryPoint",
-						"urlTemplate": "https://kodastudio.com.mx/blog/?s={search_term_string}"
+				"@graph": [
+					{
+						"@type": "WebSite",
+						"@id": "https://kodastudio.com.mx/#website",
+						"name": "Koda Studio",
+						"url": "https://kodastudio.com.mx/",
+						"description": "Agencia de desarrollo web, branding corporativo y automatización digital para corporativos y empresas medianas en México.",
+						"publisher": { "@id": "https://kodastudio.com.mx/#organization" },
+						"potentialAction": {
+							"@type": "SearchAction",
+							"target": {
+								"@type": "EntryPoint",
+								"urlTemplate": "https://kodastudio.com.mx/blog/?s={search_term_string}"
+							},
+							"query-input": "required name=search_term_string"
+						},
+						"inLanguage": "es-MX"
 					},
-					"query-input": "required name=search_term_string"
-				},
-				"inLanguage": "es-MX"
+					{
+						"@type": ["Organization", "ProfessionalService"],
+						"@id": "https://kodastudio.com.mx/#organization",
+						"name": "Koda Studio",
+						"alternateName": "Koda Studio México",
+						"url": "https://kodastudio.com.mx/",
+						"logo": {
+							"@type": "ImageObject",
+							"url": "https://kodastudio.com.mx/assets/wordmark.svg",
+							"width": 200,
+							"height": 40
+						},
+						"image": "https://kodastudio.com.mx/uploads/og_image.png",
+						"description": "Construimos presencia digital que genera ventas — no solo sitios bonitos. Desarrollo web, branding y automatización integradas para corporativos y empresas medianas en México, sin intermediarios.",
+						"foundingDate": "2022",
+						"slogan": "Construimos presencia digital que genera ventas — no solo sitios bonitos",
+						"priceRange": "$$$",
+						"telephone": "+52-772-169-8485",
+						"email": "contacto@kodastudio.com.mx",
+						"address": {
+							"@type": "PostalAddress",
+							"streetAddress": "Campeche 76-42, Roma Sur",
+							"addressLocality": "Cuauhtémoc",
+							"addressRegion": "Ciudad de México",
+							"postalCode": "06760",
+							"addressCountry": "MX"
+						},
+						"geo": {
+							"@type": "GeoCoordinates",
+							"latitude": 19.4099,
+							"longitude": -99.1645
+						},
+						"hasMap": "https://maps.app.goo.gl/KcLSb5L9VaPDukFGA",
+						"openingHoursSpecification": [{
+							"@type": "OpeningHoursSpecification",
+							"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+							"opens": "09:00",
+							"closes": "18:00"
+						}],
+						"contactPoint": {
+							"@type": "ContactPoint",
+							"email": "contacto@kodastudio.com.mx",
+							"telephone": "+52-772-169-8485",
+							"contactType": "sales",
+							"availableLanguage": ["Spanish", "English"],
+							"areaServed": "MX"
+						},
+						"founder": {
+							"@type": "Person",
+							"@id": "https://kodastudio.com.mx/#hendrick-galarza",
+							"name": "Hendrick Adelaido Galarza Hernandez",
+							"jobTitle": "Fundador & Director de Estrategia Digital",
+							"url": "https://kodastudio.com.mx/sobre-nosotros/",
+							"sameAs": [
+								"https://www.linkedin.com/in/hendrick-galarza/",
+								"https://www.instagram.com/kodastudiodesign/"
+							]
+						},
+						"sameAs": [
+							"https://www.instagram.com/kodastudiodesign/",
+							"https://www.linkedin.com/company/koda-studio-design/",
+							"https://www.linkedin.com/in/hendrick-galarza/",
+							"https://maps.app.goo.gl/KcLSb5L9VaPDukFGA"
+						],
+						"areaServed": [
+							{ "@type": "Country", "name": "México", "sameAs": "https://en.wikipedia.org/wiki/Mexico" },
+							{ "@type": "Country", "name": "Canada" },
+							{ "@type": "City", "name": "Ciudad de México" },
+							{ "@type": "City", "name": "Monterrey" },
+							{ "@type": "City", "name": "Guadalajara" },
+							{ "@type": "City", "name": "Querétaro" }
+						],
+						"knowsAbout": [
+							"Diseño Web Corporativo",
+							"Identidad de Marca",
+							"Marketing Digital",
+							"Automatización de Procesos",
+							"Generación de Leads",
+							"Comercio Electrónico",
+							"Branding para Empresas B2B",
+							"Posicionamiento SEO en México",
+							"Desarrollo de Sitios Web Profesionales",
+							"Estrategia Digital para Empresas"
+						],
+						"hasOfferCatalog": {
+							"@type": "OfferCatalog",
+							"name": "Servicios de Koda Studio",
+							"itemListElement": [
+								{
+									"@type": "Offer",
+									"itemOffered": {
+										"@type": "Service",
+										"name": "Desarrollo Web Profesional",
+										"description": "Sitios web ultra-rápidos y a medida que posicionan tu empresa en Google y retienen clientes desde el primer segundo."
+									}
+								},
+								{
+									"@type": "Offer",
+									"itemOffered": {
+										"@type": "Service",
+										"name": "Branding Corporativo",
+										"description": "Identidad de marca que comunica autoridad y confianza. Logotipo, sistema visual y manual de marca para empresas que dominan su sector."
+									}
+								},
+								{
+									"@type": "Offer",
+									"itemOffered": {
+										"@type": "Service",
+										"name": "Marketing Digital y Gestión de Redes Sociales",
+										"description": "Estrategias de captación de clientes, publicidad digital y presencia en redes sociales para empresas B2B en México."
+									}
+								}
+							]
+						},
+						"numberOfEmployees": {
+							"@type": "QuantitativeValue",
+							"value": 1
+						}
+					},
+					{
+						"@type": "BreadcrumbList",
+						"@id": "https://kodastudio.com.mx/#breadcrumb",
+						"itemListElement": [
+							{
+								"@type": "ListItem",
+								"position": 1,
+								"name": "Inicio",
+								"item": "https://kodastudio.com.mx/"
+							}
+						]
+					},
+					{
+						"@type": "WebPage",
+						"@id": "https://kodastudio.com.mx/#webpage",
+						"url": "https://kodastudio.com.mx/",
+						"name": "Koda Studio — Arquitectura digital para marcas que dominan su sector",
+						"isPartOf": { "@id": "https://kodastudio.com.mx/#website" },
+						"about": { "@id": "https://kodastudio.com.mx/#organization" },
+						"breadcrumb": { "@id": "https://kodastudio.com.mx/#breadcrumb" },
+						"inLanguage": "es-MX"
+					}
+				]
 			}
 		</script>
 	</head>
@@ -1589,130 +1731,6 @@
 		</div>
 		<script src="dist/site.min.js" defer></script>
 
-		<!-- JSON-LD: Organization -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": ["Organization", "ProfessionalService"],
-				"@id": "https://kodastudio.com.mx/#organization",
-				"name": "Koda Studio",
-				"alternateName": "Koda Studio México",
-				"url": "https://kodastudio.com.mx/",
-				"logo": {
-					"@type": "ImageObject",
-					"url": "https://kodastudio.com.mx/assets/wordmark.svg",
-					"width": 200,
-					"height": 40
-				},
-				"description": "Construimos presencia digital que genera ventas — no solo sitios bonitos. Desarrollo web, branding y automatización integradas para corporativos y empresas medianas en México, sin intermediarios.",
-				"foundingDate": "2022",
-				"founder": {
-					"@type": "Person",
-					"@id": "https://kodastudio.com.mx/#hendrick-galarza",
-					"name": "Hendrick Adelaido Galarza Hernandez",
-					"jobTitle": "Fundador & Director de Estrategia Digital",
-					"url": "https://kodastudio.com.mx/sobre-nosotros/",
-					"sameAs": [
-						"https://www.linkedin.com/in/hendrick-galarza/",
-						"https://www.instagram.com/kodastudiodesign/"
-					]
-				},
-				"areaServed": [
-					{
-						"@type": "Country",
-						"name": "México",
-						"sameAs": "https://en.wikipedia.org/wiki/Mexico"
-					},
-					{ "@type": "City", "name": "Ciudad de México" },
-					{ "@type": "City", "name": "Monterrey" },
-					{ "@type": "City", "name": "Cancún" }
-				],
-				"knowsAbout": [
-					"Diseño Web Corporativo",
-					"Identidad de Marca",
-					"Marketing Digital",
-					"Automatización de Procesos",
-					"Generación de Leads",
-					"Comercio Electrónico",
-					"Branding para Empresas B2B",
-					"Posicionamiento SEO en México",
-					"Desarrollo de Sitios Web Profesionales",
-					"Estrategia Digital para Empresas"
-				],
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Servicios de Koda Studio",
-					"itemListElement": [
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Desarrollo Web Profesional",
-								"description": "Sitios web ultra-rápidos y a medida que posicionan tu empresa en Google y retienen clientes desde el primer segundo."
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Branding Corporativo",
-								"description": "Identidad de marca que comunica autoridad y confianza. Logotipo, sistema visual y manual de marca para empresas que dominan su sector."
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Marketing Digital y Gestión de Redes Sociales",
-								"description": "Estrategias de captación de clientes, publicidad digital y presencia en redes sociales para empresas B2B en México."
-							}
-						}
-					]
-				},
-				"address": {
-					"@type": "PostalAddress",
-					"streetAddress": "Campeche 76-42, Roma Sur",
-					"addressLocality": "Cuauhtémoc",
-					"addressRegion": "Ciudad de México",
-					"postalCode": "06760",
-					"addressCountry": "MX"
-				},
-				"geo": {
-					"@type": "GeoCoordinates",
-					"latitude": 19.4099,
-					"longitude": -99.1645
-				},
-				"hasMap": "https://maps.app.goo.gl/KcLSb5L9VaPDukFGA",
-				"telephone": "+52-772-169-8485",
-				"email": "contacto@kodastudio.com.mx",
-				"openingHoursSpecification": [{
-					"@type": "OpeningHoursSpecification",
-					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-					"opens": "09:00",
-					"closes": "18:00"
-				}],
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"email": "contacto@kodastudio.com.mx",
-					"telephone": "+52-772-169-8485",
-					"contactType": "sales",
-					"availableLanguage": ["Spanish", "English"],
-					"areaServed": "MX"
-				},
-				"sameAs": [
-					"https://www.instagram.com/kodastudiodesign/",
-					"https://www.linkedin.com/company/koda-studio-design/",
-					"https://www.linkedin.com/in/hendrick-galarza/",
-					"https://maps.app.goo.gl/KcLSb5L9VaPDukFGA"
-				],
-				"priceRange": "$$$",
-				"slogan": "Construimos presencia digital que genera ventas — no solo sitios bonitos",
-				"numberOfEmployees": {
-					"@type": "QuantitativeValue",
-					"value": 1
-				}
-			}
-		</script>
 		<!-- JSON-LD: FAQPage -->
 		<script type="application/ld+json">
 			{
