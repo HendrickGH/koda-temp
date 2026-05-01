@@ -2,7 +2,7 @@ node_modules/
 .env
 .env.local
 .DS_Store
-
+graphify-out
 # Scripts auxiliares de actualización
 update.py
 update_footers.js
