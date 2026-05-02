@@ -398,7 +398,6 @@ body {
 	overflow-x: hidden;
 }
 
-
 /* ══ Shared section utilities ══ */
 .section {
 	padding: clamp(80px, 12vw, 160px) 0;
@@ -3438,7 +3437,7 @@ body.nav-locked .wa-rail {
 }
 
 @media (max-width: 374px) {
-	h1,
+	h1.hero-title,
 	.h1 {
 		font-size: clamp(3rem, 8vw, 8rem);
 	}
