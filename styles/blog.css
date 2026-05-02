@@ -436,7 +436,12 @@ a {
 }
 .site-header.on-light .header-cta:hover {
 	background: var(--color-ink);
-	color: var(--color-bone);
+	color: var(--color-bone) !important;
+	opacity: 1;
+}
+.site-header.on-dark .header-cta:hover {
+	background: var(--color-bone);
+	color: var(--color-obsidian);
 	opacity: 1;
 }
 
