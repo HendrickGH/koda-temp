@@ -398,11 +398,6 @@ body {
 	overflow-x: hidden;
 }
 
-.container {
-	max-width: var(--max-width);
-	margin: 0 auto;
-	padding: 0 clamp(1.5rem, 5vw, 4rem);
-}
 
 /* ══ Shared section utilities ══ */
 .section {
@@ -589,7 +584,7 @@ body {
 	left: 0;
 	right: 0;
 	z-index: var(--z-sticky);
-	padding: 18px clamp(1.5rem, 5vw, 4rem);
+	padding: 18px 0;
 	transition:
 		border-color 400ms ease,
 		color 400ms ease;
@@ -637,6 +632,7 @@ body {
 	justify-content: space-between;
 	max-width: var(--max-width);
 	margin: 0 auto;
+	padding: 0 var(--gutter);
 	gap: 32px;
 	position: relative;
 	z-index: var(--z-overlay);
