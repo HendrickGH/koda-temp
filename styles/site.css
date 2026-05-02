@@ -3436,3 +3436,10 @@ body.nav-locked .wa-rail {
 .site-header.on-light .wm-sub {
 	color: var(--fg-primary) !important;
 }
+
+@media (max-width: 374px) {
+	h1,
+	.h1 {
+		font-size: clamp(3rem, 8vw, 8rem);
+	}
+}

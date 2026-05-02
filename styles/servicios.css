@@ -753,3 +753,9 @@ img.featured-thumb {
 		font-size: 1.35rem;
 	}
 }
+
+@media (max-width: 374px) {
+	.services-overview h1 {
+		font-size: clamp(2rem, 5.4vw, 4.8rem);
+	}
+}
