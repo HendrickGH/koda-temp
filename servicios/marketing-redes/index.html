@@ -75,14 +75,18 @@
 					{"@type": "City", "name": "Cancún"}
 				],
 				"serviceType": "Marketing digital y gestión de redes sociales",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Paquetes de marketing digital y redes sociales",
-					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gestión de redes sociales corporativas"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 8000, "priceCurrency": "MXN", "unitText": "MES"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Estrategia de contenido + redes + SEO"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 15000, "priceCurrency": "MXN", "unitText": "MES"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Campañas de generación de leads B2B (pauta + estrategia)"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 12000, "priceCurrency": "MXN", "unitText": "MES"}}
-					]
+				"offers": {
+					"@type": "AggregateOffer",
+					"lowPrice": "10000",
+					"highPrice": "25000",
+					"priceCurrency": "MXN",
+					"description": "Retainer mensual de marketing digital y gestión de redes sociales para empresas B2B en México.",
+					"priceSpecification": {
+						"@type": "UnitPriceSpecification",
+						"price": "10000",
+						"priceCurrency": "MXN",
+						"unitText": "MES"
+					}
 				}
 			}
 		</script>
@@ -144,6 +148,14 @@
 						"acceptedAnswer": {
 							"@type": "Answer",
 							"text": "El marketing digital es un servicio recurrente mensual, no un proyecto de entrega única. Cada mes incluye planificación editorial, producción de contenido, gestión de comunidad y reporte con métricas de negocio. La consistencia en la publicación es lo que construye autoridad y genera resultados a largo plazo."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "¿Cuánto cobra Koda Studio por marketing digital y gestión de redes sociales?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Los retainers mensuales de marketing digital y gestión de redes sociales en Koda Studio tienen un rango orientativo de $10,000 a $25,000 MXN al mes, según los canales gestionados, volumen de contenido, campañas de pago incluidas y automatizaciones requeridas."
 						}
 					}
 				]

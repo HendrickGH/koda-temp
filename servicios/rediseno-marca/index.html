@@ -67,14 +67,12 @@
 					{"@type": "City", "name": "Cancún"}
 				],
 				"serviceType": "Rediseño de identidad de marca",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Paquetes de rediseño de marca",
-					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diagnóstico de marca + nuevo logotipo"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 20000, "maxPrice": 35000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rediseño de sistema visual completo"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 35000, "maxPrice": 60000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rebranding corporativo con rollout digital"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 50000, "maxPrice": 90000, "priceCurrency": "MXN"}}
-					]
+				"offers": {
+					"@type": "AggregateOffer",
+					"lowPrice": "5000",
+					"highPrice": "20000",
+					"priceCurrency": "MXN",
+					"description": "Reposicionamiento de identidad visual para empresas que superaron su imagen actual. Incluye auditoría, nuevo sistema y guía de transición."
 				}
 			}
 		</script>
@@ -136,6 +134,14 @@
 						"acceptedAnswer": {
 							"@type": "Answer",
 							"text": "El rediseño de marca cubre la identidad visual completa: logotipo, sistema de marca, aplicaciones y manual. El rediseño del sitio web es un servicio separado de desarrollo web, pero lo recomendamos como siguiente paso natural — la nueva identidad necesita una sede digital que la aplique correctamente. Podemos gestionar ambos proyectos de forma integrada."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "¿Cuánto cuesta el rediseño de marca con Koda Studio?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Los proyectos de rediseño de marca en Koda Studio tienen un rango orientativo de $5,000 a $20,000 MXN, según el alcance del reposicionamiento, los activos a rediseñar y la profundidad del sistema visual resultante."
 						}
 					}
 				]

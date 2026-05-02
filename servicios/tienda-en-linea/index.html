@@ -68,14 +68,12 @@
 					{"@type": "City", "name": "Cancún"}
 				],
 				"serviceType": "Desarrollo E-commerce y Tiendas en Línea",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Paquetes de tienda en línea",
-					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tienda en línea en Shopify o WooCommerce"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 30000, "maxPrice": 60000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "E-commerce a medida con CRM y facturación CFDI"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 55000, "maxPrice": 120000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tienda con integración logística y ERP"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 70000, "maxPrice": 150000, "priceCurrency": "MXN"}}
-					]
+				"offers": {
+					"@type": "AggregateOffer",
+					"lowPrice": "30000",
+					"highPrice": "60000",
+					"priceCurrency": "MXN",
+					"description": "E-commerce a medida con pasarelas de pago locales, facturación CFDI e integración logística para empresas en México."
 				}
 			}
 		</script>
@@ -137,6 +135,14 @@
 						"acceptedAnswer": {
 							"@type": "Answer",
 							"text": "Sí. Conectamos la tienda con plataformas como Envia.com, Skydropx o las APIs directas de DHL, Estafeta, FedEx y 99 Minutos. El cliente cotiza el envío en tiempo real durante el checkout, las guías se generan automáticamente al confirmar el pedido y el tracking se envía al comprador por correo y WhatsApp. La operación logística deja de ser manual."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "¿Cuánto cuesta una tienda en línea con Koda Studio?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Los proyectos de e-commerce en Koda Studio tienen un rango orientativo de $30,000 a $60,000 MXN, dependiendo del número de productos, integraciones de pago, logística y funcionalidades requeridas. El costo se define tras una sesión de diagnóstico sin costo."
 						}
 					}
 				]

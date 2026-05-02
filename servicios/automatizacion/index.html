@@ -67,14 +67,12 @@
 					{"@type": "City", "name": "Cancún"}
 				],
 				"serviceType": "Automatización e Integraciones Tecnológicas",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Paquetes de automatización digital",
-					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bot de WhatsApp para captación y atención"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 15000, "maxPrice": 35000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Automatización de flujos internos y CRM"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 20000, "maxPrice": 50000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistema de captación B2B con agenda automatizada"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 18000, "maxPrice": 45000, "priceCurrency": "MXN"}}
-					]
+				"offers": {
+					"@type": "AggregateOffer",
+					"lowPrice": "5000",
+					"highPrice": "20000",
+					"priceCurrency": "MXN",
+					"description": "Bots de WhatsApp, flujos de captación y automatización de procesos comerciales para empresas B2B en México."
 				}
 			}
 		</script>
@@ -136,6 +134,14 @@
 						"acceptedAnswer": {
 							"@type": "Answer",
 							"text": "Implementamos monitoreo continuo en todos los flujos. Ante un fallo, el sistema notifica inmediatamente para intervención manual. Adicionalmente, diseñamos los flujos con rutas de contingencia para que un error en un nodo no detenga toda la operación. El soporte post-implementación está incluido."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "¿Cuánto cuesta la automatización inteligente con Koda Studio?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Los proyectos de automatización en Koda Studio tienen un rango orientativo de $5,000 a $20,000 MXN, según la complejidad de los flujos, el número de integraciones y los sistemas que se conectan."
 						}
 					}
 				]

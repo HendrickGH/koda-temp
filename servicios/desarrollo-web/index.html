@@ -73,14 +73,12 @@
 					{"@type": "City", "name": "Cancún"}
 				],
 				"serviceType": "Desarrollo web",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Paquetes de desarrollo web profesional",
-					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sitio corporativo a medida"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 25000, "maxPrice": 80000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Landing page de alto rendimiento"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 15000, "maxPrice": 30000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rediseño web con migración"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 20000, "maxPrice": 60000, "priceCurrency": "MXN"}}
-					]
+				"offers": {
+					"@type": "AggregateOffer",
+					"lowPrice": "20000",
+					"highPrice": "50000",
+					"priceCurrency": "MXN",
+					"description": "Sitios web corporativos a medida, sin plantillas, con SEO técnico integrado."
 				}
 			}
 		</script>
@@ -142,6 +140,14 @@
 						"acceptedAnswer": {
 							"@type": "Answer",
 							"text": "Sí. Trabajamos de forma remota con empresas en todo México — Monterrey, Guadalajara, Puebla, Cancún y cualquier otra ciudad. El proceso es 100% digital: reuniones por videollamada, entregas en la nube y comunicación directa con el fundador en cada etapa."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "¿Cuánto cuesta un sitio web corporativo con Koda Studio?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Los proyectos de desarrollo web corporativo en Koda Studio tienen un rango orientativo de $20,000 a $50,000 MXN. El costo final depende del alcance, número de páginas, integraciones y complejidad del proyecto. Los presupuestos se definen tras una sesión de diagnóstico sin costo."
 						}
 					}
 				]

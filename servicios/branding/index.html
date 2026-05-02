@@ -67,14 +67,12 @@
 					{"@type": "City", "name": "Cancún"}
 				],
 				"serviceType": "Branding y diseño de identidad",
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "Paquetes de branding corporativo",
-					"itemListElement": [
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Identidad visual esencial (logotipo + paleta + tipografía)"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 18000, "maxPrice": 30000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistema de marca completo con manual"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 30000, "maxPrice": 55000, "priceCurrency": "MXN"}},
-						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Branding corporativo con papelería y kit digital"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": 40000, "maxPrice": 80000, "priceCurrency": "MXN"}}
-					]
+				"offers": {
+					"@type": "AggregateOffer",
+					"lowPrice": "10000",
+					"highPrice": "30000",
+					"priceCurrency": "MXN",
+					"description": "Sistemas de identidad visual corporativa: wordmark, paleta, tipografía y manual de marca completo."
 				}
 			}
 		</script>
@@ -136,6 +134,14 @@
 						"acceptedAnswer": {
 							"@type": "Answer",
 							"text": "Sí. Contamos con un servicio específico de rediseño de marca para empresas cuya identidad actual ya no refleja su operación. El proceso incluye auditoría de la marca existente, benchmarking competitivo y una guía de transición para migrar de la marca anterior a la nueva sin perder reconocimiento acumulado."
+						}
+					},
+					{
+						"@type": "Question",
+						"name": "¿Cuánto cuesta el branding corporativo con Koda Studio?",
+						"acceptedAnswer": {
+							"@type": "Answer",
+							"text": "Los proyectos de branding e identidad corporativa en Koda Studio tienen un rango orientativo de $10,000 a $30,000 MXN, según la profundidad del sistema visual y los activos incluidos. El costo se define en una sesión de diagnóstico sin costo previo."
 						}
 					}
 				]
