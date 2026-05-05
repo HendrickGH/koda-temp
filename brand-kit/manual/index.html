@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda Studio — Manual de Marca</title>
+<link rel="stylesheet" href="../../styles/site.css" />
+<link rel="stylesheet" href="../brand-kit.css" />
+<style>
+/* ── Cover ── */
+.mb-cover {
+  background: var(--color-obsidian);
+  color: var(--fg-on-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(80px,12vw,160px) clamp(24px,5vw,64px) clamp(56px,8vw,96px);
+}
+.mb-cover-vol {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-on-dark-faint);
+  margin-bottom: 40px;
+  display: block;
+}
+.mb-cover-title {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 12vw, 12rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  margin: 0 0 48px;
+  color: var(--fg-on-dark);
+}
+.mb-cover-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-on-dark);
+  margin-bottom: 40px;
+}
+.mb-cover-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 32px;
+}
+.mb-cover-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mb-cover-meta-item strong {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-sm);
+  color: var(--fg-on-dark-mid);
+}
+
+/* ── Layout: sidebar + main ── */
+.mb-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+@media (max-width: 860px) {
+  .mb-layout { grid-template-columns: 1fr; }
+  .mb-sidenav { display: none; }
+}
+.mb-sidenav {
+  border-right: 1px solid var(--border);
+  padding: clamp(40px,4vw,56px) 32px;
+  position: sticky;
+  top: 52px;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-self: start;
+}
+.mb-sidenav-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 20px;
+  display: block;
+}
+.mb-sidenav a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--fg-tertiary);
+  padding: 9px 0;
+  border: none;
+  border-top: 1px solid transparent;
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+.mb-sidenav a:hover { color: var(--fg-primary); padding-left: 6px; }
+.mb-sidenav a.is-active {
+  color: var(--fg-primary);
+  border-top-color: var(--border);
+  padding-left: 6px;
+}
+.mb-sidenav-num {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Chapters ── */
+.mb-chapter { border-top: 1px solid var(--border); }
+.mb-chapter-cover {
+  padding: clamp(64px,9vw,112px) clamp(24px,5vw,64px) clamp(40px,5vw,64px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mb-chapter-num {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.mb-chapter-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-tight);
+  line-height: 0.95;
+  margin: 0;
+  color: var(--fg-primary);
+}
+.mb-chapter-desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--fg-tertiary);
+  max-width: 52ch;
+  margin: 0;
+}
+
+/* ── Body ── */
+.mb-body {
+  padding: 16px clamp(24px,5vw,64px) clamp(64px,9vw,112px);
+}
+.mb-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: var(--tracking-tight);
+  margin: 64px 0 28px;
+  color: var(--fg-primary);
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.mb-h3:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+
+/* ── Rule grid ── */
+.mb-rule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  margin-bottom: 64px;
+}
+.mb-rule {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mb-rule-num {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.mb-rule h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  color: var(--fg-primary);
+  font-style: normal;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+}
+.mb-rule p { font-size: var(--text-sm); margin: 0; }
+
+/* ── Compare: Do / Don't ── */
+.mb-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+@media (max-width: 640px) {
+  .mb-compare { grid-template-columns: 1fr; }
+}
+.mb-compare-col { background: var(--color-bone); padding: 32px; }
+.mb-compare-col.dont { background: #faf8f5; }
+.mb-compare-tag {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+.mb-compare-tag.do-tag  { color: var(--color-slate); }
+.mb-compare-tag.dont-tag{ color: #a33; }
+.mb-compare-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--fg-secondary);
+  margin: 0;
+}
+.mb-strike { text-decoration: line-through; color: #a33; font-style: italic; }
+
+/* ── Paleta ── */
+.mb-palette-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin-bottom: 8px;
+}
+.mb-swatch { display: flex; flex-direction: column; }
+.mb-swatch-chip { height: 88px; display: block; }
+.mb-swatch-info {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.mb-swatch-name {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-primary);
+}
+.mb-swatch-hex  { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--fg-muted); }
+.mb-swatch-var  { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: var(--fg-muted); opacity: 0.65; }
+
+/* ── Typography specimens ── */
+.mb-type-specimen {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .mb-type-specimen { grid-template-columns: 1fr; }
+}
+.mb-type-meta {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+.mb-type-meta b {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+  margin-bottom: 6px;
+}
+
+/* ── Wordmark demos ── */
+.mb-wm-demo {
+  border: 1px solid var(--border);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 56px 40px;
+}
+.mb-wm-demo:first-of-type { border-top: 1px solid var(--border); }
+.mb-wm-demo.dark {
+  background: var(--color-obsidian);
+  border-color: var(--border-on-dark);
+}
+.mb-wm-caption {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  color: var(--fg-muted);
+  text-align: center;
+}
+.mb-wm-demo.dark .mb-wm-caption { color: var(--fg-on-dark-faint); }
+
+/* ── Quote ── */
+.mb-quote {
+  border-left: 1px solid var(--accent);
+  padding: 24px 32px;
+  margin: 0 0 48px;
+}
+.mb-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--fg-secondary);
+  margin: 0 0 14px;
+}
+.mb-quote cite {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  font-style: normal;
+}
+
+/* ── Rules list ── */
+.mb-rules-list { list-style: none; padding: 0; margin: 0 0 56px; }
+.mb-rules-list li {
+  display: flex;
+  gap: 20px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--fg-tertiary);
+}
+.mb-rules-list li:last-child { border-bottom: 1px solid var(--border); }
+.mb-rules-list li strong { color: var(--fg-primary); font-weight: 500; }
+.mb-rule-bullet {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--accent);
+  line-height: 1.55;
+  flex-shrink: 0;
+  width: 28px;
+}
+
+/* ── Table ── */
+.mb-table { width: 100%; border-collapse: collapse; margin-bottom: 56px; }
+.mb-table th {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  text-align: left;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.mb-table td {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--fg-tertiary);
+  padding: 16px;
+  border-bottom: 1px solid var(--color-border-soft);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.mb-table td strong { color: var(--fg-primary); font-weight: 500; }
+.mb-table td code {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--color-stone);
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+}
+
+/* ── Section label ── */
+.mb-section-label {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ── Dark block ── */
+.mb-dark-block {
+  background: var(--color-obsidian);
+  color: var(--fg-on-dark);
+  margin: 0 calc(-1 * clamp(24px, 5vw, 64px));
+  padding: 56px clamp(24px, 5vw, 64px);
+  margin-bottom: 64px;
+}
+.mb-dark-block .mb-section-label { color: var(--fg-on-dark-faint); }
+
+/* ── Note box ── */
+.mb-note {
+  background: var(--color-stone);
+  border: 1px solid var(--border);
+  padding: 24px 32px;
+  margin-bottom: 48px;
+}
+.mb-note p { font-size: var(--text-sm); margin: 0; }
+
+/* ── On-dark opacity table ── */
+.mb-opacity-row {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.mb-opacity-row:last-child { border-bottom: none; }
+.mb-opacity-label { font-family: var(--font-body); font-size: var(--text-sm); font-weight: 300; }
+.mb-opacity-var   { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: rgba(255,255,255,.35); flex-shrink: 0; }
+
+/* ── Canonical phrases block ── */
+.mb-phrases {
+  border: 1px solid var(--border);
+  padding: 48px clamp(32px, 4vw, 56px);
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.mb-phrase {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--fg-secondary);
+}
+.mb-phrase.xl { font-size: clamp(1.6rem, 3.5vw, 3rem); }
+.mb-phrase.lg { font-size: clamp(1.2rem, 2.5vw, 2rem); color: var(--fg-tertiary); }
+.mb-phrase.md { font-size: clamp(1rem, 1.8vw, 1.4rem); color: var(--fg-muted); }
+
+/* ── Eyebrow showcase ── */
+.mb-eyebrow-box {
+  border: 1px solid var(--border);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 56px;
+}
+.mb-eyebrow-item { display: flex; align-items: center; gap: 24px; }
+.mb-eyebrow-meta { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: var(--fg-muted); flex-shrink: 0; width: 160px; }
+
+/* ── Principal absolutos ── */
+.mb-absolutes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  margin-bottom: 64px;
+}
+.mb-absolute-item {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mb-absolute-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  line-height: 1;
+  font-family: var(--font-display);
+  margin-bottom: 4px;
+}
+.mb-absolute-title {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+}
+.mb-absolute-val {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  color: var(--accent);
+}
+.mb-absolute-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--fg-tertiary);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ── Icon showcase ── */
+.mb-icon-grid {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px;
+  border: 1px solid var(--border);
+  margin-bottom: 56px;
+}
+.mb-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.mb-icon-label {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 10px;
+  color: var(--fg-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Application table ── */
+.mb-app-frame {
+  border: 1px solid var(--border);
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+.mb-app-frame-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--color-stone);
+}
+.mb-app-frame-body { padding: 40px; }
+
+/* ── Closing banner ── */
+.mb-closing {
+  background: var(--color-obsidian);
+  color: var(--fg-on-dark);
+  padding: clamp(56px,8vw,96px) clamp(24px,5vw,64px);
+  margin: 0 calc(-1 * clamp(24px,5vw,64px));
+}
+.mb-closing-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--fg-on-dark-strong);
+  max-width: 720px;
+  margin: 0 0 32px;
+}
+.mb-closing-note {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  color: var(--fg-on-dark-mid);
+  max-width: 52ch;
+  margin: 0;
+}
+
+/* ── Misc ── */
+html { scroll-behavior: smooth; }
+code {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--color-stone);
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+}
+.mb-chapter .mb-body p { max-width: 66ch; }
+</style>
+</head>
+<body class="bk-body">
+
+<!-- ── Topbar ── -->
+<nav class="bk-topbar">
+  <a href="../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <span class="current">Manual de Marca</span>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     COVER
+════════════════════════════════════════════════════════════ -->
+<header class="mb-cover">
+  <span class="mb-cover-vol">— Koda Studio · Manual de Marca · Vol. I · 2024</span>
+  <h1 class="mb-cover-title">Manual<br><em>de Marca.</em></h1>
+  <div class="mb-cover-divider"></div>
+  <div class="mb-cover-meta">
+    <div class="mb-cover-meta-item">
+      <span class="label" style="color:var(--fg-on-dark-faint);margin-bottom:4px">Estudio</span>
+      <strong>Koda Studio</strong>
+    </div>
+    <div class="mb-cover-meta-item">
+      <span class="label" style="color:var(--fg-on-dark-faint);margin-bottom:4px">Sede</span>
+      <strong>Ciudad de México</strong>
+    </div>
+    <div class="mb-cover-meta-item">
+      <span class="label" style="color:var(--fg-on-dark-faint);margin-bottom:4px">Versión</span>
+      <strong>1.0 — 2024</strong>
+    </div>
+    <div class="mb-cover-meta-item">
+      <span class="label" style="color:var(--fg-on-dark-faint);margin-bottom:4px">Fuente única</span>
+      <strong>styles/site.css</strong>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     LAYOUT
+════════════════════════════════════════════════════════════ -->
+<div class="mb-layout">
+
+  <!-- Sidebar -->
+  <nav class="mb-sidenav" aria-label="Índice del manual">
+    <span class="mb-sidenav-label">Índice</span>
+    <a href="#plataforma"><span class="mb-sidenav-num">01</span> Plataforma</a>
+    <a href="#voz"><span class="mb-sidenav-num">02</span> Identidad Verbal</a>
+    <a href="#identidad-visual"><span class="mb-sidenav-num">03</span> Identidad Visual</a>
+    <a href="#sistema-grafico"><span class="mb-sidenav-num">04</span> Sistema Gráfico</a>
+    <a href="#aplicaciones"><span class="mb-sidenav-num">05</span> Aplicaciones</a>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════
+         01  PLATAFORMA ESTRATÉGICA
+    ══════════════════════════════════════════════════════ -->
+    <section class="mb-chapter" id="plataforma">
+      <div class="mb-chapter-cover">
+        <span class="mb-chapter-num">— 01 / Plataforma Estratégica</span>
+        <h2 class="mb-chapter-title">El alma<br><em>de la marca.</em></h2>
+        <p class="mb-chapter-desc">Antes de un solo color o tipografía existe una razón de ser. Esta sección define quién es Koda Studio, por qué existe y a quién sirve.</p>
+      </div>
+      <div class="mb-body">
+
+        <h3 class="mb-h3">Identidad</h3>
+
+        <div class="mb-quote">
+          <p>"Construimos las sedes digitales más poderosas de la red."</p>
+          <cite>— Manifiesto Koda Studio</cite>
+        </div>
+
+        <p>Koda Studio es un estudio boutique de arquitectura digital con sede en Ciudad de México. Construye sedes online minimalistas, exclusivas e ingenierizadas para <strong style="color:var(--fg-primary)">conversión silenciosa</strong> — experiencias premium que proyectan autoridad en lugar de persuadir.</p>
+        <p style="margin-top:12px">La filosofía es simple y absoluta: <strong style="color:var(--fg-primary)">demostrar excelencia, nunca vender.</strong> El trabajo habla por sí solo a través de restraint, precisión y oficio impecable.</p>
+
+        <h3 class="mb-h3">Misión y Visión</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Misión</span>
+            <h3>Elevar marcas a través del diseño digital de precisión</h3>
+            <p>Construir sedes digitales que proyecten autoridad, conviertan en silencio y eleven la percepción de marca en mercados premium.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Visión</span>
+            <h3>Ser el estudio de referencia en arquitectura digital de lujo en México</h3>
+            <p>El estudio al que acuden las empresas que no se conforman con lo ordinario cuando quieren presencia digital que las diferencie definitivamente.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Filosofía operativa</span>
+            <h3>Demostrar excelencia, nunca vender</h3>
+            <p>El diseño no convence — demuestra. Cada elemento del sistema es evidencia de oficio. La venta es consecuencia, no objetivo.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Propuesta de Valor</h3>
+        <p>Koda Studio no construye <em>sitios web</em>. Construye <strong style="color:var(--fg-primary)">sedes digitales de alto rendimiento</strong> — arquitecturas de conversión silenciosa, ingenierizadas para empresas que entienden que la presencia digital es un activo estratégico, no un gasto de marketing.</p>
+
+        <ul class="mb-rules-list" style="margin-top:28px">
+          <li>
+            <span class="mb-rule-bullet">—</span>
+            <div>Diseño premium sin radius, sin sombra, sin ruido visual. <strong>Fuerza a través del silencio.</strong></div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">—</span>
+            <div>Performance técnico de primer nivel: Core Web Vitals, SEO estructural y GEO (Generative Engine Optimization). <strong>Ingeniería invisible.</strong></div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">—</span>
+            <div>Cada sitio es único. Sin templates, sin soluciones off-the-shelf, sin atajos. <strong>Arquitectura a medida.</strong></div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">—</span>
+            <div>Los precios reflejan exclusividad. No competimos por precio — competimos por calidad. <strong>Posicionamiento top-tier.</strong></div>
+          </li>
+        </ul>
+
+        <h3 class="mb-h3">Arquetipo de Marca</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Primario</span>
+            <h3>El Sabio</h3>
+            <p>Usa inteligencia y análisis para comprender el mundo. Autoritario sin arrogancia. Habla con precisión. El cliente confía en su criterio sin cuestionarlo.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Secundario</span>
+            <h3>El Creador</h3>
+            <p>Da forma a su visión a través del oficio puro. Cada decisión de diseño es intencional. La excelencia es un estándar no negociable, no un diferenciador de marketing.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Público Objetivo</h3>
+        <table class="mb-table">
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th>Perfil</th>
+              <th>Motivación principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Despachos legales</strong></td>
+              <td>Socios fundadores, gerentes de marca de firmas tier-1</td>
+              <td>Proyectar autoridad y confianza. Diferenciarse de competidores con sitios genéricos.</td>
+            </tr>
+            <tr>
+              <td><strong>Real estate premium</strong></td>
+              <td>Desarrolladoras boutique, agencias de lujo</td>
+              <td>Presentar portafolio de forma que refleje el valor real del activo.</td>
+            </tr>
+            <tr>
+              <td><strong>Consultoría</strong></td>
+              <td>Boutiques de estrategia, management consulting</td>
+              <td>Credibilidad digital que justifique honorarios premium.</td>
+            </tr>
+            <tr>
+              <td><strong>Lifestyle premium</strong></td>
+              <td>Marcas de moda, wellness y hospitalidad de lujo</td>
+              <td>Experiencia digital alineada con la experiencia de la marca física.</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         02  IDENTIDAD VERBAL
+    ══════════════════════════════════════════════════════ -->
+    <section class="mb-chapter" id="voz">
+      <div class="mb-chapter-cover">
+        <span class="mb-chapter-num">— 02 / Identidad Verbal</span>
+        <h2 class="mb-chapter-title">La voz<br><em>de la marca.</em></h2>
+        <p class="mb-chapter-desc">La voz es constante. El tono cambia según el contexto. Juntos definen cómo se lee y escucha Koda Studio en cualquier punto de contacto.</p>
+      </div>
+      <div class="mb-body">
+
+        <h3 class="mb-h3">Principios de Voz</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Declarativo</span>
+            <h3>Afirmaciones, no preguntas</h3>
+            <p>La autoridad no solicita permiso. Habla con certeza. El cliente lee y confía — no está evaluando si lo convencemos.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Conciso</span>
+            <h3>Cada palabra gana su lugar</h3>
+            <p>Sin relleno, sin clichés, sin redundancias. El silencio también comunica. Lo que no se dice es tan importante como lo que se dice.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Colectivo</span>
+            <h3>Primera persona del plural</h3>
+            <p>El estudio habla como inteligencia colectiva. "Diseñamos / Construimos / Elevamos." El cliente está implícito — nunca se le apela en segunda persona.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Presente</span>
+            <h3>Tiempo presente, no pasado</h3>
+            <p>"Trabajamos con..." — no "Hemos trabajado con...". La autoridad vive en el presente. El historial se demuestra con trabajo, no con conjugaciones.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Correcto vs. Incorrecto</h3>
+
+        <div class="mb-compare">
+          <div class="mb-compare-col">
+            <span class="mb-compare-tag do-tag">Correcto</span>
+            <p class="mb-compare-text">"Construimos las sedes digitales más poderosas de la red."</p>
+          </div>
+          <div class="mb-compare-col dont">
+            <span class="mb-compare-tag dont-tag">Incorrecto</span>
+            <p class="mb-compare-text mb-strike">"¿Listo para hacer crecer tu negocio en línea?"</p>
+          </div>
+        </div>
+
+        <div class="mb-compare">
+          <div class="mb-compare-col">
+            <span class="mb-compare-tag do-tag">Correcto</span>
+            <p class="mb-compare-text">"Diseñamos para empresas que no se conforman con lo ordinario."</p>
+          </div>
+          <div class="mb-compare-col dont">
+            <span class="mb-compare-tag dont-tag">Incorrecto</span>
+            <p class="mb-compare-text mb-strike">"¡Llevamos tu marca al siguiente nivel! Te ayudamos a crecer."</p>
+          </div>
+        </div>
+
+        <div class="mb-compare" style="margin-bottom:56px">
+          <div class="mb-compare-col">
+            <span class="mb-compare-tag do-tag">Correcto</span>
+            <p class="mb-compare-text">"Ingeniería digital de precisión. Silencio que convierte."</p>
+          </div>
+          <div class="mb-compare-col dont">
+            <span class="mb-compare-tag dont-tag">Incorrecto</span>
+            <p class="mb-compare-text mb-strike">"Somos apasionados del diseño web ✨ ¡Tu éxito es nuestra misión! 🚀"</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Reglas de Escritura</h3>
+
+        <ul class="mb-rules-list">
+          <li>
+            <span class="mb-rule-bullet">1</span>
+            <div><strong>Sentence case en titulares.</strong> Solo la primera letra mayúscula. "Diseño que convierte" — nunca "Diseño Que Convierte".</div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">2</span>
+            <div><strong>ALL CAPS solo en eyebrows y labels.</strong> Con tracking 0.22em, precedidos siempre de em-dash y categoría: "— 01 / Expertise".</div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">3</span>
+            <div><strong>Cero emoji. Cero exclamaciones.</strong> La autoridad no grita ni usa ideogramas. Un punto final es más poderoso que un signo de exclamación.</div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">4</span>
+            <div><strong>Sin segunda persona vendedora.</strong> Nada de "tu negocio", "te ayudamos a", "¿te imaginas...?". El cliente es implícito.</div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">5</span>
+            <div><strong>Itálica Playfair como único énfasis decorativo.</strong> En titulares, <code>&lt;em&gt;</code> dentro de h1/h2 activa la itálica editorial. Sin negritas en cuerpo de texto.</div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">6</span>
+            <div><strong>Sin clichés de industria.</strong> Prohibidos: "innovación", "ecosistema digital", "transformar tu negocio", "a la vanguardia", "disruptivo".</div>
+          </li>
+          <li>
+            <span class="mb-rule-bullet">7</span>
+            <div><strong>Sin relleno.</strong> Si una frase puede eliminarse sin perder significado, se elimina. El espacio en blanco textual es lujo.</div>
+          </li>
+        </ul>
+
+        <h3 class="mb-h3">Frases Canónicas</h3>
+        <div class="mb-phrases">
+          <p class="mb-phrase xl">"Elevamos marcas. Construimos legados."</p>
+          <p class="mb-phrase lg">"Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario."</p>
+          <p class="mb-phrase md">"Ingeniería digital de precisión."</p>
+          <p class="mb-phrase md">"Silencio que convierte."</p>
+          <p class="mb-phrase md">"Construimos las sedes digitales más poderosas de la red."</p>
+        </div>
+
+        <h3 class="mb-h3">Eyebrows y Labels</h3>
+        <p>El patrón canónico de eyebrow: em-dash + número/categoría, ALL CAPS, Inter 500, 10px, tracking 0.22em. Siempre preceden a un titular y anclan el contenido en el sistema de numeración.</p>
+
+        <div class="mb-eyebrow-box" style="margin-top:24px">
+          <div class="mb-eyebrow-item">
+            <span class="mb-eyebrow-meta">acento · sobre claro</span>
+            <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent)">— 01 / Expertise</span>
+          </div>
+          <div class="mb-eyebrow-item">
+            <span class="mb-eyebrow-meta">acento · sobre claro</span>
+            <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent)">— 02 / Casos de estudio</span>
+          </div>
+          <div class="mb-eyebrow-item">
+            <span class="mb-eyebrow-meta">fg-muted · sobre claro</span>
+            <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-muted)">— El Manifiesto</span>
+          </div>
+          <div class="mb-eyebrow-item">
+            <span class="mb-eyebrow-meta">fg-muted · sobre claro</span>
+            <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--fg-muted)">— Brand Kit · Identidad Visual</span>
+          </div>
+          <div class="mb-eyebrow-item" style="background:var(--color-obsidian);padding:16px;margin:-8px">
+            <span class="mb-eyebrow-meta" style="color:rgba(255,255,255,.35)">slate-pale · sobre oscuro</span>
+            <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-slate-pale)">— 03 / Metodología</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         03  IDENTIDAD VISUAL
+    ══════════════════════════════════════════════════════ -->
+    <section class="mb-chapter" id="identidad-visual">
+      <div class="mb-chapter-cover">
+        <span class="mb-chapter-num">— 03 / Identidad Visual</span>
+        <h2 class="mb-chapter-title">El rostro<br><em>de la marca.</em></h2>
+        <p class="mb-chapter-desc">Las reglas estrictas sobre el wordmark, la paleta cromática y la tipografía. Estos tres pilares son innegociables y no admiten variaciones no documentadas.</p>
+      </div>
+      <div class="mb-body">
+
+        <!-- WORDMARK -->
+        <h3 class="mb-h3">Wordmark</h3>
+        <p>El wordmark es tipográfico — no SVG en uso. Utiliza Playfair Display 500 en lowercase con tracking negativo. Los archivos SVG en <code>/assets/</code> son fallbacks para emails, OG images y favicons únicamente — nunca para el sitio en sí.</p>
+
+        <div class="mb-wm-demo" style="margin-top:28px">
+          <a href="/" class="wordmark" style="pointer-events:none">
+            <span class="wm-mark">koda</span>
+          </a>
+          <span class="mb-wm-caption">Sobre claro · .wordmark · Playfair Display 500 · 24px · tracking -0.03em · lowercase</span>
+        </div>
+        <div class="mb-wm-demo dark">
+          <a href="/" class="wordmark light" style="pointer-events:none">
+            <span class="wm-mark">koda</span>
+          </a>
+          <span class="mb-wm-caption">Sobre oscuro · .wordmark.light · color: #F5F2ED (bone)</span>
+        </div>
+        <div class="mb-wm-demo">
+          <a href="/" class="wordmark" style="pointer-events:none">
+            <span class="wm-mark">koda</span>
+            <span class="wm-sub">Studio</span>
+          </a>
+          <span class="mb-wm-caption">Con submarca · .wm-sub · Inter 500 · 10px · tracking 0.25em · opacity 0.6</span>
+        </div>
+
+        <h3 class="mb-h3">Reglas del Wordmark</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Área de respeto</span>
+            <h3>Clear space = 1× altura del wordmark</h3>
+            <p>Ningún elemento gráfico, texto o borde puede invadir el espacio equivalente a una altura completa del wordmark en sus cuatro lados.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Tamaño mínimo</span>
+            <h3>80px en pantalla · 20mm en impresión</h3>
+            <p>Por debajo de estos umbrales la legibilidad de Playfair Display a este peso se compromete. En iconos y favicons usar el SVG estático.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Colores permitidos</span>
+            <h3>Tinta sobre claro. Bone sobre oscuro.</h3>
+            <p><strong>#1A1A18</strong> sobre fondos bone/stone. <strong>#F5F2ED</strong> sobre fondos obsidian/dark/hero. Nunca en slate ni en colores saturados.</p>
+          </div>
+          <div class="mb-rule" style="border-left:2px solid #a33">
+            <span class="mb-rule-num" style="color:#a33">Prohibido</span>
+            <h3>Usos incorrectos</h3>
+            <p>No distorsionar proporciones. No rotar. No agregar sombra o glow. No sobre fotografías sin velo oscuro. No en mayúsculas. No con tipografía diferente a Playfair Display.</p>
+          </div>
+        </div>
+
+        <!-- PALETA CLARO -->
+        <h3 class="mb-h3">Paleta de Color — Tema Claro</h3>
+        <p>Predeterminado. Los fondos son cálidos (bone/stone), nunca blanco puro. El texto nunca es negro puro. Todo tiene temperatura.</p>
+
+        <span class="mb-section-label" style="margin-top:28px">Fondos</span>
+        <div class="mb-palette-row">
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#F5F2ED"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Bone</span><span class="mb-swatch-hex">#F5F2ED</span><span class="mb-swatch-var">--color-bone</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#EDE9E3"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Stone</span><span class="mb-swatch-hex">#EDE9E3</span><span class="mb-swatch-var">--color-stone</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#D6D0C7"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Stone Deep</span><span class="mb-swatch-hex">#D6D0C7</span><span class="mb-swatch-var">--color-stone-deep</span></div>
+          </div>
+        </div>
+
+        <span class="mb-section-label" style="margin-top:32px">Escala de tinta (textos)</span>
+        <div class="mb-palette-row">
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#1A1A18"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Ink</span><span class="mb-swatch-hex">#1A1A18</span><span class="mb-swatch-var">--color-ink</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#2C2C28"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Ink Mid</span><span class="mb-swatch-hex">#2C2C28</span><span class="mb-swatch-var">--color-ink-mid</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#4A4A45"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Ink Soft</span><span class="mb-swatch-hex">#4A4A45</span><span class="mb-swatch-var">--color-ink-soft</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#7A7A72"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Ink Muted</span><span class="mb-swatch-hex">#7A7A72</span><span class="mb-swatch-var">--color-ink-muted</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#A8A8A0"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Ink Faint</span><span class="mb-swatch-hex">#A8A8A0</span><span class="mb-swatch-var">--color-ink-faint</span></div>
+          </div>
+        </div>
+
+        <span class="mb-section-label" style="margin-top:32px">Acento Pizarra</span>
+        <div class="mb-palette-row">
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#5B6B7C"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Slate</span><span class="mb-swatch-hex">#5B6B7C</span><span class="mb-swatch-var">--color-slate</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#4A5A6B"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Slate Deep</span><span class="mb-swatch-hex">#4A5A6B</span><span class="mb-swatch-var">--color-slate-deep</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#3D4F5E"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Slate Dark</span><span class="mb-swatch-hex">#3D4F5E</span><span class="mb-swatch-var">--color-slate-dark</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#8A9BAC"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Slate Pale</span><span class="mb-swatch-hex">#8A9BAC</span><span class="mb-swatch-var">--color-slate-pale</span></div>
+          </div>
+        </div>
+
+        <span class="mb-section-label" style="margin-top:32px">Bordes y divisores</span>
+        <div class="mb-palette-row" style="margin-bottom:48px">
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#DDD9D2"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Border Soft</span><span class="mb-swatch-hex">#DDD9D2</span><span class="mb-swatch-var">--color-border-soft</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#C8C3BB"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Border</span><span class="mb-swatch-hex">#C8C3BB</span><span class="mb-swatch-var">--color-border</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#A8A29A"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Border Hard</span><span class="mb-swatch-hex">#A8A29A</span><span class="mb-swatch-var">--color-border-hard</span></div>
+          </div>
+          <div class="mb-swatch">
+            <span class="mb-swatch-chip" style="background:#5B6B7C"></span>
+            <div class="mb-swatch-info"><span class="mb-swatch-name">Border Accent</span><span class="mb-swatch-hex">#5B6B7C</span><span class="mb-swatch-var">--color-border-accent</span></div>
+          </div>
+        </div>
+
+        <!-- PALETA OSCURO -->
+        <h3 class="mb-h3">Paleta de Color — Tema Oscuro</h3>
+        <p>El tema oscuro es siempre <strong style="color:var(--fg-primary)">seccional y full-bleed.</strong> Nunca es un toggle global. Se aplica en bloques específicos: hero, cta-final, .method.dark, modal, footer. Sobre oscuro, todos los textos son opacidades de blanco — nunca blanco puro.</p>
+
+        <div class="mb-dark-block" style="margin-top:28px">
+          <span class="mb-section-label">Fondos oscuros</span>
+          <div class="mb-palette-row" style="margin-bottom:40px">
+            <div class="mb-swatch">
+              <span class="mb-swatch-chip" style="background:#111110;border:1px solid rgba(255,255,255,.12)"></span>
+              <div class="mb-swatch-info" style="background:#1A1A18;border-color:rgba(255,255,255,.12)">
+                <span class="mb-swatch-name" style="color:var(--fg-on-dark)">Obsidian</span>
+                <span class="mb-swatch-hex" style="color:var(--fg-on-dark-faint)">#111110</span>
+                <span class="mb-swatch-var" style="color:var(--fg-on-dark-faint)">--color-obsidian</span>
+              </div>
+            </div>
+            <div class="mb-swatch">
+              <span class="mb-swatch-chip" style="background:#1A1A18;border:1px solid rgba(255,255,255,.12)"></span>
+              <div class="mb-swatch-info" style="background:#1A1A18;border-color:rgba(255,255,255,.12)">
+                <span class="mb-swatch-name" style="color:var(--fg-on-dark)">Dark</span>
+                <span class="mb-swatch-hex" style="color:var(--fg-on-dark-faint)">#1A1A18</span>
+                <span class="mb-swatch-var" style="color:var(--fg-on-dark-faint)">--color-dark</span>
+              </div>
+            </div>
+            <div class="mb-swatch">
+              <span class="mb-swatch-chip" style="background:#0A0A09;border:1px solid rgba(255,255,255,.12)"></span>
+              <div class="mb-swatch-info" style="background:#1A1A18;border-color:rgba(255,255,255,.12)">
+                <span class="mb-swatch-name" style="color:var(--fg-on-dark)">Footer</span>
+                <span class="mb-swatch-hex" style="color:var(--fg-on-dark-faint)">#0A0A09</span>
+                <span class="mb-swatch-var" style="color:var(--fg-on-dark-faint)">Literal</span>
+              </div>
+            </div>
+          </div>
+
+          <span class="mb-section-label">Textos sobre oscuro — opacidades de blanco</span>
+          <div style="border:1px solid rgba(255,255,255,.12)">
+            <div class="mb-opacity-row">
+              <span class="mb-opacity-label" style="color:rgba(255,255,255,.88)">rgba(255,255,255,.88) — Énfasis fuerte</span>
+              <span class="mb-opacity-var">--fg-on-dark-strong</span>
+            </div>
+            <div class="mb-opacity-row">
+              <span class="mb-opacity-label" style="color:rgba(255,255,255,.70)">rgba(255,255,255,.70) — Cuerpo principal</span>
+              <span class="mb-opacity-var">--fg-on-dark-mid</span>
+            </div>
+            <div class="mb-opacity-row">
+              <span class="mb-opacity-label" style="color:rgba(255,255,255,.55)">rgba(255,255,255,.55) — Subtítulos, itálica</span>
+              <span class="mb-opacity-var">--fg-on-dark-soft</span>
+            </div>
+            <div class="mb-opacity-row">
+              <span class="mb-opacity-label" style="color:rgba(255,255,255,.40)">rgba(255,255,255,.40) — Labels, eyebrows</span>
+              <span class="mb-opacity-var">--fg-on-dark-faint</span>
+            </div>
+            <div class="mb-opacity-row">
+              <span class="mb-opacity-label" style="color:rgba(255,255,255,.25)">rgba(255,255,255,.25) — Casi invisible</span>
+              <span class="mb-opacity-var">--fg-on-dark-dim</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIPOGRAFÍA -->
+        <h3 class="mb-h3">Tipografía Corporativa</h3>
+        <p>Solo dos familias, ambas self-hosted desde <code>/fonts/</code>. No se usan Google Fonts ni fuentes externas. Para email y documentos donde las fuentes no cargan, los fallbacks son Georgia (display) y Helvetica Neue (body).</p>
+
+        <div class="mb-type-specimen" style="margin-top:28px">
+          <div class="mb-type-meta">
+            <b>H1 · Hero title</b>
+            Playfair Display 400<br>
+            clamp(3.5rem, 8vw, 8rem)<br>
+            line-height: 0.95<br>
+            tracking: -0.03em
+          </div>
+          <h1 style="font-size:clamp(2.5rem,5vw,5rem);margin:0;line-height:0.95">Arquitectura<br><em>digital.</em></h1>
+        </div>
+
+        <div class="mb-type-specimen">
+          <div class="mb-type-meta">
+            <b>H2 · Section head</b>
+            Playfair Display 400<br>
+            clamp(2.5rem, 5vw, 5rem)<br>
+            line-height: 1.05<br>
+            tracking: -0.03em
+          </div>
+          <h2 style="margin:0;font-size:clamp(2rem,4vw,3.5rem)">Diseñamos <em>para empresas<br>que no se conforman.</em></h2>
+        </div>
+
+        <div class="mb-type-specimen">
+          <div class="mb-type-meta">
+            <b>H3 · .h-sub</b>
+            Playfair Display 400<br>
+            <em>italic</em><br>
+            clamp(1.75rem, 3vw, 2.5rem)<br>
+            line-height: 1.2
+          </div>
+          <h3 style="margin:0">Oficio invisible,<br>resultados evidentes.</h3>
+        </div>
+
+        <div class="mb-type-specimen">
+          <div class="mb-type-meta">
+            <b>H4 · Eyebrow estructural</b>
+            Inter 500 — NO Playfair<br>
+            1rem (16px)<br>
+            uppercase<br>
+            tracking: 0.08em
+          </div>
+          <h4 style="margin:0">Servicios de arquitectura digital</h4>
+        </div>
+
+        <div class="mb-type-specimen">
+          <div class="mb-type-meta">
+            <b>Body · p · .body</b>
+            Inter 300<br>
+            1rem (16px)<br>
+            line-height: 1.55<br>
+            color: --fg-tertiary
+          </div>
+          <p style="margin:0">Diseñamos sistemas de comunicación digital para empresas que entienden que su presencia en línea es un activo estratégico. No construimos sitios web — construimos sedes digitales que proyectan autoridad.</p>
+        </div>
+
+        <div class="mb-type-specimen">
+          <div class="mb-type-meta">
+            <b>.eyebrow · .label · label</b>
+            Inter 500<br>
+            10px (--text-2xs)<br>
+            uppercase<br>
+            tracking: 0.22em
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <span class="eyebrow">— 01 / Expertise</span>
+            <span class="label">Tipografía corporativa</span>
+            <label>Nombre completo</label>
+          </div>
+        </div>
+
+        <div class="mb-type-specimen">
+          <div class="mb-type-meta">
+            <b>.caption · .body-sm</b>
+            Inter 300<br>
+            12px / 14px<br>
+            color: --fg-muted
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span class="caption">Ciudad de México · Est. 2024 · Boutique</span>
+            <span class="body-sm">Información secundaria, metadatos y anotaciones de interfaz que no compiten con el cuerpo principal.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         04  SISTEMA GRÁFICO
+    ══════════════════════════════════════════════════════ -->
+    <section class="mb-chapter" id="sistema-grafico">
+      <div class="mb-chapter-cover">
+        <span class="mb-chapter-num">— 04 / Sistema Gráfico</span>
+        <h2 class="mb-chapter-title">El entorno<br><em>visual.</em></h2>
+        <p class="mb-chapter-desc">Los principios de composición, espaciado, bordes, iconografía e imagería. El diseño no es decoración — es ingeniería.</p>
+      </div>
+      <div class="mb-body">
+
+        <h3 class="mb-h3">Principios Absolutos</h3>
+
+        <div class="mb-absolutes">
+          <div class="mb-absolute-item">
+            <span class="mb-absolute-icon">0</span>
+            <span class="mb-absolute-title">Border-radius</span>
+            <span class="mb-absolute-val">0px !important</span>
+            <p class="mb-absolute-desc">Aplicado globalmente a <code>*, *::before, *::after</code>. Las esquinas curvas diluyen la precisión. Sin excepción.</p>
+          </div>
+          <div class="mb-absolute-item">
+            <span class="mb-absolute-icon">∅</span>
+            <span class="mb-absolute-title">Box-shadow</span>
+            <span class="mb-absolute-val">Nunca</span>
+            <p class="mb-absolute-desc">Elevación = espacio + borde 1px. Las sombras son artificio que simula profundidad. Aquí la profundidad es real.</p>
+          </div>
+          <div class="mb-absolute-item">
+            <span class="mb-absolute-icon">—</span>
+            <span class="mb-absolute-title">Gradientes UI</span>
+            <span class="mb-absolute-val">Cero</span>
+            <p class="mb-absolute-desc">Excepción documentada: texturas atmosféricas del hero (smoke/veil/grain) son escenografía, no interfaz.</p>
+          </div>
+          <div class="mb-absolute-item">
+            <span class="mb-absolute-icon">·</span>
+            <span class="mb-absolute-title">Saturación</span>
+            <span class="mb-absolute-val">Ninguna</span>
+            <p class="mb-absolute-desc">El acento máximo es Slate (#5B6B7C). Nada vibrante, nada de contraste duro de tono. Paleta deliberadamente apagada.</p>
+          </div>
+          <div class="mb-absolute-item">
+            <span class="mb-absolute-icon">≠</span>
+            <span class="mb-absolute-title">Negro/Blanco puro</span>
+            <span class="mb-absolute-val">#000 y #FFF: prohibidos</span>
+            <p class="mb-absolute-desc">El negro más oscuro es #0A0A09 (footer). El blanco más claro es #F5F2ED (bone). Todo tiene temperatura y carácter.</p>
+          </div>
+          <div class="mb-absolute-item">
+            <span class="mb-absolute-icon">1</span>
+            <span class="mb-absolute-title">Bordes de grid</span>
+            <span class="mb-absolute-val">1px · #C8C3BB</span>
+            <p class="mb-absolute-desc">Las cards se definen por bordes 1px o espacio negativo. Nunca por sombra ni por radius. El grid es línea y silencio.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Grilla y Espaciado</h3>
+        <p>Escala de 4px base. El espacio en blanco es señal de lujo — nunca se rellena el layout con contenido extra para "no desperdiciar espacio". El espaciado generoso es parte del mensaje.</p>
+
+        <table class="mb-table" style="margin-top:28px">
+          <thead>
+            <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--max-width</code></td>
+              <td>1400px</td>
+              <td>Ancho máximo del contenedor principal</td>
+            </tr>
+            <tr>
+              <td><code>--gutter</code></td>
+              <td>clamp(1.5rem, 5vw, 5rem)</td>
+              <td>Margen lateral de sección a sección — se ajusta fluidamente</td>
+            </tr>
+            <tr>
+              <td>Padding vertical sección</td>
+              <td>clamp(80px, 12vw, 160px)</td>
+              <td>Espaciado superior/inferior de secciones principales</td>
+            </tr>
+            <tr>
+              <td><code>--measure-narrow</code></td>
+              <td>32ch</td>
+              <td>Columna estrecha: citas, subtítulos, labels</td>
+            </tr>
+            <tr>
+              <td><code>--measure-normal</code></td>
+              <td>52ch</td>
+              <td>Columna principal de cuerpo — óptima para lectura</td>
+            </tr>
+            <tr>
+              <td><code>--measure-wide</code></td>
+              <td>72ch</td>
+              <td>Columna editorial ancha</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="mb-h3">Imagería y Dirección de Arte</h3>
+
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Permitido</span>
+            <h3>Arquitectura desaturada</h3>
+            <p>Concreto, acero, vidrio, mármol. Renders 3D con geometría dura. Fotografía con temperatura baja. Color solo si está profundamente apagado.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Permitido</span>
+            <h3>Texturas decorativas CSS</h3>
+            <p>Sector cards con <code>data-texture="marble|concrete|linen|wood"</code>. Gradientes radiales programáticos — escenografía, no fondos UI.</p>
+          </div>
+          <div class="mb-rule" style="border-left:2px solid #a33">
+            <span class="mb-rule-num" style="color:#a33">Prohibido</span>
+            <h3>Stock genérico de personas</h3>
+            <p>Personas en oficinas, handshakes, reuniones de negocios, "teamwork" con trajes. Nunca. Jamás.</p>
+          </div>
+          <div class="mb-rule" style="border-left:2px solid #a33">
+            <span class="mb-rule-num" style="color:#a33">Prohibido</span>
+            <h3>Color vibrante o saturado</h3>
+            <p>Si una fotografía tiene color llamativo, se desatura en post-producción antes de su uso. El color permitido solo si está alineado con la paleta.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Iconografía</h3>
+        <p>No existe un sistema de íconos propietario ni se usa ningún iconfont. Los íconos son SVG inline con <code>stroke="currentColor"</code>, stroke-width 1.5, sin fill. Se usan en tres escalas canónicas.</p>
+
+        <div class="mb-icon-grid" style="margin-top:24px">
+          <div class="mb-icon-item">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="8" width="28" height="28"/>
+              <line x1="8" y1="22" x2="36" y2="22"/>
+              <line x1="22" y1="8" x2="22" y2="36"/>
+            </svg>
+            <span class="mb-icon-label">44×44<br>.service-icon</span>
+          </div>
+          <div class="mb-icon-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10" r="6"/>
+              <line x1="10" y1="7" x2="10" y2="10"/>
+              <line x1="10" y1="13" x2="10.01" y2="13"/>
+            </svg>
+            <span class="mb-icon-label">20×20<br>UI icon</span>
+          </div>
+          <div class="mb-icon-item">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3,8 8,3 13,8"/>
+              <line x1="8" y1="3" x2="8" y2="13"/>
+            </svg>
+            <span class="mb-icon-label">16×16<br>Inline small</span>
+          </div>
+          <div class="mb-icon-item">
+            <div style="font-size:1.4rem;display:flex;gap:16px;line-height:1">
+              <span>→</span><span>↗</span><span>—</span>
+            </div>
+            <span class="mb-icon-label">Tipográficos<br>→ ↗ —</span>
+          </div>
+          <div class="mb-icon-item" style="flex:1;align-items:flex-start;padding-left:24px;border-left:1px solid var(--border)">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+              <li class="caption">stroke="currentColor" · se adapta a cualquier contexto de color</li>
+              <li class="caption">stroke-width: 1.5 · consistente en todas las escalas</li>
+              <li class="caption">fill: none · línea pura, sin relleno</li>
+              <li class="caption">Sin emoji · Sin iconfonts · Sin SVG sprite externo</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Motion y Animación</h3>
+        <p>El movimiento es lento y deliberado. Sin animaciones bouncy, springy ni de rebote. El lujo se mueve con seguridad, no con urgencia. Todos los delays van en CSS, no en JavaScript.</p>
+
+        <table class="mb-table" style="margin-top:24px">
+          <thead>
+            <tr><th>Token / Clase</th><th>Valor</th><th>Uso</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--transition-fast</code></td>
+              <td>200ms ease</td>
+              <td>Feedback inmediato: foco de campos, toggles de estado</td>
+            </tr>
+            <tr>
+              <td><code>--transition-base</code></td>
+              <td>300ms ease</td>
+              <td>Hover de links, cambios de color, border-color activo</td>
+            </tr>
+            <tr>
+              <td><code>--transition-slow</code></td>
+              <td>400ms ease</td>
+              <td>Header glassmorphism, apertura de modal, CTA grandes</td>
+            </tr>
+            <tr>
+              <td><code>.fade-up / [data-reveal]</code></td>
+              <td>900ms cubic-bezier(0.2, 0.8, 0.2, 1)</td>
+              <td>Animación de scroll-in con stagger d1/d2/d3</td>
+            </tr>
+            <tr>
+              <td><code>smokeDrift</code></td>
+              <td>40s ease-in-out infinite</td>
+              <td>Textura atmosférica del hero — impalpable, casi imperceptible</td>
+            </tr>
+            <tr>
+              <td><code>scrollPulse</code></td>
+              <td>2.4s ease-in-out infinite</td>
+              <td>Línea pulsante de scroll cue en el hero</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mb-note">
+          <p><strong style="color:var(--fg-primary)">Hover válido:</strong> Cambio de color, opacidad, border-color. <code>transform: translateX(4–8px)</code> permitido solo en flechas. <code>prefers-reduced-motion: reduce</code> debe respetarse en todas las animaciones sin excepción.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         05  APLICACIONES
+    ══════════════════════════════════════════════════════ -->
+    <section class="mb-chapter" id="aplicaciones">
+      <div class="mb-chapter-cover">
+        <span class="mb-chapter-num">— 05 / Aplicaciones de Marca</span>
+        <h2 class="mb-chapter-title">La marca<br><em>en práctica.</em></h2>
+        <p class="mb-chapter-desc">Cómo se ve el sistema trabajando en conjunto. Cada aplicación es una expresión coherente — no una adaptación libre. El sistema siempre gana sobre la interpretación individual.</p>
+      </div>
+      <div class="mb-body">
+
+        <h3 class="mb-h3">Sitio Web — Componentes Canónicos</h3>
+        <p>El sitio web es la aplicación principal. Todos los componentes viven en <code>styles/site.css</code>. Para previews funcionales, ver los <a href="../ui-kits/index.html" style="color:var(--accent);border:none">UI Kits</a> del Brand Kit.</p>
+
+        <table class="mb-table" style="margin-top:24px">
+          <thead>
+            <tr><th>Componente</th><th>Clase / patrón</th><th>Descripción</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Header</strong></td>
+              <td><code>.site-header.on-light / .on-dark</code></td>
+              <td>Sticky, z-index 80. Glassmorphism solo al scrollear vía ::before. Submenu dropdown, mobile drawer full-screen.</td>
+            </tr>
+            <tr>
+              <td><strong>Hero</strong></td>
+              <td><code>.hero.mode-void / .marble / .concrete</code></td>
+              <td>Full-bleed oscuro, eyebrow + título 9rem clamp + CTA bone + scroll cue pulsante.</td>
+            </tr>
+            <tr>
+              <td><strong>Botones</strong></td>
+              <td><code>.btn / .btn-solid / .hero-cta / .cta-btn-lg</code></td>
+              <td>6+ variantes según contexto. Siempre rectangulares, 1px border, label uppercase.</td>
+            </tr>
+            <tr>
+              <td><strong>Cards de servicio</strong></td>
+              <td><code>.grid-services / .service-card</code></td>
+              <td>Grid 3 cols con separadores 1px. Hover → fondo stone, service-icon → acento.</td>
+            </tr>
+            <tr>
+              <td><strong>Cards de sector</strong></td>
+              <td><code>.sector-card[data-texture]</code></td>
+              <td>4 texturas CSS (marble/concrete/linen/wood) en hover con inversión de color de texto.</td>
+            </tr>
+            <tr>
+              <td><strong>Metodología</strong></td>
+              <td><code>.method.dark / .method-sticky</code></td>
+              <td>Dark full-bleed. Steps con sticky media. Steps inactivos opacity 0.4, activo opacity 1.</td>
+            </tr>
+            <tr>
+              <td><strong>Testimoniales</strong></td>
+              <td><code>.testimonial-carousel</code></td>
+              <td>Grid 40px 1fr 40px con nav buttons cuadrados y dots como líneas 1px.</td>
+            </tr>
+            <tr>
+              <td><strong>FAQ</strong></td>
+              <td><code>.faq-item / details / summary</code></td>
+              <td>Native details/summary. Toggle visual 1px sin marker nativo WebKit.</td>
+            </tr>
+            <tr>
+              <td><strong>Modal</strong></td>
+              <td><code>.modal-overlay / .modal-panel</code></td>
+              <td>Overlay obsidian rgba + blur(6px). Panel bone max 740px. Animación slideUp 400ms.</td>
+            </tr>
+            <tr>
+              <td><strong>Footer</strong></td>
+              <td><code>.site-footer</code></td>
+              <td>Fondo #0A0A09. Grid 0.7fr 2fr. Wordmark + 3 columnas con .flabel en slate-pale.</td>
+            </tr>
+            <tr>
+              <td><strong>WA Float</strong></td>
+              <td><code>.wa-float</code></td>
+              <td>Botón flotante 48×48 fixed bottom-right. Se oculta al abrir nav (body.nav-locked).</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="mb-h3">Correo Electrónico</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Firma</span>
+            <h3>Wordmark SVG estático</h3>
+            <p>Usar <code>assets/wordmark.svg</code> (tinta sobre claro) o <code>assets/wordmark-dark.svg</code> (bone sobre oscuro). Playfair Display no carga en clientes de correo.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Tipografía</span>
+            <h3>Georgia + Helvetica como fallbacks</h3>
+            <p>En email: titulares → Georgia (serif nativo). Cuerpo → Helvetica Neue → sans-serif. Los mismos pesos y proporciones que el sistema.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Paleta</span>
+            <h3>Solo colores primarios</h3>
+            <p>Bone (#F5F2ED) como fondo, Ink (#1A1A18) para texto, Slate (#5B6B7C) para acentos y CTAs. Coherencia cross-channel sin excepciones.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Tono</span>
+            <h3>Las mismas reglas de voz</h3>
+            <p>Sentence case, sin emoji, sin exclamaciones, primera persona plural. El canal cambia, la voz no. El email es tan representativo como la home.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Redes Sociales</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Avatar / Perfil</span>
+            <h3>Wordmark bone sobre obsidian</h3>
+            <p>Fondo #111110. Wordmark SVG centrado, color #F5F2ED. Sin marcos, sin degradados, sin tipografía adicional en la imagen de perfil.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Posts y contenido</span>
+            <h3>El feed es extensión del sistema</h3>
+            <p>Sin radius, sin sombra, fondos bone/obsidian, titulares Playfair italic, cuerpo Inter 300. La composición de red social sigue las mismas reglas de grilla.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Copywriting</span>
+            <h3>La marca no "interactúa" — comunica</h3>
+            <p>El caption sigue las reglas verbales sin excepción. Las redes sociales no son contexto para informalidad, trending phrases o emoji. La autoridad es consistente.</p>
+          </div>
+        </div>
+
+        <h3 class="mb-h3">Material de Marketing</h3>
+        <div class="mb-rule-grid">
+          <div class="mb-rule">
+            <span class="mb-rule-num">Presentaciones</span>
+            <h3>Paleta real, tipografía real</h3>
+            <p>Pitch decks sobre bone o obsidian. Tablas con bordes 1px. Sin transiciones de slides con bounce o flash. Playfair para titulares, Inter para cuerpo.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Documentos</span>
+            <h3>Membrete mínimo</h3>
+            <p>Wordmark en esquina superior. Línea divisoria 1px en --border. Sin ornamentos ni marcos decorativos. Footer con datos de contacto en Inter 300 caption.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Impresos — CMYK</span>
+            <h3>Equivalentes de impresión</h3>
+            <p>Bone: C2 M3 Y5 K0. Ink: C0 M0 Y0 K95. Slate: C25 M14 Y0 K51. Verificar prueba de color antes de tiraje. Sin radius en ningún elemento impreso.</p>
+          </div>
+          <div class="mb-rule">
+            <span class="mb-rule-num">Uso por terceros</span>
+            <h3>Este manual como spec</h3>
+            <p>Cualquier agencia, freelancer o proveedor que trabaje con la marca recibe este documento. La única fuente de verdad para componentes web es <code>styles/site.css</code>.</p>
+          </div>
+        </div>
+
+        <!-- Regla de cierre -->
+        <div class="mb-closing">
+          <p class="mb-closing-quote">"Si una decisión de diseño no encaja con estas reglas, la decisión está mal — no las reglas."</p>
+          <p class="mb-closing-note">Este manual es un documento vivo. En caso de conflicto entre el manual y <code style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)">styles/site.css</code>, gana el CSS. La fuente única de verdad es siempre el código.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <a href="#top" class="wordmark light" aria-label="Koda">
+        <span class="wm-mark">koda</span>
+      </a>
+      <div class="footer-cols">
+        <div>
+          <span class="flabel">Manual de Marca</span>
+          <a href="#plataforma">01 / Plataforma</a>
+          <a href="#voz">02 / Identidad Verbal</a>
+          <a href="#identidad-visual">03 / Identidad Visual</a>
+          <a href="#sistema-grafico">04 / Sistema Gráfico</a>
+          <a href="#aplicaciones">05 / Aplicaciones</a>
+        </div>
+        <div>
+          <span class="flabel">Brand Kit</span>
+          <a href="../preview/index.html">Tokens de diseño</a>
+          <a href="../ui-kits/index.html">Componentes UI</a>
+          <a href="../index.html">Portal principal</a>
+        </div>
+        <div>
+          <span class="flabel">Koda Studio</span>
+          <a href="#">Ciudad de México</a>
+          <a href="#">Est. 2024</a>
+          <a href="#">styles/site.css</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Koda Studio · Manual de Marca v1.0 · 2024</span>
+      <div class="foot-links">
+        <a href="../index.html">Brand Kit</a>
+        <a href="../../README.md">Documentación</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('.mb-chapter[id]');
+const navLinks  = document.querySelectorAll('.mb-sidenav a');
+function updateActive() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 140) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActive, { passive: true });
+updateActive();
+</script>
+
+</body>
+</html>
