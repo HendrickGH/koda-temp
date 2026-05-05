@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Sections</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">UI Kits</a>
+  <span class="sep">/</span>
+  <span class="current">Sections</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— UI Kit · Sections</span>
+  <h1 class="bk-h1">Secciones</h1>
+  <p class="bk-sub">Manifiesto, metodología sticky, presencia/ciudades y CTA final. Las secciones oscuras usan .section.dark o .method.dark. Cada sección comienza con .sec-head + eyebrow + h-display.</p>
+</header>
+
+<main class="bk-content">
+
+  <!-- ── .sec-head pattern ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Cabecera de sección — .sec-head + .sec-head-row</h2>
+    <div class="bk-row-wide" style="padding:0;border-top:1px solid var(--border)">
+      <div class="bk-meta" style="padding:16px 0 8px"><b>.sec-head · .sec-head-row</b>Grid 1.4fr 1fr · align-items end. Eyebrow en bloque sobre el título. .sec-all justificado a la derecha.</div>
+    </div>
+    <div style="border:1px solid var(--border);padding:clamp(40px,5vw,64px)">
+      <header class="sec-head">
+        <span class="eyebrow sec-head-eyebrow">— 01 / Expertise</span>
+        <div class="sec-head-row">
+          <h2 class="h-display">Arquitectura <em>digital.</em></h2>
+          <a href="#" class="sec-all">Ver todos →</a>
+        </div>
+      </header>
+    </div>
+
+    <div class="bk-row-wide" style="padding-top:28px;border-top:1px solid var(--border)">
+      <div class="bk-meta" style="margin-bottom:16px"><b>.sec-head.center</b>Texto centrado · .sec-head-row colapsa a block</div>
+      <div style="border:1px solid var(--border);padding:clamp(40px,5vw,64px)">
+        <header class="sec-head center">
+          <span class="eyebrow">— 06 / Socios</span>
+          <div class="sec-head-row">
+            <h2 class="h-display">Lo que dicen <em>nuestros clientes.</em></h2>
+          </div>
+        </header>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Manifesto ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Manifiesto — .manifesto</h2>
+    <div class="bk-meta" style="margin-bottom:24px"><b>.manifesto · .manifesto-grid</b>Fondo bg-primary. Grid 1.1fr 0.9fr. Lado derecho: .frame-photo con textura simulada (CSS puro, sin imagen).</div>
+    <section class="manifesto" style="padding:0">
+      <div class="container">
+        <div class="manifesto-grid">
+          <div class="manifesto-copy">
+            <span class="eyebrow" style="display:block;margin-bottom:32px">— El Manifiesto</span>
+            <h2 class="h-display manifesto-copy" style="font-size:clamp(1.75rem,3.4vw,3rem);line-height:1.1;letter-spacing:var(--tracking-tight);margin-bottom:40px">Construimos sedes digitales<br>que <em>hablan solos.</em></h2>
+            <p class="lede">La conversión silenciosa no es un método de venta — es la consecuencia natural de un diseño tan preciso que el visitante nunca siente presión. Solo certeza.</p>
+            <p class="lede">Trabajamos con empresas que entienden que su presencia digital es su activo más visible.</p>
+            <div class="manifesto-meta">
+              <div>
+                <span class="num">+120 <span class="small">proyectos</span></span>
+                <span class="caption">Entregados desde 2024</span>
+              </div>
+              <div>
+                <span class="num">98%</span>
+                <span class="caption">Clientes que repiten</span>
+              </div>
+            </div>
+          </div>
+          <div class="manifesto-figure">
+            <div class="frame-photo">
+              <div class="photo-surface"></div>
+              <div class="photo-legend">
+                <span class="tag">Koda Studio</span>
+                <span class="caption">CDMX · MX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ── Section utilities ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Utilidades de sección — .section.dark / .section.alt-bg</h2>
+    <div style="display:grid;gap:1px;background:var(--border)">
+      <div class="section alt-bg" style="padding:48px;min-height:auto">
+        <span class="eyebrow">— .section.alt-bg · fondo stone #EDE9E3</span>
+      </div>
+      <div class="section dark" style="padding:48px;min-height:auto">
+        <span class="eyebrow light">— .section.dark · fondo obsidian #111110</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Method sticky ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Metodología sticky — .method.dark</h2>
+    <div class="bk-meta" style="margin-bottom:24px"><b>.method.dark · .method-sticky</b>Dark obsidian. Grid 1fr 1fr. Pasos izquierda (opacity 0.4/1), media derecha sticky. En producción el JS maneja la clase .active según scroll.</div>
+    <section class="method dark" style="border-top:1px solid var(--border-on-dark)">
+      <div class="container method-head">
+        <span class="eyebrow light" style="display:block;margin-bottom:28px">— 03 / Metodología</span>
+        <h2 class="h-display inv" style="font-size:clamp(2.5rem,5vw,4.5rem);margin:0">Nuestro <em>proceso.</em></h2>
+      </div>
+      <div class="container">
+        <div class="method-sticky">
+          <div class="method-steps">
+            <div class="method-step active">
+              <span class="step-num">— 01</span>
+              <h3>Descubrimiento</h3>
+              <p>Estudiamos tu mercado, tu competencia y tus objetivos de negocio antes de trazar una línea.</p>
+              <ul>
+                <li>Auditoría digital</li>
+                <li>Análisis de competencia</li>
+                <li>Objetivos de conversión</li>
+              </ul>
+            </div>
+            <div class="method-step">
+              <span class="step-num">— 02</span>
+              <h3>Arquitectura</h3>
+              <p>Definimos la estructura, la jerarquía de información y el sistema de navegación.</p>
+              <ul>
+                <li>Mapa de sitio</li>
+                <li>Wireframes</li>
+                <li>Sistema de contenido</li>
+              </ul>
+            </div>
+            <div class="method-step">
+              <span class="step-num">— 03</span>
+              <h3>Ejecución</h3>
+              <p>Diseño y desarrollo en paralelo. Un solo equipo, sin intermediarios.</p>
+              <ul>
+                <li>Diseño UI de alta fidelidad</li>
+                <li>Desarrollo front-end</li>
+                <li>QA y performance</li>
+              </ul>
+            </div>
+          </div>
+          <div class="method-media">
+            <div class="method-frame show">
+              <div class="sticky-code">
+                <div class="code-chrome">
+                  <span></span><span></span><span></span>
+                </div>
+                <pre class="code-body"><span class="cg">// Sistema de diseño Koda</span>
+<span class="ck">:root</span> {
+  <span class="cv">--color-bone</span>: <span class="cs">#F5F2ED</span>;
+  <span class="cv">--font-display</span>: <span class="cs">"Playfair Display"</span>;
+  <span class="cv">--radius</span>: <span class="ct">0px</span>;
+}</pre>
+                <span class="code-tag">site.css</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ── Testimonial carousel ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Testimoniales — .testimonial-carousel</h2>
+    <div class="bk-meta" style="margin-bottom:24px"><b>.testimonial-carousel</b>Grid 40px 1fr 40px. Botones carousel cuadrados 40×40. Itálica Playfair para la cita. Dots = líneas 32×1px.</div>
+    <section class="section" style="padding:clamp(56px,8vw,96px) 0;border:none">
+      <div class="container">
+        <header class="sec-head center">
+          <span class="eyebrow">— 06 / Socios</span>
+          <div class="sec-head-row">
+            <h2 class="h-display">Lo que dicen <em>nuestros clientes.</em></h2>
+          </div>
+        </header>
+        <div class="testimonial-carousel">
+          <button class="carousel-nav" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="testimonial-track">
+            <div class="testimonial active">
+              <svg class="quote-mark" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="1" width="38" height="38"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="22" fill="currentColor" stroke="none">"</text></svg>
+              <p class="tm-quote">"La sede que construyeron para nosotros no vende nuestros servicios — los hace deseables."</p>
+              <div class="tm-author">
+                <span class="name">Alejandro Reyes</span>
+                <span class="role">Socio director · Reyes &amp; Asociados</span>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-nav" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots">
+          <button class="dot active"></button>
+          <button class="dot"></button>
+          <button class="dot"></button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ── Presencia ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Presencia — .presence-grid / .cities</h2>
+    <div class="bk-meta" style="margin-bottom:24px"><b>.presence-grid</b>Grid 0.9fr 1.1fr. Lista de ciudades 2 cols con bullet numérico en acento. Frame del mapa con border 1px y aspect-ratio 6/5.2.</div>
+    <section class="presence section" style="padding:clamp(56px,8vw,96px) 0;border:none">
+      <div class="container presence-grid">
+        <div class="presence-copy">
+          <span class="eyebrow" style="display:block;margin-bottom:28px">— 09 / Presencia</span>
+          <h2 class="h-display" style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:32px">Presentes en <em>todo México.</em></h2>
+          <p class="lede" style="font-family:var(--font-body);font-weight:300;font-size:var(--text-base);line-height:1.75;color:var(--fg-tertiary);margin:0 0 40px;max-width:440px">Operamos de forma remota con clientes en las principales ciudades del país y en Latinoamérica.</p>
+          <ul class="cities">
+            <li><span>01</span>Ciudad de México</li>
+            <li><span>02</span>Guadalajara</li>
+            <li><span>03</span>Monterrey</li>
+            <li><span>04</span>Puebla</li>
+            <li><span>05</span>Querétaro</li>
+            <li><span>06</span>Mérida</li>
+          </ul>
+        </div>
+        <div class="presence-map">
+          <div class="map-legend">
+            <span class="label">México</span>
+            <span class="label coord">19.43°N · 99.13°W</span>
+          </div>
+          <div style="width:100%;height:calc(100% - 40px);display:flex;align-items:center;justify-content:center;border:1px solid var(--border-soft)">
+            <span class="eyebrow" style="color:var(--fg-muted)">SVG mapa — mx-map</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ── CTA final ── -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">CTA final — .cta-final (oscuro)</h2>
+    <div class="bk-meta" style="margin-bottom:24px"><b>.cta-final · .section.dark</b>Grid 1.3fr 1fr. Lado derecho con border-left oscuro. .cta-btn-lg = botón bone sólido 22/36. .cta-trust = señales de confianza en lowercase faint.</div>
+    <section class="section dark cta-final" style="padding:clamp(56px,8vw,96px) 0">
+      <div class="container cta-grid">
+        <div class="cta-left">
+          <span class="eyebrow light" style="display:block;margin-bottom:36px">— Iniciemos</span>
+          <h2 class="h-display inv" style="font-size:clamp(2.5rem,5vw,4.5rem);margin:0">¿Tienes un proyecto <em>en mente?</em></h2>
+        </div>
+        <div class="cta-right">
+          <p class="cta-desc">El primer paso es una conversación. Sin formularios largos, sin propuestas automáticas.</p>
+          <a href="#" class="cta-btn-lg">Iniciar proyecto <span class="arr">→</span></a>
+          <div class="cta-trust">
+            <span>Sin compromiso</span>
+            <span class="sep">·</span>
+            <span>Respuesta en 24h</span>
+            <span class="sep">·</span>
+            <span>100% remoto</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+</main>
+</body>
+</html>

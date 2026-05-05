@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Tipografía</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">Preview</a>
+  <span class="sep">/</span>
+  <span class="current">Tipografía</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— Preview · Tipografía</span>
+  <h1 class="bk-h1">Tipografía</h1>
+  <p class="bk-sub">Playfair Display para autoridad editorial. Inter para UI y cuerpo. La itálica de Playfair es el único énfasis decorativo en titulares — nunca negrita en cuerpo.</p>
+</header>
+
+<main class="bk-content">
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Display — Playfair Display</h2>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>h1 / .h1</b>Playfair Display 400<br>clamp(3.5rem, 8vw, 8rem)<br>line-height 0.95 · tracking -0.03em<br>color --fg-primary</div>
+      <h1 style="margin:0;font-family:var(--font-display);font-size:clamp(3.5rem,8vw,8rem);font-weight:400;line-height:0.95;letter-spacing:-0.03em">Elevamos marcas.<br>Construimos <em style="font-style:italic;color:var(--fg-secondary)">legados.</em></h1>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>h2 / .h2 / .h-display</b>Playfair Display 400<br>clamp(2.5rem, 5vw, 5rem)<br>line-height 1.05 · tracking -0.03em</div>
+      <h2 class="h-display" style="margin:0">Nuestros <em>casos de éxito.</em></h2>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.h-display.big</b>clamp(3rem, 7.5vw, 7rem)<br>Para hero y CTA de máximo impacto</div>
+      <p class="h-display big" style="margin:0">Silencio que <em>convierte.</em></p>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>h3 / .h3</b>Playfair Display italic 400<br>clamp(1.75rem, 3vw, 2.5rem)<br>line-height 1.2 · énfasis editorial</div>
+      <h3 style="margin:0;font-family:var(--font-display);font-weight:400;font-style:italic;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.2;letter-spacing:0">Tres principios. Un resultado.</h3>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.h-sub</b>Playfair Display 400<br>clamp(1.35rem, 2vw, 1.75rem)<br>line-height 1.15 · tracking -0.03em<br>Para títulos de card y sub-sección</div>
+      <p class="h-sub" style="margin:0">Ingeniería digital de precisión.</p>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.h-display.inv + .h-display.inv em</b>Variantes sobre fondos oscuros<br>.inv → --fg-on-dark<br>em → --fg-on-dark-soft</div>
+      <div style="background:var(--color-obsidian);padding:32px 40px">
+        <p class="h-display inv" style="margin:0;font-size:clamp(2rem,4vw,3.5rem)">Autoridad <em>en código.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Cuerpo — Inter</h2>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>h4 / .h4</b>Inter 500 · uppercase<br>1rem · tracking 0.08em<br>⚠ No es Playfair. Es un label estructural.</div>
+      <h4 style="margin:0">Sección · 01 — Approach</h4>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>p / .body</b>Inter 300 · 1rem<br>line-height 1.55 · color --fg-tertiary<br>max-width recomendada: 60–72ch</div>
+      <p style="margin:0;max-width:65ch">Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario. Cada decisión sirve al silencio que vende.</p>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.body-sm</b>Inter 300 · 14px (--text-sm)<br>line-height 1.55 · color --fg-muted<br>Para listas densas y contenido secundario</div>
+      <p class="body-sm" style="margin:0;max-width:60ch">Versión compacta del cuerpo. Usada en sub-bloques, notas de pie y listas de características.</p>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Labels, eyebrows y micro-copia</h2>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.eyebrow</b>Inter 500 · 10px (--text-2xs)<br>uppercase · tracking 0.22em (--tracking-label)<br>color --fg-muted<br>Patrón: "— Número / Categoría"</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow">— El Manifiesto</span>
+        <span class="eyebrow">— 01 / Expertise</span>
+        <span class="eyebrow">— 02 / Casos de estudio</span>
+        <span class="eyebrow">— 03 / Metodología</span>
+      </div>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.eyebrow.light</b>Mismas reglas pero sobre oscuro<br>color --fg-on-dark-faint</div>
+      <div style="background:var(--color-obsidian);padding:24px 32px">
+        <span class="eyebrow light">— 03 / Metodología</span>
+      </div>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.label / label</b>Inter 500 · 10px · uppercase<br>tracking 0.22em · color --fg-muted<br>Para campos de formulario y tags</div>
+      <span class="label">Servicios</span>
+    </div>
+
+    <div class="bk-meta" style="padding:16px 0;border-top:1px solid var(--border)"><b>.caption</b>Inter 300 · 12px (--text-xs) · color --fg-muted</div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.caption</b>Inter 300 · 12px<br>line-height 1.2 · color --fg-muted<br>Metadatos, coordenadas, pies de foto</div>
+      <span class="caption">CDMX · Est. 2024 · 19.43° N, 99.13° W</span>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.display-italic</b>Playfair Display italic sin tamaño fijo<br>Utility para itálica display en cualquier tamaño</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span class="display-italic" style="font-size:3rem">— y nada más.</span>
+        <span class="display-italic" style="font-size:1.5rem">conversión silenciosa</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Escala completa de tamaños</h2>
+    <div style="border-top:1px solid var(--border)">
+      <div class="bk-row"><div class="bk-meta"><b>--text-2xs</b>0.625rem · 10px</div><span style="font-family:var(--font-body);font-size:0.625rem">KODA STUDIO — Arquitectura Digital</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-xs</b>0.75rem · 12px</div><span style="font-family:var(--font-body);font-size:0.75rem">Koda Studio — Arquitectura Digital</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-sm</b>0.875rem · 14px</div><span style="font-family:var(--font-body);font-size:0.875rem">Koda Studio — Arquitectura Digital</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-base</b>1rem · 16px</div><span style="font-family:var(--font-body);font-size:1rem">Koda Studio — Arquitectura Digital</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-lg</b>1.25rem · 20px</div><span style="font-family:var(--font-display);font-size:1.25rem">Koda Studio</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-xl</b>1.5rem · 24px</div><span style="font-family:var(--font-display);font-size:1.5rem">Koda Studio</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-2xl</b>2rem · 32px</div><span style="font-family:var(--font-display);font-size:2rem;letter-spacing:-0.02em">Koda Studio</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-3xl</b>2.5rem · 40px</div><span style="font-family:var(--font-display);font-size:2.5rem;letter-spacing:-0.03em">Koda Studio</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-4xl</b>3.5rem · 56px</div><span style="font-family:var(--font-display);font-size:3.5rem;letter-spacing:-0.03em;line-height:0.95">Koda Studio</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-5xl</b>5rem · 80px</div><span style="font-family:var(--font-display);font-size:5rem;letter-spacing:-0.03em;line-height:0.95">Koda</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-6xl</b>7rem · 112px</div><span style="font-family:var(--font-display);font-size:7rem;letter-spacing:-0.035em;line-height:0.95">Koda</span></div>
+      <div class="bk-row"><div class="bk-meta"><b>--text-7xl</b>9rem · 144px</div><span style="font-family:var(--font-display);font-size:9rem;letter-spacing:-0.04em;line-height:0.9">Koda</span></div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

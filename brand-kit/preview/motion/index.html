@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Motion</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+<style>
+  .t-track { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .t-bar { height:6px; background:var(--color-slate); transition-property:width; }
+  .t-box { width:80px; height:80px; border:1px solid var(--color-border); display:flex; align-items:center; justify-content:center; font-family:var(--font-body); font-size:var(--text-2xs); font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; cursor:pointer; }
+  .t-box:hover { background:var(--color-stone); border-color:var(--color-border-accent); }
+  .fadebox { border:1px solid var(--border); padding:24px 32px; text-align:center; }
+  .fadebox .eyebrow { display:block; margin-bottom:12px; }
+  .anim-demo { position:relative; height:280px; background:var(--color-obsidian); overflow:hidden; display:flex; align-items:flex-end; justify-content:flex-start; padding:32px; }
+  .smoke-ball { position:absolute; inset:-20%; border-radius:50%; background:radial-gradient(ellipse 60% 50% at 30% 40%, rgba(70,70,65,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 70% 60%, rgba(50,52,58,0.4) 0%, transparent 55%); animation:smokeDrift 40s ease-in-out infinite alternate; }
+  .scroll-cue-demo { display:flex; flex-direction:column; align-items:center; gap:12px; color:var(--fg-on-dark-faint); }
+  .scroll-cue-demo span { font-family:var(--font-body); font-size:var(--text-2xs); font-weight:500; letter-spacing:var(--tracking-widest); text-transform:uppercase; }
+  .scroll-cue-demo .line { width:1px; height:60px; background:linear-gradient(180deg, var(--fg-on-dark-faint), transparent); animation:scrollPulse 2.4s ease-in-out infinite; }
+  .arr-demo { display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
+  .arr-link { display:inline-flex; align-items:center; gap:10px; font-family:var(--font-body); font-size:var(--text-2xs); font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; cursor:pointer; color:var(--fg-primary); }
+  .arr-link .arr { transition:transform var(--transition-base); }
+  .arr-link:hover .arr { transform:translateX(6px); }
+</style>
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">Preview</a>
+  <span class="sep">/</span>
+  <span class="current">Motion</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— Preview · Motion</span>
+  <h1 class="bk-h1">Motion</h1>
+  <p class="bk-sub">Sin bouncy, sin spring. El lujo es lento y deliberado. Tres velocidades de transición + dos sistemas de animación: fade-in de entrada y smoke atmosférico.</p>
+</header>
+
+<main class="bk-content">
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Transiciones</h2>
+    <div class="bk-row">
+      <div class="bk-meta"><b>--transition-fast</b>200ms ease<br>Focus, toggles, feedback inmediato</div>
+      <div class="t-track">
+        <div class="t-box" style="transition:background 200ms ease,border-color 200ms ease">Hover</div>
+        <span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">200ms</span>
+      </div>
+    </div>
+    <div class="bk-row">
+      <div class="bk-meta"><b>--transition-base</b>300ms ease<br>Hover estándar: color, opacidad, border-color</div>
+      <div class="t-track">
+        <div class="t-box" style="transition:background 300ms ease,border-color 300ms ease">Hover</div>
+        <span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">300ms</span>
+      </div>
+    </div>
+    <div class="bk-row">
+      <div class="bk-meta"><b>--transition-slow</b>400ms ease<br>Nav glassmorphism, CTA grandes, botones sólidos</div>
+      <div class="t-track">
+        <div class="t-box" style="transition:background 400ms ease,border-color 400ms ease">Hover</div>
+        <span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">400ms</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Hover: transforms permitidos</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 24px;max-width:60ch">Los únicos transforms en hover son desplazamientos de flecha (4–8px en X). Sin scale, sin translateY en cards.</p>
+    <div class="arr-demo">
+      <a class="arr-link">Ver servicio <span class="arr">→</span></a>
+      <a class="arr-link">Ver más <span class="arr">↗</span></a>
+      <a class="arr-link" style="color:var(--color-slate-pale);background:var(--color-obsidian);padding:12px 24px">Insights <span class="arr" style="transition:transform 400ms ease">→</span></a>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">.fade-up — animación de entrada (hero)</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 32px;max-width:60ch">1s cubic-bezier(0.2, 0.8, 0.2, 1). Stagger: d1=0.2s, d2=0.45s, d3=0.7s. Click para reiniciar.</p>
+    <div style="background:var(--color-obsidian);padding:64px 40px;display:flex;flex-direction:column;gap:24px;cursor:pointer" onclick="resetFade(this)" title="Click para reiniciar">
+      <span class="eyebrow light fade-up" id="fu1">— Arquitectura digital</span>
+      <h2 class="h-display inv fade-up d1" id="fu2" style="font-size:clamp(2.5rem,5vw,4rem);margin:0">Elevamos marcas.<br>Construimos <em>legados.</em></h2>
+      <p class="fade-up d2" id="fu3" style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-on-dark-mid);margin:0;max-width:52ch">Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario.</p>
+      <p style="font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);color:var(--fg-on-dark-faint);margin:0;text-transform:uppercase">Clic para reiniciar animación</p>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">[data-reveal] — reveal on scroll</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 32px;max-width:60ch">opacity 0 + translateY(28px) → 1 + 0. 900ms cubic-bezier(0.2, 0.8, 0.2, 1). Se activa con JS agregando la clase <code>.in</code>. Haz clic para togglear.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
+      <div data-reveal style="background:var(--bg-primary);padding:32px;cursor:pointer" onclick="this.classList.toggle('in')"><span class="eyebrow" style="display:block;margin-bottom:12px">— 01</span><p class="h-sub" style="margin:0">Descubrimiento</p></div>
+      <div data-reveal class="in" style="background:var(--bg-primary);padding:32px;cursor:pointer;transition-delay:150ms" onclick="this.classList.toggle('in')"><span class="eyebrow" style="display:block;margin-bottom:12px">— 02</span><p class="h-sub" style="margin:0">Diseño</p></div>
+      <div data-reveal class="in" style="background:var(--bg-primary);padding:32px;cursor:pointer;transition-delay:300ms" onclick="this.classList.toggle('in')"><span class="eyebrow" style="display:block;margin-bottom:12px">— 03</span><p class="h-sub" style="margin:0">Ejecución</p></div>
+    </div>
+    <p style="font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);color:var(--fg-muted);margin:8px 0 0;text-transform:uppercase">Clic en cada card para togglear</p>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">smokeDrift — hero atmosférico (40s)</h2>
+    <div class="anim-demo">
+      <div class="smoke-ball"></div>
+      <div style="position:relative;z-index:2">
+        <span class="eyebrow light" style="display:block;margin-bottom:16px">— Animación atmosférica</span>
+        <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:400;letter-spacing:-0.03em;line-height:0.95;color:var(--fg-on-dark);margin:0">40s ease-in-out<br><em style="color:var(--fg-on-dark-soft)">infinite alternate</em></p>
+      </div>
+    </div>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:16px 0 0;max-width:60ch">Solo se reproduce si <code>prefers-reduced-motion: no-preference</code>. Misma lógica para scrollPulse de la línea del scroll-cue.</p>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">scrollPulse — indicador de scroll</h2>
+    <div style="background:var(--color-obsidian);padding:40px;display:flex;justify-content:center">
+      <div class="scroll-cue-demo">
+        <span>Scroll</span>
+        <div class="line"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Modal: slideUp de entrada</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 16px;max-width:60ch"><code>transform: translateY(28px)</code> → <code>translateY(0)</code> con <code>--transition-slow</code>. El overlay es opacity 0 → 1 simultáneo.</p>
+    <div style="background:rgba(17,17,16,0.82);padding:64px 24px;display:flex;justify-content:center;align-items:flex-start">
+      <div style="background:var(--color-bone);max-width:480px;width:100%;border:none;padding:40px">
+        <p style="font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-muted);margin:0 0 12px">translateY(0) — visible</p>
+        <p class="h-sub" style="margin:0">El panel emerge desde abajo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">prefers-reduced-motion</h2>
+    <div style="border:1px solid var(--border);padding:32px">
+      <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0;max-width:64ch">Todas las animaciones respetan la preferencia del sistema. <code>.fade-up</code> → <code>opacity: 1, animation: none</code>. <code>smokeDrift</code> y <code>scrollPulse</code> solo corren bajo <code>@media (prefers-reduced-motion: no-preference)</code>. <code>[data-reveal]</code> debe manejarse también en el JS del observer.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function resetFade(container) {
+  const els = container.querySelectorAll('.fade-up');
+  els.forEach(el => {
+    el.style.animation = 'none';
+    el.offsetHeight;
+    el.style.animation = '';
+  });
+}
+</script>
+</body>
+</html>

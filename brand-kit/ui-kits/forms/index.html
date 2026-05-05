@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Formularios &amp; Modal</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">UI Kits</a>
+  <span class="sep">/</span>
+  <span class="current">Formularios &amp; Modal</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— UI Kit · Forms</span>
+  <h1 class="bk-h1">Formularios &amp; modal</h1>
+  <p class="bk-sub">Patrón único .cf-form en modal de contacto. Sin radius, 1px borde, foco en pizarra. Overlay obsidian + blur. Estados: normal, invalid, success, error.</p>
+</header>
+
+<main class="bk-content">
+
+  <!-- Campos individuales -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Campos — .cf-field</h2>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.cf-field input</b>Inter 300 · 14px · border 1px --color-border<br>padding 13px 15px · bg --color-bone<br>foco → border --color-slate<br>sin radius (enforced global)</div>
+      <div style="max-width:400px">
+        <div class="cf-field">
+          <label>Nombre <span class="req">*</span></label>
+          <input type="text" placeholder="Tu nombre" />
+        </div>
+      </div>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.cf-field select</b>SVG chevron inline · padding-right 38px<br>mismo estilo que input</div>
+      <div style="max-width:400px">
+        <div class="cf-field">
+          <label>Sector</label>
+          <select>
+            <option>Selecciona sector…</option>
+            <option>Despacho legal</option>
+            <option>Real estate</option>
+            <option>Consultoría</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.cf-field textarea</b>resize: vertical<br>min-height 110px</div>
+      <div style="max-width:400px">
+        <div class="cf-field">
+          <label>Mensaje <span class="req">*</span></label>
+          <textarea placeholder="Cuéntanos brevemente."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="bk-row">
+      <div class="bk-meta"><b>.cf-field.invalid + .cf-err</b>border #b33 en input<br>.cf-err.show → display:block<br>Inter 300 · 12px · color #b33</div>
+      <div style="max-width:400px">
+        <div class="cf-field">
+          <label>Correo <span class="req">*</span></label>
+          <input type="email" class="invalid" value="texto-invalido" />
+          <span class="cf-err show">Ingresa un correo electrónico válido.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form completo -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Formulario completo — .cf-form</h2>
+    <div style="border:1px solid var(--border);padding:clamp(28px,4vw,48px);max-width:680px">
+      <form class="cf-form" onsubmit="event.preventDefault()">
+        <div class="form-row-2">
+          <div class="cf-field">
+            <label>Nombre <span class="req">*</span></label>
+            <input type="text" placeholder="Tu nombre" />
+          </div>
+          <div class="cf-field">
+            <label>Empresa</label>
+            <input type="text" placeholder="Razón social" />
+          </div>
+        </div>
+        <div class="cf-field">
+          <label>Correo <span class="req">*</span></label>
+          <input type="email" placeholder="tu@correo.com" />
+        </div>
+        <div class="cf-field">
+          <label>Sector</label>
+          <select>
+            <option>Selecciona sector…</option>
+            <option>Despacho legal</option>
+            <option>Real estate</option>
+            <option>Consultoría</option>
+            <option>Lifestyle premium</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label>Mensaje <span class="req">*</span></label>
+          <textarea placeholder="Cuéntanos brevemente qué necesitas."></textarea>
+        </div>
+        <div class="cf-footer">
+          <button type="submit" class="cf-submit">Enviar mensaje <span class="arr">→</span></button>
+          <p class="cf-note">Respondemos en menos de 24 horas hábiles.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Estados -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Estados post-envío — .cf-success / .cf-error</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+      <div style="border:1px solid var(--border)">
+        <div class="cf-success">
+          <div class="cf-success-icon">✓</div>
+          <h3 class="cf-success-title">Mensaje recibido.</h3>
+          <p class="cf-success-desc">Te contactamos en menos de 24 horas hábiles.</p>
+          <button class="cf-success-close">Cerrar</button>
+        </div>
+      </div>
+      <div style="border:1px solid var(--border)">
+        <div class="cf-error">
+          <div class="cf-error-icon">!</div>
+          <h3 class="cf-error-title">No pudimos enviar.</h3>
+          <p class="cf-error-desc">Inténtalo de nuevo o escríbenos a <a href="mailto:hola@koda.studio">hola@koda.studio</a>.</p>
+          <button class="cf-retry">Reintentar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal completo -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">Modal de contacto — .modal-overlay + .modal-panel</h2>
+    <div class="bk-meta" style="margin-bottom:24px"><b>.modal-overlay</b>fixed · inset 0 · bg rgba(17,17,16,.82) · backdrop-filter blur(6px)<br><b>.modal-panel</b>bg --color-bone · max-width 740px · transform slideUp · scrollbar-width thin</div>
+
+    <!-- Preview inline del modal (sin fixed, para mostrar estructura) -->
+    <div style="background:rgba(17,17,16,0.82);padding:clamp(20px,4vw,40px);display:flex;justify-content:center;align-items:flex-start">
+      <div style="background:var(--color-bone);width:100%;max-width:680px;max-height:80vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--color-border) transparent">
+        <div class="modal-head">
+          <div>
+            <span class="eyebrow" style="display:block;margin-bottom:14px">— Iniciar proyecto</span>
+            <h2 class="modal-title">Cuéntanos tu proyecto.</h2>
+          </div>
+          <button class="modal-x" type="button">×</button>
+        </div>
+        <div class="modal-body">
+          <form class="cf-form" onsubmit="event.preventDefault()">
+            <div class="form-row-2">
+              <div class="cf-field">
+                <label>Nombre <span class="req">*</span></label>
+                <input type="text" placeholder="Tu nombre" />
+              </div>
+              <div class="cf-field">
+                <label>Empresa</label>
+                <input type="text" placeholder="Razón social" />
+              </div>
+            </div>
+            <div class="cf-field">
+              <label>Correo <span class="req">*</span></label>
+              <input type="email" placeholder="tu@correo.com" />
+            </div>
+            <div class="cf-field">
+              <label>Sector</label>
+              <select>
+                <option>Selecciona sector…</option>
+                <option>Despacho legal</option>
+                <option>Real estate</option>
+                <option>Consultoría</option>
+              </select>
+            </div>
+            <div class="cf-field">
+              <label>Mensaje <span class="req">*</span></label>
+              <textarea placeholder="Cuéntanos brevemente."></textarea>
+            </div>
+            <div class="cf-footer">
+              <button type="submit" class="cf-submit">Enviar <span class="arr">→</span></button>
+              <p class="cf-note">Respondemos en menos de 24 horas hábiles.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;border:1px solid var(--border);padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div>
+        <span class="label" style="display:block;margin-bottom:8px">Trigger</span>
+        <code style="font-family:ui-monospace;font-size:12px;color:var(--fg-muted)">[data-open-modal] → cursor: pointer</code>
+      </div>
+      <div>
+        <span class="label" style="display:block;margin-bottom:8px">Animación de entrada</span>
+        <code style="font-family:ui-monospace;font-size:12px;color:var(--fg-muted)">translateY(28px) → 0 · --transition-slow</code>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

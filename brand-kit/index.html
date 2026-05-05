@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Brand Kit</title>
+<link rel="stylesheet" href="../styles/site.css" />
+<link rel="stylesheet" href="brand-kit.css" />
+<style>
+  .bk-masthead {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(80px,12vw,160px) clamp(24px,5vw,64px) clamp(48px,6vw,80px);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .bk-masthead-eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .bk-masthead-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    color: var(--fg-primary);
+    margin: 0 0 32px;
+  }
+  .bk-masthead-meta {
+    display: flex;
+    gap: 40px;
+    align-items: end;
+    flex-wrap: wrap;
+  }
+  .bk-masthead-desc {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--fg-tertiary);
+    max-width: 560px;
+    margin: 0;
+  }
+  .bk-masthead-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .bk-masthead-stat b {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--fg-primary);
+  }
+  .bk-masthead-stat span {
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .bk-section-head {
+    padding: clamp(40px,5vw,64px) clamp(24px,5vw,64px) 0;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .bk-section-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: var(--tracking-tight);
+    margin: 0;
+    color: var(--fg-primary);
+  }
+  .bk-section-head a {
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--accent);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color var(--transition-base);
+  }
+  .bk-section-head a:hover { color: var(--accent-hover); }
+  .bk-portals {
+    padding: clamp(32px,4vw,48px) clamp(24px,5vw,64px) clamp(56px,8vw,96px);
+  }
+  .bk-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 24px;
+  }
+  .bk-how {
+    background: var(--color-obsidian);
+    color: var(--fg-on-dark);
+    padding: clamp(56px,8vw,96px) clamp(24px,5vw,64px);
+    border-top: 1px solid var(--border-on-dark);
+  }
+  .bk-how h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem,3.5vw,3rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: var(--tracking-tight);
+    margin: 0 0 48px;
+  }
+  .bk-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 1px;
+    background: var(--border-on-dark);
+  }
+  .bk-step {
+    background: var(--color-obsidian);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .bk-step-num {
+    font-family: var(--font-body);
+    font-size: var(--text-2xs);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-slate-pale);
+  }
+  .bk-step-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--fg-on-dark);
+    margin: 0;
+  }
+  .bk-step p {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    color: var(--fg-on-dark-mid);
+    margin: 0;
+  }
+  code {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.875em;
+    background: var(--color-stone);
+    padding: 2px 6px;
+    border: 1px solid var(--border-soft);
+  }
+</style>
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a class="wordmark" href="#"><span class="wm-mark" style="font-size:1rem">koda</span></a>
+  <span class="sep">/</span>
+  <span class="current">Brand Kit</span>
+</nav>
+
+<!-- Masthead -->
+<header class="bk-masthead">
+  <span class="bk-masthead-eyebrow">— Koda Studio · Sistema de marca · 2024</span>
+  <h1 class="bk-masthead-title">Brand<br><em style="font-style:italic;color:var(--fg-secondary)">Kit.</em></h1>
+  <div class="bk-masthead-meta">
+    <p class="bk-masthead-desc">Sistema de diseño completo: tokens de color, tipografía, espaciado, movimiento y todos los componentes UI. Documentación viva vinculada a <code>styles/site.css</code> — la única fuente de verdad.</p>
+    <div class="bk-masthead-stat"><b>5</b><span>Previews de tokens</span></div>
+    <div class="bk-masthead-stat"><b>6</b><span>UI components</span></div>
+  </div>
+</header>
+
+<!-- Preview section -->
+<div class="bk-section-head">
+  <h2>Tokens de diseño</h2>
+  <a href="preview/index.html">Ver todos →</a>
+</div>
+<div class="bk-portals">
+  <div class="bk-portal-grid">
+
+    <a href="preview/colors/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 01 / Preview</span>
+      <h2 class="bk-card-title">Colores</h2>
+      <p class="bk-card-desc">Paleta claro y oscuro, acento pizarra, bordes semánticos y surface tints.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="preview/typography/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 02 / Preview</span>
+      <h2 class="bk-card-title">Tipografía</h2>
+      <p class="bk-card-desc">Escala display Playfair, cuerpo Inter, labels, eyebrows e itálica editorial.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="preview/spacing-borders/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 03 / Preview</span>
+      <h2 class="bk-card-title">Spacing &amp; bordes</h2>
+      <p class="bk-card-desc">Escala de espaciado, bordes semánticos, 0px radius forzado, z-index y medidas.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="preview/motion/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 04 / Preview</span>
+      <h2 class="bk-card-title">Motion</h2>
+      <p class="bk-card-desc">Transiciones, fade-up, data-reveal, smokeDrift y scrollPulse con demos interactivos.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="preview/brand/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 05 / Preview</span>
+      <h2 class="bk-card-title">Brand assets</h2>
+      <p class="bk-card-desc">Wordmark variantes, SVG estáticos, favicons, iconografía e inventario de fuentes.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- UI Kits section -->
+<div class="bk-section-head" style="border-top:1px solid var(--border)">
+  <h2>Componentes UI</h2>
+  <a href="ui-kits/index.html">Ver todos →</a>
+</div>
+<div class="bk-portals">
+  <div class="bk-portal-grid">
+
+    <a href="ui-kits/hero/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 01 / UI</span>
+      <h2 class="bk-card-title">Hero</h2>
+      <p class="bk-card-desc">Full-bleed oscuro. Tres modos, corners, eyebrow, título con em, CTA y scroll cue.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="ui-kits/sections/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 02 / UI</span>
+      <h2 class="bk-card-title">Secciones</h2>
+      <p class="bk-card-desc">Sec-head, manifiesto, método sticky, testimoniales, presencia y CTA final.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="ui-kits/buttons/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 03 / UI</span>
+      <h2 class="bk-card-title">Botones</h2>
+      <p class="bk-card-desc">Todas las variantes: ghost, solid, hero-cta, cta-btn-lg, submit y accessibility.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="ui-kits/forms/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 04 / UI</span>
+      <h2 class="bk-card-title">Formularios &amp; modal</h2>
+      <p class="bk-card-desc">cf-form completo con estados invalid/success/error más modal overlay.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="ui-kits/cards/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 05 / UI</span>
+      <h2 class="bk-card-title">Cards &amp; grids</h2>
+      <p class="bk-card-desc">Service cards, sector cards con texturas, laptop mock, insight rows, FAQ y WA float.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+    <a href="ui-kits/nav-footer/index.html" class="bk-card">
+      <span class="bk-card-eyebrow">— 06 / UI</span>
+      <h2 class="bk-card-title">Nav &amp; footer</h2>
+      <p class="bk-card-desc">Header on-light y on-dark, glassmorphism, submenu dropdown, mobile drawer y footer.</p>
+      <span class="bk-card-arrow">→</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- Cómo usar -->
+<div class="bk-how">
+  <h2>Cómo usar este brand kit</h2>
+  <div class="bk-steps">
+    <div class="bk-step">
+      <span class="bk-step-num">— 01</span>
+      <h3 class="bk-step-title">Servidor local</h3>
+      <p>Levanta un servidor desde la raíz del repo para que las fuentes y rutas relativas resuelvan correctamente.</p>
+      <p style="margin-top:8px;font-family:ui-monospace;font-size:12px;color:var(--color-slate-pale)">python3 -m http.server 8000</p>
+    </div>
+    <div class="bk-step">
+      <span class="bk-step-num">— 02</span>
+      <h3 class="bk-step-title">CSS = fuente única</h3>
+      <p>Todos los archivos cargan <code style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">styles/site.css</code> — si cambias un token ahí, todos los previews se actualizan solos.</p>
+    </div>
+    <div class="bk-step">
+      <span class="bk-step-num">— 03</span>
+      <h3 class="bk-step-title">Hover e interacciones</h3>
+      <p>Los previews son HTML funcional — abre en browser para ver estados hover, animaciones y comportamiento de formularios.</p>
+    </div>
+    <div class="bk-step">
+      <span class="bk-step-num">— 04</span>
+      <h3 class="bk-step-title">README como spec</h3>
+      <p>El <code style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">README.md</code> de la raíz es la especificación canónica. En caso de conflicto entre spec y CSS, gana el CSS.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

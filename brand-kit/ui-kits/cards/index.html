@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Cards &amp; Grids</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">UI Kits</a>
+  <span class="sep">/</span>
+  <span class="current">Cards &amp; Grids</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— UI Kit · Cards &amp; Grids</span>
+  <h1 class="bk-h1">Cards &amp; grids</h1>
+  <p class="bk-sub">Todos los componentes tipo card del sistema. Definidos por líneas 1px. Sin sombra, sin radius. Hover = cambio de color o fondo, nunca scale o translateY.</p>
+</header>
+
+<main class="bk-content">
+
+  <!-- Service cards -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.grid-services / .service-card</h2>
+    <div class="bk-meta" style="margin-bottom:24px">Grid 3 cols (1 en mobile &lt;880px). Separadas por bordes 1px compartidos (border-top + border-left exteriores, border-right + border-bottom por card). Hover → bg stone + icon → acento.</div>
+    <div class="grid-services">
+      <article class="service-card">
+        <span class="service-num">— 01</span>
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="32" height="32"/></svg>
+        <h3 class="h-sub">Arquitectura digital</h3>
+        <p class="body">Diseñamos sedes online a medida, con jerarquía editorial y carga instantánea.</p>
+        <ul class="service-tags">
+          <li>— Diseño de marca</li>
+          <li>— Sistemas de contenido</li>
+          <li>— Performance</li>
+        </ul>
+        <a href="#" class="service-link">Ver servicio →</a>
+      </article>
+      <article class="service-card">
+        <span class="service-num">— 02</span>
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="22" cy="22" r="14"/></svg>
+        <h3 class="h-sub">Tienda en línea</h3>
+        <p class="body">Comercio electrónico engineered para conversión silenciosa.</p>
+        <ul class="service-tags">
+          <li>— Catálogo</li>
+          <li>— Pasarela de pago</li>
+          <li>— Integraciones</li>
+        </ul>
+        <a href="#" class="service-link">Ver servicio →</a>
+      </article>
+      <article class="service-card">
+        <span class="service-num">— 03</span>
+        <svg class="service-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 22 L22 6 L38 22 L22 38 Z"/></svg>
+        <h3 class="h-sub">Automatización</h3>
+        <p class="body">Workflows que reemplazan trabajo repetitivo por sistemas predecibles.</p>
+        <ul class="service-tags">
+          <li>— CRM</li>
+          <li>— Pipelines</li>
+          <li>— Integración API</li>
+        </ul>
+        <a href="#" class="service-link">Ver servicio →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sector cards -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.sector-grid / .sector-card</h2>
+    <div class="bk-meta" style="margin-bottom:24px">Grid 4 cols (2 a 1000px, 1 a 600px). data-texture="marble|concrete|linen|wood" activa textura CSS en hover, invirtiendo color del texto. Transición 600ms.</div>
+    <div class="sector-grid">
+      <a href="#" class="sector-card" data-texture="marble">
+        <span class="sec-texture"></span>
+        <div class="sec-body">
+          <span class="sec-idx">— 01</span>
+          <h3>Despachos legales</h3>
+          <p>Sedes que proyectan autoridad sin elevar la voz.</p>
+          <span class="sec-link">Explorar →</span>
+        </div>
+      </a>
+      <a href="#" class="sector-card" data-texture="concrete">
+        <span class="sec-texture"></span>
+        <div class="sec-body">
+          <span class="sec-idx">— 02</span>
+          <h3>Real estate</h3>
+          <p>Catálogos minimalistas de propiedades premium.</p>
+          <span class="sec-link">Explorar →</span>
+        </div>
+      </a>
+      <a href="#" class="sector-card" data-texture="linen">
+        <span class="sec-texture"></span>
+        <div class="sec-body">
+          <span class="sec-idx">— 03</span>
+          <h3>Lifestyle premium</h3>
+          <p>Marcas que requieren un escenario, no un panfleto.</p>
+          <span class="sec-link">Explorar →</span>
+        </div>
+      </a>
+      <a href="#" class="sector-card" data-texture="wood">
+        <span class="sec-texture"></span>
+        <div class="sec-body">
+          <span class="sec-idx">— 04</span>
+          <h3>Consultoría</h3>
+          <p>Thought leadership como activo de conversión.</p>
+          <span class="sec-link">Explorar →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Case studies (laptop mock) -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.work-grid / .case / .laptop</h2>
+    <div class="bk-meta" style="margin-bottom:24px">Grid 3 cols (1 en mobile). Mock de laptop en CSS: .laptop-bezel (bg #1A1A18, border 1px), .laptop-screen (bg blanco, overflow hidden), .parallax-img. Hover → .case-title → acento.</div>
+    <div class="work-grid" style="padding-top:0">
+      <article class="case">
+        <div class="case-frame">
+          <div class="laptop">
+            <div class="laptop-bezel">
+              <div class="laptop-screen">
+                <div style="background:var(--color-stone);height:100%;display:flex;align-items:center;justify-content:center">
+                  <span class="eyebrow">Captura de sitio</span>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"><span></span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="tag">Despacho legal · CDMX</span>
+          <h3 class="case-title">García &amp; Morales Abogados</h3>
+          <p class="case-desc">Rediseño completo de presencia digital para despacho especializado en derecho corporativo.</p>
+          <a href="#" class="case-link">Ver caso <span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-frame">
+          <div class="laptop">
+            <div class="laptop-bezel">
+              <div class="laptop-screen">
+                <div style="background:var(--color-obsidian);height:100%;display:flex;align-items:center;justify-content:center">
+                  <span class="eyebrow light">Captura de sitio</span>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"><span></span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="tag">Real estate · GDL</span>
+          <h3 class="case-title">Torres Residencial</h3>
+          <p class="case-desc">Portal de propiedades premium para desarrolladora boutique en Guadalajara.</p>
+          <a href="#" class="case-link">Ver caso <span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case-frame">
+          <div class="laptop">
+            <div class="laptop-bezel">
+              <div class="laptop-screen">
+                <div style="background:var(--color-stone-deep);height:100%;display:flex;align-items:center;justify-content:center">
+                  <span class="eyebrow">Captura de sitio</span>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"><span></span></div>
+          </div>
+        </div>
+        <div class="case-meta">
+          <span class="tag">Consultoría · MTY</span>
+          <h3 class="case-title">Vértice Estratégico</h3>
+          <p class="case-desc">Sitio de thought leadership con sistema de blog editorial y CRM integrado.</p>
+          <a href="#" class="case-link">Ver caso <span class="arr">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Insight rows (dark) -->
+  <div class="bk-dark">
+    <section class="bk-group">
+      <h2 class="bk-group-title">.insight-list / .insight-row</h2>
+      <div class="bk-meta" style="margin-bottom:24px">Lista oscura. Grid por fila: 70px 160px 1fr 80px 40px. Hover → bg surface-on-dark-low + padding-left aumentado + iarr se desplaza 8px.</div>
+      <div class="insight-list">
+        <a href="#" class="insight-row">
+          <span class="ix">01</span>
+          <span class="ikind">Ensayo</span>
+          <h3>Por qué la conversión silenciosa supera al CTA agresivo</h3>
+          <span class="ilen">7 min</span>
+          <span class="iarr">→</span>
+        </a>
+        <a href="#" class="insight-row">
+          <span class="ix">02</span>
+          <span class="ikind">Caso</span>
+          <h3>Una migración legal: 14 oficinas, una sede digital</h3>
+          <span class="ilen">11 min</span>
+          <span class="iarr">→</span>
+        </a>
+        <a href="#" class="insight-row">
+          <span class="ix">03</span>
+          <span class="ikind">Nota</span>
+          <h3>Tipografía como instrumento de autoridad</h3>
+          <span class="ilen">5 min</span>
+          <span class="iarr">→</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ -->
+  <section class="bk-group" style="margin-top:80px">
+    <h2 class="bk-group-title">.faq-list / .faq-item</h2>
+    <div class="bk-meta" style="margin-bottom:24px">&lt;details&gt;/&lt;summary&gt; nativo. Toggle: dos líneas 1px en cruz, la vertical rota 90° + opacity 0 al abrir. Sin marker nativo. Fondo stone.</div>
+    <div class="faq" style="padding:0">
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>
+            <span class="fq-idx">01</span>
+            <span class="fq-q">¿Cuánto tarda diseñar una sede digital?</span>
+            <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+          </summary>
+          <div class="fq-a">
+            <p>El proceso completo va de 6 a 14 semanas según alcance. Iniciamos con un período de descubrimiento de dos semanas antes de proponer cronograma.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>
+            <span class="fq-idx">02</span>
+            <span class="fq-q">¿Trabajan con clientes fuera de México?</span>
+            <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+          </summary>
+          <div class="fq-a">
+            <p>Sí. Operamos en español e inglés con clientes en Latinoamérica, EE. UU. y Europa.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>
+            <span class="fq-idx">03</span>
+            <span class="fq-q">¿Qué incluye el proceso de descubrimiento?</span>
+            <span class="fq-toggle"><span class="h"></span><span class="v"></span></span>
+          </summary>
+          <div class="fq-a">
+            <p>Auditoría de presencia actual, análisis competitivo, definición de objetivos de conversión y mapa de contenido.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- All-links (sector-all, expertise-all) -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.sector-all-link / .expertise-all-link</h2>
+    <div class="bk-meta" style="margin-bottom:24px">CTA de cierre de sección. 1px border, bg bone → hover obsidian. Arrow se desplaza 8px. Justificado al extremo derecho.</div>
+    <div class="sector-all">
+      <a href="#" class="sector-all-link">
+        <div>
+          <span class="sa-eyebrow">Sectores</span>
+          <span class="sa-title" style="display:block">Ver todos los sectores</span>
+        </div>
+        <span class="sa-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Tweaks panel -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.tweaks-panel · panel de debug</h2>
+    <div class="bk-meta" style="margin-bottom:24px">Fixed bottom-right en desarrollo (z-index 9999). Muestra controles de acento, grain y otros parámetros de personalización.</div>
+    <div class="tweaks-panel" style="position:relative;bottom:auto;right:auto;margin:0;width:280px">
+      <div class="tw-head">TWEAKS <button class="tw-close">×</button></div>
+      <div class="tw-row"><span>Acento</span><select><option>Slate</option><option>Slate deep</option></select></div>
+      <div class="tw-row"><span>Hero grain</span><input type="range" /></div>
+      <div class="tw-row check"><input type="checkbox" id="t1" checked /><label for="t1" style="margin:0;padding-left:8px;text-transform:none;letter-spacing:0;font-weight:300;font-size:var(--text-xs);color:var(--fg-secondary)">Animar smoke</label></div>
+    </div>
+  </section>
+
+  <!-- WhatsApp rail -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.wa-rail / .wa-float · botón flotante</h2>
+    <div class="bk-meta" style="margin-bottom:24px">Fixed bottom-right (40px · z-overlay). On-dark → color bone, on-light → color ink. Border-radius 50% (excepción explícita al sistema de 0px — elemento de tercero).</div>
+    <div style="display:flex;gap:40px;align-items:flex-end;padding:40px;border:1px solid var(--border)">
+      <div style="background:var(--color-bone);padding:24px;display:flex;flex-direction:column;gap:4px;align-items:center">
+        <div class="wa-rail on-light" style="position:static;width:auto;padding:0">
+          <a class="wa-float" href="#" style="position:static;width:48px;height:48px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </div>
+        <span class="caption" style="margin-top:8px">.on-light</span>
+      </div>
+      <div style="background:var(--color-obsidian);padding:24px;display:flex;flex-direction:column;gap:4px;align-items:center">
+        <div class="wa-rail on-dark" style="position:static;width:auto;padding:0">
+          <a class="wa-float" href="#" style="position:static;width:48px;height:48px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+        </div>
+        <span class="caption" style="color:var(--fg-on-dark-faint);margin-top:8px">.on-dark</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Spacing &amp; Bordes</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+<style>
+  .sp-row { display:grid; grid-template-columns:180px 1fr auto; align-items:center; gap:24px; padding:10px 0; border-top:1px solid var(--border-soft); }
+  .sp-bar { height:6px; background:var(--color-slate); flex:none; }
+  .sp-px { font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--fg-muted); }
+  .border-swatch { padding:28px 24px; font-family:var(--font-body); font-size:var(--text-sm); font-weight:300; color:var(--fg-tertiary); }
+  .track-row { display:grid; grid-template-columns:200px 1fr; gap:24px; padding:14px 0; border-top:1px solid var(--border-soft); align-items:center; }
+  .track-sample { font-family:var(--font-body); font-size:var(--text-2xs); font-weight:500; text-transform:uppercase; }
+  .lh-row { display:grid; grid-template-columns:200px 1fr; gap:24px; padding:20px 0; border-top:1px solid var(--border-soft); align-items:start; }
+</style>
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">Preview</a>
+  <span class="sep">/</span>
+  <span class="current">Spacing &amp; Bordes</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— Preview · Spacing &amp; Bordes</span>
+  <h1 class="bk-h1">Spacing &amp; bordes</h1>
+  <p class="bk-sub">El espacio en blanco es la señal de lujo. Escala de 4px base. Border-radius: 0px en todo. Sin sombras — la elevación es implícita vía borde y espacio.</p>
+</header>
+
+<main class="bk-content">
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Escala de espaciado</h2>
+    <div class="sp-row"><div class="bk-meta"><b>--space-1</b> 0.25rem</div><div class="sp-bar" style="width:4px"></div><span class="sp-px">4px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-2</b> 0.5rem</div><div class="sp-bar" style="width:8px"></div><span class="sp-px">8px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-3</b> 0.75rem</div><div class="sp-bar" style="width:12px"></div><span class="sp-px">12px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-4</b> 1rem</div><div class="sp-bar" style="width:16px"></div><span class="sp-px">16px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-6</b> 1.5rem</div><div class="sp-bar" style="width:24px"></div><span class="sp-px">24px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-8</b> 2rem</div><div class="sp-bar" style="width:32px"></div><span class="sp-px">32px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-10</b> 2.5rem</div><div class="sp-bar" style="width:40px"></div><span class="sp-px">40px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-12</b> 3rem</div><div class="sp-bar" style="width:48px"></div><span class="sp-px">48px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-16</b> 4rem</div><div class="sp-bar" style="width:64px"></div><span class="sp-px">64px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-20</b> 5rem</div><div class="sp-bar" style="width:80px"></div><span class="sp-px">80px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-24</b> 6rem</div><div class="sp-bar" style="width:96px"></div><span class="sp-px">96px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-32</b> 8rem ← sección mínima</div><div class="sp-bar" style="width:128px;background:var(--color-slate-deep)"></div><span class="sp-px">128px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-40</b> 10rem</div><div class="sp-bar" style="width:160px;background:var(--color-slate-dark)"></div><span class="sp-px">160px</span></div>
+    <div class="sp-row"><div class="bk-meta"><b>--space-48</b> 12rem</div><div class="sp-bar" style="width:192px;background:var(--fg-tertiary)"></div><span class="sp-px">192px</span></div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Padding de sección</h2>
+    <div class="bk-row">
+      <div class="bk-meta"><b>.section</b>clamp(80px, 12vw, 160px) vertical<br>Mínimo 80px, ideal ~120px, máximo 160px</div>
+      <div style="border:1px solid var(--border);background:var(--color-stone);padding:clamp(80px,12vw,160px) 32px;text-align:center">
+        <span class="eyebrow">Padding de sección</span>
+      </div>
+    </div>
+    <div class="bk-row">
+      <div class="bk-meta"><b>.section-pad</b>var(--space-32) = 128px<br>Variante simplificada</div>
+      <div style="border:1px solid var(--border);padding:128px 32px;text-align:center">
+        <span class="eyebrow">128px</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Bordes — claro</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px">
+      <div class="border-swatch" style="border:1px solid var(--color-border-soft)">border-soft<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">#DDD9D2</span></div>
+      <div class="border-swatch" style="border:1px solid var(--color-border)">border default<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">#C8C3BB</span></div>
+      <div class="border-swatch" style="border:1px solid var(--color-border-hard)">border hard<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">#A8A29A</span></div>
+      <div class="border-swatch" style="border:1px solid var(--color-border-accent)">border accent (hover)<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">#5B6B7C</span></div>
+    </div>
+  </section>
+
+  <div class="bk-dark" style="margin-bottom:80px">
+    <section class="bk-group">
+      <h2 class="bk-group-title">Bordes — sobre oscuro</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px">
+        <div style="border:1px solid rgba(255,255,255,0.04);padding:28px 24px;font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-on-dark-mid)">on-dark-faint<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-on-dark-faint)">rgba(255,255,255,.04)</span></div>
+        <div style="border:1px solid rgba(255,255,255,0.08);padding:28px 24px;font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-on-dark-mid)">on-dark-soft<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-on-dark-faint)">rgba(255,255,255,.08)</span></div>
+        <div style="border:1px solid rgba(255,255,255,0.12);padding:28px 24px;font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-on-dark-mid)">on-dark default<br><span style="font-family:ui-monospace;font-size:11px;color:var(--fg-on-dark-faint)">rgba(255,255,255,.12)</span></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Border-radius</h2>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding:32px;border:1px solid var(--border)">
+      <div>
+        <p style="margin:0 0 8px;font-family:var(--font-body);font-weight:300;color:var(--fg-tertiary)">Cero. En todo. Sin excepción.</p>
+        <code style="font-family:ui-monospace;font-size:12px;color:var(--fg-muted)">--radius: 0px — enforced globally: * { border-radius: 0 !important }</code>
+      </div>
+      <span style="font-family:var(--font-display);font-size:3rem;font-style:italic;color:var(--fg-primary)">0px</span>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Letter-spacing</h2>
+    <div class="track-row"><div class="bk-meta"><b>--tracking-tight</b> -0.03em</div><span class="track-sample" style="letter-spacing:-0.03em">Elevamos marcas. Construimos legados.</span></div>
+    <div class="track-row"><div class="bk-meta"><b>--tracking-normal</b> 0</div><span class="track-sample" style="letter-spacing:0">Elevamos marcas. Construimos legados.</span></div>
+    <div class="track-row"><div class="bk-meta"><b>--tracking-wide</b> 0.08em</div><span class="track-sample" style="letter-spacing:0.08em">SECCIÓN 01</span></div>
+    <div class="track-row"><div class="bk-meta"><b>--tracking-wider</b> 0.15em</div><span class="track-sample" style="letter-spacing:0.15em">KODA</span></div>
+    <div class="track-row"><div class="bk-meta"><b>--tracking-widest</b> 0.25em</div><span class="track-sample" style="letter-spacing:0.25em">STUDIO</span></div>
+    <div class="track-row"><div class="bk-meta"><b>--tracking-label</b> 0.22em · canónico<br>Eyebrows, labels, nav, tags</div><span class="track-sample" style="letter-spacing:0.22em">— 01 / EXPERTISE</span></div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Line-height</h2>
+    <div class="lh-row"><div class="bk-meta"><b>--leading-tight</b> 0.95<br>H1, hero-title</div><p style="margin:0;font-family:var(--font-display);font-size:2rem;line-height:0.95;letter-spacing:-0.03em">Elevamos marcas.<br>Construimos legados.</p></div>
+    <div class="lh-row"><div class="bk-meta"><b>--leading-display</b> 1.05<br>H2</div><p style="margin:0;font-family:var(--font-display);font-size:2rem;line-height:1.05;letter-spacing:-0.03em">Elevamos marcas.<br>Construimos legados.</p></div>
+    <div class="lh-row"><div class="bk-meta"><b>--leading-snug</b> 1.2<br>H3, hero-sub</div><p style="margin:0;font-family:var(--font-body);font-size:1.125rem;line-height:1.2">Diseñamos sedes digitales<br>de alto rendimiento.</p></div>
+    <div class="lh-row"><div class="bk-meta"><b>--leading-normal</b> 1.55<br>Body principal</div><p style="margin:0;font-family:var(--font-body);font-size:1rem;line-height:1.55;max-width:44ch">Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario.</p></div>
+    <div class="lh-row"><div class="bk-meta"><b>--leading-loose</b> 1.75<br>Body amplio, manifesto, lede</div><p style="margin:0;font-family:var(--font-body);font-size:1rem;line-height:1.75;max-width:44ch">Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario.</p></div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Medidas de columna textual</h2>
+    <div class="bk-row"><div class="bk-meta"><b>--measure-narrow</b> 32ch<br>Subtítulos cortos</div><p style="margin:0;font-family:var(--font-body);font-weight:300;color:var(--fg-tertiary);max-width:32ch">Diseñamos sedes para empresas que no se conforman con lo ordinario.</p></div>
+    <div class="bk-row"><div class="bk-meta"><b>--measure-normal</b> 52ch<br>Cuerpo estándar</div><p style="margin:0;font-family:var(--font-body);font-weight:300;color:var(--fg-tertiary);max-width:52ch">Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario. Cada decisión sirve al silencio que vende.</p></div>
+    <div class="bk-row"><div class="bk-meta"><b>--measure-wide</b> 72ch<br>FAQ, blog, respuestas largas</div><p style="margin:0;font-family:var(--font-body);font-weight:300;color:var(--fg-tertiary);max-width:72ch">Diseñamos sedes digitales de alto rendimiento para empresas que no se conforman con lo ordinario. Cada decisión sirve al silencio que vende. La arquitectura digital no es decoración — es infraestructura.</p></div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Z-index</h2>
+    <div style="display:grid;gap:0;border-top:1px solid var(--border)">
+      <div class="sp-row"><div class="bk-meta"><b>--z-base</b></div><div style="height:4px;background:var(--color-stone-deep);flex:none;width:24px"></div><span class="sp-px">0</span></div>
+      <div class="sp-row"><div class="bk-meta"><b>--z-raised</b></div><div style="height:4px;background:var(--color-slate-pale);flex:none;width:48px"></div><span class="sp-px">2</span></div>
+      <div class="sp-row"><div class="bk-meta"><b>--z-sticky</b> · site-header</div><div style="height:4px;background:var(--color-slate);flex:none;width:96px"></div><span class="sp-px">80</span></div>
+      <div class="sp-row"><div class="bk-meta"><b>--z-overlay</b> · submenus, header-inner</div><div style="height:4px;background:var(--color-slate-deep);flex:none;width:128px"></div><span class="sp-px">200</span></div>
+      <div class="sp-row"><div class="bk-meta"><b>--z-modal</b> · modal-overlay</div><div style="height:4px;background:var(--color-ink-soft);flex:none;width:160px"></div><span class="sp-px">2000</span></div>
+      <div class="sp-row"><div class="bk-meta"><b>--z-toast</b> · skip-link, tweaks</div><div style="height:4px;background:var(--color-ink);flex:none;width:192px"></div><span class="sp-px">9999</span></div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,227 @@
+/* ============================================================
+   KODA BRAND KIT — Chrome compartido
+   Todos los archivos dentro de /brand-kit/ cargan este CSS
+   además de ../../styles/site.css (o la ruta equivalente)
+   ============================================================ */
+
+/* ── Chrome wrapper ── */
+.bk-body {
+  padding: 0;
+  min-height: 100vh;
+}
+
+.bk-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(245,242,237,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 14px clamp(24px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.bk-topbar a {
+  border: none;
+  color: var(--fg-muted);
+  transition: color var(--transition-fast);
+}
+.bk-topbar a:hover { color: var(--accent); }
+.bk-topbar .sep { opacity: 0.4; }
+.bk-topbar .current { color: var(--fg-primary); }
+
+.bk-hero {
+  padding: clamp(56px, 8vw, 96px) clamp(24px, 5vw, 64px) clamp(40px, 6vw, 72px);
+  border-bottom: 1px solid var(--border);
+}
+.bk-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: var(--tracking-tight);
+  line-height: 0.95;
+  margin: 0 0 16px;
+  color: var(--fg-primary);
+}
+.bk-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--fg-tertiary);
+  margin: 0;
+  max-width: 640px;
+}
+
+.bk-content {
+  padding: clamp(56px, 8vw, 96px) clamp(24px, 5vw, 64px);
+}
+
+/* ── Grupos dentro de una página ── */
+.bk-group {
+  margin-bottom: 80px;
+}
+.bk-group:last-child { margin-bottom: 0; }
+.bk-group-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 32px;
+  color: var(--fg-primary);
+}
+
+/* ── Filas de specimen ── */
+.bk-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.bk-row-wide {
+  grid-template-columns: 1fr;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 760px) {
+  .bk-row { grid-template-columns: 1fr; gap: 12px; }
+}
+.bk-meta {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  color: var(--fg-muted);
+  line-height: 1.7;
+}
+.bk-meta b {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+  margin-bottom: 6px;
+}
+.bk-demo {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ── Dark frame ── */
+.bk-dark {
+  background: var(--color-obsidian);
+  color: var(--fg-on-dark);
+  margin: 0 calc(-1 * clamp(24px, 5vw, 64px));
+  padding: 64px clamp(24px, 5vw, 64px);
+}
+.bk-dark .bk-group-title { color: var(--fg-on-dark); }
+.bk-dark .bk-row { border-top-color: var(--border-on-dark); }
+.bk-dark .bk-meta { color: var(--fg-on-dark-faint); }
+.bk-dark .bk-meta b { color: var(--fg-on-dark); }
+
+/* ── Swatches ── */
+.bk-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.bk-swatch {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.bk-swatch .chip { aspect-ratio: 4/3; display: block; }
+.bk-swatch .smeta { padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; }
+.bk-swatch .sname { font-family: var(--font-body); font-size: var(--text-2xs); font-weight: 500; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--fg-primary); }
+.bk-swatch .sval  { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--fg-muted); }
+.bk-swatch .svar  { font-family: ui-monospace, Menlo, monospace; font-size: 10px; color: var(--fg-muted); opacity: 0.7; }
+.bk-dark .bk-swatches { border-color: var(--border-on-dark); }
+.bk-dark .bk-swatch { border-color: var(--border-on-dark); }
+.bk-dark .bk-swatch .sname { color: var(--fg-on-dark); }
+.bk-dark .bk-swatch .sval, .bk-dark .bk-swatch .svar { color: var(--fg-on-dark-faint); }
+
+/* ── Portal cards ── */
+.bk-portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.bk-card {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: clamp(28px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  border-top: none;
+  transition: background var(--transition-slow);
+}
+.bk-card:hover { background: var(--color-stone); }
+.bk-card-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.bk-card-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.1;
+  margin: 0;
+  color: var(--fg-primary);
+  transition: color var(--transition-base);
+}
+.bk-card:hover .bk-card-title { color: var(--accent); }
+.bk-card-desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--fg-tertiary);
+  margin: 0;
+  max-width: 36ch;
+}
+.bk-card-tags {
+  list-style: none;
+  padding: 16px 0 0;
+  margin: 0;
+  border-top: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bk-card-tags li {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.bk-card-arrow {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-top: auto;
+  padding-top: 12px;
+  transition: transform var(--transition-base);
+}
+.bk-card:hover .bk-card-arrow { transform: translateX(6px); }

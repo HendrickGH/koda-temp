@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Nav &amp; Footer</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">UI Kits</a>
+  <span class="sep">/</span>
+  <span class="current">Nav &amp; Footer</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— UI Kit · Nav &amp; Footer</span>
+  <h1 class="bk-h1">Navegación &amp; footer</h1>
+  <p class="bk-sub">Header sticky en dos modos: .on-light (páginas claras) y .on-dark (hero + secciones oscuras). Glassmorphism solo al scrollear. Footer siempre oscuro (#0A0A09).</p>
+</header>
+
+<main class="bk-content">
+
+  <!-- Header on-light scrolled -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.site-header.on-light (scrolled)</h2>
+    <div class="bk-meta" style="margin-bottom:16px"><b>::before</b>background rgba(245,242,237,.92) + backdrop-filter blur(14px) · border-bottom 1px --border · nav links color --fg-primary</div>
+    <div style="position:relative;height:72px;border:1px solid var(--border)">
+      <header class="site-header on-light scrolled" style="position:absolute;width:100%">
+        <div class="header-inner">
+          <a class="wordmark" href="/"><span class="wm-mark">koda</span></a>
+          <nav class="site-nav">
+            <a href="#" class="is-active">Inicio</a>
+            <div class="nav-item has-submenu">
+              <a href="#">Servicios</a>
+              <div class="nav-submenu">
+                <a href="#">Arquitectura digital</a>
+                <a href="#">Tienda en línea</a>
+                <a href="#">Automatización</a>
+              </div>
+            </div>
+            <a href="#">Casos</a>
+            <a href="#">Manifiesto</a>
+          </nav>
+          <a href="#" class="header-cta">Iniciar proyecto</a>
+        </div>
+      </header>
+    </div>
+  </section>
+
+  <!-- Header on-dark scrolled -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.site-header.on-dark (scrolled)</h2>
+    <div class="bk-meta" style="margin-bottom:16px"><b>::before</b>background rgba(17,17,16,.85) + backdrop-filter blur(14px) · nav links color --fg-on-dark · border-bottom --border-on-dark-soft</div>
+    <div style="position:relative;height:72px;border:1px solid var(--border-on-dark);background:var(--color-obsidian)">
+      <header class="site-header on-dark scrolled" style="position:absolute;width:100%">
+        <div class="header-inner">
+          <a class="wordmark light" href="/"><span class="wm-mark">koda</span></a>
+          <nav class="site-nav">
+            <a href="#" class="is-active">Inicio</a>
+            <div class="nav-item has-submenu">
+              <a href="#">Servicios</a>
+              <div class="nav-submenu">
+                <a href="#">Arquitectura digital</a>
+                <a href="#">Tienda en línea</a>
+                <a href="#">Automatización</a>
+              </div>
+            </div>
+            <a href="#">Casos</a>
+            <a href="#">Manifiesto</a>
+          </nav>
+          <a href="#" class="header-cta">Iniciar proyecto</a>
+        </div>
+      </header>
+    </div>
+  </section>
+
+  <!-- Header sin scroll (transparente) -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.site-header.on-dark (sin scroll — transparente)</h2>
+    <div class="bk-meta" style="margin-bottom:16px">Sobre el hero, antes de scrollear. Sin fondo, sin border. Solo el color heredado del header (--fg-on-dark).</div>
+    <div style="position:relative;height:72px;background:var(--color-obsidian);border:1px solid var(--border-on-dark)">
+      <header class="site-header on-dark" style="position:absolute;width:100%;border-bottom-color:transparent">
+        <div class="header-inner">
+          <a class="wordmark light" href="/"><span class="wm-mark">koda</span></a>
+          <nav class="site-nav">
+            <a href="#" class="is-active">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Casos</a>
+          </nav>
+          <a href="#" class="header-cta">Iniciar proyecto</a>
+        </div>
+      </header>
+    </div>
+  </section>
+
+  <!-- Nav submenu -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.nav-submenu — dropdown</h2>
+    <div class="bk-meta" style="margin-bottom:16px">Posicionado absolute top:100% center del parent. bg --color-bone (claro) / --color-dark (oscuro). Opacity 0 → 1 en hover/focus-within. Links indentados 6px al hover.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <span class="label" style="display:block;margin-bottom:12px">Sobre claro</span>
+        <div style="border:1px solid var(--color-border);padding:5px 0;background:var(--color-bone);width:200px">
+          <a href="#" style="display:block;padding:12px 22px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-primary);opacity:0.65;border:none">Arquitectura digital</a>
+          <a href="#" style="display:block;padding:12px 22px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-primary);opacity:0.65;border:none">Tienda en línea</a>
+          <a href="#" style="display:block;padding:12px 22px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-primary);opacity:0.65;border:none">Automatización</a>
+        </div>
+      </div>
+      <div>
+        <span class="label" style="display:block;margin-bottom:12px">Sobre oscuro (.on-dark)</span>
+        <div style="border:1px solid var(--border-on-dark);padding:5px 0;background:var(--color-dark);width:200px">
+          <a href="#" style="display:block;padding:12px 22px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-on-dark);opacity:0.65;border:none">Arquitectura digital</a>
+          <a href="#" style="display:block;padding:12px 22px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-on-dark);opacity:0.65;border:none">Tienda en línea</a>
+          <a href="#" style="display:block;padding:12px 22px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-on-dark);opacity:0.65;border:none">Automatización</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile nav drawer -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.mobile-nav — drawer full-screen</h2>
+    <div class="bk-meta" style="margin-bottom:16px">Fixed inset 0 (z-sticky). transform translateY(-100%) → 0. bg bone (on-light) / obsidian (on-dark). Links Playfair grandes con stagger de entrada. .mobile-subnav = italic, indentado, opacity 0.5.</div>
+    <div style="position:relative;height:480px;overflow:hidden;border:1px solid var(--border)">
+      <div style="padding:96px clamp(1.5rem,5vw,4rem) 40px;display:flex;flex-direction:column;gap:32px;height:100%;background:var(--color-bone)">
+        <div class="mobile-nav-inner" style="border-top-color:rgba(0,0,0,0.12)">
+          <a href="#" style="--d:0ms">Inicio</a>
+          <a href="#" style="--d:80ms">Servicios</a>
+          <a href="#" class="mobile-subnav" style="--d:140ms">Arquitectura digital</a>
+          <a href="#" class="mobile-subnav" style="--d:180ms">Tienda en línea</a>
+          <a href="#" style="--d:240ms">Casos</a>
+          <a href="#" style="--d:320ms">Manifiesto</a>
+        </div>
+        <button class="mobile-nav-cta" style="opacity:1">
+          <span>Iniciar proyecto</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Burger button -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.nav-toggle — hamburger</h2>
+    <div class="bk-meta" style="margin-bottom:16px">28×18px con 3 barras 1px. Al expandir: barras 1 y 3 rotan 45°/-45° hacia el centro, barra 2 desaparece (opacity 0).</div>
+    <div style="display:flex;gap:48px;align-items:center">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <button class="nav-toggle" aria-expanded="false" style="display:inline-flex">
+          <span class="nav-toggle-box">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+        </button>
+        <span class="caption">Cerrado</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+        <button class="nav-toggle" aria-expanded="true" style="display:inline-flex">
+          <span class="nav-toggle-box">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+        </button>
+        <span class="caption">Abierto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="bk-group">
+    <h2 class="bk-group-title">.site-footer</h2>
+    <div class="bk-meta" style="margin-bottom:16px">Fondo #0A0A09 (más oscuro que obsidian). Grid 0.7fr 2fr. .footer-cols = 3 columnas con .flabel en --color-slate-pale. .footer-bottom = copyright + foot-links.</div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-top">
+      <a href="#top" class="wordmark light" aria-label="Koda">
+        <span class="wm-mark">koda</span>
+      </a>
+      <div class="footer-cols">
+        <div>
+          <span class="flabel">Estudio</span>
+          <a href="#">Manifiesto</a>
+          <a href="#">Método</a>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Contacto</a>
+        </div>
+        <div>
+          <span class="flabel">Servicios</span>
+          <a href="#">Arquitectura digital</a>
+          <a href="#">Tienda en línea</a>
+          <a href="#">Automatización</a>
+          <a href="#">SEO y posicionamiento</a>
+        </div>
+        <div>
+          <span class="flabel">Sectores</span>
+          <a href="#">Despachos legales</a>
+          <a href="#">Real estate</a>
+          <a href="#">Consultoría</a>
+          <a href="#">Lifestyle premium</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Koda Studio · Est. 2024 · Ciudad de México</span>
+      <div class="foot-links">
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">Términos y condiciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

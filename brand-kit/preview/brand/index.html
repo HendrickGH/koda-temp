@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Koda — Brand Assets</title>
+<link rel="stylesheet" href="../../../styles/site.css" />
+<link rel="stylesheet" href="../../brand-kit.css" />
+<style>
+  .bg-bone { background:var(--color-bone); }
+  .bg-stone { background:var(--color-stone); }
+  .bg-dark { background:var(--color-obsidian); }
+  .bg-footer { background:#0A0A09; }
+  .asset-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); }
+  .asset-frame { padding:56px 40px; display:flex; flex-direction:column; gap:16px; }
+  .asset-frame .meta { font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--fg-muted); }
+  .icon-row { display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
+  .icon-demo { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .icon-demo span { font-family:var(--font-body); font-size:var(--text-2xs); font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; color:var(--fg-muted); }
+  .typo-icons { font-size:2rem; display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+</style>
+</head>
+<body class="bk-body">
+
+<nav class="bk-topbar">
+  <a href="../../index.html">Brand Kit</a>
+  <span class="sep">/</span>
+  <a href="../index.html">Preview</a>
+  <span class="sep">/</span>
+  <span class="current">Brand Assets</span>
+</nav>
+
+<header class="bk-hero">
+  <span class="eyebrow" style="display:block;margin-bottom:16px">— Preview · Brand Assets</span>
+  <h1 class="bk-h1">Brand assets</h1>
+  <p class="bk-sub">Wordmark, variantes sobre fondos, assets SVG y sistema de iconografía. Sin sistema de íconos propietario — SVG inline stroke 1.5 y caracteres tipográficos.</p>
+</header>
+
+<main class="bk-content">
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Wordmark — variantes</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 24px;max-width:64ch">El wordmark es tipográfico: <code>Playfair Display 500 · 24px (--text-xl) · letter-spacing -0.03em · lowercase</code>. Las clases <code>.wordmark</code> y <code>.wordmark.light</code> controlan el color en contexto.</p>
+    <div class="asset-grid">
+      <div class="asset-frame bg-bone">
+        <a class="wordmark" style="cursor:default"><span class="wm-mark">koda</span></a>
+        <span class="meta">.wordmark · sobre bone · header on-light</span>
+      </div>
+      <div class="asset-frame bg-stone">
+        <a class="wordmark" style="cursor:default"><span class="wm-mark">koda</span><span class="wm-sub">Studio</span></a>
+        <span class="meta">.wordmark + .wm-sub · sobre stone</span>
+      </div>
+      <div class="asset-frame bg-dark">
+        <a class="wordmark light" style="cursor:default"><span class="wm-mark">koda</span></a>
+        <span class="meta" style="color:var(--fg-on-dark-faint)">.wordmark.light · sobre obsidian · header on-dark</span>
+      </div>
+      <div class="asset-frame bg-footer">
+        <a class="wordmark light" style="cursor:default"><span class="wm-mark">koda</span><span class="wm-sub">Studio</span></a>
+        <span class="meta" style="color:var(--fg-on-dark-faint)">.wordmark.light + .wm-sub · footer (#0A0A09)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Assets SVG — fallback estático</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 24px;max-width:64ch">Usados en favicons, OG images y emails — no en el HTML del sitio. Playfair Display embedded vía font-family con fallback Georgia.</p>
+    <div class="asset-grid">
+      <div class="asset-frame bg-bone" style="align-items:flex-start">
+        <img src="../../../assets/wordmark.svg" alt="Koda wordmark" style="height:32px;display:block" />
+        <span class="meta">assets/wordmark.svg · tinta sobre claro · #1A1A18</span>
+      </div>
+      <div class="asset-frame bg-dark" style="align-items:flex-start">
+        <img src="../../../assets/wordmark-dark.svg" alt="Koda wordmark dark" style="height:32px;display:block" />
+        <span class="meta" style="color:var(--fg-on-dark-faint)">assets/wordmark-dark.svg · bone sobre oscuro · #F5F2ED</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Favicon</h2>
+    <div class="bk-row">
+      <div class="bk-meta"><b>assets/favicon.ico</b>assets/favicon-32.svg<br>assets/favicon-180.png</div>
+      <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <img src="../../../assets/favicon-32.svg" alt="Favicon SVG" style="width:32px;height:32px;display:block;border:1px solid var(--border)" />
+          <span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">32px SVG</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+          <img src="../../../assets/favicon-180.png" alt="Favicon PNG" style="width:60px;height:60px;display:block;border:1px solid var(--border);object-fit:cover" />
+          <span style="font-family:ui-monospace;font-size:11px;color:var(--fg-muted)">180px PNG</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Iconografía — inline SVG</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 24px;max-width:64ch">SVG inline con <code>stroke="currentColor"</code>, sin fill. stroke-width 1.5 (máximo 2). Tamaños estandarizados.</p>
+    <div class="icon-row">
+      <div class="icon-demo">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="6" width="32" height="32"/></svg>
+        <span>44px · service</span>
+      </div>
+      <div class="icon-demo">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="22" cy="22" r="14"/></svg>
+        <span>44px · circle</span>
+      </div>
+      <div class="icon-demo">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 22 L22 6 L38 22 L22 38 Z"/></svg>
+        <span>44px · diamond</span>
+      </div>
+      <div class="icon-demo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>20px · chevron</span>
+      </div>
+      <div class="icon-demo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <span>16px · arrow</span>
+      </div>
+      <div class="icon-demo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="1" width="38" height="38"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="20" fill="currentColor" stroke="none">"</text></svg>
+        <span>40px · quote</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Íconos tipográficos</h2>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:0 0 24px;max-width:60ch">Caracteres unicode usados como puntuación decorativa — no reemplazan palabras, acompañan a labels.</p>
+    <div class="typo-icons">
+      <span title="Em-dash · eyebrows">—</span>
+      <span title="En-dash">–</span>
+      <span title="Arrow right · CTAs, links">→</span>
+      <span title="Arrow diagonal · external links">↗</span>
+      <span title="Arrow left · back">←</span>
+    </div>
+    <div style="margin-top:24px;border-top:1px solid var(--border);padding-top:24px;display:flex;flex-direction:column;gap:8px">
+      <span class="eyebrow">— 01 / Expertise</span>
+      <span class="eyebrow">— El Manifiesto</span>
+      <div style="display:flex;gap:16px;align-items:center;font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary)">
+        <span>→</span> <span>Ver servicio</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-group">
+    <h2 class="bk-group-title">Fuentes — self-hosted</h2>
+    <div style="border:1px solid var(--border);overflow:hidden">
+      <div style="display:grid;grid-template-columns:auto 1fr auto;gap:0;border-bottom:1px solid var(--border);background:var(--color-stone);padding:12px 20px;font-family:var(--font-body);font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--fg-muted)">
+        <span>Archivo</span><span></span><span>Formato</span>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:ui-monospace;font-size:12px;color:var(--fg-secondary);border-bottom:1px solid var(--border-soft);padding-bottom:10px">Inter-VariableFont_opsz_wght.woff2 — weight 100–900, normal</div>
+        <div style="font-family:ui-monospace;font-size:12px;color:var(--fg-secondary);border-bottom:1px solid var(--border-soft);padding-bottom:10px">PlayfairDisplay-normal-latin.woff2 — weight 400–700</div>
+        <div style="font-family:ui-monospace;font-size:12px;color:var(--fg-secondary);border-bottom:1px solid var(--border-soft);padding-bottom:10px">PlayfairDisplay-normal-latin-ext.woff2 — U+0100+ extended</div>
+        <div style="font-family:ui-monospace;font-size:12px;color:var(--fg-secondary);border-bottom:1px solid var(--border-soft);padding-bottom:10px">PlayfairDisplay-italic-latin.woff2 — weight 400–600</div>
+        <div style="font-family:ui-monospace;font-size:12px;color:var(--fg-secondary)">PlayfairDisplay-italic-latin-ext.woff2 — U+0100+ extended</div>
+      </div>
+    </div>
+    <p style="font-family:var(--font-body);font-weight:300;font-size:var(--text-sm);color:var(--fg-tertiary);margin:12px 0 0;max-width:64ch">Todas con <code>font-display: swap</code>. Registradas vía <code>@font-face</code> en el inicio de <code>styles/site.css</code>.</p>
+  </section>
+
+</main>
+</body>
+</html>
