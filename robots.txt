@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /dist/
+Disallow: /brand-kit/
 
 # AI crawlers — allowed for LLM discovery
 User-agent: GPTBot
