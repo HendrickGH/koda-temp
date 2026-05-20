@@ -3471,3 +3471,109 @@ body.nav-locked .wa-rail {
 		font-size: clamp(3rem, 8vw, 8rem);
 	}
 }
+
+/* ═══════════════════════════════════════════
+   RECURSOS · HOME (biblioteca editorial)
+═══════════════════════════════════════════ */
+.recursos-home-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0;
+	border-top: 1px solid var(--color-border);
+	border-left: 1px solid var(--color-border);
+}
+
+.recurso-home-card {
+	border-right: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	padding: 2.5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	text-decoration: none;
+	color: inherit;
+	background: var(--color-bone);
+	transition: background 0.4s ease;
+	min-height: 360px;
+	position: relative;
+}
+
+.recurso-home-card:hover {
+	background: var(--color-stone);
+}
+
+.recurso-home-card .rh-tag {
+	font-family: var(--font-body);
+	font-size: var(--text-xs);
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--color-slate);
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.recurso-home-card .rh-tag::before {
+	content: "";
+	width: 28px;
+	height: 1px;
+	background: var(--color-slate);
+}
+
+.recurso-home-card .rh-title {
+	font-family: var(--font-display);
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	line-height: 1.1;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	margin: 0;
+	color: var(--color-ink);
+	flex: 0 0 auto;
+}
+
+.recurso-home-card .rh-title em {
+	font-style: italic;
+	color: var(--color-slate);
+}
+
+.recurso-home-card .rh-desc {
+	font-family: var(--font-body);
+	font-size: var(--text-sm);
+	line-height: 1.55;
+	color: var(--color-ink-soft);
+	margin: 0;
+	flex: 1;
+}
+
+.recurso-home-card .rh-foot {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: var(--font-body);
+	font-size: var(--text-xs);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-ink-muted);
+	margin-top: auto;
+	padding-top: 1rem;
+	border-top: 1px solid var(--color-border-soft, var(--color-border));
+}
+
+.recurso-home-card .rh-arr {
+	font-size: 1.25rem;
+	color: var(--color-slate);
+	transition: transform 0.4s ease;
+}
+
+.recurso-home-card:hover .rh-arr {
+	transform: translateX(6px);
+}
+
+@media (max-width: 880px) {
+	.recursos-home-grid {
+		grid-template-columns: 1fr;
+	}
+	.recurso-home-card {
+		min-height: auto;
+	}
+}
