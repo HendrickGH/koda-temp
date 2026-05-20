@@ -2257,6 +2257,9 @@ body.nav-locked {
 	border-top: 1px solid var(--border);
 	border-left: 1px solid var(--border);
 }
+.sector-grid--8 {
+	grid-template-columns: repeat(4, 1fr);
+}
 .sector-card {
 	position: relative;
 	display: block;
@@ -2383,6 +2386,15 @@ body.nav-locked {
 	max-width: 28ch;
 	transition: color var(--transition-slow);
 }
+.sector-grid--8 .sec-body p {
+	max-width: 100%;
+}
+.sector-grid--8 .sec-body {
+	min-height: 420px;
+}
+.sector-grid--8 .sec-idx {
+	margin-bottom: 36px;
+}
 .sector-card:hover .sec-body p {
 	color: var(--fg-on-dark-mid);
 }
@@ -2407,9 +2419,15 @@ body.nav-locked {
 	.sector-grid {
 		grid-template-columns: 1fr 1fr;
 	}
+	.sector-grid--8 {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 @media (max-width: 600px) {
 	.sector-grid {
+		grid-template-columns: 1fr;
+	}
+	.sector-grid--8 {
 		grid-template-columns: 1fr;
 	}
 }
