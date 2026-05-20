@@ -6,251 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Koda Studio — Manual de Marca</title>
   <link rel="stylesheet" href="../../styles/site.css" />
-  <style>
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--color-bone);}
-
-  /* ── Slide base ── */
-  .slide{position:relative;width:100%;min-height:100vh;display:flex;flex-direction:column;overflow:hidden;}
-  .s-light{background:var(--color-bone);}
-  .s-stone{background:var(--color-stone);}
-  .s-dark{background:var(--color-obsidian);color:var(--fg-on-dark);}
-
-  /* ── Slide header bar ── */
-  .sh{position:absolute;top:0;left:0;right:0;padding:clamp(16px,1.8vw,24px) clamp(28px,4.5vw,60px);display:flex;justify-content:space-between;align-items:center;z-index:5;border-bottom:1px solid var(--border);}
-  .s-dark .sh{border-bottom-color:rgba(255,255,255,0.07);}
-  .sh-bc{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);}
-  .s-dark .sh-bc{color:rgba(255,255,255,0.22);}
-  .sh-mark{font-family:var(--font-display);font-size:14px;font-weight:400;letter-spacing:-0.01em;color:var(--fg-muted);}
-  .s-dark .sh-mark{color:rgba(255,255,255,0.22);}
-
-  /* ── Page number ── */
-  .pg{position:absolute;bottom:clamp(20px,2.5vw,30px);right:clamp(28px,4.5vw,60px);font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.14em;color:var(--fg-muted);}
-  .s-dark .pg{color:rgba(255,255,255,0.18);}
-
-  /* ── Section title with accent bar ── */
-  .st{display:flex;align-items:stretch;margin-bottom:clamp(28px,3.5vw,48px);}
-  .st::before{content:'';display:block;width:2px;background:var(--accent);margin-right:14px;flex-shrink:0;}
-  .st-label{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);display:block;margin-bottom:5px;}
-  .s-dark .st-label{color:rgba(255,255,255,0.3);}
-  .st-title{font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:400;font-style:italic;letter-spacing:-0.02em;line-height:1.1;color:var(--fg-primary);margin:0;}
-  .s-dark .st-title{color:var(--fg-on-dark);}
-
-  /* ── Slide content area ── */
-  .sb{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(80px,11vw,130px) clamp(28px,4.5vw,60px) clamp(40px,5vw,72px);}
-
-  /* ── Chapter divider ── */
-  .ch-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(80px,11vw,130px) clamp(28px,4.5vw,60px) clamp(56px,7vw,88px);position:relative;}
-  .ch-n{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border:1px solid rgba(255,255,255,0.18);font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:36px;}
-  .ch-t{font-family:var(--font-display);font-size:clamp(3.8rem,8.5vw,10rem);font-weight:400;line-height:0.88;letter-spacing:-0.035em;color:var(--fg-on-dark);margin:0 0 20px;}
-  .ch-t em{font-style:italic;color:rgba(255,255,255,0.4);}
-  .ch-sub{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:rgba(255,255,255,0.4);max-width:480px;line-height:1.65;margin:0;}
-  .ch-deco{position:absolute;bottom:-0.12em;right:clamp(20px,3vw,48px);font-family:var(--font-display);font-size:min(52vw,65vh);font-weight:400;line-height:1;color:rgba(255,255,255,0.022);pointer-events:none;user-select:none;}
-
-  /* ── Cover ── */
-  .cover-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(80px,11vw,140px) clamp(28px,4.5vw,60px) clamp(56px,7vw,88px);position:relative;overflow:hidden;}
-  .cover-deco{position:absolute;bottom:-0.05em;right:-0.04em;font-family:var(--font-display);font-size:min(68vw,78vh);font-weight:400;line-height:1;color:rgba(255,255,255,0.018);pointer-events:none;user-select:none;}
-
-  /* ── Index ── */
-  .idx-ghost{position:absolute;top:50%;left:clamp(28px,4.5vw,60px);transform:translateY(-55%);font-family:var(--font-display);font-size:min(36vw,48vh);font-weight:400;font-style:italic;line-height:1;color:rgba(26,26,24,0.038);pointer-events:none;user-select:none;white-space:nowrap;}
-  .idx-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);position:relative;z-index:2;}
-  .idx-col{padding:clamp(20px,2.5vw,32px);border-right:1px solid var(--border);}
-  .idx-col:last-child{border-right:none;}
-  .idx-col-h{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
-  .idx-row{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px solid var(--border-soft);}
-  .idx-row:last-child{border-bottom:none;}
-  .idx-n{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.08em;color:var(--fg-muted);flex-shrink:0;width:18px;}
-  .idx-name{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-secondary);flex:1;}
-  .idx-pg{font-family:var(--font-body);font-size:10px;color:var(--fg-muted);flex-shrink:0;}
-
-  /* ── Wordmark slide ── */
-  .wm-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);flex:1;}
-  .wm-left{padding:clamp(28px,3.5vw,48px);border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;}
-  .wm-right{display:flex;align-items:center;justify-content:center;background:var(--color-stone);}
-  .wm-frame{position:relative;padding:clamp(32px,5vw,64px);}
-  .wm-frame::before,.wm-frame::after{content:'';position:absolute;width:18px;height:18px;border-color:var(--border);border-style:solid;}
-  .wm-frame::before{top:0;left:0;border-width:1px 0 0 1px;}
-  .wm-frame::after{bottom:0;right:0;border-width:0 1px 1px 0;}
-  .wm-live{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:400;letter-spacing:-0.035em;line-height:1;color:var(--fg-primary);}
-  .wm-spec{list-style:none;margin:0;padding:0;}
-  .wm-spec li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--border-soft);align-items:baseline;}
-  .wm-spec li:last-child{border-bottom:none;}
-  .wm-spec-k{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);}
-  .wm-spec-v{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-secondary);line-height:1.5;}
-
-  /* ── Anatomy ── */
-  .anatomy-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(60px,8vw,100px) clamp(28px,4.5vw,60px);}
-
-  /* ── Sizes ── */
-  .sizes-row{display:flex;align-items:flex-end;gap:clamp(20px,4vw,56px);padding:0 clamp(28px,4.5vw,60px) clamp(40px,5vw,64px);flex-wrap:wrap;}
-  .size-item{display:flex;flex-direction:column;align-items:center;gap:14px;}
-  .size-bk{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;}
-  .size-bk::before,.size-bk::after{content:'';display:block;width:100%;height:1px;background:var(--accent);}
-  .size-lbl{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;color:var(--accent);}
-  .size-note{font-family:var(--font-body);font-size:10px;color:var(--fg-muted);text-align:center;}
-  .size-wm{font-family:var(--font-display);font-weight:400;letter-spacing:-0.03em;line-height:1;color:var(--fg-primary);}
-
-  /* ── Clear space ── */
-  .cs-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(40px,5vw,80px) clamp(28px,4.5vw,60px);}
-  .cs-outer{border:1px dashed var(--border);padding:clamp(36px,5vw,64px);position:relative;display:inline-flex;align-items:center;justify-content:center;}
-  .cs-x{position:absolute;font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:0.05em;color:var(--accent);}
-  .cs-x.tl{top:10px;left:10px;}
-  .cs-x.tr{top:10px;right:10px;}
-  .cs-x.bl{bottom:10px;left:10px;}
-  .cs-x.br{bottom:10px;right:10px;}
-
-  /* ── Color cards (rotated stack) ── */
-  .cc-stack{position:relative;height:clamp(260px,32vh,400px);}
-  .cc{position:absolute;padding:18px 22px;display:flex;flex-direction:column;justify-content:space-between;width:clamp(180px,26vw,300px);height:clamp(110px,15vh,165px);border:1px solid rgba(0,0,0,0.09);}
-  .cc-name{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;}
-  .cc-vals{font-family:ui-monospace,Menlo,monospace;font-size:9px;line-height:1.75;opacity:0.65;}
-
-  /* ── Dark palette ── */
-  .dp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);}
-  .dp-cell{padding:22px;display:flex;flex-direction:column;gap:6px;background:var(--color-obsidian);}
-  .dp-sw{width:28px;height:28px;border:1px solid rgba(255,255,255,0.12);margin-bottom:6px;}
-  .dp-name{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);}
-  .dp-hex{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:rgba(255,255,255,0.5);}
-  .op-strip{display:flex;height:44px;border:1px solid rgba(255,255,255,0.07);overflow:hidden;margin-top:20px;}
-  .op-strip div{flex:1;display:flex;align-items:flex-end;padding:5px;}
-  .op-strip span{font-family:ui-monospace,Menlo,monospace;font-size:9px;color:rgba(255,255,255,0.4);}
-
-  /* ── Typography specimens ── */
-  .typo-aa{font-family:var(--font-display);font-size:clamp(7rem,17vw,20rem);font-weight:400;line-height:0.84;letter-spacing:-0.03em;color:var(--fg-primary);margin:0;display:block;}
-  .typo-aa-i{font-family:var(--font-body);font-size:clamp(7rem,17vw,20rem);font-weight:300;line-height:0.84;letter-spacing:-0.04em;color:var(--fg-primary);margin:0;display:block;}
-  .typo-alph{font-family:var(--font-display);font-size:clamp(0.85rem,1.4vw,1.2rem);font-weight:400;letter-spacing:0.07em;color:var(--fg-secondary);line-height:2;word-spacing:0.3em;border-top:1px solid var(--border);padding-top:14px;margin-top:18px;}
-  .typo-alph-i{font-family:var(--font-body);font-size:clamp(0.85rem,1.4vw,1.2rem);font-weight:300;letter-spacing:0.05em;color:var(--fg-secondary);line-height:2;word-spacing:0.3em;border-top:1px solid var(--border);padding-top:14px;margin-top:18px;}
-  .typo-meta{display:flex;gap:clamp(14px,2.5vw,36px);flex-wrap:wrap;border-top:1px solid var(--border);padding-top:14px;margin-top:16px;}
-  .typo-mk{font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);display:block;margin-bottom:3px;}
-  .typo-mv{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-secondary);}
-
-  /* ── Variants ── */
-  .var-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);flex:1;}
-  .var-cell{padding:clamp(22px,3.5vw,44px);border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;}
-  .var-cell:last-child{border-right:none;}
-  .var-meta{border-top:1px solid var(--border);padding-top:12px;margin-top:20px;}
-  .var-tag{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);}
-  .var-name{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-secondary);margin-top:3px;}
-
-  /* ── On backgrounds ── */
-  .bg-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);flex:1;}
-  .bg-panel{border-right:1px solid var(--border);display:flex;flex-direction:column;}
-  .bg-panel:last-child{border-right:none;}
-  .bg-wm{flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(24px,3vw,40px);}
-  .bg-foot{padding:clamp(16px,2vw,24px);border-top:1px solid rgba(128,128,128,0.2);}
-  .bg-verdict{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
-  .ok{color:#2e7d52;}
-  .no{color:#b91c1c;}
-  .bg-desc{font-family:var(--font-body);font-size:10px;font-weight:300;color:inherit;opacity:0.5;margin-top:4px;}
-
-  /* ── Incorrect usage ── */
-  .inc-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);border:1px solid var(--border);flex:1;}
-  .inc-cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:clamp(16px,2.5vw,36px);min-height:140px;}
-  .inc-cell:nth-child(2),.inc-cell:nth-child(4){border-right:none;}
-  .inc-cell:nth-child(3),.inc-cell:nth-child(4){border-bottom:none;}
-  .inc-line{position:absolute;top:50%;left:-8%;width:116%;height:1px;background:#b91c1c;transform:rotate(-11deg);}
-  .inc-lbl{position:absolute;bottom:10px;left:12px;font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#b91c1c;}
-
-  /* ── Photo usage ── */
-  .ph-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,0.08);flex:1;}
-  .ph-panel{background:var(--color-obsidian);border-right:1px solid rgba(255,255,255,0.08);display:flex;align-items:flex-end;padding:clamp(20px,2.5vw,32px);position:relative;overflow:hidden;min-height:220px;}
-  .ph-panel:last-child{border-right:none;}
-  .ph-tex1{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0,rgba(255,255,255,0.025) 1px,transparent 1px,transparent 7px);}
-  .ph-tex2{position:absolute;inset:0;background:repeating-linear-gradient(-60deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 9px);}
-  .ph-wm{position:relative;z-index:1;font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2.8rem);font-weight:400;letter-spacing:-0.03em;color:var(--fg-on-dark);}
-  .ph-note{position:absolute;top:14px;left:16px;font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);z-index:1;}
-
-  /* ── Voice principles ── */
-  .vp-grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--border);flex:1;}
-  .vp-card{padding:clamp(22px,3vw,38px);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:10px;}
-  .vp-card:nth-child(2),.vp-card:nth-child(4){border-right:none;}
-  .vp-card:nth-child(3),.vp-card:nth-child(4){border-bottom:none;}
-  .vp-num{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);}
-  .vp-title{font-family:var(--font-display);font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:400;font-style:italic;color:var(--fg-primary);margin:0;line-height:1.15;}
-  .vp-desc{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);margin:0;line-height:1.65;}
-
-  /* ── Correct / Incorrect pairs ── */
-  .pair-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);flex:1;}
-  .pair-col{padding:clamp(22px,3vw,38px);border-right:1px solid var(--border);}
-  .pair-col:last-child{border-right:none;}
-  .pair-head{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding-bottom:12px;border-bottom:1px solid var(--border);margin-bottom:14px;}
-  .pair-item{padding:11px 0;border-bottom:1px solid var(--border-soft);}
-  .pair-item:last-child{border-bottom:none;}
-  .pair-lbl{font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:3px;}
-  .pair-text{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-secondary);line-height:1.55;font-style:italic;}
-
-  /* ── Canonical phrases ── */
-  .phrases{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(80px,11vw,130px) clamp(28px,4.5vw,60px) clamp(56px,7vw,88px);gap:clamp(20px,3.5vw,44px);}
-  .phrase{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,3.8rem);font-weight:400;font-style:italic;letter-spacing:-0.025em;line-height:1.05;color:var(--fg-on-dark);border-bottom:1px solid rgba(255,255,255,0.07);padding-bottom:clamp(18px,3vw,40px);}
-  .phrase:last-child{border-bottom:none;}
-  .phrase em{color:rgba(255,255,255,0.3);font-style:normal;}
-
-  /* ── Principles grid ── */
-  .pr-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);flex:1;}
-  .pr-cell{padding:clamp(18px,2.5vw,32px);border-right:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px;}
-  .pr-cell:nth-child(3),.pr-cell:nth-child(6){border-right:none;}
-  .pr-cell:nth-child(4),.pr-cell:nth-child(5),.pr-cell:nth-child(6){border-bottom:none;}
-  .pr-num{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;color:var(--accent);text-transform:uppercase;}
-  .pr-title{font-family:var(--font-display);font-size:clamp(0.95rem,1.6vw,1.35rem);font-weight:400;font-style:italic;color:var(--fg-primary);margin:0;line-height:1.2;}
-  .pr-desc{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);margin:0;line-height:1.6;}
-
-  /* ── Iconography ── */
-  .ico-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);flex:1;}
-  .ico-panel{padding:clamp(22px,3vw,38px);border-right:1px solid var(--border);}
-  .ico-panel:last-child{border-right:none;}
-  .ico-row{display:flex;gap:clamp(14px,2vw,24px);align-items:center;flex-wrap:wrap;margin-top:14px;}
-  .ico-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
-  .ico-item svg{stroke:var(--fg-secondary);fill:none;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;}
-  .ico-sz{font-family:var(--font-body);font-size:9px;font-weight:500;color:var(--fg-muted);letter-spacing:0.08em;}
-  .typo-chars{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap;}
-  .typo-char{font-family:var(--font-display);font-size:clamp(1.6rem,2.8vw,2.6rem);color:var(--fg-secondary);line-height:1;}
-
-  /* ── App mockups ── */
-  .app-wrap{flex:1;display:flex;flex-direction:column;border:1px solid rgba(255,255,255,0.07);overflow:hidden;}
-  .mock-hdr{background:var(--color-obsidian);border-bottom:1px solid rgba(255,255,255,0.07);padding:0 clamp(18px,2.5vw,36px);height:50px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-  .mock-wm{font-family:var(--font-display);font-size:1.05rem;font-weight:400;letter-spacing:-0.02em;color:var(--fg-on-dark);}
-  .mock-nav{display:flex;gap:20px;}
-  .mock-nav span{font-family:var(--font-body);font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);letter-spacing:0.05em;}
-  .mock-hero{background:var(--color-obsidian);flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,3.5vw,48px);position:relative;overflow:hidden;}
-  .mock-htex{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0,transparent 39px,rgba(255,255,255,0.012) 39px,rgba(255,255,255,0.012) 40px);}
-  .mock-htitle{font-family:var(--font-display);font-size:clamp(1.8rem,4.5vw,5rem);font-weight:400;line-height:0.9;letter-spacing:-0.03em;color:var(--fg-on-dark);position:relative;z-index:1;margin:0 0 14px;}
-  .mock-hcta{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid rgba(255,255,255,0.25);font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-on-dark);position:relative;z-index:1;}
-
-  /* ── Email mockup ── */
-  .email-wrap{flex:1;display:flex;flex-direction:column;border:1px solid var(--border);overflow:hidden;}
-  .email-tb{height:38px;background:var(--color-stone);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:7px;}
-  .email-dot{width:9px;height:9px;border:1px solid var(--border);}
-  .email-body{flex:1;padding:clamp(20px,2.5vw,36px);display:flex;flex-direction:column;gap:14px;}
-  .email-para{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);line-height:1.7;margin:0;}
-  .email-sig{border-top:1px solid var(--border);padding-top:14px;}
-  .email-sname{font-family:var(--font-display);font-size:1rem;font-weight:400;color:var(--fg-primary);}
-  .email-srole{font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);}
-  .email-sbrand{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-top:7px;}
-  .email-scontact{font-family:var(--font-body);font-size:10px;font-weight:300;color:var(--fg-muted);margin-top:3px;}
-
-  /* ── Social posts ── */
-  .soc-grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid rgba(255,255,255,0.07);flex:1;}
-  .soc-post{background:var(--color-obsidian);border-right:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(14px,2vw,24px);position:relative;overflow:hidden;min-height:clamp(150px,20vh,220px);}
-  .soc-post:nth-child(2),.soc-post:nth-child(4){border-right:none;}
-  .soc-post:nth-child(3),.soc-post:nth-child(4){border-bottom:none;}
-  .soc-lbl{font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);position:relative;z-index:1;margin-bottom:6px;}
-  .soc-text{font-family:var(--font-display);font-size:clamp(0.85rem,1.6vw,1.3rem);font-weight:400;font-style:italic;color:var(--fg-on-dark);position:relative;z-index:1;line-height:1.2;}
-
-  /* ── Closing ── */
-  .closing{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:clamp(80px,11vw,130px) clamp(28px,4.5vw,60px);}
-  .closing-wm{font-family:var(--font-display);font-size:clamp(4rem,10vw,12rem);font-weight:400;letter-spacing:-0.04em;line-height:0.88;color:var(--fg-on-dark);}
-  .closing-rule{width:36px;height:1px;background:rgba(255,255,255,0.12);}
-  .closing-tag{font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.22);}
-
-  @media(max-width:768px){
-    .idx-grid,.wm-grid,.var-grid,.bg-grid,.vp-grid,.pair-grid,.pr-grid,.ico-grid,.soc-grid{grid-template-columns:1fr;}
-    .idx-col,.wm-left,.var-cell,.bg-panel,.vp-card,.pair-col,.pr-cell,.ico-panel,.soc-post{border-right:none;}
-    .ch-deco,.cover-deco,.idx-ghost{display:none;}
-    .typo-aa,.typo-aa-i{font-size:clamp(4rem,18vw,8rem);}
-    .ph-grid{grid-template-columns:1fr;}
-    .ph-panel{border-right:none;}
-  }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -264,9 +20,9 @@
   </div>
   <div class="cover-body">
     <span class="cover-deco">k</span>
-    <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.22);display:block;margin-bottom:36px;">Manual de Marca · Vol. I · 2024</span>
-    <h1 style="font-family:var(--font-display);font-size:clamp(5rem,12vw,14rem);font-weight:400;line-height:0.88;letter-spacing:-0.04em;color:var(--fg-on-dark);margin:0 0 12px;">koda</h1>
-    <p style="font-family:var(--font-display);font-size:clamp(1.4rem,3vw,3.2rem);font-weight:400;font-style:italic;letter-spacing:-0.02em;color:rgba(255,255,255,0.35);margin:0;">Studio</p>
+    <span class="cover-meta">Manual de Marca · Vol. I · 2024</span>
+    <h1 class="cover-title">koda</h1>
+    <p class="cover-sub">Studio</p>
   </div>
   <span class="pg">01</span>
 </section>
@@ -313,7 +69,9 @@
         <div class="idx-row"><span class="idx-n">24</span><span class="idx-name">Header y hero</span><span class="idx-pg">24</span></div>
         <div class="idx-row"><span class="idx-n">25</span><span class="idx-name">Firma digital</span><span class="idx-pg">25</span></div>
         <div class="idx-row"><span class="idx-n">26</span><span class="idx-name">Redes sociales</span><span class="idx-pg">26</span></div>
-        <div class="idx-row"><span class="idx-n">27</span><span class="idx-name">Cierre</span><span class="idx-pg">27</span></div>
+        <div class="idx-row"><span class="idx-n">27</span><span class="idx-name">Papelería</span><span class="idx-pg">27</span></div>
+        <div class="idx-row"><span class="idx-n">28</span><span class="idx-name">Merchandising</span><span class="idx-pg">28</span></div>
+        <div class="idx-row"><span class="idx-n">29</span><span class="idx-name">Cierre</span><span class="idx-pg">29</span></div>
       </div>
     </div>
   </div>
@@ -354,10 +112,11 @@
           <li><span class="wm-spec-k">Tipografía</span><span class="wm-spec-v">Playfair Display Regular 400</span></li>
           <li><span class="wm-spec-k">Tracking</span><span class="wm-spec-v">−0.035em (ajuste óptico)</span></li>
           <li><span class="wm-spec-k">Capitalización</span><span class="wm-spec-v">Todo en minúsculas — invariable</span></li>
-          <li><span class="wm-spec-k">Color primario</span><span class="wm-spec-v">Ink #1A1A18 sobre claro</span></li>
+          <li><span class="wm-spec-k">Color primario</span><span class="wm-spec-v">Ink #1A1A18 sobre fondos claros</span></li>
           <li><span class="wm-spec-k">Color sobre oscuro</span><span class="wm-spec-v">Bone #F5F2ED</span></li>
           <li><span class="wm-spec-k">Contexto</span><span class="wm-spec-v">Agencia de transformación digital, Ciudad de México</span></li>
         </ul>
+        <p class="wm-why">Se eligió Playfair Display por sus serifas finas y la tensión natural entre elegancia editorial y modernidad. La «k» minúscula en tracking negativo une las letras como una sola forma reconocible. La minúscula, invariable, rompe con la formalidad corporativa: en un sector donde todos gritan en mayúsculas, la minúscula comunica confianza sin énfasis.</p>
       </div>
       <div class="wm-right">
         <div class="wm-frame">
@@ -467,7 +226,7 @@
         <span class="size-note">Impresión<br>mínima</span>
       </div>
     </div>
-    <p style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-muted);margin:clamp(24px,3vw,40px) 0 0;padding:0 clamp(28px,4.5vw,60px);">Por debajo del tamaño mínimo la legibilidad de las serifas de Playfair Display se degrada. Nunca reducir más.</p>
+    <p class="size-note-footer">Por debajo del tamaño mínimo las serifas de Playfair Display pierden definición y el wordmark deja de ser reconocible. Nunca reducir más.</p>
   </div>
   <span class="pg">05</span>
 </section>
@@ -476,7 +235,7 @@
      06 · Área de respeto
      ════════════════════════════════════════════ -->
 <section class="slide s-stone" id="s06">
-  <div class="sh" style="border-bottom-color:var(--border);">
+  <div class="sh">
     <span class="sh-bc">01 — La Identidad</span>
     <span class="sh-mark">koda</span>
   </div>
@@ -489,12 +248,12 @@
           <span class="cs-x tr">x</span>
           <span class="cs-x bl">x</span>
           <span class="cs-x br">x</span>
-          <span style="font-family:var(--font-display);font-size:clamp(3rem,6vw,7rem);font-weight:400;letter-spacing:-0.035em;color:var(--fg-primary);">koda</span>
+          <span class="cs-wm">koda</span>
         </div>
-        <p style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);margin:20px 0 0;text-align:center;">Zona de exclusión = <strong style="color:var(--accent);">x</strong> = altura de la «k» minúscula</p>
+        <p class="cs-label">Zona de exclusión = <strong>x</strong> = altura de la «k» minúscula</p>
       </div>
     </div>
-    <p style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);max-width:560px;line-height:1.65;padding:0 clamp(28px,4.5vw,60px);">Ningún elemento — texto, imagen, borde o decoración — puede penetrar la zona de exclusión. La distancia mínima es igual a la altura de la «k» del wordmark en el tamaño en que aparece.</p>
+    <p class="cs-body-text">Ningún elemento — texto, imagen, borde o decoración — puede penetrar la zona de exclusión. La distancia mínima es igual a la altura de la «k» del wordmark en el tamaño en que aparece.</p>
   </div>
   <span class="pg">06</span>
 </section>
@@ -510,33 +269,28 @@
   <div class="sb">
     <div class="st"><div><span class="st-label">— 07 / Identidad</span><h2 class="st-title">Paleta — Claro</h2></div></div>
     <div class="cc-stack" style="margin-bottom:clamp(16px,2vw,28px);">
-      <!-- Bone -->
-      <div class="cc" style="background:#F5F2ED;top:55px;left:2%;transform:rotate(-9deg);z-index:1;">
-        <span class="cc-name" style="color:#1A1A18;">Bone</span>
-        <span class="cc-vals" style="color:#1A1A18;">#F5F2ED<br>RGB 245 242 237<br>CMYK 0·1·3·4</span>
+      <div class="cc cc-bone">
+        <span class="cc-name">Bone</span>
+        <span class="cc-vals">#F5F2ED<br>RGB 245 242 237<br>CMYK 0·1·3·4</span>
       </div>
-      <!-- Stone -->
-      <div class="cc" style="background:#EDE9E3;top:35px;left:18%;transform:rotate(-4deg);z-index:2;">
-        <span class="cc-name" style="color:#1A1A18;">Stone</span>
-        <span class="cc-vals" style="color:#1A1A18;">#EDE9E3<br>RGB 237 233 227<br>CMYK 0·2·4·7</span>
+      <div class="cc cc-stone">
+        <span class="cc-name">Stone</span>
+        <span class="cc-vals">#EDE9E3<br>RGB 237 233 227<br>CMYK 0·2·4·7</span>
       </div>
-      <!-- Ink -->
-      <div class="cc" style="background:#1A1A18;top:18px;left:34%;transform:rotate(0deg);z-index:5;">
-        <span class="cc-name" style="color:#F5F2ED;">Ink</span>
-        <span class="cc-vals" style="color:#F5F2ED;">#1A1A18<br>RGB 26 26 24<br>CMYK 0·0·8·90</span>
+      <div class="cc cc-ink">
+        <span class="cc-name">Ink</span>
+        <span class="cc-vals">#1A1A18<br>RGB 26 26 24<br>CMYK 0·0·8·90</span>
       </div>
-      <!-- Slate -->
-      <div class="cc" style="background:#5B6B7C;top:30px;left:50%;transform:rotate(4deg);z-index:2;">
-        <span class="cc-name" style="color:#F5F2ED;">Slate</span>
-        <span class="cc-vals" style="color:#F5F2ED;">#5B6B7C<br>RGB 91 107 124<br>CMYK 27·14·0·51</span>
+      <div class="cc cc-slate">
+        <span class="cc-name">Slate</span>
+        <span class="cc-vals">#5B6B7C<br>RGB 91 107 124<br>CMYK 27·14·0·51</span>
       </div>
-      <!-- Slate Pale -->
-      <div class="cc" style="background:#8A9BAC;top:48px;left:66%;transform:rotate(9deg);z-index:1;">
-        <span class="cc-name" style="color:#F5F2ED;">Slate Pale</span>
-        <span class="cc-vals" style="color:#F5F2ED;">#8A9BAC<br>RGB 138 155 172<br>CMYK 20·10·0·33</span>
+      <div class="cc cc-slate-pale">
+        <span class="cc-name">Slate Pale</span>
+        <span class="cc-vals">#8A9BAC<br>RGB 138 155 172<br>CMYK 20·10·0·33</span>
       </div>
     </div>
-    <p style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-muted);line-height:1.65;max-width:580px;">El sistema cromático claro opera sobre Bone como superficie base. Ink para tipografía; Slate y Slate Pale para elementos secundarios y acento. Stone para fondos de apoyo y secciones alternas.</p>
+    <p class="cc-why">La paleta parte de tonos cálidos neutros en lugar de blancos puros. Bone y Stone evocan precisión artesanal frente a esterilidad digital. Ink #1A1A18 no es negro absoluto: su ligero tono cálido mantiene la austeridad sin frialdad. Slate actúa como acento y separador sin abandonar la neutralidad del sistema.</p>
   </div>
   <span class="pg">07</span>
 </section>
@@ -553,43 +307,44 @@
     <div class="st"><div><span class="st-label">— 08 / Identidad</span><h2 class="st-title">Paleta — Oscuro</h2></div></div>
     <div class="dp-grid">
       <div class="dp-cell">
-        <div class="dp-sw" style="background:#111110;"></div>
+        <div class="dp-sw dp-sw-obsidian"></div>
         <span class="dp-name">Obsidian</span>
         <span class="dp-hex">#111110</span>
       </div>
       <div class="dp-cell">
-        <div class="dp-sw" style="background:rgba(255,255,255,0.9);"></div>
+        <div class="dp-sw dp-sw-ondark"></div>
         <span class="dp-name">On Dark</span>
         <span class="dp-hex">rgba(255,255,255,0.9)</span>
       </div>
       <div class="dp-cell">
-        <div class="dp-sw" style="background:rgba(255,255,255,0.6);"></div>
+        <div class="dp-sw dp-sw-ondark-mid"></div>
         <span class="dp-name">On Dark Mid</span>
         <span class="dp-hex">rgba(255,255,255,0.6)</span>
       </div>
       <div class="dp-cell">
-        <div class="dp-sw" style="background:rgba(255,255,255,0.35);"></div>
+        <div class="dp-sw dp-sw-ondark-faint"></div>
         <span class="dp-name">On Dark Faint</span>
         <span class="dp-hex">rgba(255,255,255,0.35)</span>
       </div>
       <div class="dp-cell">
-        <div class="dp-sw" style="background:rgba(255,255,255,0.12);"></div>
+        <div class="dp-sw dp-sw-ondark-dim"></div>
         <span class="dp-name">On Dark Dim</span>
         <span class="dp-hex">rgba(255,255,255,0.12)</span>
       </div>
       <div class="dp-cell">
-        <div class="dp-sw" style="background:#5B6B7C;"></div>
+        <div class="dp-sw dp-sw-accent"></div>
         <span class="dp-name">Accent Slate</span>
         <span class="dp-hex">#5B6B7C</span>
       </div>
     </div>
     <div class="op-strip">
-      <div style="background:rgba(255,255,255,0.9);"><span>90%</span></div>
-      <div style="background:rgba(255,255,255,0.6);"><span>60%</span></div>
-      <div style="background:rgba(255,255,255,0.35);"><span>35%</span></div>
-      <div style="background:rgba(255,255,255,0.18);"><span>18%</span></div>
-      <div style="background:rgba(255,255,255,0.08);"><span>8%</span></div>
+      <div class="op-90"><span>90%</span></div>
+      <div class="op-60"><span>60%</span></div>
+      <div class="op-35"><span>35%</span></div>
+      <div class="op-18"><span>18%</span></div>
+      <div class="op-08"><span>8%</span></div>
     </div>
+    <p class="dp-why">Obsidian no es negro puro (#000): el mínimo tono cálido evita el contraste extremo y hace que el texto blanco resulte más legible durante la lectura prolongada. La escala de opacidades reemplaza colores adicionales, manteniendo el sistema cromático cerrado.</p>
   </div>
   <span class="pg">08</span>
 </section>
@@ -611,9 +366,10 @@
       <div><span class="typo-mk">Peso</span><span class="typo-mv">Regular 400</span></div>
       <div><span class="typo-mk">Uso</span><span class="typo-mv">Títulos, wordmark, display</span></div>
       <div><span class="typo-mk">Tracking</span><span class="typo-mv">−0.035em a −0.02em</span></div>
-      <div><span class="typo-mk">Line-height</span><span class="typo-mv">0.88 — 1.15</span></div>
+      <div><span class="typo-mk">Interlineado</span><span class="typo-mv">0.88 — 1.15</span></div>
       <div><span class="typo-mk">Itálica</span><span class="typo-mv">Editorial, énfasis</span></div>
     </div>
+    <p class="typo-why">Playfair Display en Regular (400) aporta la tensión editorial que la marca necesita: autoridad sin agresividad. El peso display sin negrita evita la sobreatención mientras conserva carácter. La itálica se reserva para énfasis específico, nunca como decoración. Se descartaron fuentes sans-serif para display porque Playfair establece un contraste deliberado con Inter en cuerpo, generando jerarquía sin recursos adicionales.</p>
   </div>
   <span class="pg">09</span>
 </section>
@@ -622,7 +378,7 @@
      10 · Tipografía: Inter
      ════════════════════════════════════════════ -->
 <section class="slide s-stone" id="s10">
-  <div class="sh" style="border-bottom-color:var(--border);">
+  <div class="sh">
     <span class="sh-bc">01 — La Identidad</span>
     <span class="sh-mark">koda</span>
   </div>
@@ -630,14 +386,15 @@
     <div class="st"><div><span class="st-label">— 10 / Identidad</span><h2 class="st-title">Tipografía cuerpo</h2></div></div>
     <span class="typo-aa-i">Aa</span>
     <p class="typo-alph-i">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z &nbsp; a b c d e f g h i j k l m n o p q r s t u v w x y z &nbsp; 0 1 2 3 4 5 6 7 8 9 &nbsp; . , : ; ! ? — –</p>
-    <div class="typo-meta" style="border-top-color:var(--border);">
+    <div class="typo-meta">
       <div><span class="typo-mk">Familia</span><span class="typo-mv">Inter</span></div>
       <div><span class="typo-mk">Pesos</span><span class="typo-mv">Light 300 · Medium 500</span></div>
       <div><span class="typo-mk">Uso</span><span class="typo-mv">Cuerpo, labels, UI, meta</span></div>
       <div><span class="typo-mk">Tracking labels</span><span class="typo-mv">0.08em — 0.14em</span></div>
-      <div><span class="typo-mk">Line-height</span><span class="typo-mv">1.55 — 1.70</span></div>
+      <div><span class="typo-mk">Interlineado</span><span class="typo-mv">1.55 — 1.70</span></div>
       <div><span class="typo-mk">Escala</span><span class="typo-mv">10px · 12px · 14px · 16px · 18px</span></div>
     </div>
+    <p class="typo-why">Inter fue diseñada específicamente para pantallas: alta legibilidad en tamaños pequeños, proporciones neutras que no compiten con Playfair Display. Light (300) reduce la densidad en cuerpo extenso; Medium (500) en labels y UI crea jerarquía sin negrita. La escala discreta (10–18px) garantiza que cada nivel tipográfico tenga un rol claro y no haya ambigüedad de jerarquía.</p>
   </div>
   <span class="pg">10</span>
 </section>
@@ -670,28 +427,28 @@
   <div class="sb">
     <div class="st"><div><span class="st-label">— 12 / Variantes</span><h2 class="st-title">Variantes del wordmark</h2></div></div>
     <div class="var-grid">
-      <div class="var-cell" style="background:var(--color-bone);">
-        <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:32px 0;">
-          <span style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4.5rem);font-weight:400;letter-spacing:-0.035em;color:#1A1A18;">koda</span>
+      <div class="var-cell var-cell-light">
+        <div class="var-preview">
+          <span class="var-wm-light">koda</span>
         </div>
         <div class="var-meta">
           <span class="var-tag">01 — Principal</span>
           <p class="var-name">Tinta sobre claro. Uso en fondos Bone, Stone y blancos.</p>
         </div>
       </div>
-      <div class="var-cell" style="background:#111110;">
-        <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:32px 0;">
-          <span style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4.5rem);font-weight:400;letter-spacing:-0.035em;color:#F5F2ED;">koda</span>
+      <div class="var-cell var-cell-dark">
+        <div class="var-preview">
+          <span class="var-wm-dark">koda</span>
         </div>
-        <div class="var-meta" style="border-top-color:rgba(255,255,255,0.1);">
-          <span class="var-tag" style="color:rgba(255,255,255,0.3);">02 — Invertida</span>
-          <p class="var-name" style="color:rgba(255,255,255,0.45);">Bone sobre oscuro. Fondos Obsidian y negros profundos.</p>
+        <div class="var-meta var-meta-dark">
+          <span class="var-tag var-tag-dark">02 — Invertida</span>
+          <p class="var-name var-name-dark">Bone sobre oscuro. Fondos Obsidian y negros profundos.</p>
         </div>
       </div>
-      <div class="var-cell" style="background:var(--color-stone);">
-        <div style="display:flex;align-items:center;justify-content:center;flex:1;padding:32px 0;flex-direction:column;gap:4px;">
-          <span style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4.5rem);font-weight:400;letter-spacing:-0.035em;color:#1A1A18;line-height:1;">koda</span>
-          <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#5B6B7C;margin-top:6px;">Studio</span>
+      <div class="var-cell var-cell-stone">
+        <div class="var-wm-ext">
+          <span class="var-wm-light" style="line-height:1;">koda</span>
+          <span class="var-descriptor">Studio</span>
         </div>
         <div class="var-meta">
           <span class="var-tag">03 — Extendida</span>
@@ -715,28 +472,28 @@
     <div class="st"><div><span class="st-label">— 13 / Variantes</span><h2 class="st-title">Sobre fondos</h2></div></div>
     <div class="bg-grid">
       <div class="bg-panel">
-        <div class="bg-wm" style="background:#F5F2ED;">
-          <span style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4rem);font-weight:400;letter-spacing:-0.035em;color:#1A1A18;">koda</span>
+        <div class="bg-wm bg-bone">
+          <span class="bg-wm-ink">koda</span>
         </div>
-        <div class="bg-foot" style="background:#F5F2ED;color:#1A1A18;">
+        <div class="bg-foot bg-bone">
           <div class="bg-verdict ok">✓ Correcto</div>
           <p class="bg-desc">Tinta sobre Bone</p>
         </div>
       </div>
       <div class="bg-panel">
-        <div class="bg-wm" style="background:#111110;">
-          <span style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4rem);font-weight:400;letter-spacing:-0.035em;color:#F5F2ED;">koda</span>
+        <div class="bg-wm bg-obsidian">
+          <span class="bg-wm-bone">koda</span>
         </div>
-        <div class="bg-foot" style="background:#111110;color:#F5F2ED;">
+        <div class="bg-foot bg-obsidian">
           <div class="bg-verdict ok">✓ Correcto</div>
           <p class="bg-desc">Bone sobre Obsidian</p>
         </div>
       </div>
       <div class="bg-panel">
-        <div class="bg-wm" style="background:#5B6B7C;">
-          <span style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4rem);font-weight:400;letter-spacing:-0.035em;color:#F5F2ED;">koda</span>
+        <div class="bg-wm bg-slate">
+          <span class="bg-wm-bone">koda</span>
         </div>
-        <div class="bg-foot" style="background:#5B6B7C;color:#F5F2ED;">
+        <div class="bg-foot bg-slate">
           <div class="bg-verdict no">✗ Evitar</div>
           <p class="bg-desc">Contraste insuficiente sobre Slate</p>
         </div>
@@ -805,13 +562,13 @@
       <div class="ph-panel">
         <div class="ph-tex2"></div>
         <span class="ph-note">✓ Overlay oscuro + wordmark Bone</span>
-        <div style="position:relative;z-index:1;">
+        <div>
           <span class="ph-wm">koda</span>
-          <span style="display:block;font-family:var(--font-body);font-size:9px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px;">Studio</span>
+          <span class="ph-descriptor">Studio</span>
         </div>
       </div>
     </div>
-    <p style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:rgba(255,255,255,0.4);max-width:560px;line-height:1.65;margin-top:20px;">Sobre fotografía siempre usar wordmark Bone con un overlay oscuro mínimo 40% de opacidad. Nunca colocar sobre zonas de alto detalle o baja saturación sin overlay.</p>
+    <p class="ph-note-footer">Sobre fotografía siempre usar wordmark Bone con un overlay oscuro mínimo de 40% de opacidad. Nunca colocar sobre zonas de alto detalle o baja saturación sin overlay.</p>
   </div>
   <span class="pg">15</span>
 </section>
@@ -873,7 +630,7 @@
      18 · Correcto / Incorrecto
      ════════════════════════════════════════════ -->
 <section class="slide s-stone" id="s18">
-  <div class="sh" style="border-bottom-color:var(--border);">
+  <div class="sh">
     <span class="sh-bc">03 — Voz y Tono</span>
     <span class="sh-mark">koda</span>
   </div>
@@ -943,7 +700,7 @@
     <span class="ch-deco">04</span>
     <div class="ch-n">04</div>
     <h2 class="ch-t">Sistema<br><em>Gráfico.</em></h2>
-    <p class="ch-sub">Las reglas absolutas que definen el carácter visual: sin radios, sin sombras, sin gradientes. Más los principios de iconografía y sistema de cuadrícula.</p>
+    <p class="ch-sub">Las reglas absolutas que definen el carácter visual: sin redondeos, sin sombras, sin gradientes. Principios de iconografía y sistema de cuadrícula.</p>
   </div>
   <span class="pg">—</span>
 </section>
@@ -961,33 +718,33 @@
     <div class="pr-grid">
       <div class="pr-cell">
         <span class="pr-num">— 01</span>
-        <h3 class="pr-title">0 px border-radius</h3>
-        <p class="pr-desc">Todo ángulo es recto, sin excepción. Botones, cards, inputs, imágenes. El CSS aplica <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.85em;background:var(--color-stone);padding:1px 5px;border:1px solid var(--border-soft);">border-radius:0!important</code> globalmente.</p>
+        <h3 class="pr-title">Ángulos siempre rectos</h3>
+        <p class="pr-desc">Cada esquina en el sistema visual es 90°, sin excepción: botones, tarjetas, imágenes, inputs. El redondeo diluye la tensión precisa que define el carácter de Koda.</p>
       </div>
       <div class="pr-cell">
         <span class="pr-num">— 02</span>
         <h3 class="pr-title">Sin sombras</h3>
-        <p class="pr-desc">Ningún elemento tiene <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.85em;background:var(--color-stone);padding:1px 5px;border:1px solid var(--border-soft);">box-shadow</code> ni <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.85em;background:var(--color-stone);padding:1px 5px;border:1px solid var(--border-soft);">drop-shadow</code>. La profundidad se construye con bordes 1px y fondos alternos.</p>
+        <p class="pr-desc">La jerarquía y profundidad se construyen con bordes de 1px y fondos alternos, nunca con sombras proyectadas. Las sombras son decoración; la estructura, no.</p>
       </div>
       <div class="pr-cell">
         <span class="pr-num">— 03</span>
         <h3 class="pr-title">Sin gradientes</h3>
-        <p class="pr-desc">Solo colores sólidos del sistema. Un fondo no puede degradarse entre dos tonos. La transición entre zonas ocurre con bordes 1px.</p>
+        <p class="pr-desc">Solo colores sólidos del sistema. La transición entre zonas ocurre con un corte limpio de 1px, nunca con un degradado. La certeza no admite transiciones ambiguas.</p>
       </div>
       <div class="pr-cell">
         <span class="pr-num">— 04</span>
-        <h3 class="pr-title">Cuadrícula 1 px</h3>
-        <p class="pr-desc">Los separadores de grids, secciones y tablas son siempre líneas de 1px con <code style="font-family:ui-monospace,Menlo,monospace;font-size:0.85em;background:var(--color-stone);padding:1px 5px;border:1px solid var(--border-soft);">var(--border)</code>. Nunca 2px salvo el acento lateral.</p>
+        <h3 class="pr-title">Líneas de 1px</h3>
+        <p class="pr-desc">Todos los separadores de grids, secciones y tablas son líneas de exactamente 1px. Más de 1px es ornamento. Solo el acento lateral de sección usa 2px por decisión jerárquica.</p>
       </div>
       <div class="pr-cell">
         <span class="pr-num">— 05</span>
         <h3 class="pr-title">Paleta cerrada</h3>
-        <p class="pr-desc">Solo los 6 colores del sistema más sus variantes de opacidad. Ningún color externo, saturado ni de marca de cliente puede entrar al UI de Koda.</p>
+        <p class="pr-desc">Solo los 6 colores del sistema y sus variantes de opacidad. Ningún color externo, de cliente o de tendencia puede contaminar el sistema visual de Koda.</p>
       </div>
       <div class="pr-cell">
         <span class="pr-num">— 06</span>
         <h3 class="pr-title">Tipografía fija</h3>
-        <p class="pr-desc">Solo Playfair Display 400 (display) e Inter 300/500 (cuerpo). Ninguna otra tipografía. No se permite negrita o condensada de otras familias.</p>
+        <p class="pr-desc">Solo Playfair Display 400 para display e Inter 300 / 500 para cuerpo. La coherencia tipográfica es tan importante como la cromática. Ninguna familia adicional.</p>
       </div>
     </div>
   </div>
@@ -998,7 +755,7 @@
      22 · Iconografía
      ════════════════════════════════════════════ -->
 <section class="slide s-stone" id="s22">
-  <div class="sh" style="border-bottom-color:var(--border);">
+  <div class="sh">
     <span class="sh-bc">04 — Sistema Gráfico</span>
     <span class="sh-mark">koda</span>
   </div>
@@ -1006,7 +763,7 @@
     <div class="st"><div><span class="st-label">— 22 / Sistema</span><h2 class="st-title">Iconografía</h2></div></div>
     <div class="ico-grid">
       <div class="ico-panel">
-        <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);display:block;margin-bottom:6px;">Íconos SVG — stroke 1.5</span>
+        <span class="ico-section-label">Íconos SVG — trazo</span>
         <div class="ico-row">
           <div class="ico-item">
             <svg width="16" height="16" viewBox="0 0 24 24"><polyline points="5,12 12,5 19,12"/><line x1="12" y1="5" x2="12" y2="19"/></svg>
@@ -1039,13 +796,14 @@
             <span class="ico-sz">‹</span>
           </div>
         </div>
-        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">
-          <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);display:block;margin-bottom:8px;">Reglas de ícono</span>
-          <p style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);line-height:1.65;margin:0;">stroke-width: 1.5 · stroke-linecap: square · stroke-linejoin: miter · fill: none · sin radios</p>
+        <div class="ico-rules">
+          <span class="ico-rules-label">Construcción del ícono</span>
+          <p class="ico-rules-desc">Trazo 1.5px · terminaciones cuadradas · empalmes en ángulo · sin relleno · sin redondeo</p>
+          <p class="ico-why">Íconos de trazo (no relleno) mantienen ligereza visual y coherencia con Playfair Display. El ángulo recto en terminaciones y empalmes refleja el mismo principio que rige el resto del sistema: sin redondeo, sin ornamento.</p>
         </div>
       </div>
       <div class="ico-panel">
-        <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);display:block;margin-bottom:6px;">Caracteres tipográficos</span>
+        <span class="ico-section-label">Caracteres tipográficos</span>
         <div class="typo-chars">
           <span class="typo-char">→</span>
           <span class="typo-char">←</span>
@@ -1054,24 +812,22 @@
           <span class="typo-char">·</span>
           <span class="typo-char">/</span>
         </div>
-        <div style="margin-top:20px;padding-top:14px;border-top:1px solid var(--border);">
-          <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);display:block;margin-bottom:8px;">Escala de uso</span>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-family:var(--font-body);font-size:10px;color:var(--accent);width:60px;letter-spacing:0.06em;">UI inline</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" stroke="var(--fg-secondary)" fill="none" stroke-width="1.5" stroke-linecap="square"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-              <span style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);">16px — botones, links</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-family:var(--font-body);font-size:10px;color:var(--accent);width:60px;letter-spacing:0.06em;">Cards</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" stroke="var(--fg-secondary)" fill="none" stroke-width="1.5" stroke-linecap="square"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-              <span style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);">20px — arrows decorativos</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-family:var(--font-body);font-size:10px;color:var(--accent);width:60px;letter-spacing:0.06em;">Secciones</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" stroke="var(--fg-secondary)" fill="none" stroke-width="1.5" stroke-linecap="square"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
-              <span style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-tertiary);">24px — íconos de sección</span>
-            </div>
+        <div class="ico-scale">
+          <span class="ico-scale-label">Escala de uso</span>
+          <div class="ico-scale-row">
+            <span class="ico-scale-ctx">UI inline</span>
+            <svg class="ico-scale-svg" width="16" height="16" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+            <span class="ico-scale-desc">16px — botones, links</span>
+          </div>
+          <div class="ico-scale-row">
+            <span class="ico-scale-ctx">Cards</span>
+            <svg class="ico-scale-svg" width="20" height="20" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+            <span class="ico-scale-desc">20px — arrows decorativos</span>
+          </div>
+          <div class="ico-scale-row">
+            <span class="ico-scale-ctx">Secciones</span>
+            <svg class="ico-scale-svg" width="24" height="24" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+            <span class="ico-scale-desc">24px — íconos de sección</span>
           </div>
         </div>
       </div>
@@ -1092,7 +848,7 @@
     <span class="ch-deco">05</span>
     <div class="ch-n">05</div>
     <h2 class="ch-t">Aplica<br><em>ciones.</em></h2>
-    <p class="ch-sub">El sistema en contexto real: header y hero web, firma de correo, posts para redes sociales. CSS funcional como única fuente de verdad.</p>
+    <p class="ch-sub">El sistema en contexto real: header y hero web, firma de correo, posts para redes sociales. Cada medio es una oportunidad de expresar los mismos principios con el mismo rigor.</p>
   </div>
   <span class="pg">—</span>
 </section>
@@ -1114,12 +870,12 @@
           <span>Servicios</span>
           <span>Trabajo</span>
           <span>Contacto</span>
-          <span style="border:1px solid rgba(255,255,255,0.25);padding:5px 14px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;">Agendar →</span>
+          <span class="mock-nav-cta">Agendar →</span>
         </div>
       </div>
       <div class="mock-hero">
         <div class="mock-htex"></div>
-        <h2 class="mock-htitle">Tu negocio<br>en internet,<br><em style="font-style:italic;color:rgba(255,255,255,0.4);">sin rodeos.</em></h2>
+        <h2 class="mock-htitle">Tu negocio<br>en internet,<br><em>sin rodeos.</em></h2>
         <div>
           <span class="mock-hcta">Ver servicios →</span>
         </div>
@@ -1144,7 +900,7 @@
         <div class="email-dot"></div>
         <div class="email-dot"></div>
         <div class="email-dot"></div>
-        <span style="font-family:var(--font-body);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-muted);margin-left:12px;">Correo electrónico</span>
+        <span class="email-tb-label">Correo electrónico</span>
       </div>
       <div class="email-body">
         <p class="email-para">Hola,<br><br>Te escribo para confirmar nuestra llamada del próximo martes a las 10:00 AM. Adjunto la propuesta que revisamos la semana pasada con los ajustes que solicitaste.<br><br>Cualquier duda, escríbeme.</p>
@@ -1156,7 +912,7 @@
         </div>
       </div>
     </div>
-    <p style="font-family:var(--font-body);font-size:var(--text-sm);font-weight:300;color:var(--fg-muted);margin-top:16px;line-height:1.65;">Nombre en Playfair Display 400 · Rol e info en Inter 300 · Marca en Inter 500 + uppercase + slate.</p>
+    <p class="email-note">Nombre en Playfair Display 400 (reconocimiento personal) · Rol e info de contacto en Inter 300 · Nombre de marca en Inter 500 mayúsculas con Slate (jerarquía de marca sobre datos de contacto).</p>
   </div>
   <span class="pg">25</span>
 </section>
@@ -1174,26 +930,26 @@
     <div class="soc-grid">
       <!-- Post 1: Quote -->
       <div class="soc-post">
-        <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0.018) 0,rgba(255,255,255,0.018) 1px,transparent 1px,transparent 8px);"></div>
+        <div class="soc-tex1"></div>
         <span class="soc-lbl">— LinkedIn / Quote</span>
         <p class="soc-text">"Diseño que trabaja,<br>no que impresiona."</p>
       </div>
       <!-- Post 2: Service -->
       <div class="soc-post">
-        <div style="position:absolute;inset:0;background:repeating-linear-gradient(-60deg,rgba(255,255,255,0.015) 0,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 10px);"></div>
+        <div class="soc-tex2"></div>
         <span class="soc-lbl">— Instagram / Servicio</span>
-        <p class="soc-text">Sitio web<br><em style="font-style:normal;color:rgba(255,255,255,0.35);">desde $35,000 MXN</em></p>
+        <p class="soc-text">Sitio web<br><em class="soc-em">desde $35,000 MXN</em></p>
       </div>
       <!-- Post 3: Case -->
       <div class="soc-post">
-        <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 6px);"></div>
+        <div class="soc-tex3"></div>
         <span class="soc-lbl">— LinkedIn / Caso</span>
-        <p class="soc-text">+34% conversiones<br><em style="font-style:normal;color:rgba(255,255,255,0.35);">en 90 días.</em></p>
+        <p class="soc-text">+34% conversiones<br><em class="soc-em">en 90 días.</em></p>
       </div>
       <!-- Post 4: Brand -->
-      <div class="soc-post" style="align-items:center;justify-content:center;">
-        <div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,0.015) 0,rgba(255,255,255,0.015) 1px,transparent 1px,transparent 9px);"></div>
-        <span style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4.5rem);font-weight:400;letter-spacing:-0.04em;color:var(--fg-on-dark);position:relative;z-index:1;">koda</span>
+      <div class="soc-post soc-post-brand">
+        <div class="soc-tex4"></div>
+        <span class="soc-brand-wm">koda</span>
       </div>
     </div>
   </div>
@@ -1201,7 +957,155 @@
 </section>
 
 <!-- ════════════════════════════════════════════
-     27 · Cierre
+     27 · Papelería
+     ════════════════════════════════════════════ -->
+<section class="slide s-light" id="s27">
+  <div class="sh">
+    <span class="sh-bc">05 — Aplicaciones</span>
+    <span class="sh-mark">koda</span>
+  </div>
+  <div class="sb">
+    <div class="st"><div><span class="st-label">— 27 / Aplicaciones</span><h2 class="st-title">Papelería</h2></div></div>
+    <div class="aph-wrap">
+      <div class="aph-row">
+        <!-- Membretado: columna izquierda alta -->
+        <div class="aph-cell" style="flex:1.2;">
+          <div class="aph-mark"></div>
+          <div class="aph-cnt">
+            <div class="aph-ico">
+              <svg width="30" height="30" viewBox="0 0 24 24">
+                <rect x="4" y="2" width="16" height="20"/>
+                <line x1="8" y1="8" x2="16" y2="8"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+                <line x1="8" y1="16" x2="13" y2="16"/>
+              </svg>
+            </div>
+            <span class="aph-lbl">Membretado</span>
+            <span class="aph-sub">Carta A4 · Hoja institucional</span>
+          </div>
+        </div>
+        <!-- Columna derecha: 3 celdas apiladas -->
+        <div class="aph-col">
+          <div class="aph-cell">
+            <div class="aph-mark"></div>
+            <div class="aph-cnt">
+              <div class="aph-ico">
+                <svg width="26" height="26" viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="12"/>
+                </svg>
+              </div>
+              <span class="aph-lbl">Tarjeta de presentación</span>
+              <span class="aph-sub">Frente · 85 × 55 mm</span>
+            </div>
+          </div>
+          <div class="aph-cell">
+            <div class="aph-mark"></div>
+            <div class="aph-cnt">
+              <div class="aph-ico">
+                <svg width="26" height="26" viewBox="0 0 24 24">
+                  <rect x="2" y="7" width="20" height="12"/>
+                  <polyline points="2,7 12,15 22,7"/>
+                </svg>
+              </div>
+              <span class="aph-lbl">Sobre carta</span>
+              <span class="aph-sub">DL · 220 × 110 mm</span>
+            </div>
+          </div>
+          <div class="aph-cell">
+            <div class="aph-mark"></div>
+            <div class="aph-cnt">
+              <div class="aph-ico">
+                <svg width="26" height="26" viewBox="0 0 24 24">
+                  <path d="M3 6 L3 21 L21 21 L21 6 L13 6 L11 3 L3 3 Z"/>
+                </svg>
+              </div>
+              <span class="aph-lbl">Carpeta corporativa</span>
+              <span class="aph-sub">Carta A4 · Portada</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="pg">27</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+     28 · Merchandising
+     ════════════════════════════════════════════ -->
+<section class="slide s-stone" id="s28">
+  <div class="sh">
+    <span class="sh-bc">05 — Aplicaciones</span>
+    <span class="sh-mark">koda</span>
+  </div>
+  <div class="sb">
+    <div class="st"><div><span class="st-label">— 28 / Aplicaciones</span><h2 class="st-title">Merchandising</h2></div></div>
+    <div class="aph-wrap">
+      <div class="aph-row">
+        <div class="aph-cell">
+          <div class="aph-mark"></div>
+          <div class="aph-cnt">
+            <div class="aph-ico">
+              <svg width="30" height="30" viewBox="0 0 24 24">
+                <path d="M8 8 L5 20 L19 20 L16 8 Z"/>
+                <path d="M9 8 Q9 4 12 4 Q15 4 15 8"/>
+              </svg>
+            </div>
+            <span class="aph-lbl">Tote bag</span>
+            <span class="aph-sub">38 × 42 cm · Algodón natural</span>
+          </div>
+        </div>
+        <div class="aph-cell">
+          <div class="aph-mark"></div>
+          <div class="aph-cnt">
+            <div class="aph-ico">
+              <svg width="30" height="30" viewBox="0 0 24 24">
+                <rect x="4" y="2" width="13" height="20"/>
+                <line x1="17" y1="2" x2="20" y2="5"/>
+                <line x1="17" y1="22" x2="20" y2="19"/>
+                <line x1="17" y1="12" x2="20" y2="12"/>
+              </svg>
+            </div>
+            <span class="aph-lbl">Libreta</span>
+            <span class="aph-sub">A5 · Tapa dura</span>
+          </div>
+        </div>
+      </div>
+      <div class="aph-row">
+        <div class="aph-cell">
+          <div class="aph-mark"></div>
+          <div class="aph-cnt">
+            <div class="aph-ico">
+              <svg width="30" height="30" viewBox="0 0 24 24">
+                <path d="M5 7 L5 18 Q5 20 12 20 Q19 20 19 18 L19 7 Z"/>
+                <line x1="5" y1="7" x2="19" y2="7"/>
+                <path d="M19 9 Q23 9 23 13 Q23 17 19 17"/>
+              </svg>
+            </div>
+            <span class="aph-lbl">Taza</span>
+            <span class="aph-sub">330 ml · Cerámica blanca</span>
+          </div>
+        </div>
+        <div class="aph-cell">
+          <div class="aph-mark"></div>
+          <div class="aph-cnt">
+            <div class="aph-ico">
+              <svg width="30" height="30" viewBox="0 0 24 24">
+                <path d="M2 8 L7 5 L9 7 L12 6 L15 7 L17 5 L22 8 L20 12 L17 10 L17 22 L7 22 L7 10 L4 12 Z"/>
+              </svg>
+            </div>
+            <span class="aph-lbl">Playera</span>
+            <span class="aph-sub">Unisex · Blanca / Negra</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="pg">28</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+     29 · Cierre
      ════════════════════════════════════════════ -->
 <section class="slide s-dark" id="s27">
   <div class="sh">
@@ -1212,9 +1116,9 @@
     <span class="closing-wm">koda</span>
     <div class="closing-rule"></div>
     <span class="closing-tag">Est. 2024 · Ciudad de México</span>
-    <span style="font-family:var(--font-body);font-size:10px;font-weight:300;letter-spacing:0.06em;color:rgba(255,255,255,0.14);margin-top:8px;">Manual de Marca — Documento vivo · v1.0</span>
+    <span class="closing-version">Manual de Marca — Documento vivo · v1.0</span>
   </div>
-  <span class="pg">27</span>
+  <span class="pg">29</span>
 </section>
 
 </body>
