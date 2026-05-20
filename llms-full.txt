@@ -198,10 +198,49 @@ URL: https://kodastudio.com.mx/blog/automatizacion-agendas-redes-sociales/
 Fecha: 2026-04-08
 Cómo construir un sistema integrado entre redes sociales, agendamiento y CRM que cierra reuniones B2B de forma autónoma.
 
+## Casos de estudio documentados
+
+### Baja Electric — Catálogo digital industrial bilateral MX/US
+URL: https://kodastudio.com.mx/casos/baja-electric/
+Sector: Distribución industrial / Equipo eléctrico
+Mercado: Tijuana (BC, México) y California (EE. UU.)
+Reto: migrar de cotizaciones por WhatsApp a un catálogo digital bilingüe que opere de forma autónoma. Construimos un catálogo navegable con carrito de cotización, ficha técnica descargable, espejo en/es y panel administrable. Resultados: +40-60% solicitudes de cotización, tiempo de respuesta reducido de 8h a <2h, operación en dos países sin sumar personal, Lighthouse 98/100. Cliente: Ing. Omar Leyva, Dirección General. Calificación: 5/5.
+
+### Voga Eventos — Galería editorial premium para eventos
+URL: https://kodastudio.com.mx/casos/voga/
+Sector: Eventos premium / Servicios
+Mercado: Tijuana (BC, México) y zona fronteriza
+Reto: rediseñar el portafolio digital como pieza editorial visual para que la galería se convirtiera en el principal canal de cierre. Construimos hero con tipografía display, mini-casos visuales de eventos pasados con concepto + paleta + servicios, formulario de cotización estructurado. Resultados: 2× solicitudes de cotización en el primer trimestre, +110% tiempo en sitio, +35% ticket promedio, Lighthouse 96. Cliente: Daniela Voga, Dirección Creativa. Calificación: 5/5.
+
+### Novus Real Estate — Filtro automático de leads en Canadá
+URL: https://kodastudio.com.mx/casos/novus/
+Sector: Bienes raíces residenciales premium
+Mercado: Columbia Británica, Canadá
+Reto: filtrar prospectos no calificados antes de que llegasen a la agenda del agente, en uno de los mercados inmobiliarios más competitivos de Norteamérica. Construimos formulario multi-paso con lógica condicional, sistema de scoring automático integrado al CRM y versiones en/fr. Resultados: -80% prospectos no calificados, +3× tasa de cierre, -15h semanales de triage manual, bilingüe en/fr. Cliente: Amrik Cheema, Real Estate Agent. Calificación: 5/5.
+
+## Recursos editoriales descargables
+
+### Guía de costos web México 2026
+URL: https://kodastudio.com.mx/recursos/guia-costos-web-mexico-2026/
+Formato: PDF 12 páginas
+Cubre: rangos reales por tipo de proyecto (plantilla $5K-$15K, sitio corporativo $25K-$80K, sede digital premium $50K-$250K+ MXN), costos recurrentes anuales, comparativa WordPress vs código a medida a 3 años de TCO, freelancer vs agencia mid-market vs boutique, y cómo negociar un presupuesto sin perder calidad.
+
+### Checklist branding B2B premium
+URL: https://kodastudio.com.mx/recursos/checklist-branding-b2b/
+Formato: PDF 2 páginas, 32 puntos
+Cubre: estrategia y posicionamiento (8 puntos), sistema visual (10 puntos), aplicaciones (8 puntos), gobernanza y entregables (6 puntos). Herramienta para evaluar propuestas de branding antes de firmar contrato.
+
+### Benchmark performance B2B México 2026
+URL: https://kodastudio.com.mx/recursos/benchmark-performance-b2b-mexico/
+Formato: PDF 14 páginas, datos Q1 2026
+Cubre: Core Web Vitals (LCP, CLS, INP) promedio por sector B2B mexicano (legal, industrial, bienes raíces, hospitalidad, tecnología, e-commerce, arquitectura), conversión promedio por industria, comparativa WordPress vs código a medida en métricas reales, guía de auditoría con PageSpeed Insights y plan de optimización según diagnóstico.
+
 ## Páginas institucionales
 
 - Sobre nosotros: https://kodastudio.com.mx/sobre-nosotros/
 - Todos los servicios: https://kodastudio.com.mx/servicios/
+- Casos de estudio: https://kodastudio.com.mx/casos/
+- Recursos editoriales: https://kodastudio.com.mx/recursos/
 - Presencia por ciudad: https://kodastudio.com.mx/digitalizamos/
 - Aviso de privacidad: https://kodastudio.com.mx/aviso-de-privacidad/
 - Términos y condiciones: https://kodastudio.com.mx/terminos-y-condiciones/

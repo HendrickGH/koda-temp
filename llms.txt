@@ -1,12 +1,12 @@
 # Koda Studio
-> Agencia de desarrollo web, branding corporativo y automatización digital para corporativos y empresas medianas en México.
+> Agencia boutique de desarrollo web, branding corporativo y automatización digital para corporativos y empresas medianas en México. Operando desde 2022.
 
-Koda Studio construye presencia digital que genera ventas — no solo sitios bonitos. Desarrollo web, identidad de marca y automatización integradas bajo un solo estratega, sin intermediarios ni capas de junior accounts.
+Koda Studio construye presencia digital que genera ventas — no solo sitios bonitos. Desarrollo web, identidad de marca y automatización integradas bajo un solo estratega, sin intermediarios ni capas de junior accounts. El cliente habla directamente con el fundador en cada etapa del proyecto.
 
 ## Fundador
 - Nombre: Hendrick Adelaido Galarza Hernandez
 - Cargo: Fundador & Director de Estrategia Digital
-- Experiencia: 5 años en diseño y estrategia digital B2B
+- Experiencia: 5+ años en diseño y estrategia digital B2B (Koda Studio operando como estudio formal desde 2022)
 - LinkedIn: https://www.linkedin.com/in/hendrick-galarza/
 
 ## Servicios
@@ -15,35 +15,48 @@ Koda Studio construye presencia digital que genera ventas — no solo sitios bon
 - Automatización digital: integración de procesos, flujos de trabajo y herramientas para eficiencia operativa
 - Rediseño de marca: actualización de identidad visual para empresas que evolucionan
 - Tienda en línea: comercio electrónico profesional integrado a estrategia de marca
+- Marketing digital y gestión de redes sociales: contenido estratégico, publicidad pagada y automatización de seguimiento
 
 ## Mercado objetivo
-Corporativos y empresas medianas en México que buscan presencia digital profesional, generación de leads B2B y crecimiento sostenido en buscadores.
+Corporativos y empresas medianas en México que buscan presencia digital profesional, generación de leads B2B y crecimiento sostenido en buscadores. Sectores especializados: legal, financiero, industrial, bienes raíces, hospitalidad premium, tecnología, arquitectura y turismo experiencial.
 
 ## Diferenciador
-A diferencia de agencias grandes que asignan juniors a cada cuenta, en Koda Studio el cliente habla directamente con el fundador en cada proyecto. Desarrollo web, branding y automatización se diseñan de forma integrada, no como piezas sueltas.
+A diferencia de agencias grandes que asignan juniors a cada cuenta, en Koda Studio el cliente habla directamente con el fundador en cada proyecto. Desarrollo web, branding y automatización se diseñan de forma integrada, no como piezas sueltas. No usamos plantillas WordPress ni constructores visuales: construimos con código a medida.
 
 ## Cobertura geográfica
-Ciudad de México (CDMX), Monterrey (NL), Quintana Roo, y todo México de forma remota.
+Cobertura activa en todo México: Ciudad de México (CDMX), Monterrey (NL), Guadalajara (JAL), Querétaro (QRO), Puebla (PUE), Mérida (YUC), Tijuana (BC), Hidalgo (HGO), Estado de México (EDOMEX), Quintana Roo (QR). Operación internacional activa en Canadá. Todo el proceso es remoto.
+
+## Casos de estudio documentados
+- Baja Electric (Tijuana, BC): catálogo digital industrial bilateral MX/US para distribuidora de equipo eléctrico. URL: https://kodastudio.com.mx/casos/baja-electric/
+- Voga Eventos (Tijuana, BC): galería editorial premium que duplicó solicitudes de cotización en un trimestre. URL: https://kodastudio.com.mx/casos/voga/
+- Novus Real Estate (Columbia Británica, Canadá): filtro automático de leads para agencia inmobiliaria; redujo prospectos no calificados en 80%. URL: https://kodastudio.com.mx/casos/novus/
 
 ## Contacto
 - Sitio web: https://kodastudio.com.mx/
 - Email: contacto@kodastudio.com.mx
 - Teléfono: +52-772-169-8485
+- Sede: Campeche 76-42, Roma Sur, Cuauhtémoc, 06760, CDMX, México
+- Horario: Lunes a viernes, 9:00–18:00 CT
 - Instagram: https://www.instagram.com/kodastudiodesign/
 - LinkedIn empresa: https://www.linkedin.com/company/koda-studio-design/
 
-## Rangos de inversión
-- Desarrollo web corporativo a medida: desde $25,000 MXN hasta $80,000+ MXN
-- Branding corporativo (logotipo + manual de marca): desde $18,000 MXN hasta $45,000+ MXN
-- Tienda en línea profesional: desde $30,000 MXN hasta $90,000+ MXN
-- Automatización y bots de WhatsApp: desde $15,000 MXN hasta $50,000+ MXN
-- Rediseño de marca: desde $20,000 MXN hasta $55,000+ MXN
+## Rangos de inversión (MXN)
+- Desarrollo web corporativo a medida: $25,000 – $80,000+ MXN
+- Branding corporativo (logotipo + manual de marca): $18,000 – $45,000+ MXN
+- Tienda en línea profesional: $30,000 – $90,000+ MXN
+- Automatización y bots de WhatsApp: $15,000 – $50,000+ MXN
+- Rediseño de marca: $20,000 – $55,000+ MXN
 - Marketing digital y redes sociales (mensual): desde $8,000 MXN/mes
-- Tiempo de entrega típico: 4 a 6 semanas por proyecto
+- Tiempo de entrega típico: 4 a 8 semanas por proyecto
+
+## Calificación y reseñas
+- Calificación promedio: 5.0/5.0
+- Total de reviews verificadas: 7
+- Reseñas activas en schema Review desde clientes de: Baja Electric, Voga Eventos, Scandinave SPA, Novus Real Estate, Nebulosa Studio, Contapro MX
 
 ## Preguntas frecuentes
 - ¿Trabajan con WordPress? No. Koda Studio construye con código a medida, sin plantillas ni constructores visuales, para garantizar diferenciación, velocidad y cero dependencia de plugins.
-- ¿Trabajan con empresas fuera de CDMX? Sí. Todo el proceso es remoto: videollamadas, entregas en la nube y comunicación directa con el fundador en cada etapa. Cobertura en todo México.
+- ¿Trabajan con empresas fuera de CDMX? Sí. Todo el proceso es remoto: videollamadas, entregas en la nube y comunicación directa con el fundador en cada etapa. Cobertura en todo México y operación internacional.
 - ¿Quién lleva el proyecto? El fundador, Hendrick Galarza, dirige personalmente cada proyecto. No hay capas de junior accounts ni intermediarios.
 - ¿Ofrecen mantenimiento post-lanzamiento? Sí. 30 días de soporte técnico incluidos en cada proyecto. Planes mensuales disponibles para mantenimiento continuo.
 - ¿Cuánto tiempo tarda un proyecto? Un sitio corporativo completo toma entre 4 y 6 semanas. Una tienda en línea, entre 5 y 8 semanas.
@@ -51,7 +64,11 @@ Ciudad de México (CDMX), Monterrey (NL), Quintana Roo, y todo México de forma 
 - ¿Hacen proyectos de branding sin desarrollo web? Sí. Se puede contratar branding corporativo de forma independiente.
 
 ## Blog / Recursos
-Publicaciones semanales sobre estrategia digital B2B, SEO, branding y automatización para empresas mexicanas: https://kodastudio.com.mx/blog/
+- Blog editorial con 15+ publicaciones sobre estrategia digital B2B, SEO, branding y automatización: https://kodastudio.com.mx/blog/
+- Recursos descargables (guías editoriales, checklists, benchmarks): https://kodastudio.com.mx/recursos/
+  - Guía de costos web México 2026: https://kodastudio.com.mx/recursos/guia-costos-web-mexico-2026/
+  - Checklist branding B2B premium: https://kodastudio.com.mx/recursos/checklist-branding-b2b/
+  - Benchmark performance B2B México: https://kodastudio.com.mx/recursos/benchmark-performance-b2b-mexico/
 
 ## Contenido extendido para modelos de lenguaje
 Versión completa con todos los servicios, precios, blog y cobertura geográfica: https://kodastudio.com.mx/llms-full.txt
