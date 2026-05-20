@@ -1,0 +1,164 @@
+/* ══════════════════════════════════════════════════════════════════
+   LOCAL SERVICES — Sub-secciones de servicio dentro de /digitalizamos/[city]/
+   Editorial, in-context grid that lives inside each city page.
+   ══════════════════════════════════════════════════════════════════ */
+
+.local-services {
+	padding: clamp(4rem, 8vh, 6rem) 0;
+	background: var(--color-bone);
+	color: var(--color-ink);
+	border-top: 1px solid var(--color-border);
+}
+
+.local-services .sec-head {
+	margin-bottom: clamp(3rem, 6vh, 4rem);
+	max-width: 920px;
+}
+
+.local-services .sec-head .eyebrow {
+	font-family: var(--font-body);
+	font-size: var(--text-xs);
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--color-slate);
+	margin-bottom: 1rem;
+	display: inline-block;
+}
+
+.local-services .sec-head h2 {
+	font-family: var(--font-display);
+	font-size: clamp(2rem, 4vw, 3rem);
+	line-height: 1.05;
+	letter-spacing: -0.015em;
+	font-weight: 400;
+	color: var(--color-ink);
+	margin: 0 0 1.5rem;
+}
+
+.local-services .sec-head h2 em {
+	font-style: italic;
+	color: var(--color-slate);
+}
+
+.local-services .sec-head .sec-desc {
+	font-family: var(--font-body);
+	font-size: var(--text-base);
+	line-height: 1.6;
+	color: var(--color-ink-soft);
+	max-width: 64ch;
+	margin: 0;
+}
+
+.local-services-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0;
+	border-top: 1px solid var(--color-border);
+	border-left: 1px solid var(--color-border);
+}
+
+.local-service {
+	border-right: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	padding: 2.5rem 2rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	scroll-margin-top: 100px;
+	background: var(--color-bone);
+	transition: background 0.4s ease;
+}
+
+.local-service:hover {
+	background: var(--color-stone);
+}
+
+.local-service .ls-num {
+	font-family: var(--font-body);
+	font-size: var(--text-xs);
+	letter-spacing: 0.18em;
+	color: var(--color-slate);
+	font-weight: 600;
+}
+
+.local-service h3 {
+	font-family: var(--font-display);
+	font-size: clamp(1.35rem, 2vw, 1.75rem);
+	line-height: 1.15;
+	font-weight: 400;
+	letter-spacing: -0.005em;
+	color: var(--color-ink);
+	margin: 0;
+}
+
+.local-service h3 em {
+	font-style: italic;
+	color: var(--color-slate);
+}
+
+.local-service p {
+	font-family: var(--font-body);
+	font-size: var(--text-sm);
+	line-height: 1.65;
+	color: var(--color-ink-soft);
+	margin: 0;
+	max-width: 56ch;
+}
+
+.local-service ul {
+	margin: 0.25rem 0 0;
+	padding: 0 0 0 1.25rem;
+	font-family: var(--font-body);
+	font-size: var(--text-sm);
+	line-height: 1.55;
+	color: var(--color-ink-soft);
+	list-style: none;
+}
+
+.local-service ul li {
+	position: relative;
+	padding: 0.4rem 0 0.4rem 0.5rem;
+	border-bottom: 1px solid var(--color-border-soft);
+}
+
+.local-service ul li:last-child {
+	border-bottom: none;
+}
+
+.local-service ul li::before {
+	content: "·";
+	position: absolute;
+	left: -1rem;
+	color: var(--color-slate);
+	font-weight: 700;
+	font-size: 1.2rem;
+	line-height: 1.5;
+}
+
+.local-service .ls-link {
+	font-family: var(--font-body);
+	font-size: var(--text-xs);
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--color-slate);
+	font-weight: 600;
+	text-decoration: none;
+	margin-top: auto;
+	padding-top: 1rem;
+	border-top: 1px solid var(--color-border-soft);
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: gap 0.3s ease;
+}
+
+.local-service .ls-link:hover {
+	gap: 0.85rem;
+}
+
+@media (max-width: 760px) {
+	.local-services-grid {
+		grid-template-columns: 1fr;
+	}
+}
